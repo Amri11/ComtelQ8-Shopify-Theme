@@ -152,9 +152,10 @@
         "offer_card_MEexDw": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/01.webp",
+            "card_title": "Summer Style",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/frontpage",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
