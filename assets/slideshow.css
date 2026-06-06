@@ -1,3 +1,14 @@
+.slider-content {
+  position: relative;
+}
+.slider-content .slider-container-wrap {
+  position: relative;
+}
+@media (max-width: 767px) {
+  .slider-content .slider-container-wrap.container {
+    padding: 0 12px;
+  }
+}
 .slider-content .home-slider .slide-image > a {
   display: flex;
   position: relative;
@@ -5,6 +16,11 @@
 .slider-content .home-slider .slide-image > a img {
   height: 100%;
   width: 100%;
+}
+@media (max-width: 767px) {
+  .slider-content.slider-contained {
+    padding: 0 12px;
+  }
 }
 .slider-content .home-slider .slide-image video {
   position: relative;
@@ -172,57 +188,79 @@
   }
 }
 
-/* slider arrow css */
-.slider-content .home-slider .slider-arrow button {
-  color: #fff;
+/* slider arrow css — anchored to container wrap */
+.slider-content .slider-container-wrap {
+  position: relative;
+}
+.slider-content .slider-arrow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+.slider-content .slider-arrow button {
+  pointer-events: all;
+  color: #333;
   font-size: 18px;
   line-height: 1;
-  height: 50px;
-  width: 50px;
+  height: 44px;
+  width: 44px;
   margin: 0;
-  bottom: 50%;
+  top: 50%;
   position: absolute;
-  z-index: 1;
-  transform: translateY(50%);
+  z-index: 2;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  background-color: #fff;
   border-radius: 50%;
-  border: 1px solid rgba(255,255,255,50%);
+  border: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
 }
-.slider-content .home-slider .slider-arrow button.arrow-prev {
-  left: 30px;
+.slider-content .slider-arrow button.arrow-prev {
+  left: -22px;
 }
-.slider-content .home-slider .slider-arrow button.arrow-next {
-  right: 30px;
+.slider-content .slider-arrow button.arrow-next {
+  right: -22px;
 }
-.slider-content .home-slider .slider-arrow button:hover {
-  color: #fff;
+.slider-content.slider-full-width .slider-arrow button.arrow-prev {
+  left: 16px;
+}
+.slider-content.slider-full-width .slider-arrow button.arrow-next {
+  right: 16px;
+}
+.slider-content .slider-arrow button:hover {
   background-color: var(--font-color-primary);
-  border-color: var(--font-color-primary);
+  color: #fff;
 }
-.slider-content .home-slider .slider-arrow button i {
+.slider-content .slider-arrow button i {
   display: block;
 }
 @media(max-width: 991px) {
-  .slider-content .home-slider .slider-arrow button {
-    height: 40px;
-    width: 40px;
+  .slider-content .slider-arrow button {
+    height: 36px;
+    width: 36px;
   }
-  .slider-content .home-slider .slider-arrow button.arrow-prev {
-    left: 15px;
+  .slider-content .slider-arrow button.arrow-prev {
+    left: -18px;
   }
-  .slider-content .home-slider .slider-arrow button.arrow-next {
-    right: 15px;
+  .slider-content .slider-arrow button.arrow-next {
+    right: -18px;
   }
 }
-@media(max-width: 479px) {
-  .slider-content .home-slider .slider-arrow button.arrow-prev {
-    left: 5px;
+@media(max-width: 600px) {
+  .slider-content .slider-arrow button.arrow-prev,
+  .slider-content.slider-full-width .slider-arrow button.arrow-prev {
+    left: 8px;
   }
-  .slider-content .home-slider .slider-arrow button.arrow-next {
-    right: 5px;
+  .slider-content .slider-arrow button.arrow-next,
+  .slider-content.slider-full-width .slider-arrow button.arrow-next {
+    right: 8px;
   }
 }
 @keyframes fadeInLeft {
@@ -236,28 +274,34 @@
   }
 }
 
-/* slider dots css */
-.slider-content .home-slider .slider-dot {
-  position: absolute;
-  bottom: 30px;
-  left: 0px;
-  right: 0px;
+/* slider dots css — below the slider, not overlaid */
+.slider-content .slider-dot {
+  position: relative;
+  bottom: auto;
+  left: auto;
+  right: auto;
   z-index: 1;
   text-align: center;
+  padding: 14px 0 4px;
 }
-.slider-content .home-slider .slider-dot span.swiper-pagination-bullet {
-  margin: 0px;
-  width: 15px;
-  height: 15px;
-  opacity: 0.1;
+.slider-content .slider-dot span.swiper-pagination-bullet {
+  margin: 0 4px;
+  width: 10px;
+  height: 10px;
+  opacity: 0.25;
+  background: #333;
+  display: inline-block;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: opacity 0.2s, background 0.2s;
 }
-.slider-content .home-slider .slider-dot span.swiper-pagination-bullet.swiper-pagination-bullet-active,
-.slider-content .home-slider .slider-dot span.swiper-pagination-bullet:hover {
+.slider-content .slider-dot span.swiper-pagination-bullet.swiper-pagination-bullet-active,
+.slider-content .slider-dot span.swiper-pagination-bullet:hover {
   background: var(--font-color-primary);
   opacity: 1;
 }
-@media (max-width: 767px) {
-  .slider-content .home-slider .slider-dot {
-    bottom: 15px;
-  }
+/* Active dot is wider pill shape like Mix */
+.slider-content .slider-dot span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+  width: 28px;
+  border-radius: 5px;
 }

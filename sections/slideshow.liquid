@@ -1,11 +1,14 @@
 {{ 'slideshow.css' | asset_url | stylesheet_tag }}
-<section class="slider-content">
-  <div class="home-slider swiper" id="home-slider-{{ section.id }}">
+<section class="slider-content{% if section.settings.slider_width == 'full' %} slider-full-width{% else %} slider-contained{% endif %}">
+  {% if section.settings.slider_width == 'contained' %}
+  <div class="slider-container-wrap container">
+  {% endif %}
+  <div class="home-slider swiper" id="home-slider-{{ section.id }}" style="border-radius: {% if section.settings.slider_width == 'contained' %}{{ section.settings.slider_border_radius }}px{% else %}0{% endif %}; overflow: hidden;">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         <div class="swiper-slide slide-{{ block.id }}" {{ block.shopify_attributes }}>
           <div class="slide-image">
-            <a href="{{ block.settings.slider_button_1_url }}" title="{{ block.settings.slider_button }}">
+            <a href="{{ block.settings.slider_button_1_url }}" title="{{ block.settings.slider_button_1 }}">
               {%- if block.settings.slider_video_enable -%}
                 {%- if block.settings.video != blank -%}
                 {{
@@ -41,9 +44,9 @@
                   {%- capture placeholder -%}hero-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
                   {{ placeholder | placeholder_svg_tag: 'placeholder-svg desk-img' }}
                 {%- endif -%}
-                
+
                 {%- if block.settings.slider_mobile_img != blank -%}
-                  {% assign image_height = block.settings.slider_mobile_img.width 
+                  {% assign image_height = block.settings.slider_mobile_img.width
                     | divided_by: block.settings.slider_mobile_img.aspect_ratio
                   %}
                   {{
@@ -61,56 +64,85 @@
                 {%- endif -%}
               {%- endif -%}
             </a>
-            <div class="container-fluid slider-info-content {% if block.settings.mobile_text_enable %} sm-dnone{% endif %}">
-              <div class="slider-text-info {% if block.settings.slider_content_position == "right" %} slider-content-right{% elsif block.settings.slider_content_position == "left" %} slider-content-left{% else %} slider-content-center{% endif %}{% if block.settings.slider_text_position == "right" %} slider-text-right{% elsif block.settings.slider_text_position == "left" %} slider-text-left{% else %} slider-text-center{% endif %}">
-                {% if block.settings.slider_desc != '' %}
+
+            <div class="container-fluid slider-info-content{% if block.settings.mobile_text_enable %} sm-dnone{% endif %}">
+              <div class="slider-text-info{% if block.settings.slider_content_position == 'right' %} slider-content-right{% elsif block.settings.slider_content_position == 'left' %} slider-content-left{% else %} slider-content-center{% endif %}{% if block.settings.slider_text_position == 'right' %} slider-text-right{% elsif block.settings.slider_text_position == 'left' %} slider-text-left{% else %} slider-text-center{% endif %}">
+
+                {% if block.settings.countdown_enable and block.settings.countdown_end_date != blank %}
+                  <div class="slide-countdown" data-end="{{ block.settings.countdown_end_date }}" id="countdown-{{ block.id }}">
+                    <span class="cd-icon">&#9201;</span>
+                    <span class="cd-segment"><span class="cd-days">00</span><span class="cd-lbl">d</span></span>
+                    <span class="cd-sep">:</span>
+                    <span class="cd-segment"><span class="cd-hours">00</span><span class="cd-lbl">h</span></span>
+                    <span class="cd-sep">:</span>
+                    <span class="cd-segment"><span class="cd-mins">00</span><span class="cd-lbl">m</span></span>
+                    <span class="cd-sep">:</span>
+                    <span class="cd-segment"><span class="cd-secs">00</span><span class="cd-lbl">s</span></span>
+                  </div>
+                {% endif %}
+
+                {% if block.settings.slider_desc != blank %}
                   <span class="sub-title" style="color:{{ block.settings.slider_desc_color }};">
                     {{- block.settings.slider_desc -}}
                   </span>
                 {% endif %}
-                {% if block.settings.slider_title != '' %}
+
+                {% if block.settings.slider_title != blank %}
                   <h2 class="m-0" style="color:{{ block.settings.slider_title_color }};">
                     {{ block.settings.slider_title }}
                   </h2>
                 {% endif %}
+
+                {% if block.settings.slider_body != blank %}
+                  <p class="slide-body-text" style="color:{{ block.settings.slider_body_color }};">
+                    {{ block.settings.slider_body }}
+                  </p>
+                {% endif %}
+
                 <div class="slider-button">
-                  {% if block.settings.slider_button_1 != '' %}
-                  <a href="{{ block.settings.slider_button_1_url }}" class="btn-style text-btn btn-1" title="{{- block.settings.slider_button_1 }}" style="--btn1-txt-color: {{ block.settings.btn_1_txt_color }}; --btn1-txt-hvr-color: {{ block.settings.btn_1_txt_hvr_color }}; --btn1-bg-color: {{ block.settings.btn_1_bg_color }}; --btn1-bg-hvr-color: {{ block.settings.btn_1_bg_hvr_color }};  --btn1-border-color: {{ block.settings.btn_1_border_color }}; --btn1-border-hvr-color: {{ block.settings.btn_1_border_hvr_color }};">
-                    {{- block.settings.slider_button_1 }}
-                  </a>
+                  {% if block.settings.slider_button_1 != blank %}
+                    <a href="{{ block.settings.slider_button_1_url }}" class="btn-style text-btn btn-1" title="{{ block.settings.slider_button_1 }}" style="--btn1-txt-color: {{ block.settings.btn_1_txt_color }}; --btn1-txt-hvr-color: {{ block.settings.btn_1_txt_hvr_color }}; --btn1-bg-color: {{ block.settings.btn_1_bg_color }}; --btn1-bg-hvr-color: {{ block.settings.btn_1_bg_hvr_color }}; --btn1-border-color: {{ block.settings.btn_1_border_color }}; --btn1-border-hvr-color: {{ block.settings.btn_1_border_hvr_color }};">
+                      {{- block.settings.slider_button_1 -}}
+                    </a>
                   {% endif %}
-                  {% if block.settings.slider_button_2 != '' %}
-                  <a href="{{ block.settings.slider_button_2_url }}" class="btn-style3 text-btn btn-2" title="{{- block.settings.slider_button_2 }}" style="--btn2-txt-color: {{ block.settings.btn_2_txt_color }}; --btn2-txt-hvr-color: {{ block.settings.btn_2_txt_hvr_color }}; --btn2-bg-color: {{ block.settings.btn_2_bg_color }}; --btn2-bg-hvr-color: {{ block.settings.btn_2_bg_hvr_color }}; --btn2-border-color: {{ block.settings.btn_2_border_color }}; --btn2-border-hvr-color: {{ block.settings.btn_2_border_hvr_color }};">
-                    {{- block.settings.slider_button_2 }}
-                  </a>
+                  {% if block.settings.slider_button_2 != blank %}
+                    <a href="{{ block.settings.slider_button_2_url }}" class="btn-style3 text-btn btn-2" title="{{ block.settings.slider_button_2 }}" style="--btn2-txt-color: {{ block.settings.btn_2_txt_color }}; --btn2-txt-hvr-color: {{ block.settings.btn_2_txt_hvr_color }}; --btn2-bg-color: {{ block.settings.btn_2_bg_color }}; --btn2-bg-hvr-color: {{ block.settings.btn_2_bg_hvr_color }}; --btn2-border-color: {{ block.settings.btn_2_border_color }}; --btn2-border-hvr-color: {{ block.settings.btn_2_border_hvr_color }};">
+                      {{- block.settings.slider_button_2 -}}
+                    </a>
                   {% endif %}
                 </div>
+
               </div>
             </div>
+
           </div>
         </div>
       {% endfor %}
     </div>
-    {% if section.settings.arrow_enable %}
-    <div class="slider-arrow">
-      <button class="arrow-prev" aria-label="arrow"><i class="feather-arrow-left"></i></button>
-      <button class="arrow-next" aria-label="arrow"><i class="feather-arrow-right"></i></button>
-    </div>
-    {% endif %}
-    {% if section.settings.dots_enable %}
-    <div class="slider-dot slider-dot-{{ section.id }}"></div>
-    {% endif %}
+
   </div>
+
+  {% if section.settings.arrow_enable %}
+  <div class="slider-arrow">
+    <button class="arrow-prev" aria-label="Previous slide"><i class="feather-arrow-left"></i></button>
+    <button class="arrow-next" aria-label="Next slide"><i class="feather-arrow-right"></i></button>
+  </div>
+  {% endif %}
+
+  {% if section.settings.slider_width == 'contained' %}
+  </div>
+  {% endif %}
+
+  {% if section.settings.dots_enable %}
+  <div class="slider-dot slider-dot-{{ section.id }}"></div>
+  {% endif %}
 </section>
+
 <script type="text/javascript">
-  addEventListener('DOMContentLoaded', (event) => {
+  addEventListener('DOMContentLoaded', function() {
     var swiper = new Swiper('#home-slider-{{ section.id }}', {
       slidesPerView: 1,
       loop: false,
-      grid: {
-        rows: 1,
-        fill: 'row' | 'column',
-      },
       spaceBetween: 0,
       autoHeight: true,
       {% if section.settings.slider_autoplay_enable %}
@@ -123,23 +155,69 @@
       {% endif %}
       {% if section.settings.arrow_enable %}
       navigation: {
-        nextEl: ".arrow-next",
-        prevEl: ".arrow-prev",
+        nextEl: '.arrow-next',
+        prevEl: '.arrow-prev'
       },
       {% endif %}
       {% if section.settings.dots_enable %}
       pagination: {
-        el: ".slider-dot-{{ section.id }}",
+        el: '.slider-dot-{{ section.id }}',
         clickable: true
       },
       {% endif %}
     });
+
+    // Countdown timers
+    document.querySelectorAll('#home-slider-{{ section.id }} .slide-countdown[data-end]').forEach(function(el) {
+      var endTime = new Date(el.getAttribute('data-end')).getTime();
+      function tick() {
+        var now = Date.now();
+        var diff = endTime - now;
+        if (diff <= 0) { diff = 0; }
+        var days    = Math.floor(diff / 86400000);
+        var hours   = Math.floor((diff % 86400000) / 3600000);
+        var minutes = Math.floor((diff % 3600000) / 60000);
+        var seconds = Math.floor((diff % 60000) / 1000);
+        el.querySelector('.cd-days').textContent  = String(days).padStart(2, '0');
+        el.querySelector('.cd-hours').textContent = String(hours).padStart(2, '0');
+        el.querySelector('.cd-mins').textContent  = String(minutes).padStart(2, '0');
+        el.querySelector('.cd-secs').textContent  = String(seconds).padStart(2, '0');
+        if (diff > 0) setTimeout(tick, 1000);
+      }
+      tick();
+    });
   });
 </script>
+
 {% schema %}
 {
   "name": "Slideshow",
   "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "slider_width",
+      "label": "Slideshow width",
+      "options": [
+        { "label": "Full screen", "value": "full" },
+        { "label": "Contained (with margins)", "value": "contained" }
+      ],
+      "default": "contained"
+    },
+    {
+      "type": "range",
+      "id": "slider_border_radius",
+      "label": "Corner roundness",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "default": 16,
+      "info": "Only applies when width is Contained"
+    },
     {
       "type": "header",
       "content": "Autoplay"
@@ -147,33 +225,31 @@
     {
       "type": "checkbox",
       "id": "slider_autoplay_enable",
-      "label": "Show autoplay",
+      "label": "Enable autoplay",
       "default": true
     },
     {
       "type": "number",
       "id": "slider_autoplay_timeout",
-      "label": "Autoplay timeout",
-      "default": 5000,
-      "info": "Put timeout by multiply 'X1000' this field"
+      "label": "Autoplay delay (ms)",
+      "default": 5000
     },
     {
       "type": "number",
       "id": "slider_autoplay_speed",
-      "label": "Autoplay speed",
-      "default": 1000,
-      "info": "Put speed by multiply 'X100' this field"
+      "label": "Transition speed (ms)",
+      "default": 1000
     },
     {
       "type": "checkbox",
       "id": "arrow_enable",
-      "label": "Show slider arrow",
-      "default": false
+      "label": "Show arrows",
+      "default": true
     },
     {
       "type": "checkbox",
       "id": "dots_enable",
-      "label": "Show slider dots",
+      "label": "Show dots",
       "default": true
     }
   ],
@@ -184,12 +260,28 @@
       "settings": [
         {
           "type": "header",
-          "content": "Shopify-hosted video"
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_img",
+          "label": "Desktop image",
+          "info": "Recommended: 1920x860px"
+        },
+        {
+          "type": "image_picker",
+          "id": "slider_mobile_img",
+          "label": "Mobile image",
+          "info": "Recommended: 600x600px"
+        },
+        {
+          "type": "header",
+          "content": "Video (optional)"
         },
         {
           "type": "checkbox",
-          "id": "enable_video_looping",
-          "label": "Play video on loop",
+          "id": "slider_video_enable",
+          "label": "Use video instead of image",
           "default": false
         },
         {
@@ -199,25 +291,25 @@
         },
         {
           "type": "checkbox",
-          "id": "slider_video_enable",
-          "default": false,
-          "label": "Video enable"
+          "id": "enable_video_looping",
+          "label": "Loop video",
+          "default": false
         },
         {
           "type": "header",
-          "content": "Desktop image"
+          "content": "Countdown Timer"
         },
         {
-          "type": "image_picker",
-          "id": "slider_img",
-          "label": "Image",
-          "info": "Recommended size: 1920x860px"
+          "type": "checkbox",
+          "id": "countdown_enable",
+          "label": "Show countdown timer",
+          "default": false
         },
         {
-          "type": "image_picker",
-          "id": "slider_mobile_img",
-          "label": "Mobile image",
-          "info": "Recommended size: 600x600px"
+          "type": "text",
+          "id": "countdown_end_date",
+          "label": "End date & time",
+          "info": "Format: YYYY-MM-DDTHH:MM:SS e.g. 2025-12-31T23:59:59"
         },
         {
           "type": "header",
@@ -226,32 +318,42 @@
         {
           "type": "checkbox",
           "id": "mobile_text_enable",
-          "label": "Text disable on mobile",
+          "label": "Hide text on mobile",
           "default": false
         },
         {
           "type": "text",
           "id": "slider_desc",
-          "label": "Subheading",
-          "default": "Every step, game On!"
+          "label": "Subheading"
         },
         {
           "type": "color",
           "id": "slider_desc_color",
           "label": "Subheading color",
-          "default": "#808080"
+          "default": "#ffffff"
         },
         {
           "type": "text",
           "id": "slider_title",
           "label": "Heading",
-          "default": "Elevate every walking moment!"
+          "default": "Your Headline Here"
         },
         {
           "type": "color",
           "id": "slider_title_color",
           "label": "Heading color",
-          "default": "#333333"
+          "default": "#ffffff"
+        },
+        {
+          "type": "textarea",
+          "id": "slider_body",
+          "label": "Description"
+        },
+        {
+          "type": "color",
+          "id": "slider_body_color",
+          "label": "Description color",
+          "default": "#dddddd"
         },
         {
           "type": "header",
@@ -261,48 +363,48 @@
           "type": "text",
           "id": "slider_button_1",
           "label": "Button label",
-          "default": "Button label"
+          "default": "Shop Now"
+        },
+        {
+          "type": "url",
+          "id": "slider_button_1_url",
+          "label": "Button link"
         },
         {
           "type": "color",
           "id": "btn_1_txt_color",
-          "label": "Button text color",
-          "default": "#222"
+          "label": "Text color",
+          "default": "#222222"
         },
         {
           "type": "color",
           "id": "btn_1_txt_hvr_color",
-          "label": "Button text hover color",
-          "default": "#fff"
+          "label": "Text hover color",
+          "default": "#ffffff"
         },
         {
           "type": "color",
           "id": "btn_1_bg_color",
-          "label": "Button background color",
-          "default": "#fff"
+          "label": "Background color",
+          "default": "#FFD600"
         },
         {
           "type": "color",
           "id": "btn_1_bg_hvr_color",
-          "label": "Button hover background color",
+          "label": "Background hover color",
           "default": "#D3401E"
         },
         {
           "type": "color",
           "id": "btn_1_border_color",
-          "label": "Button border color",
-          "default": "#D3401E"
+          "label": "Border color",
+          "default": "#FFD600"
         },
         {
           "type": "color",
           "id": "btn_1_border_hvr_color",
-          "label": "Button hover border color",
+          "label": "Border hover color",
           "default": "#D3401E"
-        },
-        {
-          "type": "url",
-          "id": "slider_button_1_url",
-          "label": "url"
         },
         {
           "type": "header",
@@ -311,95 +413,72 @@
         {
           "type": "text",
           "id": "slider_button_2",
-          "label": "Button label",
-          "default": "Button label"
+          "label": "Button label"
+        },
+        {
+          "type": "url",
+          "id": "slider_button_2_url",
+          "label": "Button link"
         },
         {
           "type": "color",
           "id": "btn_2_txt_color",
-          "label": "Button text color",
-          "default": "#222"
+          "label": "Text color",
+          "default": "#222222"
         },
         {
           "type": "color",
           "id": "btn_2_txt_hvr_color",
-          "label": "Button text hover color",
-          "default": "#fff"
+          "label": "Text hover color",
+          "default": "#ffffff"
         },
         {
           "type": "color",
           "id": "btn_2_bg_color",
-          "label": "Button background color",
-          "default": "#fff"
+          "label": "Background color",
+          "default": "#ffffff"
         },
         {
           "type": "color",
           "id": "btn_2_bg_hvr_color",
-          "label": "Button hover background color",
+          "label": "Background hover color",
           "default": "#D3401E"
         },
         {
           "type": "color",
           "id": "btn_2_border_color",
-          "label": "Button border color",
+          "label": "Border color",
           "default": "#D3401E"
         },
         {
           "type": "color",
           "id": "btn_2_border_hvr_color",
-          "label": "Button hover border color",
+          "label": "Border hover color",
           "default": "#D3401E"
         },
         {
-          "type": "url",
-          "id": "slider_button_2_url",
-          "label": "url"
-        },
-        {
           "type": "header",
-          "content": "Text content position"
+          "content": "Content position"
         },
         {
           "type": "select",
           "id": "slider_content_position",
-          "label": "Content position",
+          "label": "Horizontal position",
           "options": [
-            {
-              "label": "Left",
-              "value": "left"
-            },
-            {
-              "label": "Right",
-              "value": "right"
-            },
-            {
-              "label": "Center",
-              "value": "center"
-            }
+            { "label": "Left", "value": "left" },
+            { "label": "Center", "value": "center" },
+            { "label": "Right", "value": "right" }
           ],
-          "default": "right"
-        },
-        {
-          "type": "header",
-          "content": "Text position"
+          "default": "left"
         },
         {
           "type": "select",
           "id": "slider_text_position",
-          "label": "Text position",
+          "label": "Text alignment",
           "options": [
-            {
-              "label": "Left",
-              "value": "left"
-            },
-            {
-              "label": "Right",
-              "value": "right"
-            },
-            {
-              "label": "Center",
-              "value": "center"
-            }
+            { "label": "Left", "value": "left" },
+            { "label": "Center", "value": "center" },
+            { "label": "Right", "value": "right" }
           ],
           "default": "left"
         }
@@ -410,22 +489,58 @@
     {
       "name": "Slideshow",
       "blocks": [
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        },
-        {
-          "type": "slide"
-        }
+        { "type": "slide" },
+        { "type": "slide" },
+        { "type": "slide" }
       ]
     }
   ]
 }
 {% endschema %}
+
 <style>
   .slider-content .home-slider:before {
     background-image: url('{{ 'slider-pattern-bg.svg' | asset_url }}');
+  }
+
+  /* Countdown timer styles */
+  .slide-countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0,0,0,0.45);
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+  }
+  .slide-countdown .cd-icon {
+    margin-right: 4px;
+    font-size: 16px;
+  }
+  .slide-countdown .cd-segment {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 2px;
+  }
+  .slide-countdown .cd-lbl {
+    font-size: 11px;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+  .slide-countdown .cd-sep {
+    opacity: 0.7;
+    margin: 0 2px;
+  }
+
+  /* Description paragraph */
+  .slider-text-info .slide-body-text {
+    margin-top: 14px;
+    margin-bottom: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    max-width: 420px;
   }
 </style>
