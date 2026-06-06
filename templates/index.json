@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "slideshow": {
@@ -8,8 +17,6 @@
           "settings": {
             "enable_video_looping": false,
             "slider_video_enable": false,
-            "slider_img": "shopify:\/\/shop_images\/Slider-1_1f43a963-cb5c-44b3-afa9-7b120ccee1ce.jpg",
-            "slider_mobile_img": "shopify:\/\/shop_images\/mobile-slider-1_db990802-5bf6-47e6-837d-e2cf7ccfd561.jpg",
             "mobile_text_enable": false,
             "slider_desc": "Sophisticated style",
             "slider_desc_color": "#196087",
@@ -22,7 +29,7 @@
             "btn_1_bg_hvr_color": "#196087",
             "btn_1_border_color": "#f3b313",
             "btn_1_border_hvr_color": "#196087",
-            "slider_button_1_url": "shopify:\/\/collections",
+            "slider_button_1_url": "shopify://collections",
             "slider_button_2": "Buy now",
             "btn_2_txt_color": "#222222",
             "btn_2_txt_hvr_color": "#ffffff",
@@ -30,7 +37,7 @@
             "btn_2_bg_hvr_color": "#196087",
             "btn_2_border_color": "#196087",
             "btn_2_border_hvr_color": "#196087",
-            "slider_button_2_url": "shopify:\/\/products\/manchester-stroller-grey-copy",
+            "slider_button_2_url": "shopify://products/manchester-stroller-grey-copy",
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
@@ -40,8 +47,6 @@
           "settings": {
             "enable_video_looping": false,
             "slider_video_enable": false,
-            "slider_img": "shopify:\/\/shop_images\/Slider-2_88ac463d-301e-41ca-94b7-16fd20d3e35e.jpg",
-            "slider_mobile_img": "shopify:\/\/shop_images\/mobile-slider-2_ef9b4674-cb6c-4ccd-863c-6e7140f61836.jpg",
             "mobile_text_enable": false,
             "slider_desc": "Complete marketplace",
             "slider_desc_color": "#196087",
@@ -54,7 +59,7 @@
             "btn_1_bg_hvr_color": "#196087",
             "btn_1_border_color": "#f3b313",
             "btn_1_border_hvr_color": "#196087",
-            "slider_button_1_url": "shopify:\/\/collections",
+            "slider_button_1_url": "shopify://collections",
             "slider_button_2": "Buy now",
             "btn_2_txt_color": "#222222",
             "btn_2_txt_hvr_color": "#ffffff",
@@ -62,7 +67,7 @@
             "btn_2_bg_hvr_color": "#196087",
             "btn_2_border_color": "#196087",
             "btn_2_border_hvr_color": "#196087",
-            "slider_button_2_url": "shopify:\/\/products\/buds-n1-pro-copy",
+            "slider_button_2_url": "shopify://products/buds-n1-pro-copy",
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
@@ -72,8 +77,6 @@
           "settings": {
             "enable_video_looping": false,
             "slider_video_enable": false,
-            "slider_img": "shopify:\/\/shop_images\/Slider-3_17e508cb-6f57-434c-bdd8-94631ae9079d.jpg",
-            "slider_mobile_img": "shopify:\/\/shop_images\/mobile-slider-3_3a25a907-a4c0-400a-8934-3865df5f5e33.jpg",
             "mobile_text_enable": false,
             "slider_desc": "Exceptional variety",
             "slider_desc_color": "#196087",
@@ -86,7 +89,7 @@
             "btn_1_bg_hvr_color": "#196087",
             "btn_1_border_color": "#f3b313",
             "btn_1_border_hvr_color": "#196087",
-            "slider_button_1_url": "shopify:\/\/collections\/all",
+            "slider_button_1_url": "shopify://collections/all",
             "slider_button_2": "Buy now",
             "btn_2_txt_color": "#222222",
             "btn_2_txt_hvr_color": "#ffffff",
@@ -94,7 +97,7 @@
             "btn_2_bg_hvr_color": "#196087",
             "btn_2_border_color": "#196087",
             "btn_2_border_hvr_color": "#196087",
-            "slider_button_2_url": "shopify:\/\/products\/turkey-burgers",
+            "slider_button_2_url": "shopify://products/turkey-burgers",
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
@@ -110,6 +113,108 @@
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000,
         "arrow_enable": false,
+        "dots_enable": false
+      }
+    },
+    "shop_by_category_kVFhjX": {
+      "type": "shop-by-category",
+      "blocks": {
+        "category_kg8XRV": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_JBxP8d": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_keFX4B": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_Xjyajz": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_N4yRn9": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_3rNrh9": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_bccCqW": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        },
+        "category_NYPnxw": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_title": "",
+            "category_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "category_kg8XRV",
+        "category_JBxP8d",
+        "category_keFX4B",
+        "category_Xjyajz",
+        "category_N4yRn9",
+        "category_3rNrh9",
+        "category_bccCqW",
+        "category_NYPnxw"
+      ],
+      "name": "Shop by Category",
+      "settings": {
+        "container": "normal",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_bg_color": "#FFFFFF",
+        "circle_bg_color": "#F4F4F6",
+        "section_heading": "Shop by Category",
+        "shop_all_label": "Shop All",
+        "shop_all_url": "",
+        "slider_item_desktop": "8",
+        "slider_item_ipadpro": "6",
+        "slider_item_ipad": "4",
+        "slider_item_mobile": "2.5",
+        "slider_loop": false,
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": true,
         "dots_enable": false
       }
     },
@@ -162,13 +267,12 @@
         "single_banner_bJxagV": {
           "type": "single_banner",
           "settings": {
-            "single_banner_img": "shopify:\/\/shop_images\/Banner-1_e573c8d0-a9f5-4d25-a71b-9ee9e0c03713.jpg",
             "banner_subtitle": "",
             "banner_subtitle_color": "#333333",
             "banner_title": "Designed for cozy moments",
             "banner_title_color": "#333333",
             "banner_button_text": "Shop now",
-            "banner_button_link": "shopify:\/\/collections\/all",
+            "banner_button_link": "shopify://collections/all",
             "banner_content_position": "center",
             "banner_text_position": "center"
           }
@@ -176,13 +280,12 @@
         "single_banner_CGqwnW": {
           "type": "single_banner",
           "settings": {
-            "single_banner_img": "shopify:\/\/shop_images\/Banner-2_bce30d11-9464-46fb-b991-03e99c2da3ad.jpg",
             "banner_subtitle": "",
             "banner_subtitle_color": "#ffffff",
             "banner_title": "Confidence in every stitch",
             "banner_title_color": "#333333",
             "banner_button_text": "Shop now",
-            "banner_button_link": "shopify:\/\/collections\/all",
+            "banner_button_link": "shopify://collections/all",
             "banner_content_position": "center",
             "banner_text_position": "center"
           }
@@ -190,22 +293,20 @@
         "two_banner_Rx9kB4": {
           "type": "two_banner",
           "settings": {
-            "two_banner_1_img": "shopify:\/\/shop_images\/small-banner-1_bfc5ded5-0604-41b3-9edd-8ca48e6be34c.jpg",
             "two_banner_1_subtitle": "",
             "two_banner_1_subtitle_color": "#ffffff",
             "two_banner_1_title": "Music goes wireless",
             "two_banner_1_title_color": "#333333",
             "two_banner_1_button_text": "Shop now",
-            "two_banner_1_link": "shopify:\/\/collections",
+            "two_banner_1_link": "shopify://collections",
             "two_1_banner_content_position": "right",
             "two_1_banner_text_position": "left",
-            "two_banner_2_img": "shopify:\/\/shop_images\/small-banner-2_50955de9-7090-4805-88f6-db1b1282ed3f.jpg",
             "two_banner_2_subtitle": "",
             "two_banner_2_subtitle_color": "#ffffff",
             "two_banner_2_title": "Tech that tastes better",
             "two_banner_2_title_color": "#333333",
             "two_banner_2_button_text": "Shop now",
-            "two_banner_2_link": "shopify:\/\/collections\/blood-pressure",
+            "two_banner_2_link": "shopify://collections/blood-pressure",
             "two_2_banner_content_position": "right",
             "two_2_banner_text_position": "left"
           }
@@ -274,25 +375,25 @@
         "text_U6YaFx": {
           "type": "text",
           "settings": {
-            "offer_text": "<p>Today only: Extra 20% off your entire cart<\/p>"
+            "offer_text": "<p>Today only: Extra 20% off your entire cart</p>"
           }
         },
         "text_Lyyykn": {
           "type": "text",
           "settings": {
-            "offer_text": "<p>Flash sale: Unbeatable prices, only for 24 hours<\/p>"
+            "offer_text": "<p>Flash sale: Unbeatable prices, only for 24 hours</p>"
           }
         },
         "text_aAkBFD": {
           "type": "text",
           "settings": {
-            "offer_text": "<p>New arrivals: Launch offers you can't miss<\/p>"
+            "offer_text": "<p>New arrivals: Launch offers you can't miss</p>"
           }
         },
         "text_BeMR7D": {
           "type": "text",
           "settings": {
-            "offer_text": "<p>Member perks: enjoy early access to premium deals<\/p>"
+            "offer_text": "<p>Member perks: enjoy early access to premium deals</p>"
           }
         }
       },
@@ -307,7 +408,6 @@
         "section_padding_bottom": 20,
         "section_padding_top_xs": 20,
         "section_padding_bottom_xs": 20,
-        "section_background_image": "shopify:\/\/shop_images\/image.png",
         "section_background_image_enable": true,
         "background_color": "rgba(0,0,0,0)",
         "text_color": "#ffffff",
@@ -363,8 +463,7 @@
         "offer_banner_iqfp7r": {
           "type": "offer_banner",
           "settings": {
-            "banner_img": "shopify:\/\/shop_images\/Offer-banner.png",
-            "banner_url": "shopify:\/\/collections\/all",
+            "banner_url": "shopify://collections/all",
             "banner_subtitle": "Ultimate portability",
             "banner_subtitle_color": "#db5bdb",
             "banner_title": "Innovation at your fingertips",
@@ -377,8 +476,7 @@
         "offer_banner_CDGdEb": {
           "type": "offer_banner",
           "settings": {
-            "banner_img": "shopify:\/\/shop_images\/Offer-banner-2.png",
-            "banner_url": "shopify:\/\/collections\/all",
+            "banner_url": "shopify://collections/all",
             "banner_subtitle": "Timeless precision",
             "banner_subtitle_color": "#09729f",
             "banner_title": "Sophistication around the clock",
@@ -408,7 +506,6 @@
         "single_slide_aPrAGN": {
           "type": "single_slide",
           "settings": {
-            "testi_image": "shopify:\/\/shop_images\/tes-1_f24c8b02-0a48-49ea-bfc5-59d49eaab035.jpg",
             "pro_testi_review": "5",
             "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
             "testi_author_title": "Justin allison",
@@ -418,7 +515,6 @@
         "single_slide_trPpK6": {
           "type": "single_slide",
           "settings": {
-            "testi_image": "shopify:\/\/shop_images\/tes-2_6d401935-9bd3-41d0-bc02-0d3a1576306b.jpg",
             "pro_testi_review": "5",
             "testi_desc": "I finally found skincare products that work wonders! my skin feels radiant, and the quick delivery is a bonus. I’ll definitely keep coming back.",
             "testi_author_title": "Peter smith",
@@ -428,7 +524,6 @@
         "single_slide_UXrgaV": {
           "type": "single_slide",
           "settings": {
-            "testi_image": "shopify:\/\/shop_images\/tes-3_b4c969fb-ac05-4982-b766-fd387c369e31.jpg",
             "pro_testi_review": "5",
             "testi_desc": "The jewelry here is stunning and perfect for gifting. The designs are elegant, and the customer is top-notch. I’ll definitely shop here again.",
             "testi_author_title": "Audie dewey",
@@ -438,7 +533,6 @@
         "single_slide_MwRdcX": {
           "type": "single_slide",
           "settings": {
-            "testi_image": "shopify:\/\/shop_images\/tes-4_e1c59772-2ddb-41c7-9262-037af4b02d10.jpg",
             "pro_testi_review": "5",
             "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
             "testi_author_title": "Justin allison",
@@ -503,49 +597,42 @@
         "single_brand_CtVpyT": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-1_00262485-4dc8-4d72-8438-bb771952e6ad.png",
             "brand_url": ""
           }
         },
         "single_brand_gRK8Mi": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-2_cb1564eb-4563-4c41-900f-180078aba773.png",
             "brand_url": ""
           }
         },
         "single_brand_gzg3fk": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-3_7103e7bb-17be-4085-b046-51f66bcd58b1.png",
             "brand_url": ""
           }
         },
         "single_brand_je8c8j": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-4_ccc8b636-eed1-4340-b722-c0fd04197fe8.png",
             "brand_url": ""
           }
         },
         "single_brand_Ve6fVm": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-5_c582f076-d094-465a-8870-a0597eda57a4.png",
             "brand_url": ""
           }
         },
         "single_brand_thhpDz": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-6_7b6901b1-7af0-485d-9b80-1d650b1777a8.png",
             "brand_url": ""
           }
         },
         "single_brand_ydajDa": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify:\/\/shop_images\/Brand-7.png",
             "brand_url": ""
           }
         }
@@ -578,6 +665,7 @@
   },
   "order": [
     "slideshow",
+    "shop_by_category_kVFhjX",
     "featured_collection_NK3dwr",
     "banner_grid_mQzTGP",
     "featured_collection_qynbPV",
