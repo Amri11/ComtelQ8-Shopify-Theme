@@ -1,0 +1,507 @@
+{{ 'offer-cards.css' | asset_url | stylesheet_tag }}
+<section
+  class="offer-cards"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--card-radius: {{ section.settings.card_radius }}px;"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    {% if section.settings.section_heading != '' or section.settings.section_subheading != '' %}
+      <div class="section-capture">
+        <div class="section-title">
+          {% if section.settings.section_heading != '' %}
+            <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
+          {% endif %}
+          {% if section.settings.section_subheading != '' %}
+            <span data-fade-in class="sub-title">{{ section.settings.section_subheading }}</span>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+    <div class="offer-cards-wrap">
+      <div class="swiper" id="offer-cards-{{ section.id }}">
+        <div class="swiper-wrapper">
+          {% for block in section.blocks %}
+            <div class="swiper-slide" {{ block.shopify_attributes }}>
+              <a
+                href="{{ block.settings.card_link | default: '#' }}"
+                class="offer-card"
+                data-fade-in
+              >
+                <span class="offer-card-image">
+                  {%- if block.settings.card_image != blank -%}
+                    {{
+                      block.settings.card_image
+                      | image_url: width: 720
+                      | image_tag:
+                        loading: 'lazy',
+                        width: block.settings.card_image.width,
+                        height: block.settings.card_image.height,
+                        class: 'lazyload',
+                        alt: block.settings.card_title | default: block.settings.card_image.alt
+                      | escape
+                    }}
+                  {%- else -%}
+                    {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
+                    {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                  {%- endif -%}
+                </span>
+
+                {% if block.settings.badge_text != '' %}
+                  <span
+                    class="offer-card-badge"
+                    style="--badge-bg: {{ block.settings.badge_bg_color }};--badge-color: {{ block.settings.badge_text_color }};"
+                  >
+                    {{ block.settings.badge_text }}
+                  </span>
+                {% endif %}
+
+                {% if block.settings.card_title != '' %}
+                  <span
+                    class="offer-card-title"
+                    style="color: {{ block.settings.card_title_color }};"
+                  >
+                    {{ block.settings.card_title }}
+                  </span>
+                {% endif %}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+
+        {% if section.settings.arrow_enable %}
+          <div class="slider-arrow offer-cards-arrow">
+            <button class="arrow-prev arrow-prev-{{ section.id }}" aria-label="Previous"><i class="feather-chevron-left"></i></button>
+            <button class="arrow-next arrow-next-{{ section.id }}" aria-label="Next"><i class="feather-chevron-right"></i></button>
+          </div>
+        {% endif %}
+        {% if section.settings.dots_enable %}
+          <div class="slider-dot slider-dot-{{ section.id }}"></div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var swiper = new Swiper('#offer-cards-{{ section.id }}', {
+      slidesPerView: {{ section.settings.slider_item_desktop }},
+      spaceBetween: 16,
+      loop: {{ section.settings.slider_loop }},
+      watchOverflow: true,
+      {% if section.settings.slider_autoplay_enable %}
+      autoplay: {
+        delay: {{ section.settings.slider_autoplay_timeout }},
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      speed: {{ section.settings.slider_autoplay_speed }},
+      {% endif %}
+      {% if section.settings.arrow_enable %}
+      navigation: {
+        nextEl: ".arrow-next-{{ section.id }}",
+        prevEl: ".arrow-prev-{{ section.id }}",
+      },
+      {% endif %}
+      {% if section.settings.dots_enable %}
+      pagination: {
+        el: ".slider-dot-{{ section.id }}",
+        clickable: true
+      },
+      {% endif %}
+      breakpoints: {
+        0: {
+          slidesPerView: {{ section.settings.slider_item_mobile }},
+          spaceBetween: 12
+        },
+        540: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 12
+        },
+        768: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 16
+        },
+        1024: {
+          slidesPerView: {{ section.settings.slider_item_ipadpro }},
+          spaceBetween: 16
+        },
+        1199: {
+          slidesPerView: {{ section.settings.slider_item_desktop }},
+          spaceBetween: 16
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Offer cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "New Products and Current Offers"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Subheading",
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Card style"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "header",
+      "content": "Slider option"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_desktop",
+      "label": "Desktop item",
+      "info": "Width : > 1199px",
+      "options": [
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        },
+        {
+          "label": "7",
+          "value": "7"
+        }
+      ],
+      "default": "6"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipadpro",
+      "label": "Ipadpro item",
+      "info": "Width : > 1024px",
+      "options": [
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipad",
+      "label": "Ipad item",
+      "info": "Width : > 540px",
+      "options": [
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_mobile",
+      "label": "Mobile item",
+      "info": "Width : > 320px",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "1.5",
+          "value": "1.5"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        }
+      ],
+      "default": "1.5"
+    },
+    {
+      "type": "header",
+      "content": "Slider autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_loop",
+      "label": "Loop slider",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay_enable",
+      "label": "Show autoplay",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_timeout",
+      "label": "Autoplay timeout",
+      "default": 5000,
+      "info": "Put timeout by multiply 'X1000' this field"
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_speed",
+      "label": "Autoplay speed",
+      "default": 1000,
+      "info": "Put speed by multiply 'X100' this field"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_enable",
+      "label": "Show slider arrow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dots_enable",
+      "label": "Show slider dots",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "offer_card",
+      "name": "Offer card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "card_image",
+          "label": "Image",
+          "info": "Recommended size: 360x440px"
+        },
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Title",
+          "default": "Offer title"
+        },
+        {
+          "type": "color",
+          "id": "card_title_color",
+          "label": "Title color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Link"
+        },
+        {
+          "type": "header",
+          "content": "Badge (top corner)"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "info": "Leave empty to hide. e.g. -25% or Mega Sale"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg_color",
+          "label": "Badge background",
+          "default": "#FFE34D"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#1A1A1A"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Offer cards",
+      "blocks": [
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Hot Book Deals",
+            "badge_text": "-25%"
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Headphone Hits",
+            "badge_text": "-5%"
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Large Screen TV's for Total Comfort",
+            "badge_text": ""
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "This Season's Best in Art & Decor",
+            "badge_text": "-5%"
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Turn Up the Season with a New Speaker",
+            "badge_text": "Mega Sale",
+            "badge_bg_color": "#E0301E",
+            "badge_text_color": "#FFFFFF"
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Mega Laptop Sale",
+            "badge_text": ""
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Vinyl Weekend Deals",
+            "badge_text": ""
+          }
+        },
+        {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Bring the Sound Home",
+            "badge_text": ""
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

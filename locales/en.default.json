@@ -2,7 +2,9 @@
   "general": {
     "accessibility": {
       "error": "Error",
-      "skip_to_text": "Skip to content"
+      "skip_to_text": "Skip to content",
+      "previous": "Previous",
+      "next": "Next"
     },
     "breadcrumbs": {
       "home": "Home",
@@ -286,7 +288,8 @@
       "login_title": "Login",
       "register_title": "Register",
       "account_title": "Account",
-      "logout_title": "Logout"
+      "logout_title": "Logout",
+      "cart_title": "Cart"
     },
     "sections": {
       "product_title": "Example product",

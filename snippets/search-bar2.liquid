@@ -28,7 +28,10 @@
       >
       <input type="hidden" name="options[prefix]" value="last">
       <button type="reset" class="reset-input hidden" aria-label="reset"></button>
-      <button class="search-btn" aria-label="search">{{ 'templates.search.submit' | t }}</button>
+      <button class="search-btn" aria-label="search">
+        <i class="feather-search"></i>
+        <span class="search-btn-text">{{ 'templates.search.submit' | t }}</span>
+      </button>
     </div>
     {%- if settings.ajax_search_enabled -%}
       <div class="search-ajax" tabindex="-1" data-search-ajax></div>
@@ -48,28 +51,47 @@
   display: flex;
   align-items: center;
   overflow: hidden;
-  border-radius: var(--sti-border-radius);
+  background-color: #f3f3f3;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
 }
 .search-rap-desktop2 form input {
   width: 100%;
+  background-color: transparent;
+  border: none;
+  height: 48px;
+  padding-inline-start: 22px;
+  padding-inline-end: 56px;
+  font-size: var(--font-size-body);
+}
+.search-rap-desktop2 form input:focus {
+  outline: none;
 }
 .search-rap-desktop2 form button.search-btn {
-  background-color: var(--font-color-secondary);
-  color: var(--font-color-link);
-  font-size: var(--font-size-body);
-  font-weight: var(--subtitle-custom-font-weight-body);
-  padding: 0px 30px;
+  background-color: transparent;
+  color: var(--font-color-body);
+  font-size: 20px;
+  width: 48px;
   position: absolute;
   top: 0px;
   inset-inline-end: 0;
   bottom: 0px;
-  text-transform: uppercase;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   line-height: 1;
+  cursor: pointer;
+}
+.search-rap-desktop2 form button.search-btn .search-btn-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 .search-rap-desktop2 form button.search-btn:hover {
-  background-color: var(--font-color-primary);
-  color: #FFFFFF;
+  color: var(--font-color-primary);
 }
 .search-rap-desktop2 search-ajax .search-ajax {
   position: absolute;

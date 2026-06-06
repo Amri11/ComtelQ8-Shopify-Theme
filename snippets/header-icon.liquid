@@ -29,9 +29,6 @@
       <a {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_login_url }}"{% endif %} class="header-icon">
         <span class="title">{{ 'homepage.header.login_title' | t }}</span>
       </a>
-      <a {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_register_url }}"{% endif %} class="header-icon">
-        <span class="title">{{ 'homepage.header.register_title' | t }}</span>
-      </a>
       {% endif %}
     </div>
   </li>
@@ -60,6 +57,7 @@
           </div>
         </span>
         <span id="cart-total" class="mini-cart-total-price"> {{ cart.total_price | money }}</span>
+        <span class="title">{{ 'homepage.header.cart_title' | t }}</span>
       </a>
     </li>
   {%- endif -%}

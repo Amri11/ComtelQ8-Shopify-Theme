@@ -14,22 +14,8 @@
               <i class="feather-menu"></i>
             </button>
           </div>
-          <div class="header-element search-desktop">
-            {% render 'search-bar2' %}
-          </div>
-          <div class="header-element logo">
-            {%- render 'company-logo' -%}
-          </div>
-          <div class="header-element right-block-box">
-            {%- render 'header-icon', section: section -%}
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="header-bottom-wrap" style="--header-bottom-bg-color: {{ section.settings.header_bottom_bg_color }};">
-      <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
-        <div class="header-bottom">
-          <div class="header-element vegamenu-block">
+          {%- if section.settings.vegamenu_enable -%}
+          <div class="header-element vegamenu-block vegamenu-top">
             <div class="vega-menu-area">
               <a href="#vega-collapse" class="browse-cat" data-bs-toggle="collapse" aria-expanded="false" style="--vegamenu-font-size: {{ section.settings.vegamenu_font_size }}px; --vegamenu-font-size-lg: {{ section.settings.vegamenu_font_size_lg }}px; --vegamenu-text-transform: {{ section.settings.vegamenu_text_transform }};  --vegamenu-font-weight: {{ section.settings.vegamenu_font_weight }};">
                 <span class="menu-icon"><i class="feather-menu"></i></span>
@@ -59,12 +45,28 @@
                     when 'vega_menu_shop_banner'
                     render 'vega-menu-shop-banner' block: block
                     endcase
-                  endfor 
+                  endfor
                   -%}
                 </ul>
               </div>
             </div>
           </div>
+          {%- endif -%}
+          <div class="header-element search-desktop">
+            {% render 'search-bar2' %}
+          </div>
+          <div class="header-element logo">
+            {%- render 'company-logo' -%}
+          </div>
+          <div class="header-element right-block-box">
+            {%- render 'header-icon', section: section -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom-wrap" style="--header-bottom-bg-color: {{ section.settings.header_bottom_bg_color }};">
+      <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+        <div class="header-bottom">
           <div class="header-element megamenu-content">
             <nav class="mainwrap">
               <ul class="list-unstyled main-menu {% if section.settings.menu_alignment == 'center' %}menu-center{% elsif section.settings.menu_alignment == 'left' %}menu-left{% else %}menu-right{% endif %}">
