@@ -396,6 +396,7 @@
         "offer_banner_iqfp7r": {
           "type": "offer_banner",
           "settings": {
+            "banner_img": "shopify://shop_images/banner-1.webp",
             "banner_url": "shopify://collections/all",
             "banner_subtitle": "Ultimate portability",
             "banner_subtitle_color": "#db5bdb",
@@ -409,6 +410,7 @@
         "offer_banner_CDGdEb": {
           "type": "offer_banner",
           "settings": {
+            "banner_img": "shopify://shop_images/banner-2.webp",
             "banner_url": "shopify://collections/all",
             "banner_subtitle": "Timeless precision",
             "banner_subtitle_color": "#09729f",
