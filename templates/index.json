@@ -371,7 +371,7 @@
         "two_banner_Rx9kB4"
       ],
       "settings": {
-        "container": "fluid",
+        "container": "normal",
         "section_padding_top": 0,
         "section_padding_bottom": 0,
         "section_padding_top_xs": 0,
