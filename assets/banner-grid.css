@@ -9,7 +9,7 @@
   margin-inline-start: -30px;
 }
 .banner-grid .grid-wrap ul.banner-ul li.banner-li {
-  width: calc(33.33% - 30px);
+  width: calc(var(--col-basis, 33.33%) - 30px);
   margin-top: 30px;
   margin-inline-start: 30px;
 }

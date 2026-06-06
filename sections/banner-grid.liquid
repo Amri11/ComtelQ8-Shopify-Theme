@@ -1,5 +1,9 @@
 {{ 'banner-grid.css' | asset_url | stylesheet_tag }}
-<section class="banner-grid" style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};">
+{%- liquid
+  assign columns = section.settings.columns | default: 3 | times: 1
+  assign col_basis = 100.0 | divided_by: columns
+-%}
+<section class="banner-grid" style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--col-basis: {{ col_basis }}%;">
   <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
     <div class="row">
       <div class="col">
@@ -104,6 +108,35 @@
 {
   "name": "Banner grid",
   "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "columns",
+      "label": "Columns",
+      "info": "Number of columns across the row on desktop. Blocks are divided equally and wrap to the next row. Tablet shows 2 columns, mobile shows 1.",
+      "options": [
+        {
+          "label": "1 column",
+          "value": "1"
+        },
+        {
+          "label": "2 columns",
+          "value": "2"
+        },
+        {
+          "label": "3 columns",
+          "value": "3"
+        },
+        {
+          "label": "4 columns",
+          "value": "4"
+        }
+      ],
+      "default": "3"
+    },
     {
       "type": "header",
       "content": "Section width"
