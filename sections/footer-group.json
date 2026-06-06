@@ -1,1 +1,205 @@
-{"type":"footer","name":"Footer group","sections":{"newsletter_XJkYqi":{"type":"newsletter","settings":{"container":"fluid","section_padding_top":100,"section_padding_bottom":0,"section_padding_top_xs":60,"section_padding_bottom_xs":0,"banner_bg_img_enable":true,"banner_bg_img":"shopify:\/\/shop_images\/Newsletter_cc97effe-a6d9-4190-a8dc-dcca75c4d10c.png","section_background_color":"#fafafa","section_heading":"Subscribe to newsletter","section_heading_color":"#ffffff"}},"icon_rows_9EPByc":{"type":"icon-rows","blocks":{"our_services_V6cNTD":{"type":"our_services","settings":{"icon_img":"shopify:\/\/shop_images\/1.png","icon":"","service_url":"","service_title":"14 Days return","service_desc":"Changed your mind? return within 14 days, hassle-free"}},"our_services_rMzKLJ":{"type":"our_services","settings":{"icon_img":"shopify:\/\/shop_images\/2.png","icon":"","service_url":"","service_title":"Shipping worldwide","service_desc":"Connecting you to the world, one shipment at a time"}},"our_services_4qyQJD":{"type":"our_services","settings":{"icon_img":"shopify:\/\/shop_images\/3.png","icon":"","service_url":"","service_title":"Security payment","service_desc":"Buy with confidence – secure payments guaranteed"}},"our_services_WAUtAY":{"type":"our_services","settings":{"icon_img":"shopify:\/\/shop_images\/4.png","icon":"","service_url":"","service_title":"Money back guarantee","service_desc":"Your satisfaction assured with our money-back guarantee"}}},"block_order":["our_services_V6cNTD","our_services_rMzKLJ","our_services_4qyQJD","our_services_WAUtAY"],"settings":{"container":"fluid","section_padding_top":100,"section_padding_bottom":0,"section_padding_top_xs":60,"section_padding_bottom_xs":0,"section_background_color":"#fafafa","section_subheading":"","section_heading":""}},"footer":{"type":"footer","blocks":{"logo_info_gmtQBF":{"type":"logo_info","settings":{"logo_enable":true,"logo_desc":"","footer_social_enable":false,"custom_info_1_label":"Mon - fri :","custom_info_1_text":"<p>9AM - 10PM<\/p>","custom_info_2_label":"Set :","custom_info_2_text":"<p>9AM - 4PM <\/p>","custom_info_3_label":"Sun :","custom_info_3_text":"<p>Closed<\/p>"}},"footer_menu_6afLjr":{"type":"footer_menu","settings":{"show_nav_title":true,"footer_menu_handle":"footer"}},"footer_menu_dKDEb4":{"type":"footer_menu","settings":{"show_nav_title":true,"footer_menu_handle":"quick-links"}},"footer_menu_bjhKfw":{"type":"footer_menu","settings":{"show_nav_title":true,"footer_menu_handle":"categories"}},"footer_menu_UxgBkr":{"type":"footer_menu","settings":{"show_nav_title":true,"footer_menu_handle":"resources"}},"contact_info_WViyna":{"type":"contact_info","settings":{"show_nav_title":true,"contact_info_title":"Contact us","contact_info_1_icon":"feather-map-pin","contact_info_1_text":"<p>487, eight avenue, new york<\/p>","contact_info_2_icon":"feather-phone-call","contact_info_2_text":"<p><a href=\"tel:+0123 456 789\" title=\"tel:+0123 456 789\">+0123 456 789<\/a><\/p>","contact_info_3_icon":"feather-mail","contact_info_3_text":"<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com<\/a><\/p>"}}},"block_order":["logo_info_gmtQBF","footer_menu_6afLjr","footer_menu_dKDEb4","footer_menu_bjhKfw","footer_menu_UxgBkr","contact_info_WViyna"],"settings":{"container":"fluid","section_padding_top":100,"section_padding_bottom":100,"section_padding_top_xs":60,"section_padding_bottom_xs":60,"section_background_image_enable":false,"section_background_color":"#fafafa","menu_title_font_size":18,"menu_title_font_size_lg":18,"menu_title_font_weight":600,"menu_title_text_transform":"none","menu_title_color":"#196087","menu_text_font_size":16,"menu_text_font_size_lg":16,"menu_text_font_weight":400,"menu_text_text_transform":"none","menu_text_color":"#808080","menu_text_hv_color":"#196087","enable_follow_on_shop":true,"show_policy":false}},"section_border_rLFfWK":{"type":"section-border","settings":{"border_width":"full","border_bg_color":"#fafafa","border":1,"border_color":"#222222","border_color_opacity":0.1}},"copy-right":{"type":"copy-right","settings":{"container":"fluid","section_background_color":"#fafafa","text_font_size":16,"text_font_size_lg":16,"text_font_weight":400,"text_color":"#868686","copy_right_text":"Copy all rights reserved"}}},"order":["newsletter_XJkYqi","icon_rows_9EPByc","footer","section_border_rLFfWK","copy-right"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "newsletter_XJkYqi": {
+      "type": "newsletter",
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 0,
+        "banner_bg_img_enable": false,
+        "section_background_color": "#fafafa",
+        "section_heading": "Subscribe to newsletter",
+        "section_heading_color": "#171717"
+      }
+    },
+    "icon_rows_9EPByc": {
+      "type": "icon-rows",
+      "blocks": {
+        "our_services_V6cNTD": {
+          "type": "our_services",
+          "settings": {
+            "icon": "",
+            "service_url": "",
+            "service_title": "14 Days return",
+            "service_desc": "Changed your mind? return within 14 days, hassle-free"
+          }
+        },
+        "our_services_rMzKLJ": {
+          "type": "our_services",
+          "settings": {
+            "icon": "",
+            "service_url": "",
+            "service_title": "Shipping worldwide",
+            "service_desc": "Connecting you to the world, one shipment at a time"
+          }
+        },
+        "our_services_4qyQJD": {
+          "type": "our_services",
+          "settings": {
+            "icon": "",
+            "service_url": "",
+            "service_title": "Security payment",
+            "service_desc": "Buy with confidence – secure payments guaranteed"
+          }
+        },
+        "our_services_WAUtAY": {
+          "type": "our_services",
+          "settings": {
+            "icon": "",
+            "service_url": "",
+            "service_title": "Money back guarantee",
+            "service_desc": "Your satisfaction assured with our money-back guarantee"
+          }
+        }
+      },
+      "block_order": [
+        "our_services_V6cNTD",
+        "our_services_rMzKLJ",
+        "our_services_4qyQJD",
+        "our_services_WAUtAY"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 0,
+        "section_background_color": "#fafafa",
+        "section_subheading": "",
+        "section_heading": ""
+      }
+    },
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "logo_info_gmtQBF": {
+          "type": "logo_info",
+          "settings": {
+            "logo_enable": true,
+            "logo_desc": "",
+            "footer_social_enable": false,
+            "custom_info_1_label": "Mon - fri :",
+            "custom_info_1_text": "<p>9AM - 10PM</p>",
+            "custom_info_2_label": "Set :",
+            "custom_info_2_text": "<p>9AM - 4PM </p>",
+            "custom_info_3_label": "Sun :",
+            "custom_info_3_text": "<p>Closed</p>"
+          }
+        },
+        "footer_menu_6afLjr": {
+          "type": "footer_menu",
+          "settings": {
+            "show_nav_title": true,
+            "footer_menu_handle": "footer"
+          }
+        },
+        "footer_menu_dKDEb4": {
+          "type": "footer_menu",
+          "settings": {
+            "show_nav_title": true,
+            "footer_menu_handle": ""
+          }
+        },
+        "footer_menu_bjhKfw": {
+          "type": "footer_menu",
+          "settings": {
+            "show_nav_title": true,
+            "footer_menu_handle": ""
+          }
+        },
+        "footer_menu_UxgBkr": {
+          "type": "footer_menu",
+          "settings": {
+            "show_nav_title": true,
+            "footer_menu_handle": ""
+          }
+        },
+        "contact_info_WViyna": {
+          "type": "contact_info",
+          "settings": {
+            "show_nav_title": true,
+            "contact_info_title": "Contact us",
+            "contact_info_1_icon": "feather-map-pin",
+            "contact_info_1_text": "<p>487, eight avenue, new york</p>",
+            "contact_info_2_icon": "feather-phone-call",
+            "contact_info_2_text": "<p><a href=\"tel:+0123 456 789\" title=\"tel:+0123 456 789\">+0123 456 789</a></p>",
+            "contact_info_3_icon": "feather-mail",
+            "contact_info_3_text": "<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com</a></p>"
+          }
+        }
+      },
+      "block_order": [
+        "logo_info_gmtQBF",
+        "footer_menu_6afLjr",
+        "footer_menu_dKDEb4",
+        "footer_menu_bjhKfw",
+        "footer_menu_UxgBkr",
+        "contact_info_WViyna"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_background_image_enable": false,
+        "section_background_color": "#fafafa",
+        "menu_title_font_size": 18,
+        "menu_title_font_size_lg": 18,
+        "menu_title_font_weight": 600,
+        "menu_title_text_transform": "none",
+        "menu_title_color": "#196087",
+        "menu_text_font_size": 16,
+        "menu_text_font_size_lg": 16,
+        "menu_text_font_weight": 400,
+        "menu_text_text_transform": "none",
+        "menu_text_color": "#808080",
+        "menu_text_hv_color": "#196087",
+        "enable_follow_on_shop": true,
+        "show_policy": false
+      }
+    },
+    "section_border_rLFfWK": {
+      "type": "section-border",
+      "settings": {
+        "border_width": "full",
+        "border_bg_color": "#fafafa",
+        "border": 1,
+        "border_color": "#222222",
+        "border_color_opacity": 0.1
+      }
+    },
+    "copy-right": {
+      "type": "copy-right",
+      "settings": {
+        "container": "fluid",
+        "section_background_color": "#fafafa",
+        "text_font_size": 16,
+        "text_font_size_lg": 16,
+        "text_font_weight": 400,
+        "text_color": "#868686",
+        "copy_right_text": "Copy all rights reserved"
+      }
+    }
+  },
+  "order": [
+    "newsletter_XJkYqi",
+    "icon_rows_9EPByc",
+    "footer",
+    "section_border_rLFfWK",
+    "copy-right"
+  ]
+}
