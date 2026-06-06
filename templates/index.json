@@ -320,11 +320,12 @@
         "single_banner_cGVQrR": {
           "type": "single_banner",
           "settings": {
-            "banner_subtitle": "Big discount only 30% off",
+            "single_banner_img": "shopify://shop_images/banner-1.webp",
+            "banner_subtitle": "",
             "banner_subtitle_color": "#868686",
-            "banner_title": "Weekly sale",
+            "banner_title": "",
             "banner_title_color": "#222222",
-            "banner_button_text": "Shop now",
+            "banner_button_text": "",
             "banner_button_link": "",
             "banner_content_position": "right",
             "banner_text_position": "left"
@@ -333,42 +334,21 @@
         "single_banner_bJxagV": {
           "type": "single_banner",
           "settings": {
+            "single_banner_img": "shopify://shop_images/banner-2.webp",
             "banner_subtitle": "",
             "banner_subtitle_color": "#333333",
-            "banner_title": "Designed for cozy moments",
+            "banner_title": "",
             "banner_title_color": "#333333",
-            "banner_button_text": "Shop now",
+            "banner_button_text": "",
             "banner_button_link": "shopify://collections/all",
             "banner_content_position": "center",
             "banner_text_position": "center"
-          }
-        },
-        "two_banner_ciUe6t": {
-          "type": "two_banner",
-          "settings": {
-            "two_banner_1_subtitle": "Big discount only 30% off",
-            "two_banner_1_subtitle_color": "#868686",
-            "two_banner_1_title": "Weekly sale",
-            "two_banner_1_title_color": "#222222",
-            "two_banner_1_button_text": "Shop now",
-            "two_banner_1_link": "",
-            "two_1_banner_content_position": "right",
-            "two_1_banner_text_position": "left",
-            "two_banner_2_subtitle": "Big discount only 30% off",
-            "two_banner_2_subtitle_color": "#868686",
-            "two_banner_2_title": "Weekly sale",
-            "two_banner_2_title_color": "#222222",
-            "two_banner_2_button_text": "Shop now",
-            "two_banner_2_link": "",
-            "two_2_banner_content_position": "right",
-            "two_2_banner_text_position": "left"
           }
         }
       },
       "block_order": [
         "single_banner_cGVQrR",
-        "single_banner_bJxagV",
-        "two_banner_ciUe6t"
+        "single_banner_bJxagV"
       ],
       "settings": {
         "container": "normal",
