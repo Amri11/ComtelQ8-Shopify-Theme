@@ -3,123 +3,49 @@
   {% if section.settings.slider_width == 'contained' %}
   <div class="slider-container-wrap container">
   {% endif %}
+
   <div class="home-slider swiper" id="home-slider-{{ section.id }}" style="border-radius: {% if section.settings.slider_width == 'contained' %}{{ section.settings.slider_border_radius }}px{% else %}0{% endif %}; overflow: hidden;">
     <div class="swiper-wrapper">
       {% for block in section.blocks %}
         <div class="swiper-slide slide-{{ block.id }}" {{ block.shopify_attributes }}>
           <div class="slide-image">
-            <a href="{{ block.settings.slider_button_1_url }}" title="{{ block.settings.slider_button_1 }}">
-              {%- if block.settings.slider_video_enable -%}
-                {%- if block.settings.video != blank -%}
+            <a href="{{ block.settings.slide_url }}" title="">
+              {%- if block.settings.slider_img != blank -%}
+                {% assign image_height = block.settings.slider_img.width | divided_by: block.settings.slider_img.aspect_ratio %}
                 {{
-                  block.settings.video
-                  | video_tag:
-                    image_size: '1100x',
-                    autoplay: true,
-                    loop: block.settings.enable_video_looping,
-                    controls: false,
-                    muted: true,
-                    id: 'slider-video',
+                  block.settings.slider_img
+                  | image_url: width: 3840
+                  | image_tag:
+                    width: block.settings.slider_img.width,
+                    height: image_height,
+                    class: 'lazyload desk-img',
                     loading: 'lazy'
                 }}
-                {%- else -%}
-                {%- capture placeholder -%}hero-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
-                {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
-                {%- endif -%}
               {%- else -%}
-                {%- if block.settings.slider_img != blank -%}
-                  {% assign image_height = block.settings.slider_img.width
-                    | divided_by: block.settings.slider_img.aspect_ratio
-                  %}
-                  {{
-                    block.settings.slider_img
-                    | image_url: width: 3840
-                    | image_tag:
-                      width: block.settings.slider_img.width,
-                      height: image_height,
-                      class: 'lazyload desk-img',
-                      loading: 'lazy'
-                  }}
-                {%- else -%}
-                  {%- capture placeholder -%}hero-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
-                  {{ placeholder | placeholder_svg_tag: 'placeholder-svg desk-img' }}
-                {%- endif -%}
+                {%- capture placeholder -%}hero-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
+                {{ placeholder | placeholder_svg_tag: 'placeholder-svg desk-img' }}
+              {%- endif -%}
 
-                {%- if block.settings.slider_mobile_img != blank -%}
-                  {% assign image_height = block.settings.slider_mobile_img.width
-                    | divided_by: block.settings.slider_mobile_img.aspect_ratio
-                  %}
-                  {{
-                    block.settings.slider_mobile_img
-                    | image_url: width: 600
-                    | image_tag:
-                      width: block.settings.slider_mobile_img.width,
-                      height: image_height,
-                      class: 'lazyload mobile-img',
-                      loading: 'lazy'
-                  }}
-                {%- else -%}
-                  {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
-                  {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
-                {%- endif -%}
+              {%- if block.settings.slider_mobile_img != blank -%}
+                {% assign image_height = block.settings.slider_mobile_img.width | divided_by: block.settings.slider_mobile_img.aspect_ratio %}
+                {{
+                  block.settings.slider_mobile_img
+                  | image_url: width: 600
+                  | image_tag:
+                    width: block.settings.slider_mobile_img.width,
+                    height: image_height,
+                    class: 'lazyload mobile-img',
+                    loading: 'lazy'
+                }}
+              {%- else -%}
+                {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
+                {{ placeholder | placeholder_svg_tag: 'placeholder-svg mobile-img' }}
               {%- endif -%}
             </a>
-
-            <div class="container-fluid slider-info-content{% if block.settings.mobile_text_enable %} sm-dnone{% endif %}">
-              <div class="slider-text-info{% if block.settings.slider_content_position == 'right' %} slider-content-right{% elsif block.settings.slider_content_position == 'left' %} slider-content-left{% else %} slider-content-center{% endif %}{% if block.settings.slider_text_position == 'right' %} slider-text-right{% elsif block.settings.slider_text_position == 'left' %} slider-text-left{% else %} slider-text-center{% endif %}">
-
-                {% if block.settings.countdown_enable and block.settings.countdown_end_date != blank %}
-                  <div class="slide-countdown" data-end="{{ block.settings.countdown_end_date }}" id="countdown-{{ block.id }}">
-                    <span class="cd-icon">&#9201;</span>
-                    <span class="cd-segment"><span class="cd-days">00</span><span class="cd-lbl">d</span></span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-segment"><span class="cd-hours">00</span><span class="cd-lbl">h</span></span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-segment"><span class="cd-mins">00</span><span class="cd-lbl">m</span></span>
-                    <span class="cd-sep">:</span>
-                    <span class="cd-segment"><span class="cd-secs">00</span><span class="cd-lbl">s</span></span>
-                  </div>
-                {% endif %}
-
-                {% if block.settings.slider_desc != blank %}
-                  <span class="sub-title" style="color:{{ block.settings.slider_desc_color }};">
-                    {{- block.settings.slider_desc -}}
-                  </span>
-                {% endif %}
-
-                {% if block.settings.slider_title != blank %}
-                  <h2 class="m-0" style="color:{{ block.settings.slider_title_color }};">
-                    {{ block.settings.slider_title }}
-                  </h2>
-                {% endif %}
-
-                {% if block.settings.slider_body != blank %}
-                  <p class="slide-body-text" style="color:{{ block.settings.slider_body_color }};">
-                    {{ block.settings.slider_body }}
-                  </p>
-                {% endif %}
-
-                <div class="slider-button">
-                  {% if block.settings.slider_button_1 != blank %}
-                    <a href="{{ block.settings.slider_button_1_url }}" class="btn-style text-btn btn-1" title="{{ block.settings.slider_button_1 }}" style="--btn1-txt-color: {{ block.settings.btn_1_txt_color }}; --btn1-txt-hvr-color: {{ block.settings.btn_1_txt_hvr_color }}; --btn1-bg-color: {{ block.settings.btn_1_bg_color }}; --btn1-bg-hvr-color: {{ block.settings.btn_1_bg_hvr_color }}; --btn1-border-color: {{ block.settings.btn_1_border_color }}; --btn1-border-hvr-color: {{ block.settings.btn_1_border_hvr_color }};">
-                      {{- block.settings.slider_button_1 -}}
-                    </a>
-                  {% endif %}
-                  {% if block.settings.slider_button_2 != blank %}
-                    <a href="{{ block.settings.slider_button_2_url }}" class="btn-style3 text-btn btn-2" title="{{ block.settings.slider_button_2 }}" style="--btn2-txt-color: {{ block.settings.btn_2_txt_color }}; --btn2-txt-hvr-color: {{ block.settings.btn_2_txt_hvr_color }}; --btn2-bg-color: {{ block.settings.btn_2_bg_color }}; --btn2-bg-hvr-color: {{ block.settings.btn_2_bg_hvr_color }}; --btn2-border-color: {{ block.settings.btn_2_border_color }}; --btn2-border-hvr-color: {{ block.settings.btn_2_border_hvr_color }};">
-                      {{- block.settings.slider_button_2 -}}
-                    </a>
-                  {% endif %}
-                </div>
-
-              </div>
-            </div>
-
           </div>
         </div>
       {% endfor %}
     </div>
-
   </div>
 
   {% if section.settings.arrow_enable %}
@@ -140,7 +66,7 @@
 
 <script type="text/javascript">
   addEventListener('DOMContentLoaded', function() {
-    var swiper = new Swiper('#home-slider-{{ section.id }}', {
+    new Swiper('#home-slider-{{ section.id }}', {
       slidesPerView: 1,
       loop: false,
       spaceBetween: 0,
@@ -166,26 +92,6 @@
       },
       {% endif %}
     });
-
-    // Countdown timers
-    document.querySelectorAll('#home-slider-{{ section.id }} .slide-countdown[data-end]').forEach(function(el) {
-      var endTime = new Date(el.getAttribute('data-end')).getTime();
-      function tick() {
-        var now = Date.now();
-        var diff = endTime - now;
-        if (diff <= 0) { diff = 0; }
-        var days    = Math.floor(diff / 86400000);
-        var hours   = Math.floor((diff % 86400000) / 3600000);
-        var minutes = Math.floor((diff % 3600000) / 60000);
-        var seconds = Math.floor((diff % 60000) / 1000);
-        el.querySelector('.cd-days').textContent  = String(days).padStart(2, '0');
-        el.querySelector('.cd-hours').textContent = String(hours).padStart(2, '0');
-        el.querySelector('.cd-mins').textContent  = String(minutes).padStart(2, '0');
-        el.querySelector('.cd-secs').textContent  = String(seconds).padStart(2, '0');
-        if (diff > 0) setTimeout(tick, 1000);
-      }
-      tick();
-    });
   });
 </script>
 
@@ -200,10 +106,10 @@
     {
       "type": "select",
       "id": "slider_width",
-      "label": "Slideshow width",
+      "label": "Width",
       "options": [
-        { "label": "Full screen", "value": "full" },
-        { "label": "Contained (with margins)", "value": "contained" }
+        { "label": "Full width", "value": "full" },
+        { "label": "Contained", "value": "contained" }
       ],
       "default": "contained"
     },
@@ -259,10 +165,6 @@
       "name": "Slide",
       "settings": [
         {
-          "type": "header",
-          "content": "Image"
-        },
-        {
           "type": "image_picker",
           "id": "slider_img",
           "label": "Desktop image",
@@ -275,212 +177,9 @@
           "info": "Recommended: 600x600px"
         },
         {
-          "type": "header",
-          "content": "Video (optional)"
-        },
-        {
-          "type": "checkbox",
-          "id": "slider_video_enable",
-          "label": "Use video instead of image",
-          "default": false
-        },
-        {
-          "type": "video",
-          "id": "video",
-          "label": "Video"
-        },
-        {
-          "type": "checkbox",
-          "id": "enable_video_looping",
-          "label": "Loop video",
-          "default": false
-        },
-        {
-          "type": "header",
-          "content": "Countdown Timer"
-        },
-        {
-          "type": "checkbox",
-          "id": "countdown_enable",
-          "label": "Show countdown timer",
-          "default": false
-        },
-        {
-          "type": "text",
-          "id": "countdown_end_date",
-          "label": "End date & time",
-          "info": "Format: YYYY-MM-DDTHH:MM:SS e.g. 2025-12-31T23:59:59"
-        },
-        {
-          "type": "header",
-          "content": "Text"
-        },
-        {
-          "type": "checkbox",
-          "id": "mobile_text_enable",
-          "label": "Hide text on mobile",
-          "default": false
-        },
-        {
-          "type": "text",
-          "id": "slider_desc",
-          "label": "Subheading"
-        },
-        {
-          "type": "color",
-          "id": "slider_desc_color",
-          "label": "Subheading color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "text",
-          "id": "slider_title",
-          "label": "Heading",
-          "default": "Your Headline Here"
-        },
-        {
-          "type": "color",
-          "id": "slider_title_color",
-          "label": "Heading color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "textarea",
-          "id": "slider_body",
-          "label": "Description"
-        },
-        {
-          "type": "color",
-          "id": "slider_body_color",
-          "label": "Description color",
-          "default": "#dddddd"
-        },
-        {
-          "type": "header",
-          "content": "Button 1"
-        },
-        {
-          "type": "text",
-          "id": "slider_button_1",
-          "label": "Button label",
-          "default": "Shop Now"
-        },
-        {
           "type": "url",
-          "id": "slider_button_1_url",
-          "label": "Button link"
-        },
-        {
-          "type": "color",
-          "id": "btn_1_txt_color",
-          "label": "Text color",
-          "default": "#222222"
-        },
-        {
-          "type": "color",
-          "id": "btn_1_txt_hvr_color",
-          "label": "Text hover color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "btn_1_bg_color",
-          "label": "Background color",
-          "default": "#FFD600"
-        },
-        {
-          "type": "color",
-          "id": "btn_1_bg_hvr_color",
-          "label": "Background hover color",
-          "default": "#D3401E"
-        },
-        {
-          "type": "color",
-          "id": "btn_1_border_color",
-          "label": "Border color",
-          "default": "#FFD600"
-        },
-        {
-          "type": "color",
-          "id": "btn_1_border_hvr_color",
-          "label": "Border hover color",
-          "default": "#D3401E"
-        },
-        {
-          "type": "header",
-          "content": "Button 2"
-        },
-        {
-          "type": "text",
-          "id": "slider_button_2",
-          "label": "Button label"
-        },
-        {
-          "type": "url",
-          "id": "slider_button_2_url",
-          "label": "Button link"
-        },
-        {
-          "type": "color",
-          "id": "btn_2_txt_color",
-          "label": "Text color",
-          "default": "#222222"
-        },
-        {
-          "type": "color",
-          "id": "btn_2_txt_hvr_color",
-          "label": "Text hover color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "btn_2_bg_color",
-          "label": "Background color",
-          "default": "#ffffff"
-        },
-        {
-          "type": "color",
-          "id": "btn_2_bg_hvr_color",
-          "label": "Background hover color",
-          "default": "#D3401E"
-        },
-        {
-          "type": "color",
-          "id": "btn_2_border_color",
-          "label": "Border color",
-          "default": "#D3401E"
-        },
-        {
-          "type": "color",
-          "id": "btn_2_border_hvr_color",
-          "label": "Border hover color",
-          "default": "#D3401E"
-        },
-        {
-          "type": "header",
-          "content": "Content position"
-        },
-        {
-          "type": "select",
-          "id": "slider_content_position",
-          "label": "Horizontal position",
-          "options": [
-            { "label": "Left", "value": "left" },
-            { "label": "Center", "value": "center" },
-            { "label": "Right", "value": "right" }
-          ],
-          "default": "left"
-        },
-        {
-          "type": "select",
-          "id": "slider_text_position",
-          "label": "Text alignment",
-          "options": [
-            { "label": "Left", "value": "left" },
-            { "label": "Center", "value": "center" },
-            { "label": "Right", "value": "right" }
-          ],
-          "default": "left"
+          "id": "slide_url",
+          "label": "Slide link"
         }
       ]
     }
@@ -497,50 +196,3 @@
   ]
 }
 {% endschema %}
-
-<style>
-  .slider-content .home-slider:before {
-    background-image: url('{{ 'slider-pattern-bg.svg' | asset_url }}');
-  }
-
-  /* Countdown timer styles */
-  .slide-countdown {
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    background: rgba(0,0,0,0.45);
-    border-radius: 6px;
-    padding: 6px 12px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-  }
-  .slide-countdown .cd-icon {
-    margin-right: 4px;
-    font-size: 16px;
-  }
-  .slide-countdown .cd-segment {
-    display: inline-flex;
-    align-items: baseline;
-    gap: 2px;
-  }
-  .slide-countdown .cd-lbl {
-    font-size: 11px;
-    font-weight: 400;
-    opacity: 0.8;
-  }
-  .slide-countdown .cd-sep {
-    opacity: 0.7;
-    margin: 0 2px;
-  }
-
-  /* Description paragraph */
-  .slider-text-info .slide-body-text {
-    margin-top: 14px;
-    margin-bottom: 0;
-    font-size: 15px;
-    line-height: 1.55;
-    max-width: 420px;
-  }
-</style>
