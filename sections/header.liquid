@@ -101,24 +101,15 @@
               </ul>
             </nav>
           </div>
-          {% if section.settings.head_offer_text != '' %}
-          <div class="header-element head-offer-text">
-            <div class="offer-text">
-              <div class="offer-text-item">
-                {% if section.settings.head_offer_text_1_icon != '' %}
-                <span class="icon"><i class="{{ section.settings.head_offer_text_1_icon }}"></i></span>
-                {% endif %}
-                <div class="text" style="--offer-text-font-size: {{ section.settings.offer_text_font_size }}px; --offer-text-text-transform: {{ section.settings.offer_text_text_transform }};  --offer-text-font-weight: {{ section.settings.offer_text_font_weight }};">{{ section.settings.head_offer_text_1 }}</div>
-              </div>
-              <div class="offer-text-item">
-                {% if section.settings.head_offer_text_2_icon != '' %}
-                <span class="icon"><i class="{{ section.settings.head_offer_text_2_icon }}"></i></span>
-                {% endif %}
-                <div class="text" style="--offer-text-font-size: {{ section.settings.offer_text_font_size }}px; --offer-text-text-transform: {{ section.settings.offer_text_text_transform }};  --offer-text-font-weight: {{ section.settings.offer_text_font_weight }};">{{ section.settings.head_offer_text_2 }}</div>
-              </div>
-            </div>
+          {%- if section.settings.show_language_selector and localization.available_languages.size > 1 -%}
+          <div class="header-element head-language-selector">
+            <localization-form>
+              {%- form 'localization', id: 'HeaderLanguageFormDesktop', class: 'localization-form' -%}
+                {%- render 'language-localization', localPosition: 'HeaderLanguageDesktop' -%}
+              {%- endform -%}
+            </localization-form>
           </div>
-          {% endif %}
+          {%- endif -%}
         </div>
       </div>
     </div>
@@ -562,78 +553,6 @@
     },
     {
       "type": "header",
-      "content": "Offer text 1"
-    },
-    {
-      "type": "text",
-      "id": "head_offer_text_1_icon",
-      "label": "Icon class",
-      "default": "feather-bookmark"
-    },
-    {
-      "type": "richtext",
-      "id": "head_offer_text_1",
-      "label": "Text"
-    },
-    {
-      "type": "header",
-      "content": "Offer text 2"
-    },
-    {
-      "type": "text",
-      "id": "head_offer_text_2_icon",
-      "label": "Icon class",
-      "default": "feather-bookmark"
-    },
-    {
-      "type": "richtext",
-      "id": "head_offer_text_2",
-      "label": "Text"
-    },
-    {
-      "type": "range",
-      "id": "offer_text_font_size",
-      "label": "Font size",
-      "min": 10,
-      "max": 20,
-      "step": 1,
-      "default": 18
-    },
-    {
-      "type": "range",
-      "id": "offer_text_font_weight",
-      "label": "Font weight",
-      "min": 100,
-      "max": 900,
-      "step": 100,
-      "default": 600
-    },
-    {
-      "type": "select",
-      "id": "offer_text_text_transform",
-      "label": "Navigation text property",
-      "options": [
-        {
-          "label": "Capitalize",
-          "value": "capitalize"
-        },
-        {
-          "label": "Lowercase",
-          "value": "lowercase"
-        },
-        {
-          "label": "Uppercase",
-          "value": "uppercase"
-        },
-        {
-          "label": "None",
-          "value": "none"
-        }
-      ],
-      "default": "none"
-    },
-    {
-      "type": "header",
       "content": "Navigation icon color"
     },
     {
@@ -653,6 +572,17 @@
       "id": "header_menuicon_hvr_color",
       "label": "Hover color",
       "default": "#222"
+    },
+    {
+      "type": "header",
+      "content": "Language selector",
+      "info": "To add a language, go to your [language settings.](\/admin\/settings\/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_language_selector",
+      "label": "Show language dropdown in header",
+      "default": true
     },
     {
       "type": "header",
@@ -4898,21 +4828,19 @@
     background-color: {{ section.settings.header_vega_menu_title_hvr_bgcolor }};
   }
   .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link a.link-title,
-  .header1 .header-area .header-bottom .head-offer-text .offer-text .text p,
-  .header1 .header-area .header-bottom .head-offer-text .offer-text .text p a,
-  .header1 .header-area .header-bottom .head-offer-text .offer-text span.icon,
   .header1 .right-block-box ul.shop-element li.side-wrap .header-icon span.title,
   .header1 .right-block-box ul.shop-element li.side-wrap .header-icon span.mini-cart-total-price,
-  .header1 .right-block-box ul.shop-element li.side-wrap .user-main a.header-icon:last-child:before {
+  .header1 .right-block-box ul.shop-element li.side-wrap .user-main a.header-icon:last-child:before,
+  .header1 .header-area .header-bottom-wrap .header-bottom .head-language-selector form button {
     color: {{ section.settings.header_menutext_color }};
   }
   .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link a.link-title span.sp-link-title::after {
     background-color: {{ section.settings.header_menutext_hvr_color }};
   }
   .header1 .header-area .megamenu-content .mainwrap ul.main-menu li.menu-link:hover a.link-title,
-  .header1 .header-area .header-bottom .head-offer-text .offer-text .text p a:hover,
   .header1 .right-block-box ul.shop-element li.side-wrap .header-icon:hover span.title,
-  .header1 .right-block-box ul.shop-element li.side-wrap .header-icon:hover span.mini-cart-total-price {
+  .header1 .right-block-box ul.shop-element li.side-wrap .header-icon:hover span.mini-cart-total-price,
+  .header1 .header-area .header-bottom-wrap .header-bottom .head-language-selector form button:hover {
     color: {{ section.settings.header_menutext_hvr_color }};
   }
 

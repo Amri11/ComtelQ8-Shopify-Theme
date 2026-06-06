@@ -13,6 +13,17 @@
 }
 .shop-by-category .shop-by-category-head h2 {
   margin: 0;
+  font-size: 50px;
+}
+@media (max-width: 1199px) {
+  .shop-by-category .shop-by-category-head h2 {
+    font-size: 32px;
+  }
+}
+@media (max-width: 767px) {
+  .shop-by-category .shop-by-category-head h2 {
+    font-size: 24px;
+  }
 }
 .shop-by-category .shop-by-category-head .shop-all-link {
   flex: 0 0 auto;

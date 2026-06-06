@@ -6,6 +6,10 @@
 
 .offer-cards .section-capture {
   margin-bottom: 24px;
+  text-align: left;
+}
+.offer-cards .section-capture .section-title {
+  align-items: flex-start;
 }
 
 .offer-cards .offer-cards-wrap {
