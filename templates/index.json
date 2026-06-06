@@ -15,29 +15,33 @@
         "slide_amfL9A": {
           "type": "slide",
           "settings": {
-            "enable_video_looping": false,
             "slider_video_enable": false,
+            "enable_video_looping": false,
+            "countdown_enable": false,
+            "countdown_end_date": "",
             "mobile_text_enable": false,
             "slider_desc": "Sophisticated style",
             "slider_desc_color": "#196087",
             "slider_title": "Timeless designs modern living",
             "slider_title_color": "#333333",
+            "slider_body": "",
+            "slider_body_color": "#dddddd",
             "slider_button_1": "Shop now",
+            "slider_button_1_url": "shopify://collections",
             "btn_1_txt_color": "#222222",
             "btn_1_txt_hvr_color": "#ffffff",
             "btn_1_bg_color": "#f3b313",
             "btn_1_bg_hvr_color": "#196087",
             "btn_1_border_color": "#f3b313",
             "btn_1_border_hvr_color": "#196087",
-            "slider_button_1_url": "shopify://collections",
             "slider_button_2": "Buy now",
+            "slider_button_2_url": "shopify://products/manchester-stroller-grey-copy",
             "btn_2_txt_color": "#222222",
             "btn_2_txt_hvr_color": "#ffffff",
             "btn_2_bg_color": "rgba(0,0,0,0)",
             "btn_2_bg_hvr_color": "#196087",
             "btn_2_border_color": "#196087",
             "btn_2_border_hvr_color": "#196087",
-            "slider_button_2_url": "shopify://products/manchester-stroller-grey-copy",
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
@@ -45,29 +49,33 @@
         "slide_CnBRkq": {
           "type": "slide",
           "settings": {
-            "enable_video_looping": false,
             "slider_video_enable": false,
+            "enable_video_looping": false,
+            "countdown_enable": false,
+            "countdown_end_date": "",
             "mobile_text_enable": false,
             "slider_desc": "Complete marketplace",
             "slider_desc_color": "#196087",
             "slider_title": "Smart shopping everything here",
             "slider_title_color": "#333333",
+            "slider_body": "",
+            "slider_body_color": "#dddddd",
             "slider_button_1": "Shop now",
+            "slider_button_1_url": "shopify://collections",
             "btn_1_txt_color": "#222222",
             "btn_1_txt_hvr_color": "#ffffff",
             "btn_1_bg_color": "#f3b313",
             "btn_1_bg_hvr_color": "#196087",
             "btn_1_border_color": "#f3b313",
             "btn_1_border_hvr_color": "#196087",
-            "slider_button_1_url": "shopify://collections",
             "slider_button_2": "Buy now",
+            "slider_button_2_url": "shopify://products/buds-n1-pro-copy",
             "btn_2_txt_color": "#222222",
             "btn_2_txt_hvr_color": "#ffffff",
             "btn_2_bg_color": "rgba(0,0,0,0)",
             "btn_2_bg_hvr_color": "#196087",
             "btn_2_border_color": "#196087",
             "btn_2_border_hvr_color": "#196087",
-            "slider_button_2_url": "shopify://products/buds-n1-pro-copy",
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
@@ -75,29 +83,33 @@
         "slide_H7hVg9": {
           "type": "slide",
           "settings": {
-            "enable_video_looping": false,
             "slider_video_enable": false,
+            "enable_video_looping": false,
+            "countdown_enable": false,
+            "countdown_end_date": "",
             "mobile_text_enable": false,
             "slider_desc": "Exceptional variety",
             "slider_desc_color": "#196087",
             "slider_title": "Your all-in-one marketplace",
             "slider_title_color": "#333333",
+            "slider_body": "",
+            "slider_body_color": "#dddddd",
             "slider_button_1": "Shop now",
+            "slider_button_1_url": "shopify://collections/all",
             "btn_1_txt_color": "#222222",
             "btn_1_txt_hvr_color": "#ffffff",
             "btn_1_bg_color": "#f3b313",
             "btn_1_bg_hvr_color": "#196087",
             "btn_1_border_color": "#f3b313",
             "btn_1_border_hvr_color": "#196087",
-            "slider_button_1_url": "shopify://collections/all",
             "slider_button_2": "Buy now",
+            "slider_button_2_url": "shopify://products/turkey-burgers",
             "btn_2_txt_color": "#222222",
             "btn_2_txt_hvr_color": "#ffffff",
             "btn_2_bg_color": "rgba(0,0,0,0)",
             "btn_2_bg_hvr_color": "#196087",
             "btn_2_border_color": "#196087",
             "btn_2_border_hvr_color": "#196087",
-            "slider_button_2_url": "shopify://products/turkey-burgers",
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
@@ -109,6 +121,8 @@
         "slide_H7hVg9"
       ],
       "settings": {
+        "slider_width": "contained",
+        "slider_border_radius": 16,
         "slider_autoplay_enable": false,
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000,
@@ -201,8 +215,8 @@
         "section_padding_bottom": 80,
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60,
-        "section_bg_color": "#FFFFFF",
-        "circle_bg_color": "#F4F4F6",
+        "section_bg_color": "#ffffff",
+        "circle_bg_color": "#f4f4f6",
         "section_heading": "Shop by Category",
         "shop_all_label": "Shop All",
         "shop_all_url": "",
@@ -210,6 +224,131 @@
         "slider_item_ipadpro": "6",
         "slider_item_ipad": "4",
         "slider_item_mobile": "2.5",
+        "slider_loop": false,
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": true,
+        "dots_enable": false
+      }
+    },
+    "offer_cards_bqaWQx": {
+      "type": "offer-cards",
+      "blocks": {
+        "offer_card_MEexDw": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_PFrwAW": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_ApwThj": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_3RNftf": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_E7DXxU": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_9FGR38": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_WT7VT4": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "offer_card_NVHUzx": {
+          "type": "offer_card",
+          "settings": {
+            "card_title": "Offer title",
+            "card_title_color": "#FFFFFF",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#FFE34D",
+            "badge_text_color": "#1A1A1A"
+          }
+        }
+      },
+      "block_order": [
+        "offer_card_MEexDw",
+        "offer_card_PFrwAW",
+        "offer_card_ApwThj",
+        "offer_card_3RNftf",
+        "offer_card_E7DXxU",
+        "offer_card_9FGR38",
+        "offer_card_WT7VT4",
+        "offer_card_NVHUzx"
+      ],
+      "name": "Offer cards",
+      "settings": {
+        "container": "normal",
+        "section_padding_top": 80,
+        "section_padding_bottom": 80,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_bg_color": "#FFFFFF",
+        "section_heading": "New Products and Current Offers",
+        "section_subheading": "",
+        "card_radius": 12,
+        "slider_item_desktop": "6",
+        "slider_item_ipadpro": "4",
+        "slider_item_ipad": "3",
+        "slider_item_mobile": "1.5",
         "slider_loop": false,
         "slider_autoplay_enable": false,
         "slider_autoplay_timeout": 5000,
@@ -666,6 +805,7 @@
   "order": [
     "slideshow",
     "shop_by_category_kVFhjX",
+    "offer_cards_bqaWQx",
     "featured_collection_NK3dwr",
     "banner_grid_mQzTGP",
     "featured_collection_qynbPV",
