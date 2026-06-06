@@ -126,7 +126,7 @@
       "settings": {
         "container": "normal",
         "section_padding_top": 35,
-        "section_padding_bottom": 30,
+        "section_padding_bottom": 35,
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60,
         "section_bg_color": "#ffffff",
@@ -251,8 +251,8 @@
       "name": "Offer cards",
       "settings": {
         "container": "normal",
-        "section_padding_top": 0,
-        "section_padding_bottom": 5,
+        "section_padding_top": 35,
+        "section_padding_bottom": 35,
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60,
         "section_bg_color": "#ffffff",
@@ -286,8 +286,8 @@
       ],
       "settings": {
         "container": "normal",
-        "section_padding_top": 0,
-        "section_padding_bottom": 0,
+        "section_padding_top": 35,
+        "section_padding_bottom": 35,
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60,
         "section_bg_color": "rgba(0,0,0,0)",
