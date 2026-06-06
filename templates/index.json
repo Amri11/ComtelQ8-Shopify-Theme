@@ -330,46 +330,25 @@
             "banner_text_position": "center"
           }
         },
-        "single_banner_CGqwnW": {
+        "single_banner_3JzXyi": {
           "type": "single_banner",
           "settings": {
-            "banner_subtitle": "",
-            "banner_subtitle_color": "#ffffff",
-            "banner_title": "Confidence in every stitch",
-            "banner_title_color": "#333333",
+            "banner_subtitle": "Big discount only 30% off",
+            "banner_subtitle_color": "#868686",
+            "banner_title": "Weekly sale",
+            "banner_title_color": "#222222",
             "banner_button_text": "Shop now",
-            "banner_button_link": "shopify://collections/all",
-            "banner_content_position": "center",
-            "banner_text_position": "center"
-          }
-        },
-        "two_banner_Rx9kB4": {
-          "type": "two_banner",
-          "settings": {
-            "two_banner_1_subtitle": "",
-            "two_banner_1_subtitle_color": "#ffffff",
-            "two_banner_1_title": "Music goes wireless",
-            "two_banner_1_title_color": "#333333",
-            "two_banner_1_button_text": "Shop now",
-            "two_banner_1_link": "shopify://collections",
-            "two_1_banner_content_position": "right",
-            "two_1_banner_text_position": "left",
-            "two_banner_2_subtitle": "",
-            "two_banner_2_subtitle_color": "#ffffff",
-            "two_banner_2_title": "Tech that tastes better",
-            "two_banner_2_title_color": "#333333",
-            "two_banner_2_button_text": "Shop now",
-            "two_banner_2_link": "shopify://collections/blood-pressure",
-            "two_2_banner_content_position": "right",
-            "two_2_banner_text_position": "left"
+            "banner_button_link": "",
+            "banner_content_position": "right",
+            "banner_text_position": "left"
           }
         }
       },
       "block_order": [
         "single_banner_bJxagV",
-        "single_banner_CGqwnW",
-        "two_banner_Rx9kB4"
+        "single_banner_3JzXyi"
       ],
+      "disabled": true,
       "settings": {
         "container": "normal",
         "section_padding_top": 0,
