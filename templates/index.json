@@ -15,6 +15,8 @@
         "slide_amfL9A": {
           "type": "slide",
           "settings": {
+            "slider_img": "shopify://shop_images/slider-2.webp",
+            "slider_mobile_img": "shopify://shop_images/slider-2.webp",
             "slider_video_enable": false,
             "enable_video_looping": false,
             "countdown_enable": false,
@@ -49,6 +51,8 @@
         "slide_CnBRkq": {
           "type": "slide",
           "settings": {
+            "slider_img": "shopify://shop_images/slider-1_1_1.webp",
+            "slider_mobile_img": "shopify://shop_images/slider-1_1_1.webp",
             "slider_video_enable": false,
             "enable_video_looping": false,
             "countdown_enable": false,
@@ -79,46 +83,11 @@
             "slider_content_position": "left",
             "slider_text_position": "left"
           }
-        },
-        "slide_H7hVg9": {
-          "type": "slide",
-          "settings": {
-            "slider_video_enable": false,
-            "enable_video_looping": false,
-            "countdown_enable": false,
-            "countdown_end_date": "",
-            "mobile_text_enable": false,
-            "slider_desc": "Exceptional variety",
-            "slider_desc_color": "#196087",
-            "slider_title": "Your all-in-one marketplace",
-            "slider_title_color": "#333333",
-            "slider_body": "",
-            "slider_body_color": "#dddddd",
-            "slider_button_1": "Shop now",
-            "slider_button_1_url": "shopify://collections/all",
-            "btn_1_txt_color": "#222222",
-            "btn_1_txt_hvr_color": "#ffffff",
-            "btn_1_bg_color": "#f3b313",
-            "btn_1_bg_hvr_color": "#196087",
-            "btn_1_border_color": "#f3b313",
-            "btn_1_border_hvr_color": "#196087",
-            "slider_button_2": "Buy now",
-            "slider_button_2_url": "shopify://products/turkey-burgers",
-            "btn_2_txt_color": "#222222",
-            "btn_2_txt_hvr_color": "#ffffff",
-            "btn_2_bg_color": "rgba(0,0,0,0)",
-            "btn_2_bg_hvr_color": "#196087",
-            "btn_2_border_color": "#196087",
-            "btn_2_border_hvr_color": "#196087",
-            "slider_content_position": "left",
-            "slider_text_position": "left"
-          }
         }
       },
       "block_order": [
         "slide_amfL9A",
-        "slide_CnBRkq",
-        "slide_H7hVg9"
+        "slide_CnBRkq"
       ],
       "settings": {
         "slider_width": "contained",
