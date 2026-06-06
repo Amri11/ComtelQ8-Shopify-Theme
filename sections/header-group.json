@@ -1,1 +1,446 @@
-{"type":"header","name":"Header group","sections":{"announcement-bar":{"type":"announcement-bar","settings":{"container":"fluid","section_padding_top":15,"section_padding_bottom":15,"section_padding_top_xs":10,"section_padding_bottom_xs":10,"notification_bg_color":"#196087","notification_txt_color":"#ffffff","topbar_notification_text1":"<p>Your order, our treat – free shipping always<\/p>","custom_info_1_icon":"feather-phone-call","custom_info_1_text":"<p><a href=\"tel:+0123 456 789\" title=\"tel:+0123 456 789\">+0123 456 789<\/a><\/p>","custom_info_2_icon":"feather-mail","custom_info_2_text":"<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com<\/a><\/p>","show_custom_info_mobile":true,"enable_country_selector":true,"enable_language_selector":true}},"header":{"type":"header","blocks":{"menu_collection_tLdMWW":{"type":"menu_collection","settings":{"menu_collection_title":"Home","menu_collection_url":"\/","menu_collection_label":"","menu_collection_label_color":"#ffffff","menu_collection_label_font_size":10,"menu_collection_label_top_position":10,"menu_collection_label_bgcolor":"#0c32ff","menu_collection_label_text_transform":"uppercase","menu_collection_label_font-weight":400,"menu_collection_label_border_radius":3,"menu_collection_label_line_height":1.1,"banner_title_mobile_enable":true,"menu_collection_banner_img1":"shopify:\/\/shop_images\/1-activewear.jpg","menu_collection_banner_title1":"01 Active wear","menu_collection_banner_label1":"","menu_collection_banner_label1_color":"#ffffff","menu_collection_banner_label1_bg_color":"#ff3707","menu_collection_banner_url1":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=131575808109","menu_collection_banner_img2":"shopify:\/\/shop_images\/2-sport-shoes.jpg","menu_collection_banner_title2":"02 Sport shoes","menu_collection_banner_label2":"","menu_collection_banner_label2_color":"#ffffff","menu_collection_banner_label2_bg_color":"#ff3707","menu_collection_banner_url2":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=131664216173","menu_collection_banner_img3":"shopify:\/\/shop_images\/3-hat.jpg","menu_collection_banner_title3":"03 Hat","menu_collection_banner_label3":"","menu_collection_banner_label3_color":"#ffffff","menu_collection_banner_label3_bg_color":"#ff3707","menu_collection_banner_url3":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=131814064237","menu_collection_banner_img4":"shopify:\/\/shop_images\/4-sunglasses.jpg","menu_collection_banner_title4":"04 Sunglasses","menu_collection_banner_label4":"","menu_collection_banner_label4_color":"#ffffff","menu_collection_banner_label4_bg_color":"#ff3707","menu_collection_banner_url4":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=131941531757","menu_collection_banner_img5":"shopify:\/\/shop_images\/5-pottery.jpg","menu_collection_banner_title5":"05 Pottery","menu_collection_banner_label5":"","menu_collection_banner_label5_color":"#ffffff","menu_collection_banner_label5_bg_color":"#ff3707","menu_collection_banner_url5":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=132350476397","menu_collection_banner_img6":"shopify:\/\/shop_images\/6-flower.jpg","menu_collection_banner_title6":"06 Flowers","menu_collection_banner_label6":"","menu_collection_banner_label6_color":"#ffffff","menu_collection_banner_label6_bg_color":"#ff3707","menu_collection_banner_url6":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=132409819245","menu_collection_banner_img7":"shopify:\/\/shop_images\/7-multistore.jpg","menu_collection_banner_title7":"07 Multistore","menu_collection_banner_label7":"","menu_collection_banner_label7_color":"#ffffff","menu_collection_banner_label7_bg_color":"#ff3707","menu_collection_banner_url7":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=134198952045","menu_collection_banner_img8":"shopify:\/\/shop_images\/8-socks.jpg","menu_collection_banner_title8":"08 Socks","menu_collection_banner_label8":"","menu_collection_banner_label8_color":"#ffffff","menu_collection_banner_label8_bg_color":"#ff3707","menu_collection_banner_url8":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=133666635885","menu_collection_banner_img9":"shopify:\/\/shop_images\/9-art.jpg","menu_collection_banner_title9":"09 Art","menu_collection_banner_label9":"","menu_collection_banner_label9_color":"#ffffff","menu_collection_banner_label9_bg_color":"#ff3707","menu_collection_banner_url9":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=132938956909","menu_collection_banner_img10":"shopify:\/\/shop_images\/10-books.jpg","menu_collection_banner_title10":"10 Book","menu_collection_banner_label10":"","menu_collection_banner_label10_color":"#ffffff","menu_collection_banner_label10_bg_color":"#ff3707","menu_collection_banner_url10":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=133219516525","menu_collection_banner_img11":"shopify:\/\/shop_images\/11-candle.jpg","menu_collection_banner_title11":"11 Candle","menu_collection_banner_label11":"","menu_collection_banner_label11_color":"#ffffff","menu_collection_banner_label11_bg_color":"#ff3707","menu_collection_banner_url11":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=133329485933","menu_collection_banner_img12":"shopify:\/\/shop_images\/12-icecream.jpg","menu_collection_banner_title12":"12 Icecream","menu_collection_banner_label12":"","menu_collection_banner_label12_color":"#ffffff","menu_collection_banner_label12_bg_color":"#ff3707","menu_collection_banner_url12":"https:\/\/atleto-demo1.myshopify.com\/?preview_theme_id=133395972205","menu_collection_all_url":"https:\/\/spacingtech.com\/shopify\/atleto","menu_collection_all_button":"View all demo"}},"73dbee9f-c33c-42e0-b47e-a461774a6d37":{"type":"menu_shop","settings":{"menu_shop_title":"Shop","menu_shop_url":"shopify:\/\/collections\/all","menu_shop_label":"Sale","menu_shop_label_color":"#ffffff","menu_shop_label_font_size":11,"menu_shop_label_top_position":15,"menu_shop_label_bgcolor":"#222222","menu_shop_label_text_transform":"uppercase","menu_shop_label_font-weight":500,"menu_shop_label_border_radius":2,"menu_shop_label_line_height":1.1,"menu_shop_select1":"active-wear","menu_shop_select2":"casual-socks","menu_shop_select3":"drama-books","menu_shop_select4":"painting-brush","menu_shop_banner_img1":"shopify:\/\/shop_images\/Brown_modern_we_are_closed_facebook_post_1.jpg","menu_shop_banner_url1":"shopify:\/\/collections\/all"}},"menu_product2_QdcTKk":{"type":"menu_product2","settings":{"menu_product_title":"Collection","menu_product_url":"shopify:\/\/collections","menu_product_label":"","menu_product_label_color":"#ffffff","menu_product_label_font_size":10,"menu_product_label_top_position":10,"menu_product_label_bgcolor":"#0c32ff","menu_product_label_text_transform":"uppercase","menu_product_label_font-weight":400,"menu_product_label_border_radius":3,"menu_product_label_line_height":1.1,"menu_product_select":"casual-socks","menu_product_select2":"active-wear","menu_product_select3":"drama-books","menu_product_select4":"painting-brush","product_title":"Popular collection","menu_product_collection1":"ankle-socks","menu_product_collection1_limit":12}},"d8c14ef8-1cc1-4e85-987c-43ddaea91fc4":{"type":"menu_link","settings":{"menu_link_title":"Blogs","menu_link_url":"shopify:\/\/blogs\/multi-store","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"5037c259-47ec-480f-bb36-2ed33b54ddf2":{"type":"menu_sub","settings":{"menu_sub_title":"Pages","menu_sub_url":"#","menu_sub_label":"","menu_sub_label_color":"#ffffff","menu_sub_label_font_size":10,"menu_sub_label_top_position":10,"menu_sub_label_bgcolor":"#0c32ff","menu_sub_label_text_transform":"uppercase","menu_sub_label_font-weight":400,"menu_sub_label_border_radius":3,"menu_sub_label_line_height":1.1,"menu_sub_select":"main-menu"}},"vega_menu_shop_K8gac3":{"type":"vega_menu_shop","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-1.jpg","menu_shop_title":"Vegetable","menu_shop_url":"shopify:\/\/collections","menu_shop_label":"","menu_shop_label_color":"#ffffff","menu_shop_label_font_size":10,"menu_shop_label_top_position":10,"menu_shop_label_bgcolor":"#ff0c32","menu_shop_label_text_transform":"uppercase","menu_shop_label_font-weight":400,"menu_shop_label_border_radius":3,"menu_shop_label_line_height":1.1,"menu_shop_select1":"vegamenu-1","menu_shop_collection_select1":"","menu_shop_select2":"vegamenu-2","menu_shop_collection_select2":"","menu_shop_select3":"vegamenu-3","menu_shop_collection_select3":"","menu_shop_banner_img1":"shopify:\/\/shop_images\/Green_Modern_Vegetable_Store_Promo_Instagram_Story_1.jpg","menu_shop_banner_url1":""}},"vega_menu_product2_xwWUfP":{"type":"vega_menu_product2","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-2.jpg","menu_product_title":"Jewellery","menu_product_url":"shopify:\/\/collections","menu_product_label":"","menu_product_label_color":"#ffffff","menu_product_label_font_size":10,"menu_product_label_top_position":10,"menu_product_label_bgcolor":"#0c32ff","menu_product_label_text_transform":"uppercase","menu_product_label_font-weight":400,"menu_product_label_border_radius":3,"menu_product_label_line_height":1.1,"menu_product_select":"vegamenu-3","menu_product_collection_select":"","menu_product_select2":"vegamenu-1","menu_product_collection_select2":"","product_title":"Best seller","menu_product_collection1":"multi-store-trending","menu_product_collection1_limit":12}},"vega_menu_single_d4ByDj":{"type":"vega_menu_single","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-3.jpg","menu_single_title":"Cosmetics","menu_single_url":"shopify:\/\/collections","menu_single_label":"","menu_single_label_color":"#ffffff","menu_single_label_font_size":10,"menu_single_label_top_position":10,"menu_single_label_bgcolor":"#05d14b","menu_single_label_text_transform":"uppercase","menu_single_label_font-weight":400,"menu_single_label_border_radius":3,"menu_single_label_line_height":1.1,"menu_single_select":"categories"}},"vega_menu_link_TdHrGf":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-4.jpg","menu_link_title":"Electronics","menu_link_url":"shopify:\/\/collections\/painting-brush","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"vega_menu_link_FURkPN":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-5.jpg","menu_link_title":"Medical","menu_link_url":"shopify:\/\/collections\/tools","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"vega_menu_link_HpBRBU":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-6.jpg","menu_link_title":"Plants","menu_link_url":"shopify:\/\/collections\/diary-book","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"vega_menu_link_zgfW89":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-7.jpg","menu_link_title":"Sheos","menu_link_url":"shopify:\/\/collections\/clipboard","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"vega_menu_link_eNbxNe":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-8.jpg","menu_link_title":"Gifts","menu_link_url":"shopify:\/\/collections\/ballpen","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"vega_menu_link_px7tfK":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-9.jpg","menu_link_title":"Flowers","menu_link_url":"shopify:\/\/collections\/photo-paper","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}},"vega_menu_link_HXB4pP":{"type":"vega_menu_link","settings":{"menuvega_link_image":"shopify:\/\/shop_images\/categories-10.jpg","menu_link_title":"Drinks","menu_link_url":"shopify:\/\/collections\/colour-palette","menu_link_label":"","menu_link_label_color":"#ffffff","menu_link_label_font_size":10,"menu_link_label_top_position":10,"menu_link_label_bgcolor":"#05d14b","menu_link_label_text_transform":"uppercase","menu_link_label_font-weight":400,"menu_link_label_border_radius":3,"menu_link_label_line_height":1.1}}},"block_order":["menu_collection_tLdMWW","73dbee9f-c33c-42e0-b47e-a461774a6d37","menu_product2_QdcTKk","d8c14ef8-1cc1-4e85-987c-43ddaea91fc4","5037c259-47ec-480f-bb36-2ed33b54ddf2","vega_menu_shop_K8gac3","vega_menu_product2_xwWUfP","vega_menu_single_d4ByDj","vega_menu_link_TdHrGf","vega_menu_link_FURkPN","vega_menu_link_HpBRBU","vega_menu_link_zgfW89","vega_menu_link_eNbxNe","vega_menu_link_px7tfK","vega_menu_link_HXB4pP"],"settings":{"container":"fluid","logo_alignment":"left","menu_alignment":"left","header_transparent_enable":false,"header_sticky_enable":true,"header_bgcolor":"#ffffff","header_bottom_bg_color":"#fafafa","vegamenu_enable":true,"header_vega_menu_title":"All categories","header_vega_menu_title_color":"#ffffff","header_vega_menu_title_bgcolor":"#196087","header_vega_menu_title_hvr_color":"#ffffff","header_vega_menu_title_hvr_bgcolor":"#222222","vegamenu_font_size":16,"vegamenu_font_size_lg":16,"vegamenu_font_weight":500,"vegamenu_text_transform":"uppercase","header_main_menu_title":"Menu","header_menutext_color":"#171717","header_menutext_hvr_color":"#196087","menu_font_size":16,"menu_font_size_lg":16,"menu_font_weight":400,"menu_text_transform":"none","head_offer_text_1_icon":"feather-bookmark","head_offer_text_1":"<p><a href=\"\/collections\" title=\"All collections\">Deals today<\/a><\/p>","head_offer_text_2_icon":"feather-dollar-sign","head_offer_text_2":"<p><a href=\"\/collections\/all\" title=\"All products\">Special price<\/a><\/p>","offer_text_font_size":16,"offer_text_font_weight":600,"offer_text_text_transform":"uppercase","header_menuicon_color":"#f3b313","header_menuicon_color_mobile":"#222222","header_menuicon_hvr_color":"#196087","enable_country_selector":true,"enable_language_selector":true}},"news-popup":{"type":"news-popup","settings":{"timeout":3000,"modal_bg_color":"#ffffff","news_subheading":"Don't miss a thing","news_subheading_color":"#676767","news_heading":"Join our newsletter and get 10% off your first order","news_heading_color":"#2c2c32","newsletter_success_text":"Thank you for subscribe use this code for first order","newsletter_coupan_code":"20%OFF","dont_show_text":"Don’t show this popup again","news_banner":"shopify:\/\/shop_images\/Black_and_White_Minimalist_Discount_Facebook_Cover.jpg"}}},"order":["announcement-bar","header","news-popup"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "header",
+  "name": "Header group",
+  "sections": {
+    "announcement-bar": {
+      "type": "announcement-bar",
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 15,
+        "section_padding_bottom": 15,
+        "section_padding_top_xs": 10,
+        "section_padding_bottom_xs": 10,
+        "notification_bg_color": "#196087",
+        "notification_txt_color": "#ffffff",
+        "topbar_notification_text1": "<p>Your order, our treat – free shipping always</p>",
+        "custom_info_1_icon": "feather-phone-call",
+        "custom_info_1_text": "<p><a href=\"tel:+0123 456 789\" title=\"tel:+0123 456 789\">+0123 456 789</a></p>",
+        "custom_info_2_icon": "feather-mail",
+        "custom_info_2_text": "<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com</a></p>",
+        "show_custom_info_mobile": true,
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    },
+    "header": {
+      "type": "header",
+      "blocks": {
+        "menu_collection_tLdMWW": {
+          "type": "menu_collection",
+          "settings": {
+            "menu_collection_title": "Home",
+            "menu_collection_url": "/",
+            "menu_collection_label": "",
+            "menu_collection_label_color": "#ffffff",
+            "menu_collection_label_font_size": 10,
+            "menu_collection_label_top_position": 10,
+            "menu_collection_label_bgcolor": "#0c32ff",
+            "menu_collection_label_text_transform": "uppercase",
+            "menu_collection_label_font-weight": 400,
+            "menu_collection_label_border_radius": 3,
+            "menu_collection_label_line_height": 1.1,
+            "banner_title_mobile_enable": true,
+            "menu_collection_banner_title1": "01 Active wear",
+            "menu_collection_banner_label1": "",
+            "menu_collection_banner_label1_color": "#ffffff",
+            "menu_collection_banner_label1_bg_color": "#ff3707",
+            "menu_collection_banner_url1": "https://atleto-demo1.myshopify.com/?preview_theme_id=131575808109",
+            "menu_collection_banner_title2": "02 Sport shoes",
+            "menu_collection_banner_label2": "",
+            "menu_collection_banner_label2_color": "#ffffff",
+            "menu_collection_banner_label2_bg_color": "#ff3707",
+            "menu_collection_banner_url2": "https://atleto-demo1.myshopify.com/?preview_theme_id=131664216173",
+            "menu_collection_banner_title3": "03 Hat",
+            "menu_collection_banner_label3": "",
+            "menu_collection_banner_label3_color": "#ffffff",
+            "menu_collection_banner_label3_bg_color": "#ff3707",
+            "menu_collection_banner_url3": "https://atleto-demo1.myshopify.com/?preview_theme_id=131814064237",
+            "menu_collection_banner_title4": "04 Sunglasses",
+            "menu_collection_banner_label4": "",
+            "menu_collection_banner_label4_color": "#ffffff",
+            "menu_collection_banner_label4_bg_color": "#ff3707",
+            "menu_collection_banner_url4": "https://atleto-demo1.myshopify.com/?preview_theme_id=131941531757",
+            "menu_collection_banner_title5": "05 Pottery",
+            "menu_collection_banner_label5": "",
+            "menu_collection_banner_label5_color": "#ffffff",
+            "menu_collection_banner_label5_bg_color": "#ff3707",
+            "menu_collection_banner_url5": "https://atleto-demo1.myshopify.com/?preview_theme_id=132350476397",
+            "menu_collection_banner_title6": "06 Flowers",
+            "menu_collection_banner_label6": "",
+            "menu_collection_banner_label6_color": "#ffffff",
+            "menu_collection_banner_label6_bg_color": "#ff3707",
+            "menu_collection_banner_url6": "https://atleto-demo1.myshopify.com/?preview_theme_id=132409819245",
+            "menu_collection_banner_title7": "07 Multistore",
+            "menu_collection_banner_label7": "",
+            "menu_collection_banner_label7_color": "#ffffff",
+            "menu_collection_banner_label7_bg_color": "#ff3707",
+            "menu_collection_banner_url7": "https://atleto-demo1.myshopify.com/?preview_theme_id=134198952045",
+            "menu_collection_banner_title8": "08 Socks",
+            "menu_collection_banner_label8": "",
+            "menu_collection_banner_label8_color": "#ffffff",
+            "menu_collection_banner_label8_bg_color": "#ff3707",
+            "menu_collection_banner_url8": "https://atleto-demo1.myshopify.com/?preview_theme_id=133666635885",
+            "menu_collection_banner_title9": "09 Art",
+            "menu_collection_banner_label9": "",
+            "menu_collection_banner_label9_color": "#ffffff",
+            "menu_collection_banner_label9_bg_color": "#ff3707",
+            "menu_collection_banner_url9": "https://atleto-demo1.myshopify.com/?preview_theme_id=132938956909",
+            "menu_collection_banner_title10": "10 Book",
+            "menu_collection_banner_label10": "",
+            "menu_collection_banner_label10_color": "#ffffff",
+            "menu_collection_banner_label10_bg_color": "#ff3707",
+            "menu_collection_banner_url10": "https://atleto-demo1.myshopify.com/?preview_theme_id=133219516525",
+            "menu_collection_banner_title11": "11 Candle",
+            "menu_collection_banner_label11": "",
+            "menu_collection_banner_label11_color": "#ffffff",
+            "menu_collection_banner_label11_bg_color": "#ff3707",
+            "menu_collection_banner_url11": "https://atleto-demo1.myshopify.com/?preview_theme_id=133329485933",
+            "menu_collection_banner_title12": "12 Icecream",
+            "menu_collection_banner_label12": "",
+            "menu_collection_banner_label12_color": "#ffffff",
+            "menu_collection_banner_label12_bg_color": "#ff3707",
+            "menu_collection_banner_url12": "https://atleto-demo1.myshopify.com/?preview_theme_id=133395972205",
+            "menu_collection_all_url": "https://spacingtech.com/shopify/atleto",
+            "menu_collection_all_button": "View all demo"
+          }
+        },
+        "73dbee9f-c33c-42e0-b47e-a461774a6d37": {
+          "type": "menu_shop",
+          "settings": {
+            "menu_shop_title": "Shop",
+            "menu_shop_url": "shopify://collections/all",
+            "menu_shop_label": "Sale",
+            "menu_shop_label_color": "#ffffff",
+            "menu_shop_label_font_size": 11,
+            "menu_shop_label_top_position": 15,
+            "menu_shop_label_bgcolor": "#222222",
+            "menu_shop_label_text_transform": "uppercase",
+            "menu_shop_label_font-weight": 500,
+            "menu_shop_label_border_radius": 2,
+            "menu_shop_label_line_height": 1.1,
+            "menu_shop_select1": "",
+            "menu_shop_select2": "",
+            "menu_shop_select3": "",
+            "menu_shop_select4": "",
+            "menu_shop_banner_url1": "shopify://collections/all"
+          }
+        },
+        "menu_product2_QdcTKk": {
+          "type": "menu_product2",
+          "settings": {
+            "menu_product_title": "Collection",
+            "menu_product_url": "shopify://collections",
+            "menu_product_label": "",
+            "menu_product_label_color": "#ffffff",
+            "menu_product_label_font_size": 10,
+            "menu_product_label_top_position": 10,
+            "menu_product_label_bgcolor": "#0c32ff",
+            "menu_product_label_text_transform": "uppercase",
+            "menu_product_label_font-weight": 400,
+            "menu_product_label_border_radius": 3,
+            "menu_product_label_line_height": 1.1,
+            "menu_product_select": "",
+            "menu_product_select2": "",
+            "menu_product_select3": "",
+            "menu_product_select4": "",
+            "product_title": "Popular collection",
+            "menu_product_collection1": "ankle-socks",
+            "menu_product_collection1_limit": 12
+          }
+        },
+        "d8c14ef8-1cc1-4e85-987c-43ddaea91fc4": {
+          "type": "menu_link",
+          "settings": {
+            "menu_link_title": "Blogs",
+            "menu_link_url": "shopify://blogs/multi-store",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "5037c259-47ec-480f-bb36-2ed33b54ddf2": {
+          "type": "menu_sub",
+          "settings": {
+            "menu_sub_title": "Pages",
+            "menu_sub_url": "#",
+            "menu_sub_label": "",
+            "menu_sub_label_color": "#ffffff",
+            "menu_sub_label_font_size": 10,
+            "menu_sub_label_top_position": 10,
+            "menu_sub_label_bgcolor": "#0c32ff",
+            "menu_sub_label_text_transform": "uppercase",
+            "menu_sub_label_font-weight": 400,
+            "menu_sub_label_border_radius": 3,
+            "menu_sub_label_line_height": 1.1,
+            "menu_sub_select": "main-menu"
+          }
+        },
+        "vega_menu_shop_K8gac3": {
+          "type": "vega_menu_shop",
+          "settings": {
+            "menu_shop_title": "Vegetable",
+            "menu_shop_url": "shopify://collections",
+            "menu_shop_label": "",
+            "menu_shop_label_color": "#ffffff",
+            "menu_shop_label_font_size": 10,
+            "menu_shop_label_top_position": 10,
+            "menu_shop_label_bgcolor": "#ff0c32",
+            "menu_shop_label_text_transform": "uppercase",
+            "menu_shop_label_font-weight": 400,
+            "menu_shop_label_border_radius": 3,
+            "menu_shop_label_line_height": 1.1,
+            "menu_shop_select1": "",
+            "menu_shop_collection_select1": "",
+            "menu_shop_select2": "",
+            "menu_shop_collection_select2": "",
+            "menu_shop_select3": "",
+            "menu_shop_collection_select3": "",
+            "menu_shop_banner_url1": ""
+          }
+        },
+        "vega_menu_product2_xwWUfP": {
+          "type": "vega_menu_product2",
+          "settings": {
+            "menu_product_title": "Jewellery",
+            "menu_product_url": "shopify://collections",
+            "menu_product_label": "",
+            "menu_product_label_color": "#ffffff",
+            "menu_product_label_font_size": 10,
+            "menu_product_label_top_position": 10,
+            "menu_product_label_bgcolor": "#0c32ff",
+            "menu_product_label_text_transform": "uppercase",
+            "menu_product_label_font-weight": 400,
+            "menu_product_label_border_radius": 3,
+            "menu_product_label_line_height": 1.1,
+            "menu_product_select": "",
+            "menu_product_collection_select": "",
+            "menu_product_select2": "",
+            "menu_product_collection_select2": "",
+            "product_title": "Best seller",
+            "menu_product_collection1": "multi-store-trending",
+            "menu_product_collection1_limit": 12
+          }
+        },
+        "vega_menu_single_d4ByDj": {
+          "type": "vega_menu_single",
+          "settings": {
+            "menu_single_title": "Cosmetics",
+            "menu_single_url": "shopify://collections",
+            "menu_single_label": "",
+            "menu_single_label_color": "#ffffff",
+            "menu_single_label_font_size": 10,
+            "menu_single_label_top_position": 10,
+            "menu_single_label_bgcolor": "#05d14b",
+            "menu_single_label_text_transform": "uppercase",
+            "menu_single_label_font-weight": 400,
+            "menu_single_label_border_radius": 3,
+            "menu_single_label_line_height": 1.1,
+            "menu_single_select": ""
+          }
+        },
+        "vega_menu_link_TdHrGf": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Electronics",
+            "menu_link_url": "shopify://collections/painting-brush",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "vega_menu_link_FURkPN": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Medical",
+            "menu_link_url": "shopify://collections/tools",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "vega_menu_link_HpBRBU": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Plants",
+            "menu_link_url": "shopify://collections/diary-book",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "vega_menu_link_zgfW89": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Sheos",
+            "menu_link_url": "shopify://collections/clipboard",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "vega_menu_link_eNbxNe": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Gifts",
+            "menu_link_url": "shopify://collections/ballpen",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "vega_menu_link_px7tfK": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Flowers",
+            "menu_link_url": "shopify://collections/photo-paper",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "vega_menu_link_HXB4pP": {
+          "type": "vega_menu_link",
+          "settings": {
+            "menu_link_title": "Drinks",
+            "menu_link_url": "shopify://collections/colour-palette",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        }
+      },
+      "block_order": [
+        "menu_collection_tLdMWW",
+        "73dbee9f-c33c-42e0-b47e-a461774a6d37",
+        "menu_product2_QdcTKk",
+        "d8c14ef8-1cc1-4e85-987c-43ddaea91fc4",
+        "5037c259-47ec-480f-bb36-2ed33b54ddf2",
+        "vega_menu_shop_K8gac3",
+        "vega_menu_product2_xwWUfP",
+        "vega_menu_single_d4ByDj",
+        "vega_menu_link_TdHrGf",
+        "vega_menu_link_FURkPN",
+        "vega_menu_link_HpBRBU",
+        "vega_menu_link_zgfW89",
+        "vega_menu_link_eNbxNe",
+        "vega_menu_link_px7tfK",
+        "vega_menu_link_HXB4pP"
+      ],
+      "settings": {
+        "container": "fluid",
+        "logo_alignment": "left",
+        "menu_alignment": "left",
+        "header_transparent_enable": false,
+        "header_sticky_enable": true,
+        "header_bgcolor": "#ffffff",
+        "header_bottom_bg_color": "#fafafa",
+        "vegamenu_enable": true,
+        "header_vega_menu_title": "All categories",
+        "header_vega_menu_title_color": "#ffffff",
+        "header_vega_menu_title_bgcolor": "#196087",
+        "header_vega_menu_title_hvr_color": "#ffffff",
+        "header_vega_menu_title_hvr_bgcolor": "#222222",
+        "vegamenu_font_size": 16,
+        "vegamenu_font_size_lg": 16,
+        "vegamenu_font_weight": 500,
+        "vegamenu_text_transform": "uppercase",
+        "header_main_menu_title": "Menu",
+        "header_menutext_color": "#171717",
+        "header_menutext_hvr_color": "#196087",
+        "menu_font_size": 16,
+        "menu_font_size_lg": 16,
+        "menu_font_weight": 400,
+        "menu_text_transform": "none",
+        "head_offer_text_1_icon": "feather-bookmark",
+        "head_offer_text_1": "<p><a href=\"/collections\" title=\"All collections\">Deals today</a></p>",
+        "head_offer_text_2_icon": "feather-dollar-sign",
+        "head_offer_text_2": "<p><a href=\"/collections/all\" title=\"All products\">Special price</a></p>",
+        "offer_text_font_size": 16,
+        "offer_text_font_weight": 600,
+        "offer_text_text_transform": "uppercase",
+        "header_menuicon_color": "#f3b313",
+        "header_menuicon_color_mobile": "#222222",
+        "header_menuicon_hvr_color": "#196087",
+        "enable_country_selector": true,
+        "enable_language_selector": true
+      }
+    },
+    "news-popup": {
+      "type": "news-popup",
+      "disabled": true,
+      "settings": {
+        "timeout": 3000,
+        "modal_bg_color": "#ffffff",
+        "news_subheading": "Don't miss a thing",
+        "news_subheading_color": "#676767",
+        "news_heading": "Join our newsletter and get 10% off your first order",
+        "news_heading_color": "#2c2c32",
+        "newsletter_success_text": "Thank you for subscribe use this code for first order",
+        "newsletter_coupan_code": "20%OFF",
+        "dont_show_text": "Don’t show this popup again"
+      }
+    }
+  },
+  "order": [
+    "announcement-bar",
+    "header",
+    "news-popup"
+  ]
+}
