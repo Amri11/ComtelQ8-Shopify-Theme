@@ -1,0 +1,4937 @@
+{%- if settings.cart_type == 'drawer' -%}
+  {%- if template.name != 'cart' -%}
+    <script src="{{ 'ajax-cart.js' | asset_url }}" defer="defer"></script>
+  {%- endif -%}
+{%- endif -%}
+<link href="{{ 'header.css' | asset_url }}" rel="stylesheet" type="text/css" media="all">
+<header class="header header1">
+  <div class="header-area">
+    <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+      <div class="header-top">
+        <div class="header-main {% if section.settings.logo_alignment == 'center' %}logo-center{% else %}logo-left{% endif %}">
+          <div class="header-element toggle-content">
+            <button class="navbar-toggle" aria-label="Navbar icon" type="button" aria-label="menu">
+              <i class="feather-menu"></i>
+            </button>
+          </div>
+          <div class="header-element search-desktop">
+            {% render 'search-bar2' %}
+          </div>
+          <div class="header-element logo">
+            {%- render 'company-logo' -%}
+          </div>
+          <div class="header-element right-block-box">
+            {%- render 'header-icon', section: section -%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="header-bottom-wrap" style="--header-bottom-bg-color: {{ section.settings.header_bottom_bg_color }};">
+      <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+        <div class="header-bottom">
+          <div class="header-element vegamenu-block">
+            <div class="vega-menu-area">
+              <a href="#vega-collapse" class="browse-cat" data-bs-toggle="collapse" aria-expanded="false" style="--vegamenu-font-size: {{ section.settings.vegamenu_font_size }}px; --vegamenu-font-size-lg: {{ section.settings.vegamenu_font_size_lg }}px; --vegamenu-text-transform: {{ section.settings.vegamenu_text_transform }};  --vegamenu-font-weight: {{ section.settings.vegamenu_font_weight }};">
+                <span class="menu-icon"><i class="feather-menu"></i></span>
+                <span class="menu-title">{{ section.settings.header_vega_menu_title }}</span>
+              </a>
+              <div class="vegawrap collapse" id="vega-collapse">
+                <ul class="list-unstyled vega-menu">
+                  {%- liquid
+                    for block in section.blocks
+                    case block.type
+                    when 'vega_menu_link'
+                    render 'vega-menu-link', block: block
+                    when 'vega_menu_single'
+                    render 'vega-menu-single', block: block
+                    when 'vega_menu_sub'
+                    render 'vega-menu-sub', block: block
+                    when 'vega_menu_shop'
+                    render 'vega-menu-shop' block: block
+                    when 'vega_menu_collection'
+                    render 'vega-menu-collection', block: block
+                    when 'vega_menu_product'
+                    render 'vega-menu-product', block: block
+                    when 'vega_menu_product2'
+                    render 'vega-menu-product2', block: block
+                    when 'vega_menu_category'
+                    render 'vega-menu-category', block: block
+                    when 'vega_menu_shop_banner'
+                    render 'vega-menu-shop-banner' block: block
+                    endcase
+                  endfor 
+                  -%}
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="header-element megamenu-content">
+            <nav class="mainwrap">
+              <ul class="list-unstyled main-menu {% if section.settings.menu_alignment == 'center' %}menu-center{% elsif section.settings.menu_alignment == 'left' %}menu-left{% else %}menu-right{% endif %}">
+                {%- liquid
+                  for block in section.blocks
+                    case block.type
+                      when 'menu_link'
+                        render 'menu-link', block: block
+                      when 'menu_home'
+                        render 'menu-home', block: block
+                      when 'menu_single'
+                        render 'menu-single', block: block
+                      when 'menu_sub'
+                        render 'menu-sub', block: block
+                      when 'menu_shop'
+                        render 'menu-shop', block: block
+                      when 'menu_collection'
+                        render 'menu-collection', block: block
+                      when 'menu_product'
+                        render 'menu-product', block: block
+                      when 'menu_product2'
+                        render 'menu-product2', block: block
+                      when 'menu_category'
+                        render 'menu-category', block: block
+                      when 'company_logo'
+                        render 'company-logo', block: block
+                      when 'menu_shop_banner'
+                        render 'menu-shop-banner', block: block
+                    endcase
+                  endfor
+                -%}
+              </ul>
+            </nav>
+          </div>
+          {% if section.settings.head_offer_text != '' %}
+          <div class="header-element head-offer-text">
+            <div class="offer-text">
+              <div class="offer-text-item">
+                {% if section.settings.head_offer_text_1_icon != '' %}
+                <span class="icon"><i class="{{ section.settings.head_offer_text_1_icon }}"></i></span>
+                {% endif %}
+                <div class="text" style="--offer-text-font-size: {{ section.settings.offer_text_font_size }}px; --offer-text-text-transform: {{ section.settings.offer_text_text_transform }};  --offer-text-font-weight: {{ section.settings.offer_text_font_weight }};">{{ section.settings.head_offer_text_1 }}</div>
+              </div>
+              <div class="offer-text-item">
+                {% if section.settings.head_offer_text_2_icon != '' %}
+                <span class="icon"><i class="{{ section.settings.head_offer_text_2_icon }}"></i></span>
+                {% endif %}
+                <div class="text" style="--offer-text-font-size: {{ section.settings.offer_text_font_size }}px; --offer-text-text-transform: {{ section.settings.offer_text_text_transform }};  --offer-text-font-weight: {{ section.settings.offer_text_font_weight }};">{{ section.settings.head_offer_text_2 }}</div>
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- headert-top end -->
+  <!-- headert-bottom start -->
+  <div class="header-bottom-area">
+    <div class="container header-bottom-container">
+      <div class="main-menu-area">
+        <div class="box-header">
+          <button class="close-box" type="button" aria-label="close"><i class="feather-x"></i></button>
+        </div>
+        <div class="main-menu-wrap">
+          <div class="megamenu-content">
+            <a href="#" class="browse-cat">
+              <span class="menu-title">{{ section.settings.header_main_menu_title }}</span>
+            </a>
+            <nav class="mainwrap">
+              <ul class="list-unstyled main-menu">
+                {%- liquid
+                  for block in section.blocks
+                    case block.type
+                      when 'menu_link'
+                        render 'menu-link', block: block
+                      when 'menu_home'
+                        render 'menu-home', block: block
+                      when 'menu_single'
+                        render 'menu-single', block: block
+                      when 'menu_sub'
+                        render 'menu-sub', block: block
+                      when 'menu_shop'
+                        render 'menu-shop', block: block
+                      when 'menu_collection'
+                        render 'menu-collection', block: block
+                      when 'menu_product'
+                        render 'menu-product', block: block
+                      when 'menu_product2'
+                        render 'menu-product2', block: block
+                      when 'menu_category'
+                        render 'menu-category', block: block
+                      when 'company_logo'
+                        render 'company-logo', block: block
+                      when 'menu_shop_banner'
+                        render 'menu-shop-banner', block: block
+                    endcase
+                  endfor
+                -%}
+              </ul>
+            </nav>
+            <div class="vega-menu-area">
+              <ul class="list-unstyled vega-menu">
+                {%- liquid
+                  for block in section.blocks
+                  case block.type
+                  when 'vega_menu_link'
+                  render 'vega-menu-link', block: block
+                  when 'vega_menu_single'
+                  render 'vega-menu-single', block: block
+                  when 'vega_menu_sub'
+                  render 'vega-menu-sub', block: block
+                  when 'vega_menu_shop'
+                  render 'vega-menu-shop' block: block
+                  when 'vega_menu_collection'
+                  render 'vega-menu-collection', block: block
+                  when 'vega_menu_product'
+                  render 'vega-menu-product', block: block
+                  when 'vega_menu_product2'
+                  render 'vega-menu-product2', block: block
+                  when 'vega_menu_category'
+                  render 'vega-menu-category', block: block
+                  when 'vega_menu_shop_banner'
+                  render 'vega-menu-shop-banner' block: block
+                  endcase
+                endfor 
+                -%}
+              </ul>
+            </div>
+            <div class="locali-block">
+              {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+                <div class="locali-box">
+                  <noscript>
+                    {%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
+                      <select name="country_code" aria-labelledby="HeaderCountryMobileLabelNoScript">
+                        {%- for country in localization.available_countries -%}
+                          <option
+                            value="{{ country.iso_code }}"
+                            {%- if country.iso_code == localization.country.iso_code %}
+                              selected
+                            {% endif %}
+                          >
+                            {{ country.name }} ({{ country.currency.iso_code }}
+                            {{ country.currency.symbol }})
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    {%- endform -%}
+                  </noscript>
+                  <localization-form>
+                    {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+                      {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+                    {%- endform -%}
+                  </localization-form>
+                </div>
+              {% endif %}
+              {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+                <div class="locali-box">
+                  <noscript>
+                    {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
+                      <select name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
+                        {%- for language in localization.available_languages -%}
+                          <option
+                            value="{{ language.iso_code }}"
+                            lang="{{ language.iso_code }}"
+                            {%- if language.iso_code == localization.language.iso_code %}
+                              selected
+                            {% endif %}
+                          >
+                            {{ language.endonym_name | capitalize }}
+                          </option>
+                        {%- endfor -%}
+                      </select>
+                    {%- endform -%}
+                  </noscript>
+                  <localization-form>
+                    {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+                      {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+                    {%- endform -%}
+                  </localization-form>
+                </div>
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+{%- render 'search-popup' -%}
+{% if settings.account_popup_enable %}
+{%- render 'account-modal' -%}
+{% endif %}
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var lastScrollTop = 0;
+    $(window).scroll(function() {
+      var scroll = $(this).scrollTop();
+      if (scroll > lastScrollTop) {
+        if (scroll > 500) {
+          $('.header-area').addClass('sticky-down');
+        }
+        $('.header-area').removeClass('sticky-up');
+      } else {
+        if (lastScrollTop <= 500) {
+          $('.header-area').removeClass('sticky');
+          $('.header-area').removeClass('sticky-down');
+          $('.header-area').removeClass('sticky-up');
+        } else {
+          $('.header-area').addClass('sticky');
+          $('.header-area').removeClass('sticky-down');
+          $('.header-area').addClass('sticky-up');
+        }
+      }
+      lastScrollTop = scroll;
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Header",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Logo alignment"
+    },
+    {
+      "type": "select",
+      "id": "logo_alignment",
+      "label": "Alignment",
+      "info": "Edit your logo in [theme settings](/editor?context=theme&category=logo).",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Navigation alignment"
+    },
+    {
+      "type": "select",
+      "id": "menu_alignment",
+      "label": "Alignment",
+      "options": [
+        {
+          "label": "Left",
+          "value": "left"
+        },
+        {
+          "label": "Center",
+          "value": "center"
+        },
+        {
+          "label": "Right",
+          "value": "right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Transparent option"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_transparent_enable",
+      "label": "Show transparent",
+      "default": false,
+      "info": "This option only work for main 'Home' page"
+    },
+    {
+      "type": "header",
+      "content": "Sticky option"
+    },
+    {
+      "type": "checkbox",
+      "id": "header_sticky_enable",
+      "label": "Show sticky",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Background color"
+    },
+    {
+      "type": "color",
+      "id": "header_bgcolor",
+      "label": "Header top bg color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "header_bottom_bg_color",
+      "label": "Header bottom bg color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Vegamenu"
+    },
+    {
+      "type": "checkbox",
+      "id": "vegamenu_enable",
+      "label": "Vegamenu enable",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "header_vega_menu_title",
+      "label": "Vegamenu title",
+      "default": "All categories"
+    },
+    {
+      "type": "color",
+      "id": "header_vega_menu_title_color",
+      "label": "Title color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "header_vega_menu_title_bgcolor",
+      "label": "Title background color",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "header_vega_menu_title_hvr_color",
+      "label": "Title hover color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "header_vega_menu_title_hvr_bgcolor",
+      "label": "Title hover background color",
+      "default": "transparent"
+    },
+    {
+      "type": "range",
+      "id": "vegamenu_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "vegamenu_font_size_lg",
+      "label": "Font size laptop",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "vegamenu_font_weight",
+      "label": "Font weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "vegamenu_text_transform",
+      "label": "Navigation text property",
+      "options": [
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        },
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Main navigation"
+    },
+    {
+      "type": "text",
+      "id": "header_main_menu_title",
+      "label": "Navigation heading for mobile",
+      "default": "Menu"
+    },
+    {
+      "type": "header",
+      "content": "Navigation text"
+    },
+    {
+      "type": "color",
+      "id": "header_menutext_color",
+      "label": "Color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "header_menutext_hvr_color",
+      "label": "Hover color",
+      "default": "#6F6F6F"
+    },
+    {
+      "type": "range",
+      "id": "menu_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "menu_font_size_lg",
+      "label": "Font size laptop",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "menu_font_weight",
+      "label": "Font weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "menu_text_transform",
+      "label": "Navigation text property",
+      "options": [
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        },
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Offer text 1"
+    },
+    {
+      "type": "text",
+      "id": "head_offer_text_1_icon",
+      "label": "Icon class",
+      "default": "feather-bookmark"
+    },
+    {
+      "type": "richtext",
+      "id": "head_offer_text_1",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Offer text 2"
+    },
+    {
+      "type": "text",
+      "id": "head_offer_text_2_icon",
+      "label": "Icon class",
+      "default": "feather-bookmark"
+    },
+    {
+      "type": "richtext",
+      "id": "head_offer_text_2",
+      "label": "Text"
+    },
+    {
+      "type": "range",
+      "id": "offer_text_font_size",
+      "label": "Font size",
+      "min": 10,
+      "max": 20,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "offer_text_font_weight",
+      "label": "Font weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "offer_text_text_transform",
+      "label": "Navigation text property",
+      "options": [
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        },
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Navigation icon color"
+    },
+    {
+      "type": "color",
+      "id": "header_menuicon_color",
+      "label": "Color",
+      "default": "#222"
+    },
+    {
+      "type": "color",
+      "id": "header_menuicon_color_mobile",
+      "label": "Mobile color",
+      "default": "#222"
+    },
+    {
+      "type": "color",
+      "id": "header_menuicon_hvr_color",
+      "label": "Hover color",
+      "default": "#222"
+    },
+    {
+      "type": "header",
+      "content": "Mobile navigation country/region selector",
+      "info": "To add a country\/region, go to your [market settings.](\/admin\/settings\/markets)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "default": false,
+      "label": "Show country/region selector"
+    },
+    {
+      "type": "header",
+      "content": "Mobile navigation language selector",
+      "info": "To add a language, go to your [language settings.](\/admin\/settings\/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "label": "Show language selector",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu_link",
+      "name": "Navigation link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_link_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_link_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_link_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_link_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_link_label_bgcolor",
+          "label": "Background color",
+          "default": "#05D14B"
+        },
+        {
+          "type": "select",
+          "id": "menu_link_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        }
+      ]
+    },
+    {
+      "type": "menu_home",
+      "name": "Navigation home",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_link_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_link_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_link_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_link_label_bgcolor",
+          "label": "Background color",
+          "default": "#05D14B"
+        },
+        {
+          "type": "select",
+          "id": "menu_link_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        }
+      ]
+    },
+    {
+      "type": "menu_single",
+      "name": "Navigation single",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_single_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_single_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_single_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_single_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_single_label_bgcolor",
+          "label": "Background color",
+          "default": "#05D14B"
+        },
+        {
+          "type": "select",
+          "id": "menu_single_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation single"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_single_select",
+          "label": "Select navigation",
+          "default": "main-menu"
+        }
+      ]
+    },
+    {
+      "type": "menu_shop",
+      "name": "Navigation shop",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_shop_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_shop_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_shop_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_shop_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_shop_label_bgcolor",
+          "label": "Background color",
+          "default": "#FF0C32"
+        },
+        {
+          "type": "select",
+          "id": "menu_shop_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select1",
+          "label": "Select navigation shop",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select2",
+          "label": "Select navigation shop",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select3",
+          "label": "Select navigation shop",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select4",
+          "label": "Select navigation shop",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation shop banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_shop_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x600px"
+        },
+        {
+          "type": "url",
+          "id": "menu_shop_banner_url1",
+          "label": "Banner url"
+        }
+      ]
+    },
+    {
+      "type": "menu_product",
+      "name": "Navigation product",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select3",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select4",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation shop banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_product_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x600px"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_banner_url1",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Collection product"
+        },
+        {
+          "type": "collection",
+          "id": "menu_product_collection1",
+          "label": "Select collection"
+        },
+        {
+          "type": "number",
+          "id": "menu_product_collection1_limit",
+          "label": "Product limit",
+          "default": 12
+        },
+        {
+          "type": "select",
+          "id": "menu_product_collection1_view",
+          "label": "Grid view",
+          "options": [
+            {
+              "label": "3 grid",
+              "value": "3"
+            },
+            {
+              "label": "4 grid",
+              "value": "4"
+            }
+          ],
+          "default": "4"
+        }
+      ]
+    },
+    {
+      "type": "menu_product2",
+      "name": "Navigation product list",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select3",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select4",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Collection product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product heading",
+          "default": "Popular collection"
+        },
+        {
+          "type": "collection",
+          "id": "menu_product_collection1",
+          "label": "Select collection"
+        },
+        {
+          "type": "number",
+          "id": "menu_product_collection1_limit",
+          "label": "Product limit",
+          "default": 12
+        }
+      ]
+    },
+    {
+      "type": "menu_collection",
+      "name": "Navigation banner grid",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_collection_title",
+          "label": "Navigation heading",
+          "default": "navigation"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_collection_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation banner collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "banner_title_mobile_enable",
+          "label": "Banner heading only mobile visible",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img1",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title1",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label1",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label1_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label1_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url1",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img2",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title2",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label2",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label2_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label2_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url2",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img3",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title3",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label3",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label3_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label3_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url3",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img4",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title4",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label4",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label4_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label4_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url4",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img5",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title5",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label5",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label5_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label5_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url5",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img6",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title6",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label6",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label6_color",
+          "label": "Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label6_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url6",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img7",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title7",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label7",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label7_color",
+          "label": "Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label7_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url7",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img8",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title8",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label8",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label8_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label8_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url8",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img9",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title9",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label9",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label9_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label9_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url9",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img10",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title10",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label10",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label10_color",
+          "label": "Color",
+          "default": "#fff"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label10_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url10",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img11",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title11",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label11",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label11_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label11_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url11",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img12",
+          "label": "Image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title12",
+          "label": "Heading"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_label12",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label12_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_banner_label12_bg_color",
+          "label": "Background color",
+          "default": "#ff3707"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url12",
+          "label": "Banner url"
+        },
+        {
+          "type": "header",
+          "content": "View all button"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_all_url",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_all_button",
+          "label": "Label"
+        }
+      ]
+    },
+    {
+      "type": "menu_sub",
+      "name": "Navigation sub",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_sub_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_sub_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_sub_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_sub_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_sub_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_sub_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation sub"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_sub_select",
+          "label": "Select navigation",
+          "default": "main-menu"
+        }
+      ]
+    },
+    {
+      "type": "menu_category",
+      "name": "Navigation collection",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select3",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select4",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Collection product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product heading",
+          "default": "Popular collection"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img1",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url1",
+          "label": "Url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title1",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img2",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url2",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title2",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img3",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url3",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title3",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img4",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url4",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title4",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img5",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url5",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title5",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img6",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url6",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title6",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img7",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url7",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title7",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img8",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url8",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title8",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img9",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url9",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title9",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img10",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url10",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title10",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img11",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url11",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title11",
+          "label": "Heading",
+          "default": "one pieces"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img12",
+          "label": "Image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url12",
+          "label": "url"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title12",
+          "label": "Heading",
+          "default": "one pieces"
+        }
+      ]
+    },
+    {
+      "type": "menu_shop_banner",
+      "name": "Navigation shop banner",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Navigation heading",
+          "default": "nav"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Navigation label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select3",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Navigation product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select4",
+          "label": "Select navigation product",
+          "default": "main-menu"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img1",
+          "label": "Image",
+          "info": "Recommended size: 600x700px_new"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url1",
+          "label": "url"
+        },
+        {
+          "type": "header",
+          "content": "Banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img2",
+          "label": "Image",
+          "info": "Recommended size: 600x700px_new"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url2",
+          "label": "url"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_link",
+      "name": "Vega menu link",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_link_title",
+          "label": "Menu title",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "menu_link_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_link_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_link_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_link_label_bgcolor",
+          "label": "Background color",
+          "default": "#05D14B"
+        },
+        {
+          "type": "select",
+          "id": "menu_link_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_link_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_single",
+      "name": "Vega Menu single",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_single_title",
+          "label": "Menu title",
+          "default": "Home"
+        },
+        {
+          "type": "url",
+          "id": "menu_single_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_single_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_single_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_single_label_bgcolor",
+          "label": "Background color",
+          "default": "#05D14B"
+        },
+        {
+          "type": "select",
+          "id": "menu_single_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_single_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu Single"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_single_select",
+          "label": "Select Menu"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_shop",
+      "name": "Vega Menu Shop",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_shop_title",
+          "label": "Menu title",
+          "default": "Shop"
+        },
+        {
+          "type": "url",
+          "id": "menu_shop_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_shop_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_shop_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_shop_label_bgcolor",
+          "label": "Background color",
+          "default": "#FF0C32"
+        },
+        {
+          "type": "select",
+          "id": "menu_shop_label_text_transform",
+          "label": "Text property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_font-weight",
+          "label": "Font Weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_shop_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu shop 1"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select1",
+          "label": "Select menu shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_collection_select1",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu shop 2"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select2",
+          "label": "Select menu shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_collection_select2",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu shop 3"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_select3",
+          "label": "Select menu shop"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_shop_collection_select3",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu shop banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_shop_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x600px"
+        },
+        {
+          "type": "url",
+          "id": "menu_shop_banner_url1",
+          "label": "Banner URL"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_product",
+      "name": "Vega Menu product",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Menu title",
+          "default": "Product"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select2",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select3",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select3",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select4",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select4",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu shop banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_product_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x600px"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_banner_url1",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Collection product"
+        },
+        {
+          "type": "collection",
+          "id": "menu_product_collection1",
+          "label": "Select collection"
+        },
+        {
+          "type": "number",
+          "id": "menu_product_collection1_limit",
+          "label": "Collection product limit",
+          "default": 12
+        },
+        {
+          "type": "select",
+          "id": "menu_product_collection1_view",
+          "label": "Slides per view",
+          "options": [
+            {
+              "label": "2 Products",
+              "value": "2"
+            },
+            {
+              "label": "3 Products",
+              "value": "3"
+            }
+          ],
+          "default": "3"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_product2",
+      "name": "Vega Menu product2",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Menu title",
+          "default": "Product"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select2",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Collection Product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product title",
+          "default": "Best seller"
+        },
+        {
+          "type": "collection",
+          "id": "menu_product_collection1",
+          "label": "Select Collection"
+        },
+        {
+          "type": "number",
+          "id": "menu_product_collection1_limit",
+          "label": "Collection product limit",
+          "default": 12
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_collection",
+      "name": "Vega menu banner",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_title",
+          "label": "Menu title",
+          "default": "Collection"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_collection_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_collection_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_collection_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu banner collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "banner_title_mobile_enable",
+          "label": "Banner title only mobile visible",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title1",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url1",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img2",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title2",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url2",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img3",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title3",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url3",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img4",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title4",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url4",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img5",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title5",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url5",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img6",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title6",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url6",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img7",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title7",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url7",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img8",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title8",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url8",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img9",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title9",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url9",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img10",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title10",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url10",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img11",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title11",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url11",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Banner image"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_collection_banner_img12",
+          "label": "Banner image",
+          "info": "Recommended size: 600x550px"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_banner_title12",
+          "label": "Banner title"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_banner_url12",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "View all button"
+        },
+        {
+          "type": "url",
+          "id": "menu_collection_all_url",
+          "label": "Button URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_collection_all_button",
+          "label": "Banner title",
+          "default": "Explore all demo (15+)"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_sub",
+      "name": "Vega menu sub",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_sub_title",
+          "label": "Menu title",
+          "default": "Pages"
+        },
+        {
+          "type": "url",
+          "id": "menu_sub_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_sub_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_sub_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_sub_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_sub_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_sub_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu sub"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_sub_select",
+          "label": "Select menu"
+        },
+        {
+          "type": "header",
+          "content": "Menu icon color"
+        },
+        {
+          "type": "color",
+          "id": "header_menuicon_color",
+          "label": "Color",
+          "default": "#333333"
+        },
+        {
+          "type": "color",
+          "id": "header_menuicon_hvr_color",
+          "label": "Hover color",
+          "default": "#333333"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_category",
+      "name": "Vega Menu category",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Menu title",
+          "default": "Product"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select2",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Collection product"
+        },
+        {
+          "type": "text",
+          "id": "product_title",
+          "label": "Product title",
+          "default": "Popular categories"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url1",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title1",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img2",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url2",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title2",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img3",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url3",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title3",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img4",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url4",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title4",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img5",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url5",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title5",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img6",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url6",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title6",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img7",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url7",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title7",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img8",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url8",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title8",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img9",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url9",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title9",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img10",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url10",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title10",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img11",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url11",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title11",
+          "label": "Banner title",
+          "default": "One pieces"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img12",
+          "label": "Banner image",
+          "info": "Recommended size: 600x700px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url12",
+          "label": "Banner URL"
+        },
+        {
+          "type": "text",
+          "id": "menu_cat_banner_title12",
+          "label": "Banner title",
+          "default": "One pieces"
+        }
+      ]
+    },
+    {
+      "type": "vega_menu_shop_banner",
+      "name": "Vega menu shop banner",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Image / Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "menuvega_link_image",
+          "label": "Menu link thumb",
+          "info": "Recommended size: 512px x 512px use 'PNG' image for better look"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_title",
+          "label": "Menu title",
+          "default": "Product"
+        },
+        {
+          "type": "url",
+          "id": "menu_product_url",
+          "label": "Menu URL"
+        },
+        {
+          "type": "header",
+          "content": "Menu label"
+        },
+        {
+          "type": "text",
+          "id": "menu_product_label",
+          "label": "Label"
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_color",
+          "label": "Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font_size",
+          "label": "Font size",
+          "min": 8,
+          "max": 12,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_top_position",
+          "label": "Top position",
+          "min": 10,
+          "max": 20,
+          "step": 1,
+          "unit": "px",
+          "default": 10
+        },
+        {
+          "type": "color",
+          "id": "menu_product_label_bgcolor",
+          "label": "Background color",
+          "default": "#0C32FF"
+        },
+        {
+          "type": "select",
+          "id": "menu_product_label_text_transform",
+          "label": "Text Property",
+          "options": [
+            {
+              "label": "Capitalize",
+              "value": "capitalize"
+            },
+            {
+              "label": "Lowercase",
+              "value": "lowercase"
+            },
+            {
+              "label": "Uppercase",
+              "value": "uppercase"
+            },
+            {
+              "label": "None",
+              "value": "none"
+            }
+          ],
+          "default": "uppercase"
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_font-weight",
+          "label": "Font weight",
+          "min": 400,
+          "max": 600,
+          "step": 100,
+          "default": 400
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_border_radius",
+          "label": "Border radius",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "unit": "px",
+          "default": 3
+        },
+        {
+          "type": "range",
+          "id": "menu_product_label_line_height",
+          "label": "Line height",
+          "min": 1,
+          "max": 1.5,
+          "step": 0.1,
+          "default": 1.1
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select2",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select2",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select3",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select3",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_select4",
+          "label": "Select Menu product"
+        },
+        {
+          "type": "link_list",
+          "id": "menu_product_collection_select4",
+          "label": "Select menu shop collection",
+          "info": "If this filed 'EMPTY' then catch above 'Menu'"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img1",
+          "label": "Banner image",
+          "info": "Recommended size: 600x200px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url1",
+          "label": "Banner URL"
+        },
+        {
+          "type": "header",
+          "content": "Category banner"
+        },
+        {
+          "type": "image_picker",
+          "id": "menu_cat_banner_img2",
+          "label": "Banner image",
+          "info": "Recommended size: 600x200px"
+        },
+        {
+          "type": "url",
+          "id": "menu_cat_banner_url2",
+          "label": "Banner URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header",
+      "blocks": [
+        {
+          "type": "menu_home"
+        },
+        {
+          "type": "menu_single"
+        },
+        {
+          "type": "menu_product"
+        },
+        {
+          "type": "menu_collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .header1 {
+    position: relative;
+  }
+  .header1 .header-area {
+    {% if template == 'index' and section.settings.header_transparent_enable %}
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 2;
+    {% else %}
+    background-color: {{ section.settings.header_bgcolor }};
+    {% endif %}
+  }
+  {% if template == 'index' %}
+  {% if section.settings.header_transparent_enable %}
+  @media (max-width: 1199px) {
+    .header1 .header-area {
+      position: unset;
+      background-color: {{ section.settings.header_bgcolor }};
+    }
+  }
+  {% endif %}
+  {% endif %}
+  /* sticky menu css */
+  {% if section.settings.header_sticky_enable %}
+  .header1 .header-area.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: {{ section.settings.header_bgcolor }};
+    z-index: 3;
+    box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.15);
+  }
+  .header1 .header-area.sticky-down {
+    transform: translateY(-100%);
+  }
+  .header1 .header-area.sticky-up {
+    transform: translateY(0);
+  }
+  .header1 .header-area.sticky,
+  .header1 .header-area.sticky-down,
+  .header1 .header-area.sticky-up {
+    -webkit-transition: transform 0.3s ease-in-out;
+    -o-transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;
+  }
+  {% endif %}
+  /*=====================================
+    menu-text color css
+  ======================================*/
+  .header-area .vega-menu-area a.browse-cat {
+    color: {{ section.settings.header_vega_menu_title_color }};
+    background-color: {{ section.settings.header_vega_menu_title_bgcolor }};
+  }
+  .header-area .vega-menu-area a.browse-cat:hover {
+    color: {{ section.settings.header_vega_menu_title_hvr_color }};
+    background-color: {{ section.settings.header_vega_menu_title_hvr_bgcolor }};
+  }
+  .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link a.link-title,
+  .header1 .header-area .header-bottom .head-offer-text .offer-text .text p,
+  .header1 .header-area .header-bottom .head-offer-text .offer-text .text p a,
+  .header1 .header-area .header-bottom .head-offer-text .offer-text span.icon,
+  .header1 .right-block-box ul.shop-element li.side-wrap .header-icon span.title,
+  .header1 .right-block-box ul.shop-element li.side-wrap .header-icon span.mini-cart-total-price,
+  .header1 .right-block-box ul.shop-element li.side-wrap .user-main a.header-icon:last-child:before {
+    color: {{ section.settings.header_menutext_color }};
+  }
+  .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link a.link-title span.sp-link-title::after {
+    background-color: {{ section.settings.header_menutext_hvr_color }};
+  }
+  .header1 .header-area .megamenu-content .mainwrap ul.main-menu li.menu-link:hover a.link-title,
+  .header1 .header-area .header-bottom .head-offer-text .offer-text .text p a:hover,
+  .header1 .right-block-box ul.shop-element li.side-wrap .header-icon:hover span.title,
+  .header1 .right-block-box ul.shop-element li.side-wrap .header-icon:hover span.mini-cart-total-price {
+    color: {{ section.settings.header_menutext_hvr_color }};
+  }
+
+  /*=====================================
+    menu-icon color css
+  ======================================*/
+  .header1 .header-icon,
+  .header1 .toggle-content button.navbar-toggle,
+  .header1 .right-block-box ul.shop-element li.side-wrap .user-main span.icon,
+  .header1 .header-area .header-bottom .head-offer-text .offer-text .offer-text-item span.icon {
+    color: {{ section.settings.header_menuicon_color }};
+  }
+  .header1 .header-icon:hover,
+  .header1 .toggle-content button.navbar-toggle:hover,
+  .header1 .right-block-box ul.shop-element li.side-wrap:hover .user-main span.icon {
+    color: {{ section.settings.header_menuicon_hvr_color }};
+  }
+  @media (max-width: 1199px) {
+    .header1 .header-icon,
+    .header1 .toggle-content button.navbar-toggle {
+      color: {{ section.settings.header_menuicon_color_mobile }};
+    }
+  }
+</style>

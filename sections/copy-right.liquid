@@ -1,0 +1,155 @@
+<footer class="footer-bottom-area">
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="copyright-main">
+      <ul class="list-unstyled ft-bottom">
+        <li class="copy-right copy-text">
+          <div class="link-copyright">
+            <p class="mr-0">&copy; {{ 'now' | date: '%Y' }}, {{ section.settings.copy_right_text }}</p>
+          </div>
+        </li>
+        <li class="copy-right copy-social">
+          {% render 'social-media' %}
+        </li>
+        <li class="copy-right copy-payment">
+          {% render 'payment-icon' %}
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+{% schema %}
+{
+  "name": "Copyright",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Background color",
+      "default": "#f3f2ee"
+    },
+    {
+      "type": "range",
+      "id": "text_font_size",
+      "label": "Font size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_font_size_lg",
+      "label": "Font size laptop",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "text_font_weight",
+      "label": "Font weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Font color",
+      "default": "#6f6f6f"
+    },
+    {
+      "type": "liquid",
+      "id": "copy_right_text",
+      "label": "Copyright text",
+      "default": "Copyright © 2023 by spacingtech"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Copyright"
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .footer-bottom-area {
+    background-color: {{ section.settings.section_background_color }};
+  }
+  .footer-bottom-area .copyright-main {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  .footer-bottom-area .copyright-main ul.ft-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right {
+    width: 33.33%;
+  }
+  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-social ul.social-icon {
+    justify-content: center;
+  }
+  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-payment {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right .link-copyright a,
+  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right .link-copyright p {
+    color: {{ section.settings.text_color }};
+    font-size: {{ section.settings.text_font_size }}px;
+    font-weight: {{ section.settings.text_font_weight }};
+    line-height: normal;
+  }
+  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right .link-copyright a:hover {
+    text-decoration: underline;
+  }
+  @media(max-width: 1499px){
+    .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right .link-copyright p {
+      font-size: {{ section.settings.text_font_size_lg }}px;
+    }
+  }
+  @media (max-width: 991px) {
+    .footer-bottom-area .copyright-main ul.ft-bottom {
+      gap: 15px;
+    }
+    .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right {
+      width: 100%;
+    }
+    .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-text {
+      text-align: center;
+    }
+    .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-payment {
+      justify-content: center;
+    }
+  }
+</style>

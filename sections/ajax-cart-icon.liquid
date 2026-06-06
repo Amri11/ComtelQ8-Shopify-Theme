@@ -1,0 +1,9 @@
+<span class="icon">
+  <i class="feather-shopping-bag"></i>
+</span>
+<div class="ajax-cart-count bigcounter">
+  {%- if cart.item_count < 100 -%}
+    <span aria-hidden="true">{{ cart.item_count }}</span>
+  {%- endif -%}
+  <span class="visually-hidden">{{ 'sections.cart_count' | t: count: cart.item_count }}</span>
+</div>

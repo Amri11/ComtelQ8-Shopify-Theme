@@ -1,0 +1,53 @@
+.marquee-section ul.grid-wrap {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.marquee-section ul.grid-wrap li.grid-wrapper{
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+.marquee-section .grid-wrapper .richtext span{
+  padding-inline-start: 5px;
+}
+.marquee-section .grid-wrapper .richtext a,
+.marquee-section .grid-wrapper .richtext p{
+  color: var(--marquee-text-color);
+  font-size: var(--subtitle-font-size-body);
+  font-weight: var(--subtitle-custom-font-weight-body);
+  margin: 0px;
+  line-height: 1;
+}
+.marquee-section .offer-text-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  direction: ltr;
+  gap: 60px;
+}
+.marquee-section .offer-text-wrap .grid-wrap {
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-name: ticker-rtl;
+  animation-duration: var(--animation-time);
+  animation-play-state: paused;
+  display: inline-flex;
+  align-items: center;
+  width: max-content;
+  animation-play-state: running;
+}
+.marquee-section .offer-text-wrap:hover .grid-wrap {
+  animation-play-state: paused;
+}
+@keyframes ticker-rtl {
+  0% {
+    transform: none;
+    visibility: visible;
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}

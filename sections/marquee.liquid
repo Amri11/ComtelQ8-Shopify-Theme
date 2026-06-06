@@ -1,0 +1,175 @@
+{{ 'marquee.css' | asset_url | stylesheet_tag }}
+<section
+  class="marquee-section"
+  style="--marquee-background-color: {{ section.settings.background_color }}; --marquee-text-color: {{ section.settings.text_color }}; --padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;"
+>
+  <div class="container-fluid">
+    <div class="offer-text-wrap" style="--animation-time: {{ section.settings.scroll_speed }}s;">
+      <ul class="list-unstyled grid-wrap">
+        {% for block in section.blocks %}
+          <li class="grid-wrapper" {{ block.shopify_attributes }}>
+            <div class="richtext">
+              {{ block.settings.offer_text }}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+      <ul class="list-unstyled grid-wrap">
+        {% for block in section.blocks %}
+          <li class="grid-wrapper" {{ block.shopify_attributes }}>
+            <div class="richtext">
+              {{ block.settings.offer_text }}
+            </div>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Scrolling text",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Backgorund image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background_image",
+      "label": "Image",
+      "info": "Recommended size: 1920x700px"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_background_image_enable",
+      "label": "Image enable",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Backgorund color"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#868686"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "range",
+      "id": "scroll_speed",
+      "min": 10,
+      "max": 300,
+      "step": 5,
+      "unit": "s",
+      "label": "Scroll speed",
+      "default": 60
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Block",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "offer_text",
+          "label": "Text",
+          "default": "<p>Summer sale discount 40% off all products</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling text",
+      "blocks": [
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        },
+        {
+          "type": "text"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<style>
+  .marquee-section{
+    position: relative;
+    overflow: hidden;
+    {% if section.settings.section_background_image_enable %}
+    background-image: url('{% if section.settings.section_background_image != blank %}{{ section.settings.section_background_image | image_url }}{% else %}https://dummyimage.com/1920x200/f7f7f7/999999{% endif %}');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    {% endif %}
+    background-color: var(--marquee-background-color);
+  }
+</style>

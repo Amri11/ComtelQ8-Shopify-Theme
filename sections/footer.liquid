@@ -1,0 +1,775 @@
+{{ 'footer.css' | asset_url | stylesheet_tag }}
+<section
+  class="footer"
+  style="
+    {% if section.settings.section_background_image_enable %}
+      background-image: url('{% if section.settings.section_background_image != blank %}{{ section.settings.section_background_image | image_url }}{% else %}https://dummyimage.com/1920x450/f7f7f7/999999{% endif %}');
+    {% endif %} --padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;">
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="footer-list-wrap">
+      <div class="footer-list-main">
+        <ul class="list-unstyled footer-list" id="collapse-tab">
+          {% for block in section.blocks %}
+          {%- case block.type -%}
+          {%- when 'logo_info' -%}
+          <li class="ftlink-li logo-info" data-fade-in {{ block.shopify_attributes }}>
+            <div class="footer-info">
+              {% if block.settings.logo_enable %}
+                {%- render 'company-logo-footer' -%}
+              {% endif %}
+              {%- if block.settings.logo_desc != '' -%}
+                <p class="desc mr-0">{{ block.settings.logo_desc }}</p>
+              {%- endif -%}
+              {% if block.settings.footer_social_enable %}
+              <div class="footer-social">
+                {%- render 'social-media' -%}
+              </div>
+              {% endif %}
+              <div class="custom-info">
+                {% if block.settings.custom_info_1_label != '' or block.settings.custom_info_1_text != '' %}
+                <div class="info-item">
+                  {% if block.settings.custom_info_1_label != '' %}
+                  <span class="label">{{ block.settings.custom_info_1_label }}</span>
+                  {% endif %}
+                  {% if block.settings.custom_info_1_text != '' %}
+                  <div class="text">{{ block.settings.custom_info_1_text }}</div>
+                  {% endif %}
+                </div>
+                {% endif %}
+                {% if block.settings.custom_info_2_label != '' or block.settings.custom_info_2_text != '' %}
+                <div class="info-item">
+                  {% if block.settings.custom_info_2_label != '' %}
+                  <span class="label">{{ block.settings.custom_info_2_label }}</span>
+                  {% endif %}
+                  {% if block.settings.custom_info_2_text != '' %}
+                  <div class="text">{{ block.settings.custom_info_2_text }}</div>
+                  {% endif %}
+                </div>
+                {% endif %}
+                {% if block.settings.custom_info_3_label != '' or block.settings.custom_info_3_text != '' %}
+                <div class="info-item">
+                  {% if block.settings.custom_info_3_label != '' %}
+                  <span class="label">{{ block.settings.custom_info_3_label }}</span>
+                  {% endif %}
+                  {% if block.settings.custom_info_3_text != '' %}
+                  <div class="text">{{ block.settings.custom_info_3_text }}</div>
+                  {% endif %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+          {%- when 'footer_menu' -%}
+          <li class="ftlink-li link-list" data-fade-in {{ block.shopify_attributes }}>
+            {% assign footer_menu = block.settings.footer_menu_handle %}
+            {%- if block.settings.show_nav_title -%}
+              <h2 class="ft-title mr-0">{{ linklists[footer_menu].title }}</h2>
+              <button
+                type="button"
+                data-bs-toggle="collapse"
+                aria-expanded="false"
+                data-bs-target="#collapse-{{ block.id }}"
+                class="ft-title accordian-btn"
+                aria-label="{{ linklists[footer_menu].title }}"
+              >
+                <span>{{ linklists[footer_menu].title }}</span>
+                <i class="feather-plus"></i>
+              </button>
+            {%- endif -%}
+            <ul
+              class="list-unstyled {% if block.settings.show_nav_title %}accordian-content collapse {% endif %} footer-sublist link"
+              {%- if block.settings.show_nav_title -%}
+                id="collapse-{{ block.id }}"
+                data-bs-parent="#collapse-tab"
+              {%- endif -%}
+            >
+              {% assign footer_menu = block.settings.footer_menu_handle %}
+              {% for link in linklists[footer_menu].links limit: 6 %}
+                {% if linklists[footer_menu].links != '' %}
+                  <li class="ftsublink-li">
+                    <a href="{{ link.url }}" class="ft-sublink">{{ link.title }}</a>
+                  </li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </li>
+          {%- when 'contact_info' -%}
+          <li class="ftlink-li contact-info" data-fade-in {{ block.shopify_attributes }}>
+            {%- if block.settings.show_nav_title -%}
+            <h2 class="ft-title mr-0">{{ block.settings.contact_info_title }}</h2>
+            <button
+              type="button"
+              data-bs-toggle="collapse"
+              aria-expanded="false"
+              data-bs-target="#collapse-{{ block.id }}"
+              class="ft-title accordian-btn"
+              aria-label="{{ block.settings.contact_info_title }}"
+            >
+              <span>{{ block.settings.contact_info_title }}</span>
+              <i class="feather-plus"></i>
+            </button>
+            {%- endif -%}
+            <ul class="list-unstyled {% if block.settings.show_nav_title %}accordian-content collapse {% endif %} footer-sublist"
+              {%- if block.settings.show_nav_title -%}
+                id="collapse-{{ block.id }}"
+                data-bs-parent="#collapse-tab"
+              {%- endif -%}
+            >
+              <li>
+                <div class="contact-info-wrap">
+                  <div class="contact-info-item">
+                    {% if block.settings.contact_info_1_icon != '' %}
+                    <span class="contact-info-icon">
+                      <i class="{{ block.settings.contact_info_1_icon }}"></i>
+                    </span>
+                    {% endif %}
+                    {% if block.settings.contact_info_1_text != '' %}
+                    <div class="contact-info-text">{{ block.settings.contact_info_1_text }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="contact-info-item">
+                    {% if block.settings.contact_info_2_icon != '' %}
+                    <span class="contact-info-icon">
+                      <i class="{{ block.settings.contact_info_2_icon }}"></i>
+                    </span>
+                    {% endif %}
+                    {% if block.settings.contact_info_2_text != '' %}
+                    <div class="contact-info-text">{{ block.settings.contact_info_2_text }}</div>
+                    {% endif %}
+                  </div>
+                  <div class="contact-info-item">
+                    {% if block.settings.contact_info_3_icon != '' %}
+                    <span class="contact-info-icon">
+                      <i class="{{ block.settings.contact_info_3_icon }}"></i>
+                    </span>
+                    {% endif %}
+                    {% if block.settings.contact_info_3_text != '' %}
+                    <div class="contact-info-text">{{ block.settings.contact_info_3_text }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </li>
+
+          {%- when 'social_payment' -%}
+          <li class="ftlink-li social-payment" data-fade-in {{ block.shopify_attributes }}>
+            <div class="social-payment-wrap">
+              <div class="social-area">
+                {%- if block.settings.footer_social_title -%}
+                <h2 class="ft-title mr-0">{{ block.settings.footer_social_title }}</h2>
+                {%- endif -%}
+                {% render 'social-media' %}
+              </div>
+              <div class="payment-area">
+                {%- if block.settings.footer_payment_title -%}
+                  <h2 class="ft-title mr-0">{{ block.settings.footer_payment_title }}</h2>
+                  {%- endif -%}
+                  {% render 'payment-icon' %}
+              </div>
+            </div>
+          </li>
+
+          {%- when 'store_time' -%}
+          <li class="ftlink-li store-time" data-fade-in {{ block.shopify_attributes }}>
+            {%- if block.settings.show_nav_title -%}
+            <h2 class="ft-title mr-0">{{ block.settings.store_time_title }}</h2>
+            {%- endif -%}
+            <div class="store-time-wrap">
+              {% if block.settings.store_time_1_label != '' or block.settings.store_time_1_text != '' %}
+              <div class="text-item">
+                {% if block.settings.store_time_1_label != '' %}
+                <span class="label">{{ block.settings.store_time_1_label }}</span>
+                {% endif %}
+                {% if block.settings.store_time_1_text != '' %}
+                <span class="text">{{ block.settings.store_time_1_text }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+              {% if block.settings.store_time_2_label != '' or block.settings.store_time_2_text != '' %}
+              <div class="text-item">
+                {% if block.settings.store_time_2_label != '' %}
+                <span class="label">{{ block.settings.store_time_2_label }}</span>
+                {% endif %}
+                {% if block.settings.store_time_2_text != '' %}
+                <span class="text">{{ block.settings.store_time_2_text }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+              {% if block.settings.store_time_3_label != '' or block.settings.store_time_3_text != '' %}
+              <div class="text-item">
+                {% if block.settings.store_time_3_label != '' %}
+                <span class="label">{{ block.settings.store_time_3_label }}</span>
+                {% endif %}
+                {% if block.settings.store_time_3_text != '' %}
+                <span class="text">{{ block.settings.store_time_3_text }}</span>
+                {% endif %}
+              </div>
+              {% endif %}
+            </div>
+          </li>        
+          {%- endcase -%}
+          {%- endfor -%}
+        </ul>
+      </div>
+      {%- if shop.features.follow_on_shop? and section.settings.enable_follow_on_shop -%}
+      <div class="footer__follow-on-shop">
+        {{ shop | login_button: action: 'follow' }}
+      </div>
+      {%- endif -%}
+      {%- if section.settings.show_policy -%}
+      <ul class="list-unstyled policies">
+        {%- for policy in shop.policies -%}
+          {%- if policy != blank -%}
+            <li>
+              <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+            </li>
+          {%- endif -%}
+        {%- endfor -%}
+      </ul>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Footer",
+  "limit": 1,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Backgorund image"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_background_image",
+      "label": "Image",
+      "info": "Recommended size: 1920x700px"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_background_image_enable",
+      "label": "image_enable",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Background color",
+      "default": "#f4f2f0"
+    },
+    {
+      "type": "header",
+      "content": "Navigation heading"
+    },
+    {
+      "type": "range",
+      "id": "menu_title_font_size",
+      "label": "Heading font size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 18
+    },
+    {
+      "type": "range",
+      "id": "menu_title_font_size_lg",
+      "label": "Heading size laptop",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "menu_title_font_weight",
+      "label": "Heading font weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 700
+    },
+    {
+      "type": "select",
+      "id": "menu_title_text_transform",
+      "label": "Heading property",
+      "options": [
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        },
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "color",
+      "id": "menu_title_color",
+      "label": "Heading color",
+      "default": "#222222"
+    },
+    {
+      "type": "header",
+      "content": "Navigation link"
+    },
+    {
+      "type": "range",
+      "id": "menu_text_font_size",
+      "label": "Link font size",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "menu_text_font_size_lg",
+      "label": "Link font size laptop",
+      "min": 14,
+      "max": 20,
+      "step": 1,
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "menu_text_font_weight",
+      "label": "Link font weight",
+      "min": 100,
+      "max": 900,
+      "step": 100,
+      "default": 600
+    },
+    {
+      "type": "select",
+      "id": "menu_text_text_transform",
+      "label": "Link property",
+      "options": [
+        {
+          "label": "Capitalize",
+          "value": "capitalize"
+        },
+        {
+          "label": "Lowercase",
+          "value": "lowercase"
+        },
+        {
+          "label": "Uppercase",
+          "value": "uppercase"
+        },
+        {
+          "label": "None",
+          "value": "none"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "color",
+      "id": "menu_text_color",
+      "label": "Link color",
+      "default": "#636363"
+    },
+    {
+      "type": "color",
+      "id": "menu_text_hv_color",
+      "label": "Link hover color",
+      "default": "#EBAB99"
+    },
+    {
+      "type": "header",
+      "content": "Follow on shop",
+      "info": "To allow customers to follow your store on the Shop app from your storefront, Shop Pay must be enabled. [Learn more](https://help.shopify.com/manual/online-store/themes/customizing-themes/follow-on-shop)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_follow_on_shop",
+      "label": "Show follow on shop",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Policy links",
+      "info": "To add store policies, go to your [policy settings](/admin/settings/legal)"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_policy",
+      "label": "Show policy links",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "logo_info",
+      "name": "Logo information",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "logo_enable",
+          "label": "Show logo",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "logo_desc",
+          "label": "Logo description",
+          "default": "As part of our mission create space for women to express their sensuality without shame fear or the patriarchal"
+        },
+        {
+          "type": "checkbox",
+          "id": "footer_social_enable",
+          "label": "Show social",
+          "default": true
+        },
+        {
+          "type": "header",
+          "content": "Custom info 1"
+        },
+        {
+          "type": "text",
+          "id": "custom_info_1_label",
+          "label": "Label",
+          "default": "Mon - fri : "
+        },
+        {
+          "type": "richtext",
+          "id": "custom_info_1_text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Custom info 2"
+        },
+        {
+          "type": "text",
+          "id": "custom_info_2_label",
+          "label": "Label",
+          "default": "Set : "
+        },
+        {
+          "type": "richtext",
+          "id": "custom_info_2_text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Custom info 3"
+        },
+        {
+          "type": "text",
+          "id": "custom_info_3_label",
+          "label": "Label",
+          "default": "Sun : "
+        },
+        {
+          "type": "richtext",
+          "id": "custom_info_3_text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "footer_menu",
+      "name": "Navigation",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_nav_title",
+          "label": "Show heading",
+          "default": true
+        },
+        {
+          "type": "link_list",
+          "id": "footer_menu_handle",
+          "label": "Select navigation",
+          "default": "footer"
+        }
+      ]
+    },
+    {
+      "type": "social_payment",
+      "name": "Social & Payment",
+      "settings": [
+        {
+          "type": "text",
+          "id": "footer_social_title",
+          "label": "Social title",
+          "default": "Keep in touch:"
+        },
+        {
+          "type": "text",
+          "id": "footer_payment_title",
+          "label": "Payment title",
+          "default": "Payment accepted:"
+        }
+      ]
+    },
+    {
+      "type": "store_time",
+      "name": "Store time",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_nav_title",
+          "label": "Show heading",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "store_time_title",
+          "label": "Title",
+          "default": "Visit out store"
+        },
+        {
+          "type": "header",
+          "content": "Store time 1"
+        },
+        {
+          "type": "text",
+          "id": "store_time_1_label",
+          "label": "Label",
+          "default": "Mon - fri : "
+        },
+        {
+          "type": "text",
+          "id": "store_time_1_text",
+          "label": "Text",
+          "default": "9AM - 10PM"
+        },
+        {
+          "type": "header",
+          "content": "Store time 2"
+        },
+        {
+          "type": "text",
+          "id": "store_time_2_label",
+          "label": "Label",
+          "default": "Sat : "
+        },
+        {
+          "type": "text",
+          "id": "store_time_2_text",
+          "label": "Text",
+          "default": "9AM - 4PM"
+        },
+        {
+          "type": "header",
+          "content": "Store time 3"
+        },
+        {
+          "type": "text",
+          "id": "store_time_3_label",
+          "label": "Label",
+          "default": "Sun : "
+        },
+        {
+          "type": "text",
+          "id": "store_time_3_text",
+          "label": "Text",
+          "default": "closed"
+        }
+      ]
+    },
+    {
+      "type": "contact_info",
+      "name": "Contact info",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_nav_title",
+          "label": "Show heading",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "contact_info_title",
+          "label": "Title",
+          "default": "Contact us"
+        },
+        {
+          "type": "header",
+          "content": "Contact info 1"
+        },
+        {
+          "type": "text",
+          "id": "contact_info_1_icon",
+          "label": "Icon class",
+          "default": "feather-map-pin"
+        },
+        {
+          "type": "richtext",
+          "id": "contact_info_1_text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Contact info 2"
+        },
+        {
+          "type": "text",
+          "id": "contact_info_2_icon",
+          "label": "Icon class",
+          "default": "feather-phone-call"
+        },
+        {
+          "type": "richtext",
+          "id": "contact_info_2_text",
+          "label": "Text"
+        },
+        {
+          "type": "header",
+          "content": "Contact info 3"
+        },
+        {
+          "type": "text",
+          "id": "contact_info_3_icon",
+          "label": "Icon class",
+          "default": "feather-mail"
+        },
+        {
+          "type": "richtext",
+          "id": "contact_info_3_text",
+          "label": "Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        {
+          "type": "logo_info"
+        },
+        {
+          "type": "footer_menu"
+        },
+        {
+          "type": "footer_menu"
+        },
+        {
+          "type": "footer_menu"
+        },
+        {
+          "type": "footer_menu"
+        },
+        {
+          "type": "contact_info"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+<style>
+  :root {
+    --footer-menu-title-font-size: {{ section.settings.menu_title_font_size }}px;
+    --footer-menu-title-font-size-lg: {{ section.settings.menu_title_font_size_lg }}px;
+    --footer-menu-title-font-weight: {{ section.settings.menu_title_font_weight }};
+    --footer-menu-title-text-transform: {{ section.settings.menu_title_text_transform }};
+    --footer-menu-title-color: {{ section.settings.menu_title_color }};
+    --footer-menu-text-font-size: {{ section.settings.menu_text_font_size }}px;
+    --footer-menu-text-font-size-lg: {{ section.settings.menu_text_font_size_lg }}px;
+    --footer-menu-text-font-weight: {{ section.settings.menu_text_font_weight }};
+    --footer-menu-text-transform: {{ section.settings.menu_text_text_transform }};
+    --footer-menu-text-color: {{ section.settings.menu_text_color }};
+    --footer-menu-text-hover-color: {{ section.settings.menu_text_hv_color }};
+  }
+  .footer{
+    position: relative;
+    {% if section.settings.section_background_image_enable %}
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    {% endif %}
+    background-color: {{ section.settings.section_background_color }};
+  }
+</style>

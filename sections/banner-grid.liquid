@@ -1,0 +1,496 @@
+{{ 'banner-grid.css' | asset_url | stylesheet_tag }}
+<section class="banner-grid" style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};">
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="row">
+      <div class="col">
+        <div class="grid-wrap">
+          <ul class="list-unstyled banner-ul">
+            {% for block in section.blocks %}
+            {% case block.type %}
+            {% when 'single_banner' %}
+            <li class="banner-li single-banner">
+              <div class="banner-item">
+                <div class="banner-main">
+                  <span class="image">
+                    {%- if block.settings.single_banner_img != blank -%}
+                      {{ block.settings.single_banner_img | image_url: width: 1080 | image_tag:
+                      loading: 'lazy',
+                      width: block.settings.single_banner_img.width,
+                      height: block.settings.single_banner_img.height,
+                      class: "img-fluid lazyload",
+                      alt: block.settings.single_banner_img.alt | escape }}
+                    {%- else -%}
+                      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                    {%- endif -%}
+                  </span>
+                  <div class="banner-content  {% if block.settings.banner_content_position == "right" %} banner-content-right{% elsif block.settings.banner_content_position == "left" %} banner-content-left{% else %} banner-content-center{% endif %}{% if block.settings.banner_text_position == "right" %} banner-text-right{% elsif block.settings.banner_text_position == "left" %} banner-text-left{% else %} banner-text-center{% endif %}">
+                    {% if block.settings.banner_subtitle != '' %}
+                    <span class="subtitle" style="color: {{ block.settings.banner_subtitle_color }};">{{ block.settings.banner_subtitle }}</span>
+                    {% endif %}
+                    {% if block.settings.banner_title != '' %}
+                    <h4 class="title m-0" style="color: {{ block.settings.banner_title_color }};">{{ block.settings.banner_title }}</h4>
+                    {% endif %}
+                    {% if block.settings.banner_button_text != '' %}
+                    <a href="{{ block.settings.banner_button_link }}" class="banner-link">{{ block.settings.banner_button_text }}</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </li>
+            {% when 'two_banner' %}
+            <li class="banner-li two-banner">
+              <div class="banner-item">
+                <div class="banner-main">
+                  <span class="image">
+                    {%- if block.settings.two_banner_1_img != blank -%}
+                      {{ block.settings.two_banner_1_img | image_url: width: 1080 | image_tag:
+                      loading: 'lazy',
+                      width: block.settings.two_banner_1_img.width,
+                      height: block.settings.two_banner_1_img.height,
+                      class: "img-fluid lazyload",
+                      alt: block.settings.two_banner_1_img.alt | escape }}
+                    {%- else -%}
+                      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                    {%- endif -%}
+                  </span>
+                  <div class="banner-content {% if block.settings.two_1_banner_content_position == "right" %} banner-content-right{% elsif block.settings.two_1_banner_content_position == "left" %} banner-content-left{% else %} banner-content-center{% endif %}{% if block.settings.two_1_banner_text_position == "right" %} banner-text-right{% elsif block.settings.two_1_banner_text_position == "left" %} banner-text-left{% else %} banner-text-center{% endif %}">
+                    {% if block.settings.two_banner_1_subtitle != '' %}
+                    <span class="subtitle" style="color: {{ block.settings.two_banner_1_subtitle_color }};">{{ block.settings.two_banner_1_subtitle }}</span>
+                    {% endif %}
+                    {% if block.settings.two_banner_1_title != '' %}
+                    <h4 class="title m-0" style="color: {{ block.settings.two_banner_1_title_color }};">{{ block.settings.two_banner_1_title }}</h4>
+                    {% endif %}
+                    {% if block.settings.two_banner_1_button_text != '' %}
+                    <a href="{{ block.settings.two_banner_1_link }}" class="banner-link">{{ block.settings.two_banner_1_button_text }}</a>
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="banner-main">
+                  <span class="image">
+                    {%- if block.settings.two_banner_2_img != blank -%}
+                      {{ block.settings.two_banner_2_img | image_url: width: 1080 | image_tag:
+                      loading: 'lazy',
+                      width: block.settings.two_banner_2_img.width,
+                      height: block.settings.two_banner_2_img.height,
+                      class: "img-fluid lazyload",
+                      alt: block.settings.two_banner_2_img.alt | escape }}
+                    {%- else -%}
+                      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                    {%- endif -%}
+                  </span>
+                  <div class="banner-content {% if block.settings.two_2_banner_content_position == "right" %} banner-content-right{% elsif block.settings.two_2_banner_content_position == "left" %} banner-content-left{% else %} banner-content-center{% endif %}{% if block.settings.two_2_banner_text_position == "right" %} banner-text-right{% elsif block.settings.two_2_banner_text_position == "left" %} banner-text-left{% else %} banner-text-center{% endif %}">
+                    {% if block.settings.two_banner_2_subtitle != '' %}
+                    <span class="subtitle" style="color: {{ block.settings.two_banner_2_subtitle_color }};">{{ block.settings.two_banner_2_subtitle }}</span>
+                    {% endif %}
+                    {% if block.settings.two_banner_2_title != '' %}
+                    <h4 class="title m-0" style="color: {{ block.settings.two_banner_2_title_color }};">{{ block.settings.two_banner_2_title }}</h4>
+                    {% endif %}
+                    {% if block.settings.two_banner_2_button_text != '' %}
+                    <a href="{{ block.settings.two_banner_2_link }}" class="banner-link">{{ block.settings.two_banner_2_button_text }}</a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+            </li>
+            {% endcase %}
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Banner grid",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "single_banner",
+      "name": "Single banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "single_banner_img",
+          "label": "Banner image",
+          "info": "Recommended Size: 555x550px"
+        },
+        {
+          "type": "text",
+          "id": "banner_subtitle",
+          "label": "Banner subtitle",
+          "default": "Big discount only 30% off"
+        },
+        {
+          "type": "color",
+          "id": "banner_subtitle_color",
+          "label": "Subtitle color",
+          "default": "#868686"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Banner title",
+          "default": "Weekly sale"
+        },
+        {
+          "type": "color",
+          "id": "banner_title_color",
+          "label": "Banner title color",
+          "default": "#222222"
+        },
+        {
+          "type": "text",
+          "id": "banner_button_text",
+          "label": "Banner button",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "banner_button_link",
+          "label": "Banner link"
+        },
+        {
+          "type": "header",
+          "content": "Text content position"
+        },
+        {
+          "type": "select",
+          "id": "banner_content_position",
+          "label": "Content position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "header",
+          "content": "Text position"
+        },
+        {
+          "type": "select",
+          "id": "banner_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    },
+    {
+      "type": "two_banner",
+      "name": "Two banner",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Banner 1"
+        },
+        {
+          "type": "image_picker",
+          "id": "two_banner_1_img",
+          "label": "Banner image",
+          "info": "Recommended Size: 555x260px"
+        },
+        {
+          "type": "text",
+          "id": "two_banner_1_subtitle",
+          "label": "Banner subtitle",
+          "default": "Big discount only 30% off"
+        },
+        {
+          "type": "color",
+          "id": "two_banner_1_subtitle_color",
+          "label": "Subtitle color",
+          "default": "#868686"
+        },
+        {
+          "type": "text",
+          "id": "two_banner_1_title",
+          "label": "Banner title",
+          "default": "Weekly sale"
+        },
+        {
+          "type": "color",
+          "id": "two_banner_1_title_color",
+          "label": "Banner title color",
+          "default": "#222222"
+        },
+        {
+          "type": "text",
+          "id": "two_banner_1_button_text",
+          "label": "Banner button",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "two_banner_1_link",
+          "label": "Banner link"
+        },
+        {
+          "type": "header",
+          "content": "Text content position"
+        },
+        {
+          "type": "select",
+          "id": "two_1_banner_content_position",
+          "label": "Content position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "header",
+          "content": "Text position"
+        },
+        {
+          "type": "select",
+          "id": "two_1_banner_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Banner 2"
+        },
+        {
+          "type": "image_picker",
+          "id": "two_banner_2_img",
+          "label": "Banner image",
+          "info": "Recommended Size: 555x260px"
+        },
+        {
+          "type": "text",
+          "id": "two_banner_2_subtitle",
+          "label": "Banner subtitle",
+          "default": "Big discount only 30% off"
+        },
+        {
+          "type": "color",
+          "id": "two_banner_2_subtitle_color",
+          "label": "Subtitle color",
+          "default": "#868686"
+        },
+        {
+          "type": "text",
+          "id": "two_banner_2_title",
+          "label": "Banner title",
+          "default": "Weekly sale"
+        },
+        {
+          "type": "color",
+          "id": "two_banner_2_title_color",
+          "label": "Banner title color",
+          "default": "#222222"
+        },
+        {
+          "type": "text",
+          "id": "two_banner_2_button_text",
+          "label": "Banner button",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "two_banner_2_link",
+          "label": "Banner link"
+        },
+        {
+          "type": "header",
+          "content": "Text content position"
+        },
+        {
+          "type": "select",
+          "id": "two_2_banner_content_position",
+          "label": "Content position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "right"
+        },
+        {
+          "type": "header",
+          "content": "Text position"
+        },
+        {
+          "type": "select",
+          "id": "two_2_banner_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner grid",
+      "blocks": [
+        {
+          "type": "single_banner"
+        },
+        {
+          "type": "two_banner"
+        },
+        {
+          "type": "single_banner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

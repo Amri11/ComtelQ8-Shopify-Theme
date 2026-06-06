@@ -1,0 +1,177 @@
+{{ 'newsletter.css' | asset_url | stylesheet_tag }}
+<section
+  class="newsletter"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px; --background-color: {{ section.settings.section_background_color }};"
+  >
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="newsletter-area" style="{% if section.settings.banner_bg_img_enable %}background-image: url({% if section.settings.banner_bg_img %}{{ section.settings.banner_bg_img | image_url }}{% else %}https://dummyimage.com/1720x130/333333/999999{% endif %});{% endif %}"> 
+      <div class="news-image-wrap">
+        <div class="newsletter-block">
+          {% if section.settings.section_heading != '' or section.settings.section_desc != '' %}
+          <div class="section-capture">
+            <div class="section-title">
+              {% if section.settings.section_heading != '' %}
+              <h2 class="mr-0" style="color: {{ section.settings.section_heading_color }};" data-fade-in>{{ section.settings.section_heading }}</h2>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+          <div class="newsletter-wrap" data-fade-in>
+            <div class="news-content">
+              {% form 'customer' %}
+              {{ form.errors | default_errors }}
+              {% if form.posted_successfully? %}
+              <p class="m-0 text-success">
+                <span>{{ 'general.newsletter_form.confirmation' | t }}</span>
+              </p>
+              {% endif %}
+              <div class="news-wrap">
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                <label for="E-mail" class="hidden">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+                <input
+                type="email"
+                name="contact[email]"
+                class="email mail"
+                id="E-mail"
+                value="{% if customer %}{{ customer.email }}{% endif %}"
+                placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                autocapitalize="off"
+                required
+                >
+                <button type="submit" name="commit" id="Subscribe" aria-label="arrow">{{ 'general.newsletter_form.submit' | t }}</button>
+              </div>
+              {% endform %}
+            </div>
+          </div>
+          <div class="col-space"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Newsletter",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background image"
+    },
+    {
+      "type": "checkbox",
+      "id": "banner_bg_img_enable",
+      "label": "Show background image",
+      "default": true
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_bg_img",
+      "label": "Background image",
+      "info": "Recommended size: 1380x300px"
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Background color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Let`s get in connect"
+    },
+    {
+      "type": "color",
+      "id": "section_heading_color",
+      "label": "Heading color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Newsletter"
+    }
+  ]
+}
+{% endschema %}

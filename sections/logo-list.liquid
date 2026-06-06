@@ -1,0 +1,393 @@
+<section
+  class="logo-list"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div
+      class="brand-logo swiper"
+      id="brand-logo-{{ section.id }}"
+      data-slides-per-view="{{ section.settings.slide_view }}"
+    >
+      <div class="swiper-wrapper">
+        {% for block in section.blocks %}
+          <div class="swiper-slide" {{ block.shopify_attributes }}>
+            <a href="{{ block.settings.brand_url }}" aria-label="{{ block.settings.brand_image }}">
+              {%- if block.settings.brand_image != blank -%}
+                {{
+                  block.settings.brand_image
+                  | image_url: width: 500
+                  | image_tag:
+                    loading: 'lazy',
+                    width: block.settings.brand_image.width,
+                    height: block.settings.brand_image.height,
+                    class: 'lazyload',
+                    loading: 'lazy'
+                }}
+              {%- else -%}
+                {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
+                {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+              {%- endif -%}
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var swiper = new Swiper('#brand-logo-{{ section.id }}', {
+      slidesPerView: {{ section.settings.slider_item_desktop }},
+      spaceBetween: 30,
+      grid: {
+        rows: 1,
+        fill: 'row' | 'column',
+      },
+      {%- if request.locale.iso_code == 'ar' -%}
+      rtl: true,
+      {%- endif -%}
+      {% if section.settings.slider_autoplay_enable %}
+      autoplay: {
+        delay: {{ section.settings.slider_autoplay_timeout }},
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      speed: {{ section.settings.slider_autoplay_speed }},
+      {% endif %}
+      {% if section.settings.arrow_enable %}
+      navigation: {
+        nextEl: ".arrow-next-{{ section.id }}",
+        prevEl: ".arrow-prev-{{ section.id }}",
+      },
+      {% endif %}
+      {% if section.settings.dots_enable %}
+      pagination: {
+        el: ".slider-dot-{{ section.id }}",
+        clickable: true
+      },
+      {% endif %}
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+          spaceBetween: 12
+        },
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 12
+        },
+        360: {
+          slidesPerView: 1,
+          spaceBetween: 12
+        },
+        540: {
+          slidesPerView: {{ section.settings.slider_item_mobile }},
+          spaceBetween: 12
+        },
+        640: {
+          slidesPerView: {{ section.settings.slider_item_tablet }},
+          spaceBetween: 12
+        },
+        768: {
+          slidesPerView: {{ section.settings.slider_item_tablet }},
+          spaceBetween: 30,
+        },
+        1024: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 30
+        },
+        1199: {
+          slidesPerView: {{ section.settings.slider_item_ipadpro }},
+          spaceBetween: 30
+        },
+        1399: {
+          slidesPerView: {{ section.settings.slider_item_desktop }},
+          spaceBetween: 30
+        },
+        1499: {
+          slidesPerView: {{ section.settings.slider_item_desktop }},
+          spaceBetween: 30
+        }
+      }
+    });
+  });
+</script>
+{% schema %}
+{
+  "name": "Logo list",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Slider option"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_desktop",
+      "label": "Desktop item",
+      "info": "Width : > 1499px",
+      "options": [
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        },
+        {
+          "label": "7",
+          "value": "7"
+        }
+      ],
+      "default": "6"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipadpro",
+      "label": "Ipadpro item",
+      "info": "Width : > 1199px",
+      "options": [
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        },
+        {
+          "label": "6",
+          "value": "6"
+        }
+      ],
+      "default": "5"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipad",
+      "label": "Ipad item",
+      "info": "Width : > 640px",
+      "options": [
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        },
+        {
+          "label": "5",
+          "value": "5"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_tablet",
+      "label": "Tablet item",
+      "info": "Width : > 640px",
+      "options": [
+        {
+          "label": "2",
+          "value": "2"
+        },
+        {
+          "label": "3",
+          "value": "3"
+        },
+        {
+          "label": "4",
+          "value": "4"
+        }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_mobile",
+      "label": "Mobile item",
+      "info": "Width : > 360px",
+      "options": [
+        {
+          "label": "1",
+          "value": "1"
+        },
+        {
+          "label": "2",
+          "value": "2"
+        }
+      ],
+      "default": "1"
+    },
+    {
+      "type": "header",
+      "content": "Slider autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay_enable",
+      "label": "Show autoplay",
+      "default": true
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_timeout",
+      "label": "Autoplay timeout",
+      "default": 5000,
+      "info": "Put timeout by multiply 'X1000' this field"
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_speed",
+      "label": "Autoplay speed",
+      "default": 1000,
+      "info": "Put speed by multiply 'X100' this field"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "single_brand",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand_image",
+          "label": "Image",
+          "info": "Recommended size: 155x50px"
+        },
+        {
+          "type": "url",
+          "id": "brand_url",
+          "label": "Url"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Logo list",
+      "blocks": [
+        {
+          "type": "single_brand"
+        },
+        {
+          "type": "single_brand"
+        },
+        {
+          "type": "single_brand"
+        },
+        {
+          "type": "single_brand"
+        },
+        {
+          "type": "single_brand"
+        },
+        {
+          "type": "single_brand"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<style>
+  .logo-list .swiper {
+    margin: -10px;
+    padding: 10px;
+  }
+  .logo-list .brand-logo a {
+    display: block;
+    text-align: center; 
+    padding: 30px 0px;
+    box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.15);
+    border-radius: var(--sti-border-radius);
+    -webkit-transition: background-color .4s ease-in-out;
+    -o-transition: background-color .4s ease-in-out;
+    transition: background-color .4s ease-in-out;
+  }
+  .logo-list .brand-logo a:hover {
+    background-color: var(--extra-color-body);
+  }
+  .logo-list .brand-logo a:hover img {
+    opacity: 1;
+  }
+  @media (max-width: 479px) {
+    .logo-list .brand-logo a {
+      box-shadow: 0px 0px 15px rgba(51, 51, 51, 0.15);
+    }
+  }
+</style>

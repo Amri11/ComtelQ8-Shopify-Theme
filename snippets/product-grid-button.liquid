@@ -1,0 +1,179 @@
+<cart-action class="product-form">
+  {%- form 'product', product, id: product_form_id, section: section, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+  <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" id="var-{{ product.id }}" disabled class="product-variant-id">
+  <input type="hidden" name="quantity" id="quantity-{{ product.id }}" value="1">
+  <div class="pr-form-button">
+    <div id="Quantity-Form-{{ product.id }}" class="product-qty" {{ block.shopify_attributes }}>
+      {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
+      <qty-box class="quantity qty-box">
+        <button class="qty-bt" name="minus" type="button"><i class="feather-minus"></i></button>
+        <input class="qty-box-input" type="number" name="quantity" id="Quantity-{{ product.id }}" data-cart-quantity="{{ cart_qty }}" data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}" min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+        {% if product.selected_or_first_available_variant.quantity_rule.max != null %} data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}" max="{{ product.selected_or_first_available_variant.quantity_rule.max }}" {% endif %} step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}" value="{{ product.selected_or_first_available_variant.quantity_rule.min }}" form="{{ product_form_id }}"/>
+        <button class="qty-bt" name="plus" type="button"><i class="feather-plus"></i></button>
+      </qty-box>
+      <div class="caption">
+        {%- if product.selected_or_first_available_variant.quantity_rule.increment > 1 -%}
+        <span class="divider">
+          {{- 'products.product.quantity.multiples_of' | t: quantity: product.selected_or_first_available_variant.quantity_rule.increment -}}
+        </span>
+        {%- endif -%}
+        {%- if product.selected_or_first_available_variant.quantity_rule.min > 1 -%}
+        <span class="divider">
+          {{- 'products.product.quantity.minimum_of' | t: quantity: product.selected_or_first_available_variant.quantity_rule.min -}}
+        </span>
+        {%- endif -%}
+        {%- if product.selected_or_first_available_variant.quantity_rule.max != null -%}
+        <span class="divider">
+          {{- 'products.product.quantity.maximum_of' | t: quantity: product.selected_or_first_available_variant.quantity_rule.max -}}
+        </span>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="product-action">
+      {%- liquid
+      if settings.wishlist_enable
+      render 'wishlist-button', product: product
+      endif
+      %}
+    {%- if product != blank -%}
+    <div class="pr-form-error" role="alert" hidden>
+      <span class="pr-form-error-text"></span>
+    </div>
+      {%- liquid
+      assign check_against_inventory = true
+      if product.selected_or_first_available_variant.inventory_management != 'shopify' or  product.selected_or_first_available_variant.inventory_policy == 'continue'
+      assign check_against_inventory = false
+      endif
+      if product.selected_or_first_available_variant.quantity_rule.min > product.selected_or_first_available_variant.inventory_quantity and check_against_inventory
+      assign quantity_rule_soldout = true
+      endif
+      -%}
+      <a id="pro-add-{{ product.id }}" class="ajax-cart-btn" {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %} disabled {% endif %}>
+        <span class="cart-title">
+          <span class="icon">
+            <i class="feather-shopping-bag"></i>
+            <span class="title">
+              {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+              {{ 'products.product.sold_out' | t }}
+              {%- else -%}
+              {{ 'products.product.grid_add_to_cart' | t }}
+              {%- endif -%}
+            </span>
+          </span>
+        </span>
+        <div class="ajax-loader hidden">
+         <span class="spinner-border"></span>
+        </div>
+      </a>
+     {%- else -%}
+     <div class="product-form">
+      <div class="pr-form-button form">
+        <button type="submit" name="add" class="" disabled>
+          {{ 'products.product.sold_out' | t }}
+        </button>
+      </div>
+    </div>
+    {%- endif -%}
+    {%- liquid
+      if settings.quickview_enable
+      render 'quickview-button', product: product, section_id: section.id
+      endif
+    %}
+    </div>
+  </div>
+  {%- endform -%}
+</cart-action>
+<script>
+    document.getElementById('Quantity-{{ product.id }}').onchange = function() {
+      var qty_val = $(this).val();
+      $('#quantity-{{ product.id }}').val(qty_val);
+    };
+    document.getElementById('pro-add-{{ product.id }}').addEventListener("click", function() {
+      var productId = $('#var-{{ product.id }}').val();
+      var quantity = $('#quantity-{{ product.id }}').val();
+      var url = window.Shopify.routes.root + 'cart/add.js';
+      let sectionsToUpdate = 'ajax-cart';
+      let sectionsToCount = 'ajax-cart-icon';
+      $(this).addClass("loading");
+      $(this).find(".ajax-loader").removeClass("hidden");
+      let requestBody = {
+        'items': [{
+          'id': productId,
+          'quantity': quantity
+        }],
+        'sections': sectionsToUpdate,
+      };
+      let requestBodyCount = {
+        'items': [{
+          'id': productId,
+          'quantity': quantity
+        }],
+        'sections': sectionsToCount,
+      };
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBody)
+      }).then(response => {
+        return response.json();
+      }).then(data => {
+        var parsed = $.parseHTML(data.sections['ajax-cart']);
+        var result = $(parsed).find("#ajaxcart").html();
+        $('#ajaxcart').html('');
+        $('#ajaxcart').html(result);
+        if($('.mini-cart').hasClass('is-empty')){
+          document.querySelector('.mini-cart').classList.remove('is-empty');
+        }
+        setTimeout(function() {
+          document.querySelector('.mini-cart').classList.add('animate', 'active');
+          const checkbox = document.getElementById('toggleCheckbox');
+          const button = document.getElementById('ajaxcart-checkout');
+          
+          // Function to enable/disable attribute manipulation
+          function toggleAttributeManipulation() {
+            if (checkbox.checked) {
+              // Enable the button
+              button.disabled = false;
+              // Add attribute to the button
+              button.setAttribute('data-custom', 'example');
+            } else {
+              // Disable the button
+              button.disabled = true;
+              // Remove attribute from the button
+              button.removeAttribute('data-custom');
+            }
+          }
+          
+          // Attach event listener to checkbox change event
+          checkbox.addEventListener('change', toggleAttributeManipulation);
+        }, 200);
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(requestBodyCount)
+      }).then(response => {
+        return response.json();
+      }).then(data => {
+        var parsedCount = $.parseHTML(data.sections['ajax-cart-icon']);
+        var resultCount = $(parsedCount).find(".bigcounter").html();
+        var resultPrice = $(parsedCount).find(".mini-cart-total-price").html();
+        $('.bigcounter').html('');
+        $('.bigcounter').html(resultCount);
+        $('.mini-cart-total-price').html('');
+        $('.mini-cart-total-price').html(resultPrice);
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+      setTimeout(function() {
+        $('#pro-add-{{ product.id }}').removeClass("loading");
+        $('#pro-add-{{ product.id }}').find(".ajax-loader").addClass("hidden");
+      }, 500);
+    });
+  </script>

@@ -1,0 +1,273 @@
+{{ 'announcement-bar.css' | asset_url | stylesheet_tag }}
+<section
+  class="top-bar"
+  style="--background-color: {{ section.settings.notification_bg_color }}; --color: {{ section.settings.notification_txt_color }}; --padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="offer-text-wrap" style="--animation-time: 15.35s;">
+      <ul class="list-unstyled grid-wrap">
+        {% if section.settings.topbar_notification_text1 != '' %}
+        <li class="grid-wrapper">
+          <div class="richtext">
+            {{ section.settings.topbar_notification_text1 }}
+          </div>
+        </li>
+        {% endif %}
+        <li class="grid-wrapper center-block-box {% if section.settings.show_custom_info_mobile %} xs-visible {% endif %}">
+          <div class="custom-info">
+            {% if section.settings.custom_info_1_icon != '' or section.settings.custom_info_1_text != '' %}
+            <div class="info-item">
+              {% if section.settings.custom_info_1_icon != '' %}
+              <span class="info-icon"><i class="{{ section.settings.custom_info_1_icon }}"></i></span>
+              {% endif %}
+              {% if section.settings.custom_info_1_text != '' %}
+              <div class="text">{{ section.settings.custom_info_1_text }}</div>
+              {% endif %}
+            </div>
+            {% endif %}
+            {% if section.settings.custom_info_2_icon != '' or section.settings.custom_info_2_text != '' %}
+            <div class="info-item">
+              {% if section.settings.custom_info_2_icon != '' %}
+              <span class="info-icon"><i class="{{ section.settings.custom_info_2_icon }}"></i></span>
+              {% endif %}
+              {% if section.settings.custom_info_2_text != '' %}
+              <div class="text">{{ section.settings.custom_info_2_text }}</div>
+              {% endif %}
+            </div>
+            {% endif %}
+          </div>
+        </li>
+        {%- if section.settings.enable_country_selector and section.settings.enable_language_selector -%}
+        <li class="grid-wrapper right-block-box">
+          <div class="locali-block">
+            {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
+              <div class="locali-box">
+                <noscript>
+                  {%- form 'localization', id: 'HeaderCountryMobileFormNoScript', class: 'localization-form' -%}
+                    <select name="country_code" aria-labelledby="HeaderCountryMobileLabelNoScript">
+                      {%- for country in localization.available_countries -%}
+                        <option
+                          value="{{ country.iso_code }}"
+                          {%- if country.iso_code == localization.country.iso_code %}
+                            selected
+                          {% endif %}
+                        >
+                          {{ country.name }} ({{ country.currency.iso_code }}
+                          {{ country.currency.symbol }})
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                  {%- endform -%}
+                </noscript>
+                <localization-form>
+                  {%- form 'localization', id: 'HeaderCountryForm', class: 'localization-form' -%}
+                    {%- render 'country-localization', localPosition: 'HeaderCountry' -%}
+                  {%- endform -%}
+                </localization-form>
+              </div>
+            {% endif %}
+            {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
+              <div class="locali-box">
+                <noscript>
+                  {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
+                    <select name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
+                      {%- for language in localization.available_languages -%}
+                        <option
+                          value="{{ language.iso_code }}"
+                          lang="{{ language.iso_code }}"
+                          {%- if language.iso_code == localization.language.iso_code %}
+                            selected
+                          {% endif %}
+                        >
+                          {{ language.endonym_name | capitalize }}
+                        </option>
+                      {%- endfor -%}
+                    </select>
+                  {%- endform -%}
+                </noscript>
+                <localization-form>
+                  {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+                    {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
+                  {%- endform -%}
+                </localization-form>
+              </div>
+            {%- endif -%}
+          </div>
+        </li>
+        {%- endif -%}
+      </ul>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Announcement bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "notification_bg_color",
+      "label": "Background color",
+      "default": "#232323"
+    },
+    {
+      "type": "header",
+      "content": "Text color"
+    },
+    {
+      "type": "color",
+      "id": "notification_txt_color",
+      "label": "Color",
+      "default": "#fff"
+    },
+    {
+      "type": "header",
+      "content": "Offer text"
+    },
+    {
+      "type": "richtext",
+      "id": "topbar_notification_text1",
+      "label": "Text",
+      "default": "<p>Free shipping on all orders $50, don't miss discount.</p>"
+    },
+    {
+      "type": "header",
+      "content": "Custom info 1"
+    },
+    {
+      "type": "text",
+      "id": "custom_info_1_icon",
+      "label": "Icon",
+      "default": "feather-map-pin"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_info_1_text",
+      "label": "Text"
+    },
+    {
+      "type": "header",
+      "content": "Custom info 2"
+    },
+    {
+      "type": "text",
+      "id": "custom_info_2_icon",
+      "label": "Icon",
+      "default": "feather-mail"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_info_2_text",
+      "label": "Text"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_custom_info_mobile",
+      "label": "Show custom info in mobile",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Country/region selector",
+      "info": "To add a country\/region, go to your [market settings.](\/admin\/settings\/markets)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_country_selector",
+      "label": "Show country/region selector",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Language selector",
+      "info": "To add a language, go to your [language settings.](\/admin\/settings\/languages)"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_language_selector",
+      "label": "Show language selector",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}

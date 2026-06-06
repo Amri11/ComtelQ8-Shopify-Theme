@@ -1,0 +1,154 @@
+.offer-banner {
+  position: relative;
+}
+.offer-banner .grid-wrap ul.banner-ul {
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: var(--sti-border-radius);
+  overflow: hidden;
+  margin-top: -30px;
+  margin-inline-start: -30px;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li {
+  width: calc(50% - 30px);
+  margin-top: 30px;
+  margin-inline-start: 30px;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main a.banner-image span.image {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: var(--sti-border-radius);
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main a.banner-image span.image img {
+  -webkit-transition: transform .6s ease-in-out;
+  -o-transition: transform .6s ease-in-out;
+  transition: transform .6s ease-in-out;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li:hover .banner-main a.banner-image span.image img {
+  transform: scale(1.1);
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text {
+  position: absolute;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-right,
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-left {
+  width: calc(50% - 50px);
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-center {
+  width: calc(50% - 100px);
+  inset-inline-start: 50px;
+  inset-inline-end: 50px;
+  margin: 0 auto;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-right {
+  right: 50px;
+} 
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-left {
+  left: 50px;
+}  
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-text-left {
+  text-align: start;
+} 
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-text-right {
+  text-align: end;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-text-center {
+  text-align: center;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text span.subtitle {
+  margin-bottom: 19px;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text h2.title {
+  font-size: 40px;
+  font-weight: var(--font-custom-weight-section-header);
+  line-height: 1.1;
+}
+.offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text a.banner-btn {
+  margin-top: 22px;
+}
+@media (max-width: 1499px) {
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text h2.title {
+    font-size: 32px;
+  }
+}
+@media (max-width: 1280px) {
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-right,
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-left {
+    width: calc(50% - 30px);
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-center {
+    width: calc(50% - 60px);
+    inset-inline-start: 30px;
+    inset-inline-end: 30px;
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-right {
+    inset-inline-end: 30px;
+  } 
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-left {
+    inset-inline-start: 30px;
+  }  
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text h2.title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 1199px) {
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text h2.title {
+    font-size: 24px;
+  }
+}
+@media (max-width: 991px) {
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li {
+    width: calc(100% - 30px);
+  }
+}
+@media (max-width: 767px) {
+  .offer-banner .grid-wrap ul.banner-ul {  
+    margin-top: -15px;
+    margin-inline-start: -15px;
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li {
+    width: calc(100% - 15px);
+    margin-top: 15px;
+    margin-inline-start: 15px;
+  } 
+}
+@media (max-width: 479px) {
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-right,
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-left {
+    width: calc(58.33% - 15px);
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-center {
+    width: calc(58.33% - 30px);
+    inset-inline-start: 15px;
+    inset-inline-end: 15px;
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-right {
+    inset-inline-end: 15px;
+  } 
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text.banner-content-left {
+    inset-inline-start: 15px;
+  }  
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text span.subtitle {
+    margin-bottom: 13px;
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text h2.title {
+    font-size: 20px;
+  }
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main .banner-text a.banner-btn {
+    margin-top: 16px;
+  }
+}
+@media (max-width: 320px) {
+  .offer-banner .grid-wrap ul.banner-ul li.banner-li .banner-main a.banner-image span.image img {
+    height: 200px;
+    object-fit: cover;
+  }
+}

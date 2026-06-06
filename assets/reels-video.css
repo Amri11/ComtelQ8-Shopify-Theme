@@ -1,0 +1,150 @@
+.reels-slider {
+  background-color: var(--background-color);
+}
+.reel-video {
+  position: relative;
+}
+.reel-video video {
+  width: 100%;
+  border-radius: var(--sti-border-radius);
+  display: block;
+}
+.reel-video .single-product {
+  background-image: linear-gradient(180deg, #0000, #000000cc);
+  padding: 15px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-radius: var(--sti-border-radius);
+}
+.reel-video .single-product .single-product-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 0px;
+}
+.reel-video .single-product .single-product-wrap .product-image {
+  width: 70px;
+  border-radius: var(--sti-border-radius);
+}
+.reel-video .single-product .single-product-wrap .product-content {
+  width: calc(100% - 70px);
+  text-align: start;
+  padding: 0px;
+  padding-inline-start: 10px;
+} 
+.reel-video .single-product .single-product-wrap .product-content h6 a,
+.reel-video .single-product .single-product-wrap .product-content .price-box span {
+  color: #FFFFFF;
+}
+.reel-video .single-product .single-product-wrap .product-content h6 a:hover {
+  opacity: 0.7;
+}
+.reel-video .single-product .single-product-wrap .product-content .price-box {
+  margin-top: 9px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.reel-video .single-product .single-product-wrap .product-content .price-box span.old-price {
+  margin-inline-start: 0;
+  margin-top: 5px;
+}
+.reel-video .single-product .single-product-wrap .cart-btn {
+  width: 100%;
+  margin-top: 10px;
+}
+.reel-video .single-product .single-product-wrap .cart-btn a.ajax-cart-btn {
+  background-color: var(--font-color-primary);
+  color: #FFFFFF;
+  font-size: var(--font-size-body);
+  font-weight: var(--font-custom-weight-body);
+  width: 100%;
+  padding: 10px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  border-radius: var(--sti-border-radius);
+}
+.reel-video .single-product .single-product-wrap .cart-btn a.ajax-cart-btn:hover {
+  background-color: var(--font-color-link);
+}
+.reel-video .single-product .single-product-wrap .cart-btn a.ajax-cart-btn.loading span.cart-title {
+  display: none;
+}
+.reel-video .single-product .single-product-wrap .cart-btn a.ajax-cart-btn.loading .ajax-loader {
+  display: block;
+}
+@media (max-width: 479px) {
+  .reel-video .single-product {
+    padding: 10px;
+  }
+  .reel-video .single-product .single-product-wrap .product-image {
+    width: 50px;
+  }
+  .reel-video .single-product .single-product-wrap .product-content {
+    width: calc(100% - 50px);
+  }
+  .single-product-wrap .product-content h6,
+  .reel-video .single-product .single-product-wrap .product-content h6 a,
+  .reel-video .single-product .single-product-wrap .product-content .price-box span {
+    font-size: 14px;
+  }
+  .reel-video .single-product .single-product-wrap .cart-btn a.ajax-cart-btn {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* slider-arrow */
+.reels-slider .slider-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: var(--section-title-bottom-space);
+}
+.reels-slider .slider-arrow button {
+  color: var(--font-color-body);
+  font-size: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--theme-border-color);
+  border-radius: 100%;
+}
+.reels-slider .slider-arrow button:hover {
+  color: #fff;
+  background-color: var(--font-color-primary);
+  border-color: var(--font-color-primary);
+}
+.reels-slider .slider-arrow button i {
+  display: block;
+}
+
+/* slider dots css */
+.reels-slider .slider-dot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: var(--section-title-bottom-space);
+}
+.reels-slider .slider-dot .swiper-pagination-bullet {
+  margin: 0px;
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  background: transparent;
+  border: 1px solid var(--swiper-pagination-bullet-inactive-color, #000);
+}
+.reels-slider .slider-dot .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: var(--swiper-pagination-bullet-inactive-color, #000);
+}
+@media (max-width: 767px) {
+  .reels-slider .slider-dot {
+    margin-top: var(--section-title-bottom-space-mobile);
+  }
+}

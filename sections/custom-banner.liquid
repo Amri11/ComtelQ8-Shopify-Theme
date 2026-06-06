@@ -1,0 +1,178 @@
+{{ 'custom-banner.css' | asset_url | stylesheet_tag }}
+<section class="custom-banner" style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};">
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="row">
+      <div class="col">
+        <div class="banner-bg">
+          <div class="container">
+            <div class="text-block">
+              <div class="section-title">
+                {% if section.settings.section_title != '' %}
+                <h2 data-fade-in class="mr-0">{{ section.settings.section_title }}</h2>
+                {% endif %}
+                {% if section.settings.section_desc != '' %}
+                <p data-fade-in class="mr-0">{{ section.settings.section_desc }}</p>
+                {% endif %}
+                {% if section.settings.section_desc2 != '' %}
+                <p data-fade-in class="mr-0">{{ section.settings.section_desc2 }}</p>
+                {% endif %}
+                {% if section.settings.section_button != '' %}
+                <a data-fade-in href="{{ section.settings.button_url }}" class="btn-style">{{ section.settings.section_button }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Custom banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "image_picker",
+      "id": "section_bg_img",
+      "label": "Image",
+      "info": "Recommended Size: 1350x350px"
+    },
+    {
+      "type": "checkbox",
+      "id": "section_bg_img_enable",
+      "label": "Show Background Image",
+      "default": false
+    },
+    {
+      "type": "header",
+      "content": "Banner image"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Banner title",
+      "default": "Kitchen is where you have a good time."
+    },
+    {
+      "type": "textarea",
+      "id": "section_desc",
+      "label": "Banner description",
+      "default": "Made of fresh & premium food."
+    },
+    {
+      "type": "textarea",
+      "id": "section_desc2",
+      "label": "Banner description",
+      "default": "Made of fresh & premium food."
+    },
+    {
+      "type": "text",
+      "id": "section_button",
+      "label": "Banner button",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Banner url"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom banner"
+    }
+  ]
+}
+{% endschema %}
+<style>
+.custom-banner .banner-bg {
+  {% if section.settings.section_bg_img_enable %}
+  background-image: url('{% if section.settings.section_bg_img %}{{ section.settings.section_bg_img | image_url }}{% else %}https://dummyimage.com/1350x350/f7f7f7/999999{% endif %}');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  {% endif %}
+}
+</style>

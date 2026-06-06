@@ -1,0 +1,902 @@
+{% if section.settings.section_before_image_enable %}
+    .home-about-info::before {
+    background-image: url('{% if section.settings.section_before_image %}{{ section.settings.section_before_image | image_url }}{% else %}https://dummyimage.com/120x200/232323/FFFFFF{% endif %}');
+    content: '';
+    position: absolute;
+    bottom: 120px;
+    {%- if settings.enable_rtl -%}
+    right: 0px;
+    transform: scaleX(-1);
+    {%- else -%}
+    left: 0px;
+    {%- endif -%}
+    width: 120px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.1; 
+  }
+  @media (max-width: 1199px) {
+    .home-about-info::before {
+      bottom: 100px;
+      width: 100px;
+      height: 170px;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-about-info::before {
+      bottom: 30px;
+      width: 80px;
+      height: 140px;
+    }
+  }
+  {% endif %}
+
+
+
+
+
+  <!-- home slider start -->
+			<section class="home-slider-area">
+				<div class="slider-main-content">
+					<div class="side-content-block">
+						<div class="side-content">
+							<!-- side header start -->
+							<div class="side-header-block">
+								<div class="side-header">
+									<div class="side-logo">
+										<a href="index-2.html" class="logo"><img src="image/hotel-2/logo-01.png" class="img-fluid" alt="logo"></a>
+									</div>
+									<div class="side-block">
+										<ul class="side-block-ul">
+											<li class="side-block-li search">
+												<a href="javascript:void(0)" class="right-block-link" data-bs-toggle="modal" data-bs-target="#searchModel">
+													<span class="icon"><i class="feather-search"></i></span>
+												</a>
+											</li>
+											<li class="side-block-li user">
+												<a href="login.html" class="right-block-link">
+													<span class="icon"><i class="feather-user"></i></span>
+												</a>
+											</li>
+										</ul>
+									</div>
+									<div class="menu-close">
+					                    <button class="menu-close-btn">
+					                    	<span class="menu-close-icon"><i class="feather-x"></i></span>
+					                    </button>
+					                </div>
+								</div>
+							</div>
+							<!-- side header end -->
+							<div class="bottom-part">
+								<!-- menu start -->
+								<div class="side-menu">
+									<div class="main-menu collapse-bar">
+										<ul class="menu-ul">                      
+											<li class="menu-li">
+												<a href="#single-menu-drop" data-bs-toggle="collapse" class="menu-link">
+													<span class="title">Home</span>
+													<span class="icon"><i class="feather-plus"></i></span>
+												</a>
+												<ul class="menu-drop-ul collapse" id="single-menu-drop">
+													<li class="menu-drop-li">
+														<a href="#rtl-box-1" class="menu-drop-collapse" data-bs-toggle="collapse">
+															<span class="title">The tempa 1</span>
+															<span class="icon"><i class="feather-plus"></i></span>
+														</a>
+														<ul class="sub-menu-ul collapse" id="rtl-box-1">
+															<li class="sub-menu-li">
+																<a href="index.html" class="sub-menu-link">The tempa 1 ltr</a>
+															</li>
+															<li class="sub-menu-li">
+																<a href="../hotel-rtl/index.html" class="sub-menu-link">The tempa 1 rtl</a>
+															</li>
+															<li class="sub-menu-li">
+																<a href="../hotel-box/index.html" class="sub-menu-link">The tempa 1 box</a>
+															</li>
+														</ul>
+													</li>
+													<li class="menu-drop-li">
+														<a href="#rtl-box-2" class="menu-drop-collapse" data-bs-toggle="collapse">
+															<span class="title">The tempa 2</span>
+															<span class="icon"><i class="feather-plus"></i></span>
+														</a>
+														<ul class="sub-menu-ul collapse" id="rtl-box-2">
+															<li class="sub-menu-li">
+																<a href="index-2.html" class="sub-menu-link">The tempa 2 ltr</a>
+															</li>
+															<li class="sub-menu-li">
+																<a href="../hotel-rtl/index-2.html" class="sub-menu-link">The tempa 2 rtl</a>
+															</li>
+															<li class="sub-menu-li">
+																<a href="../hotel-box/index-2.html" class="sub-menu-link">The tempa 2 box</a>
+															</li>
+														</ul>
+													</li>
+												</ul>
+											</li>
+											<li class="menu-li">
+												<a href="#facilities-menu-drop" aria-expanded="true" data-bs-toggle="collapse" class="menu-link">
+													<span class="title">Facilities</span>
+													<span class="icon"><i class="feather-plus"></i></span>
+												</a>
+												<ul class="menu-drop-ul collapse show" id="facilities-menu-drop">
+													<li class="menu-drop-li">
+														<a href="room-grid.html" class="menu-drop-link">Beds</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="video.html" class="menu-drop-link">Swimming</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="room-detail.html" class="menu-drop-link">Parking</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="blog-details.html" class="menu-drop-link">Wi - fi</a>
+													</li>
+												</ul>
+											</li>
+											<li class="menu-li">
+												<a href="#rooms-menu-drop" data-bs-toggle="collapse" class="menu-link">
+													<span class="title">Rooms</span>
+													<span class="icon"><i class="feather-plus"></i></span>
+												</a>
+												<ul class="menu-drop-ul collapse" id="rooms-menu-drop">
+													<li class="menu-drop-li">
+														<a href="room-grid.html" class="menu-drop-link">Room grid</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="room-list.html" class="menu-drop-link">Room list</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="room-detail.html" class="menu-drop-link">Room detail</a>
+													</li>
+												</ul>
+											</li>
+											<li class="menu-li">
+												<a href="restaurant.html" class="menu-link">Restaurant</a>
+											</li>
+											<li class="menu-li">
+												<a href="contact-us.html" class="menu-link"><span class="title">Contact us</span></a>
+											</li>
+											<li class="menu-li">
+												<a href="#page-menu-drop" data-bs-toggle="collapse" class="menu-link">
+													<span class="title">Pages</span>
+													<span class="icon"><i class="feather-plus"></i></span>
+												</a>
+												<ul class="menu-drop-ul collapse" id="page-menu-drop">
+													<li class="menu-drop-li">
+														<a href="about.html" class="menu-drop-link">About us</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="membership.html" class="menu-drop-link">Membership</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="gallery.html" class="menu-drop-link">Gallery</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="pricing.html" class="menu-drop-link">Pricing</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="blog.html" class="menu-drop-link">Blog</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="blog-details.html" class="menu-drop-link">Blog details</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="promotions.html" class="menu-drop-link">Promotions</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="service.html" class="menu-drop-link">Service</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="video.html" class="menu-drop-link">Hotel video</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="404.html" class="menu-drop-link">404 page</a>
+													</li>
+													<li class="menu-drop-li">
+														<a href="comming-soon.html" class="menu-drop-link">Comming soon</a>
+													</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<!-- menu end -->
+								<!-- contact start -->
+								<div class="contact-area">
+									<div class="contact-block">
+										<a href="tel:(+254)0123456789" class="contact-link">
+											<span class="icon"><i class="feather-phone-call"></i></span>
+											<span class="text">
+												<span class="label">Phone number</span>
+												<span class="number">(+254) 0123 456 789</span>
+											</span>
+										</a>
+									</div>
+								</div>
+								<!-- contact end -->
+							</div>
+						</div>
+					</div>
+					<div class="slider-area">
+						<div class="home-slider">
+							<div class="slider-service">
+								<ul class="slider-service-ul">
+									<li class="slider-service-li">	
+										<a href="mailto:demo@demo.com" class="slider-service-block">
+											<span class="icon"><i class="feather-mail"></i></span>
+											<span class="text-main">
+												<span class="label">Email address</span>
+												<span class="text">demo@demo.com</span>
+											</span>
+										</a>
+									</li>
+									<li class="slider-service-li">	
+										<a href="javascript:void(0)" class="slider-service-block">
+											<span class="icon"><i class="feather-map-pin"></i></span>
+											<span class="text-main">
+												<span class="label">Live location</span>
+												<span class="text">Canada 3800002</span>
+											</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="home-slider-big slick-slider">
+								<div class="slick-slide">
+									<div class="slider-item">
+										<a href="javascript:void(0)" class="slider-image">
+											<img src="image/hotel-2/slider-1.jpg" class="img-fluid" alt="slider-image">
+										</a>
+										<div class="slider-content container">
+											<div class="slider-text slider-content-center slider-text-center">
+												<a href="image/popup-video/video.mp4" class="video-btn play-button"><span class="video-icon"><i class="feather-play"></i></span></a>
+												<h2 class="title">
+													<span class="b-text">A boutique soolin</span>
+													<span class="n-text">hotel our canada</span>
+												</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="slick-slide">
+									<div class="slider-item">
+										<a href="javascript:void(0)" class="slider-image">
+											<img src="image/hotel-2/slider-2.jpg" class="img-fluid" alt="slider-image">
+										</a>
+										<div class="slider-content container">
+											<div class="slider-text slider-content-center slider-text-center">
+												<a href="image/popup-video/video.mp4" class="video-btn play-button"><span class="video-icon"><i class="feather-play"></i></span></a>
+												<h2 class="title">
+													<span class="b-text">The perfect place</span>
+													<span class="n-text"> for getaways!</span>
+												</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="slick-slide">
+									<div class="slider-item">
+										<a href="javascript:void(0)" class="slider-image">
+											<img src="image/hotel-2/slider-3.jpg" class="img-fluid" alt="slider-image">
+										</a>
+										<div class="slider-content container">
+											<div class="slider-text slider-content-center slider-text-center">
+												<a href="image/popup-video/video.mp4" class="video-btn play-button"><span class="video-icon"><i class="feather-play"></i></span></a>
+												<h2 class="title">
+													<span class="b-text">Hotel with a</span>
+													<span class="n-text">everyday heart</span>
+												</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="slick-slide">
+									<div class="slider-item">
+										<a href="javascript:void(0)" class="slider-image">
+											<img src="image/hotel-2/slider-1.jpg" class="img-fluid" alt="slider-image">
+										</a>
+										<div class="slider-content container">
+											<div class="slider-text slider-content-center slider-text-center">
+												<a href="image/popup-video/video.mp4" class="video-btn play-button"><span class="video-icon"><i class="feather-play"></i></span></a>
+												<h2 class="title">
+													<span class="b-text">A boutique soolin</span>
+													<span class="n-text">hotel our canada</span>
+												</h2>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="home-slider-small small_slider">
+								<div class="slick-slide">
+									<div class="slide-block">
+										<div class="slide-default-text">
+											<p>Classic room</p>
+										</div>
+										<div class="slide-text-main">
+											<span class="text">
+												<span class="label">Classic room</span>
+												<span class="info">Start $99.00</span>
+											</span>
+											<a href="room-grid.html" class="text-btn"><span><i class="feather-arrow-right"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="slick-slide">
+									<div class="slide-block">
+										<div class="slide-default-text">
+											<p>Luxury room</p>
+										</div>
+										<div class="slide-text-main">
+											<span class="text">
+												<span class="label">Luxury room</span>
+												<span class="info">Start $89.00</span>
+											</span>
+											<a href="room-grid.html" class="text-btn"><span><i class="feather-arrow-right"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="slick-slide">
+									<div class="slide-block">
+										<div class="slide-default-text">
+											<p>Banquet room</p>
+										</div>
+										<div class="slide-text-main">
+											<span class="text">
+												<span class="label">Banquet room</span>
+												<span class="info">Start $81.00</span>
+											</span>
+											<a href="room-grid.html" class="text-btn"><span><i class="feather-arrow-right"></i></span></a>
+										</div>
+									</div>
+								</div>
+								<div class="slick-slide">
+									<div class="slide-block">
+										<div class="slide-default-text">
+											<p>Classic room</p>
+										</div>
+										<div class="slide-text-main">
+											<span class="text">
+												<span class="label">Classic room</span>
+												<span class="info">Start $99.00</span>
+											</span>
+											<a href="room-grid.html" class="text-btn"><span><i class="feather-arrow-right"></i></span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- home slider end -->
+
+
+
+
+
+
+
+            /*====================================
+    side content & slider css
+====================================*/
+/* main css */
+.home-slider-area .slider-main-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+.home-slider-area .slider-main-content .side-content-block {
+    width: 25%;
+    background-color: var(--primary-color);
+}
+.home-slider-area .slider-main-content .slider-area {
+    width: 75%;
+}
+@media (max-width: 1199px) {
+    .home-slider-area .slider-main-content .side-content-block {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: -450px;
+        width: 350px;
+        max-width: calc(100% - 30px);
+        z-index: 6;
+        visibility: hidden;
+        transform: translateX(-100%);
+        overflow: hidden;
+        box-shadow: var(--box-shadow-outer);
+        -webkit-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
+    .home-slider-area .slider-main-content .side-content-block.active {
+        left: 0px;
+        visibility: visible;
+        transform: translateX(0);
+    }
+    .home-slider-area .slider-main-content .slider-area {
+        width: 100%;
+    }   
+}
+@media screen and (max-height: 600px) {
+    .home-slider-area .slider-main-content .side-content-block {
+        overflow-y: auto;
+    }
+}
+/* slider side part css start */
+/* side header css */
+.side-content-block .side-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.side-content-block .side-content .side-header-block .side-header { 
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-color);
+}
+.side-content-block .side-content .side-header-block .side-header .side-logo a.logo img {
+    max-width: 160px;
+}
+.side-content-block .side-header-block .side-header .side-block ul.side-block-ul {
+    display: flex;
+    align-items: center;
+}
+.side-content-block .side-content .side-header-block .side-header .side-block ul.side-block-ul li.side-block-li {
+    margin-left: 30px;
+}
+.side-content-block .side-content .side-header-block .side-header .side-block ul.side-block-ul li.side-block-li a.right-block-link {
+    color: #ffffff;
+}
+.side-content-block .side-content .side-header-block .side-header .side-block ul.side-block-ul li.side-block-li a.right-block-link {
+    color: var(--secondary-color);
+}
+.side-content-block .side-content .side-header-block .side-header .side-block ul.side-block-ul li.side-block-li a.right-block-link span.icon i {
+    font-size: 18px;
+}
+.side-content-block .side-content .side-header-block .side-header .menu-close {
+    display: none;
+}
+.side-content-block .side-content .side-header-block .side-header .menu-close button {
+    background-color: transparent;
+    color: #ffffff;
+    font-size: 18px;
+}
+.side-content-block .side-content .side-header-block .side-header .menu-close button span {
+    display: flex;
+    line-height: 1;
+}
+@media (max-width: 1499px) {
+    .side-content-block .side-content .side-header-block .side-header {
+        padding: 30px;
+    }
+}
+@media (max-width: 1199px) {
+    .side-content-block .side-header-block .side-header .side-block  {
+        display: none;
+    }
+    .side-content-block .side-content .side-header-block .side-header .menu-close {
+        display: flex;
+    }
+}
+/* side menu css */
+.side-content-block .side-content .bottom-part {
+    height: 100%;
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.side-content-block .side-content .bottom-part .side-menu {
+    padding: 100px 0px;
+    border-bottom: 1px solid var(--border-color);
+    height: 100%;
+    overflow-y: auto;
+    display: inline-table;
+}
+.side-content-block .side-content .bottom-part .side-menu .main-menu {
+    height: 100%;
+    overflow-y: auto;
+}
+@media (max-width: 1499px) {
+    .side-content-block .side-content .bottom-part .side-menu {
+        padding: 50px 0px;
+    }
+}
+@media (max-width: 1199px) {
+    .side-content-block .side-content .bottom-part .side-menu {
+        padding: 30px 0px;
+    }
+}
+@media screen and (max-height: 600px) {
+    .side-content-block .side-content .bottom-part,
+    .side-content-block .side-content .bottom-part .side-menu {
+        height: unset;
+        overflow: unset;
+    }
+}
+/* side contact css */
+.side-content-block .side-content .bottom-part .contact-area {
+    padding: 50px;
+}
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link {
+    display: flex;
+    align-items: center;
+}   
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link span.icon {
+    color: var(--secondary-color);
+    font-size: 16px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 100%;
+}
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link span.text {
+    padding-left: 20px;
+}
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link span.text span.label {
+    color: #ffffff;
+    font-weight: 300;
+    line-height: 1;
+    display: block;
+}
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link span.text span.number {
+    color: #ffffff;
+    font-weight: 300;
+    opacity: 0.5;
+    margin-top: 10px;
+}
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link:hover span.text span.number {
+    opacity: 1;
+}
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link span.text span.number,
+.side-content-block .side-content .bottom-part .contact-area .contact-block a.contact-link:hover span.text span.number {
+    -webkit-transition: color 0.3s ease-in-out;
+    -o-transition: color 0.3s ease-in-out;
+    transition: color 0.3s ease-in-out;
+}
+@media (max-width: 1499px) {
+    .side-content-block .side-content .bottom-part .contact-area {
+        padding: 30px;
+    }
+}
+/* slider side part css end */
+/* slider css start */
+.home-slider-area .slider-main-content .slider-area {
+    position: relative;
+}
+/* slider image css */
+.home-slider-area .slider-main-content .slider-area .home-slider {
+    position: relative;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+}   
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item a.slider-image {
+    position: relative;
+    display: block;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item a.slider-image::before {
+    background-color: #1c1c1b;
+    content: '';
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.6;
+}
+@media (max-width: 479px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-item a.slider-image img {
+        height: 350px;
+        object-fit: cover;
+    }   
+}
+/* slider service css */
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    left: 50px;
+    z-index: 1;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul li.slider-service-li a.slider-service-block {
+    display: flex;
+    align-items: center;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul li.slider-service-li a.slider-service-block span.icon {
+    color: var(--secondary-color);
+    font-size: 16px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 100%;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul li.slider-service-li a.slider-service-block span.text-main {
+    padding-left: 20px;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul li.slider-service-li a.slider-service-block span.text-main span.label {
+    color: #ffffff;
+    font-weight: 300;
+    line-height: 1;
+    display: block;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul li.slider-service-li a.slider-service-block span.text-main span.text {
+    color: #ffffff;
+    font-weight: 300;
+    opacity: 0.5;
+    margin-top: 10px;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-service ul.slider-service-ul li.slider-service-li a.slider-service-block:hover span.text-main span.text {
+    opacity: 1;
+}
+@media (max-width: 1199px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-service {
+        top: 30px;
+        left: 30px;
+        right: 30px;
+    }
+}
+@media (max-width: 767px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-service {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+    }
+}
+@media (max-width: 479px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-service {
+        display: none;
+    }
+}
+/* slider content css */
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-big .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slider-item .slider-content {
+    opacity: 1;
+    visibility: visible;
+}
+/* slider content position css */
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text.slider-content-j {
+    margin: 0px auto 0px 0px;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text.slider-content-right {
+    margin: 0px 0px 0px auto;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text.slider-content-center {
+    margin: 0px auto;
+}
+/* slider text position css */
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text.slider-text-left {
+    text-align: left;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text.slider-text-right {
+    text-align: right;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text.slider-text-center {
+    text-align: center;
+}
+/* slider-text-transition css */
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-big .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slider-item .slider-content .slider-text a.video-btn,
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-big .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slider-item .slider-content .slider-text h2.title {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-big .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slider-item .slider-content .slider-text a.video-btn {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-big .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slider-item .slider-content .slider-text h2.title {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+    -webkit-animation-duration: 0.6s;
+    animation-duration: 0.6s;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text h2.title {
+    color: #ffffff;
+    font-size: 100px;
+    margin-top: 64px;
+    font-weight: 400;
+    line-height: 1;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text h2.title span.b-text {
+    display: block;
+    font-weight: 500;
+}
+@media (max-width: 1499px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text h2.title {
+        font-size: 70px;
+        margin-top: 48px;
+    }
+}
+@media (max-width: 991px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text h2.title {
+        font-size: 40px;
+        margin-top: 23px;
+    }
+}
+@media (max-width: 600px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .slider-item .slider-content .slider-text h2.title {
+        font-size: 30px;
+    }
+}
+/* slider bottom part css */
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-top: 1px solid var(--border-color);
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block {
+    padding: 50px;
+    position: relative;
+    border-right: 1px solid var(--border-color);
+    cursor: pointer;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slide-block,
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block:hover {
+    background-image: linear-gradient(0deg,rgba(0,0,0,0),rgba(112,42,75,0.5));
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-default-text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 0px;
+    right: 0px;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-default-text p {
+    color: #ffffff;
+    text-transform: uppercase;
+}   
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slide-block .slide-default-text,
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block:hover .slide-default-text {
+    opacity: 0;
+    visibility: hidden;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-default-text,
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block:hover .slide-default-text {
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+/* slide hover text */
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-text-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    opacity: 0;
+    visibility: hidden;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide.slick-current.slick-active.slick-center .slide-block .slide-text-main,
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block:hover .slide-text-main {
+    opacity: 1;
+    visibility: visible;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-text-main,
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block:hover .slide-text-main {
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-text-main span.text span.label {
+    color: #ffffff;
+    font-weight: 300;
+    line-height: 1;
+    display: block;
+    text-transform: uppercase;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block .slide-text-main span.text span.info {
+    color: #ffffff;
+    font-weight: 300;
+    opacity: 1;
+    margin-top: 10px;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-text-main a.text-btn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 16px;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-text-main a.text-btn:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+.home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-text-main a.text-btn span {
+    display: flex;
+    line-height: 1;
+}
+@media (max-width: 1499px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block {
+        padding: 30px;
+    }
+}
+@media (max-width: 767px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-block {
+        padding: 15px;
+    }
+}
+@media (max-width: 479px) {
+    .home-slider-area .slider-main-content .slider-area .home-slider .home-slider-small .slick-list .slick-track .slick-slide .slide-text-main a.text-btn {
+        font-size: 14px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+
+
+
+
+/*====================================
+        home-slider js
+    ====================================*/
+    $('.home-slider-big').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        centerMode: true,
+        centerPadding: '0px',
+        asNavFor: '.home-slider-small',
+        adaptiveHeight: true,
+    });
+    $('.home-slider-small').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        arrows: false,
+        prevArrow: '<button class="slick-prev"><i class="bi bi-chevron-left"></i></button>',
+        nextArrow: '<button class="slick-next"><i class="bi bi-chevron-right"></i></button>',
+        dots: false,
+        centerMode: true,
+        centerPadding: '0px',
+        focusOnSelect: true,
+        asNavFor: '.home-slider-big',
+        responsive: [{
+            breakpoint: 640,
+            settings: {
+                slidesToShow: 2
+            }
+        }]
+    });

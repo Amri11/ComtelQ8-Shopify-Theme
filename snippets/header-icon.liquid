@@ -1,0 +1,66 @@
+<ul class="shop-element list-unstyled">
+  {%- if settings.search_enable -%}
+    <li class="side-wrap search-wrap">
+      <button class="search-popup header-icon" type="button" data-bs-target="#modal-search" data-bs-toggle="modal" role="button" aria-label="search">
+        <span class="icon">
+          <i class="feather-search"></i>
+        </span>
+      </button>
+    </li>
+  {%- endif -%}
+  {% if shop.customer_accounts_enabled %}
+    <li class="side-wrap user-wrap">
+    <a {% if customer and shop.customer_accounts_enabled %}href="{{ routes.account_url }}"{% else %} {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_url }}" {% endif %}{% endif %} class="header-icon xs-user" aria-label="User">
+      <span class="icon">
+        {%- if customer %}<i class="feather-user-check"></i>{% else %}<i class="feather-user"></i>{% endif -%}
+      </span>
+    </a>
+    <div class="user-main">
+      {% if customer and shop.customer_accounts_enabled %}
+      <span class="icon"><i class="feather-user-check"></i></span>
+      <a {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_url }}"{% endif %} class="header-icon">
+        <span class="title">{{ 'homepage.header.account_title' | t }}</span>
+      </a>
+      <a {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_logout_url }}"{% endif %} class="header-icon">
+        <span class="title">{{ 'homepage.header.logout_title' | t }}</span>
+      </a>
+      {% else %}
+      <span class="icon"><i class="feather-user"></i></span>
+      <a {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_login_url }}"{% endif %} class="header-icon">
+        <span class="title">{{ 'homepage.header.login_title' | t }}</span>
+      </a>
+      <a {% if settings.account_popup_enable %} href="#accountmodal" data-bs-toggle="modal"{% else %} href="{{ routes.account_register_url }}"{% endif %} class="header-icon">
+        <span class="title">{{ 'homepage.header.register_title' | t }}</span>
+      </a>
+      {% endif %}
+    </div>
+  </li>
+  {% endif %}
+  {%- if settings.wishlist_enable -%}
+  <li class="side-wrap wishlist-wrap">
+    <a class="header-icon" href="{{ settings.wishlist_page_url }}" title="Wishlist">
+      <span class="icon">
+        <i class="feather-heart"></i>
+        <span class="wishlist-counter">{{ wishlist.count }}</span>
+      </span>
+      <span class="title">{{ 'homepage.header.wishlist_title' | t }}</span>
+    </a>
+  </li>
+  {%- endif -%}
+  {%- if settings.cart_enable -%}
+    <li class="side-wrap cart-wrap">
+      <a href="{{ routes.cart_url }}" class="header-icon" id="ajax-cart-icon" aria-label="Cart">
+        <span class="icon">
+          <i class="feather-shopping-bag"></i>
+          <div class="ajax-cart-count bigcounter">
+            {%- if cart.item_count < 100 -%}
+              <span aria-hidden="true">{{ cart.item_count }}</span>
+            {%- endif -%}
+            <span class="visually-hidden">{{ 'sections.cart_count' | t: count: cart.item_count }}</span>
+          </div>
+        </span>
+        <span id="cart-total" class="mini-cart-total-price"> {{ cart.total_price | money }}</span>
+      </a>
+    </li>
+  {%- endif -%}
+</ul>

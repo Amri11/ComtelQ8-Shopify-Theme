@@ -1,0 +1,114 @@
+.newsletter {
+  background-color: var(--background-color);
+}
+.newsletter .newsletter-area {
+  padding: 40px 0px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: var(--sti-border-radius);
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  margin-inline-start: -30px;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture,
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap {  
+  width: calc(33.33% - 30px);
+  margin-inline-start: 30px;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .col-space {
+  width: calc(8.33% - 30px);
+  margin-inline-start: 30px;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture {
+  text-align: start;
+  margin-bottom: 0px;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture .section-title {
+  display: block;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture .section-title h2 {
+  font-size: 40px;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap .news-content .rich-text p {
+  color: var(--footer-menu-text-color);
+  font-size: var(--footer-menu-text-font-size);
+  font-weight: var(--footer-menu-text-font-weight);
+  text-transform: var(--footer-menu-text-transform);
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap .news-content .news-wrap {
+  position: relative;
+  border-radius: var(--sti-border-radius);
+  overflow: hidden;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap .news-content .news-wrap input {
+  width: 100%;
+  border: none;
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap .news-content .news-wrap button {
+  background-color: var(--font-color-primary);
+  color: #FFFFFF;
+  position: absolute;
+  font-size: var(--font-size-body);
+  inset-inline-end: 0;
+  height: 100%;
+  padding: 0px 30px;
+  text-transform: uppercase;
+  border-radius: var(--sti-border-radius);
+}
+.newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap .news-content .news-wrap button:hover {
+  background-color: var(--font-color-link);
+}
+@media (max-width: 1499px) {
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture .section-title h2 {
+    font-size: 32px;
+  } 
+}
+@media (max-width: 1200px) {
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture,
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap {  
+    width: calc(41.67% - 30px);
+  }
+}
+@media (max-width: 1199px) {
+  .newsletter .newsletter-area {
+    padding: 40px 30px;
+  }
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture,
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap {
+    width: calc(50% - 30px);
+  }
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .col-space {
+    display: none;
+  }
+}
+@media (max-width: 991px) {
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture {
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture,
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap {
+    width: calc(100% - 30px);
+  }
+}
+@media (max-width: 479px) {
+  .newsletter .newsletter-area {
+    padding: 30px 15px;
+  }
+  .newsletter .newsletter-area .news-image-wrap {
+    text-align: center;
+  }
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .section-capture .section-title h2 {
+    font-size: 24px;
+  }
+  .newsletter .newsletter-area .news-image-wrap .newsletter-block .newsletter-wrap .news-content .news-wrap button {
+    position: unset;
+    padding: 14px 30px;
+    margin-top: 10px;
+  }
+}

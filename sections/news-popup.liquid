@@ -1,0 +1,189 @@
+{{ 'news-popup.css' | asset_url | stylesheet_tag }}
+{% if template == 'index' %}
+  <div
+    class="newspopup fade modal"
+    id="news-modal"
+    abindex="-1" aria-hidden="true"
+    style="--background-color: {{ section.settings.modal_bg_color }};"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        {% form 'customer' %}
+          <button type="button" class="close-btn close" data-bs-dismiss="modal" aria-label="popup" aria-label="close">
+            <i class="feather-x"></i>
+          </button>
+          <div class="subscribe_area">
+            <div class="subscribe-content">
+              {% if section.settings.news_subheading != '' %}
+                <span data-fade-in style="color: {{ section.settings.news_subheading_color }};">
+                  {{- section.settings.news_subheading -}}
+                </span>
+              {% endif %}
+              {% if section.settings.news_heading != '' %}
+                <h2 class="mr-0" data-fade-in style="color: {{ section.settings.news_heading_color }};">
+                  {{ section.settings.news_heading }}
+                </h2>
+              {% endif %}
+            </div>
+            <div class="popup-newsletter">
+              <div class="subscribe-con">
+                <input type="hidden" name="contact[tags]" value="newsletter">
+                {{ form.errors | default_errors }}
+                <div class="subscribe-block" data-fade-in>
+                  <label for="E-mail" class="hidden">{{ 'general.newsletter_form.newsletter_email' | t }}</label>
+                  <input
+                    type="email"
+                    name="contact[email]"
+                    class="email mail"
+                    id="E-mail"
+                    value="{% if customer %}{{ customer.email }}{% endif %}"
+                    placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}"
+                    autocapitalize="off"
+                    required
+                  >
+                  <div class="email-submit">
+                    <button
+                      type="submit"
+                      class="news-btn btn-style"
+                      name="commit"
+                      id="Subscribe"
+                      aria-label="{{ 'general.newsletter_form.submit' | t }}"
+                    >
+                      {{ 'general.newsletter_form.submit' | t }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {% if form.posted_successfully? %}
+              <p class="mr-0 text-success" data-fade-in>
+                <span class="subscribe-text">
+                  {{- section.settings.newsletter_success_text }}
+                  <span class="subscribe-code bg-success">{{ section.settings.newsletter_coupan_code }}</span></span
+                >
+              </p>
+            {% endif %}
+            <div class="dont-show" data-fade-in>
+              <label>
+                <input type="checkbox" id="1" class="box">
+                <span class="cust-check"></span>
+                <span>{{ section.settings.dont_show_text }}</span>
+              </label>
+            </div>
+          </div>
+          <div class="news-banner">
+            {%- if section.settings.news_banner != blank -%}
+              {{
+                section.settings.news_banner
+                | image_url: width: 900, height: 500
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.news_banner.width,
+                  height: section.settings.news_banner.height,
+                  class: 'lazyload desk-img',
+                  alt: section.settings.news_banner.alt
+                | escape
+              }}
+            {%- else -%}
+              {{ 'lifestyle-1' | placeholder_svg_tag }}
+            {%- endif -%}
+          </div>
+        {% endform %}
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    let boxes = document.getElementsByClassName('box').length;
+    function save() {
+      for(let i = 1; i <= boxes; i++){
+        var checkbox = document.getElementById(String(i));
+        localStorage.setItem("news_popup", checkbox.checked);
+      }
+    }
+    for(let i = 1; i <= boxes; i++){
+      if(localStorage.length > 0){
+        var checked = JSON.parse(localStorage.getItem("news_popup"));
+        document.getElementById(String(i)).checked = checked;
+      }
+    }
+    window.addEventListener('change', save);
+    addEventListener('DOMContentLoaded', (event) => {
+      $(window).on('load',function(){
+        setTimeout(function () {
+          var popup = localStorage.getItem('news_popup');
+          if(popup == null | popup == "false"){
+            $('#news-modal').modal('show');
+          }
+        },{{ section.settings.timeout }});
+      });
+    });
+  </script>
+{% endif %}
+{% schema %}
+{
+  "name": "Newsletter popup",
+  "settings": [
+    {
+      "type": "number",
+      "id": "timeout",
+      "label": "How many seconds to show when the website is opened",
+      "default": 3000,
+      "info": "NOTE: 1000 count euqal to (1 second)"
+    },
+    {
+      "type": "color",
+      "id": "modal_bg_color",
+      "label": "Modal background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "news_subheading",
+      "label": "Subheading",
+      "default": "Subheading"
+    },
+    {
+      "type": "color",
+      "id": "news_subheading_color",
+      "label": "Subheading color",
+      "default": "#676767"
+    },
+    {
+      "type": "text",
+      "id": "news_heading",
+      "label": "Heading",
+      "default": "Heading"
+    },
+    {
+      "type": "color",
+      "id": "news_heading_color",
+      "label": "Heading color",
+      "default": "#2c2c32"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_success_text",
+      "label": "Success text",
+      "default": "Thank you for subscribe use this code for first order"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_coupan_code",
+      "label": "Coupon code",
+      "default": "20%OFF"
+    },
+    {
+      "type": "text",
+      "id": "dont_show_text",
+      "label": "Dont show text",
+      "default": "Don’t show this popup again"
+    },
+    {
+      "type": "image_picker",
+      "id": "news_banner",
+      "label": "Banner image",
+      "info": "Recommended size: 900x415px"
+    }
+  ]
+}
+{% endschema %}

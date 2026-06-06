@@ -1,0 +1,240 @@
+{{ 'offer-banner.css' | asset_url | stylesheet_tag }}
+<section class="offer-banner" style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};">
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="row">
+      <div class="col">
+        <div class="grid-wrap">
+          <ul class="banner-ul list-unstyled">
+          {% for block in section.blocks %}
+          <li class="banner-li" data-fade-in>
+            <div class="banner-main">
+              <a href="{{ block.settings.banner_url }}" class="banner-image w-100">
+                <span class="image w-100">
+                  {%- if block.settings.banner_img != blank -%}
+                  {{ block.settings.banner_img | image_url: width: 1080 | image_tag:
+                  loading: 'lazy',
+                  width: block.settings.banner_img.width,
+                  height: block.settings.banner_img.height,
+                  class: "img-fluid lazyload",
+                  alt: block.settings.banner_img.alt | escape }}
+                  {%- else -%}
+                  {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                  {%- endif -%}
+                </span>
+              </a>
+              <div class="banner-text {% if block.settings.banner_content_position == "right" %} banner-content-right{% elsif block.settings.banner_content_position == "left" %} banner-content-left{% else %} banner-content-center{% endif %}{% if block.settings.banner_text_position == "right" %} banner-text-right{% elsif block.settings.banner_text_position == "left" %} banner-text-left{% else %} banner-text-center{% endif %}">
+                {% if block.settings.banner_subtitle != '' %}
+                <span class="subtitle" style="color: {{ block.settings.banner_subtitle_color }};">{{ block.settings.banner_subtitle }}</span>
+                {% endif %}
+                {% if block.settings.banner_title != '' %}
+                <h2 class="title m-0" style="color: {{ block.settings.banner_title_color }};">{{ block.settings.banner_title }}</h2>
+                {% endif %}
+                {% if block.settings.banner_btn_text != '' %}
+                <a href="{{ block.settings.banner_url }}" class="banner-btn btn-style">{{ block.settings.banner_btn_text }}</a>
+                {% endif %}
+              </div>
+            </div>
+          </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "Offer banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 100
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "offer_banner",
+      "name": "Offer banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_img",
+          "label": "Banner image",
+          "info": "Recommended size: 845x455px"
+        },
+        {
+          "type": "url",
+          "id": "banner_url",
+          "label": "Banner url"
+        },
+        {
+          "type": "text",
+          "id": "banner_subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "color",
+          "id": "banner_subtitle_color",
+          "label": "Subtitle color",
+          "default": "#666666"
+        },
+        {
+          "type": "text",
+          "id": "banner_title",
+          "label": "Title"
+        },
+        {
+          "type": "color",
+          "id": "banner_title_color",
+          "label": "Banner title color",
+          "default": "#333333"
+        },
+        {
+          "type": "text",
+          "id": "banner_btn_text",
+          "label": "Button text"
+        },
+        {
+          "type": "header",
+          "content": "Text content position"
+        },
+        {
+          "type": "select",
+          "id": "banner_content_position",
+          "label": "Content position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "header",
+          "content": "Text position"
+        },
+        {
+          "type": "select",
+          "id": "banner_text_position",
+          "label": "Text position",
+          "options": [
+            {
+              "label": "Left",
+              "value": "left"
+            },
+            {
+              "label": "Right",
+              "value": "right"
+            },
+            {
+              "label": "Center",
+              "value": "center"
+            }
+          ],
+          "default": "left"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Offer banner",
+      "blocks": [
+        {
+          "type": "offer_banner"
+        },
+        {
+          "type": "offer_banner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

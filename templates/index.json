@@ -1,0 +1,591 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_amfL9A": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "slider_video_enable": false,
+            "slider_img": "shopify:\/\/shop_images\/Slider-1_1f43a963-cb5c-44b3-afa9-7b120ccee1ce.jpg",
+            "slider_mobile_img": "shopify:\/\/shop_images\/mobile-slider-1_db990802-5bf6-47e6-837d-e2cf7ccfd561.jpg",
+            "mobile_text_enable": false,
+            "slider_desc": "Sophisticated style",
+            "slider_desc_color": "#196087",
+            "slider_title": "Timeless designs modern living",
+            "slider_title_color": "#333333",
+            "slider_button_1": "Shop now",
+            "btn_1_txt_color": "#222222",
+            "btn_1_txt_hvr_color": "#ffffff",
+            "btn_1_bg_color": "#f3b313",
+            "btn_1_bg_hvr_color": "#196087",
+            "btn_1_border_color": "#f3b313",
+            "btn_1_border_hvr_color": "#196087",
+            "slider_button_1_url": "shopify:\/\/collections",
+            "slider_button_2": "Buy now",
+            "btn_2_txt_color": "#222222",
+            "btn_2_txt_hvr_color": "#ffffff",
+            "btn_2_bg_color": "rgba(0,0,0,0)",
+            "btn_2_bg_hvr_color": "#196087",
+            "btn_2_border_color": "#196087",
+            "btn_2_border_hvr_color": "#196087",
+            "slider_button_2_url": "shopify:\/\/products\/manchester-stroller-grey-copy",
+            "slider_content_position": "left",
+            "slider_text_position": "left"
+          }
+        },
+        "slide_CnBRkq": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "slider_video_enable": false,
+            "slider_img": "shopify:\/\/shop_images\/Slider-2_88ac463d-301e-41ca-94b7-16fd20d3e35e.jpg",
+            "slider_mobile_img": "shopify:\/\/shop_images\/mobile-slider-2_ef9b4674-cb6c-4ccd-863c-6e7140f61836.jpg",
+            "mobile_text_enable": false,
+            "slider_desc": "Complete marketplace",
+            "slider_desc_color": "#196087",
+            "slider_title": "Smart shopping everything here",
+            "slider_title_color": "#333333",
+            "slider_button_1": "Shop now",
+            "btn_1_txt_color": "#222222",
+            "btn_1_txt_hvr_color": "#ffffff",
+            "btn_1_bg_color": "#f3b313",
+            "btn_1_bg_hvr_color": "#196087",
+            "btn_1_border_color": "#f3b313",
+            "btn_1_border_hvr_color": "#196087",
+            "slider_button_1_url": "shopify:\/\/collections",
+            "slider_button_2": "Buy now",
+            "btn_2_txt_color": "#222222",
+            "btn_2_txt_hvr_color": "#ffffff",
+            "btn_2_bg_color": "rgba(0,0,0,0)",
+            "btn_2_bg_hvr_color": "#196087",
+            "btn_2_border_color": "#196087",
+            "btn_2_border_hvr_color": "#196087",
+            "slider_button_2_url": "shopify:\/\/products\/buds-n1-pro-copy",
+            "slider_content_position": "left",
+            "slider_text_position": "left"
+          }
+        },
+        "slide_H7hVg9": {
+          "type": "slide",
+          "settings": {
+            "enable_video_looping": false,
+            "slider_video_enable": false,
+            "slider_img": "shopify:\/\/shop_images\/Slider-3_17e508cb-6f57-434c-bdd8-94631ae9079d.jpg",
+            "slider_mobile_img": "shopify:\/\/shop_images\/mobile-slider-3_3a25a907-a4c0-400a-8934-3865df5f5e33.jpg",
+            "mobile_text_enable": false,
+            "slider_desc": "Exceptional variety",
+            "slider_desc_color": "#196087",
+            "slider_title": "Your all-in-one marketplace",
+            "slider_title_color": "#333333",
+            "slider_button_1": "Shop now",
+            "btn_1_txt_color": "#222222",
+            "btn_1_txt_hvr_color": "#ffffff",
+            "btn_1_bg_color": "#f3b313",
+            "btn_1_bg_hvr_color": "#196087",
+            "btn_1_border_color": "#f3b313",
+            "btn_1_border_hvr_color": "#196087",
+            "slider_button_1_url": "shopify:\/\/collections\/all",
+            "slider_button_2": "Buy now",
+            "btn_2_txt_color": "#222222",
+            "btn_2_txt_hvr_color": "#ffffff",
+            "btn_2_bg_color": "rgba(0,0,0,0)",
+            "btn_2_bg_hvr_color": "#196087",
+            "btn_2_border_color": "#196087",
+            "btn_2_border_hvr_color": "#196087",
+            "slider_button_2_url": "shopify:\/\/products\/turkey-burgers",
+            "slider_content_position": "left",
+            "slider_text_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "slide_amfL9A",
+        "slide_CnBRkq",
+        "slide_H7hVg9"
+      ],
+      "settings": {
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false
+      }
+    },
+    "featured_collection_NK3dwr": {
+      "type": "featured-collection",
+      "blocks": {
+        "product_tab_J9V89F": {
+          "type": "product_tab",
+          "settings": {
+            "tab_product": "multi-store-trending"
+          }
+        }
+      },
+      "block_order": [
+        "product_tab_J9V89F"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_subheading": "",
+        "section_heading": "Trending product",
+        "countdown_enable": false,
+        "product_month": "January",
+        "product_year": 2026,
+        "product_date": 30,
+        "featured_tab_enable": false,
+        "slider_crop": false,
+        "category_special_product_view": "grid",
+        "product_limit": 12,
+        "category_special_product_col": "1",
+        "product_view": "5",
+        "product_view_lg": "4",
+        "product_view_sm": "3",
+        "product_view_xs": "2",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false,
+        "view_btn": ""
+      }
+    },
+    "banner_grid_mQzTGP": {
+      "type": "banner-grid",
+      "blocks": {
+        "single_banner_bJxagV": {
+          "type": "single_banner",
+          "settings": {
+            "single_banner_img": "shopify:\/\/shop_images\/Banner-1_e573c8d0-a9f5-4d25-a71b-9ee9e0c03713.jpg",
+            "banner_subtitle": "",
+            "banner_subtitle_color": "#333333",
+            "banner_title": "Designed for cozy moments",
+            "banner_title_color": "#333333",
+            "banner_button_text": "Shop now",
+            "banner_button_link": "shopify:\/\/collections\/all",
+            "banner_content_position": "center",
+            "banner_text_position": "center"
+          }
+        },
+        "single_banner_CGqwnW": {
+          "type": "single_banner",
+          "settings": {
+            "single_banner_img": "shopify:\/\/shop_images\/Banner-2_bce30d11-9464-46fb-b991-03e99c2da3ad.jpg",
+            "banner_subtitle": "",
+            "banner_subtitle_color": "#ffffff",
+            "banner_title": "Confidence in every stitch",
+            "banner_title_color": "#333333",
+            "banner_button_text": "Shop now",
+            "banner_button_link": "shopify:\/\/collections\/all",
+            "banner_content_position": "center",
+            "banner_text_position": "center"
+          }
+        },
+        "two_banner_Rx9kB4": {
+          "type": "two_banner",
+          "settings": {
+            "two_banner_1_img": "shopify:\/\/shop_images\/small-banner-1_bfc5ded5-0604-41b3-9edd-8ca48e6be34c.jpg",
+            "two_banner_1_subtitle": "",
+            "two_banner_1_subtitle_color": "#ffffff",
+            "two_banner_1_title": "Music goes wireless",
+            "two_banner_1_title_color": "#333333",
+            "two_banner_1_button_text": "Shop now",
+            "two_banner_1_link": "shopify:\/\/collections",
+            "two_1_banner_content_position": "right",
+            "two_1_banner_text_position": "left",
+            "two_banner_2_img": "shopify:\/\/shop_images\/small-banner-2_50955de9-7090-4805-88f6-db1b1282ed3f.jpg",
+            "two_banner_2_subtitle": "",
+            "two_banner_2_subtitle_color": "#ffffff",
+            "two_banner_2_title": "Tech that tastes better",
+            "two_banner_2_title_color": "#333333",
+            "two_banner_2_button_text": "Shop now",
+            "two_banner_2_link": "shopify:\/\/collections\/blood-pressure",
+            "two_2_banner_content_position": "right",
+            "two_2_banner_text_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "single_banner_bJxagV",
+        "single_banner_CGqwnW",
+        "two_banner_Rx9kB4"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 0,
+        "section_padding_bottom_xs": 0,
+        "section_bg_color": "#ffffff"
+      }
+    },
+    "featured_collection_qynbPV": {
+      "type": "featured-collection",
+      "blocks": {
+        "product_tab_EctrkX": {
+          "type": "product_tab",
+          "settings": {
+            "tab_product": "multi-store-deal"
+          }
+        }
+      },
+      "block_order": [
+        "product_tab_EctrkX"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_subheading": "",
+        "section_heading": "Hurry up! offer ends in.",
+        "countdown_enable": false,
+        "product_month": "January",
+        "product_year": 2025,
+        "product_date": 30,
+        "featured_tab_enable": false,
+        "slider_crop": false,
+        "category_special_product_view": "list",
+        "product_limit": 12,
+        "category_special_product_col": "2",
+        "product_view": "3",
+        "product_view_lg": "3",
+        "product_view_sm": "2",
+        "product_view_xs": "1",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false,
+        "view_btn": ""
+      }
+    },
+    "marquee_PHQfMk": {
+      "type": "marquee",
+      "blocks": {
+        "text_U6YaFx": {
+          "type": "text",
+          "settings": {
+            "offer_text": "<p>Today only: Extra 20% off your entire cart<\/p>"
+          }
+        },
+        "text_Lyyykn": {
+          "type": "text",
+          "settings": {
+            "offer_text": "<p>Flash sale: Unbeatable prices, only for 24 hours<\/p>"
+          }
+        },
+        "text_aAkBFD": {
+          "type": "text",
+          "settings": {
+            "offer_text": "<p>New arrivals: Launch offers you can't miss<\/p>"
+          }
+        },
+        "text_BeMR7D": {
+          "type": "text",
+          "settings": {
+            "offer_text": "<p>Member perks: enjoy early access to premium deals<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_U6YaFx",
+        "text_Lyyykn",
+        "text_aAkBFD",
+        "text_BeMR7D"
+      ],
+      "settings": {
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
+        "section_padding_top_xs": 20,
+        "section_padding_bottom_xs": 20,
+        "section_background_image": "shopify:\/\/shop_images\/image.png",
+        "section_background_image_enable": true,
+        "background_color": "rgba(0,0,0,0)",
+        "text_color": "#ffffff",
+        "scroll_speed": 60
+      }
+    },
+    "featured_collection_JVeXfa": {
+      "type": "featured-collection",
+      "blocks": {
+        "product_tab_BA4f4V": {
+          "type": "product_tab",
+          "settings": {
+            "tab_product": "multi-store-featured"
+          }
+        }
+      },
+      "block_order": [
+        "product_tab_BA4f4V"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_bg_color": "rgba(0,0,0,0)",
+        "section_subheading": "",
+        "section_heading": "Featured product",
+        "countdown_enable": false,
+        "product_month": "January",
+        "product_year": 2025,
+        "product_date": 30,
+        "featured_tab_enable": false,
+        "slider_crop": false,
+        "category_special_product_view": "grid",
+        "product_limit": 12,
+        "category_special_product_col": "1",
+        "product_view": "5",
+        "product_view_lg": "4",
+        "product_view_sm": "3",
+        "product_view_xs": "2",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false,
+        "view_btn": ""
+      }
+    },
+    "offer_banner_A9Fjar": {
+      "type": "offer-banner",
+      "blocks": {
+        "offer_banner_iqfp7r": {
+          "type": "offer_banner",
+          "settings": {
+            "banner_img": "shopify:\/\/shop_images\/Offer-banner.png",
+            "banner_url": "shopify:\/\/collections\/all",
+            "banner_subtitle": "Ultimate portability",
+            "banner_subtitle_color": "#db5bdb",
+            "banner_title": "Innovation at your fingertips",
+            "banner_title_color": "#333333",
+            "banner_btn_text": "Shop now",
+            "banner_content_position": "left",
+            "banner_text_position": "left"
+          }
+        },
+        "offer_banner_CDGdEb": {
+          "type": "offer_banner",
+          "settings": {
+            "banner_img": "shopify:\/\/shop_images\/Offer-banner-2.png",
+            "banner_url": "shopify:\/\/collections\/all",
+            "banner_subtitle": "Timeless precision",
+            "banner_subtitle_color": "#09729f",
+            "banner_title": "Sophistication around the clock",
+            "banner_title_color": "#333333",
+            "banner_btn_text": "Shop now",
+            "banner_content_position": "left",
+            "banner_text_position": "left"
+          }
+        }
+      },
+      "block_order": [
+        "offer_banner_iqfp7r",
+        "offer_banner_CDGdEb"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 0,
+        "section_padding_bottom_xs": 0,
+        "section_bg_color": "#ffffff"
+      }
+    },
+    "testimonial_fEWfRj": {
+      "type": "testimonial",
+      "blocks": {
+        "single_slide_aPrAGN": {
+          "type": "single_slide",
+          "settings": {
+            "testi_image": "shopify:\/\/shop_images\/tes-1_f24c8b02-0a48-49ea-bfc5-59d49eaab035.jpg",
+            "pro_testi_review": "5",
+            "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
+            "testi_author_title": "Justin allison",
+            "testi_author_bio": "Electronics store"
+          }
+        },
+        "single_slide_trPpK6": {
+          "type": "single_slide",
+          "settings": {
+            "testi_image": "shopify:\/\/shop_images\/tes-2_6d401935-9bd3-41d0-bc02-0d3a1576306b.jpg",
+            "pro_testi_review": "5",
+            "testi_desc": "I finally found skincare products that work wonders! my skin feels radiant, and the quick delivery is a bonus. I’ll definitely keep coming back.",
+            "testi_author_title": "Peter smith",
+            "testi_author_bio": "Cosmetic store"
+          }
+        },
+        "single_slide_UXrgaV": {
+          "type": "single_slide",
+          "settings": {
+            "testi_image": "shopify:\/\/shop_images\/tes-3_b4c969fb-ac05-4982-b766-fd387c369e31.jpg",
+            "pro_testi_review": "5",
+            "testi_desc": "The jewelry here is stunning and perfect for gifting. The designs are elegant, and the customer is top-notch. I’ll definitely shop here again.",
+            "testi_author_title": "Audie dewey",
+            "testi_author_bio": "Jewelry store"
+          }
+        },
+        "single_slide_MwRdcX": {
+          "type": "single_slide",
+          "settings": {
+            "testi_image": "shopify:\/\/shop_images\/tes-4_e1c59772-2ddb-41c7-9262-037af4b02d10.jpg",
+            "pro_testi_review": "5",
+            "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
+            "testi_author_title": "Justin allison",
+            "testi_author_bio": "Electronics store"
+          }
+        }
+      },
+      "block_order": [
+        "single_slide_aPrAGN",
+        "single_slide_trPpK6",
+        "single_slide_UXrgaV",
+        "single_slide_MwRdcX"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_background_color": "#ffffff",
+        "section_subheading": "",
+        "section_heading": "Customer say",
+        "slider_item_desktop": "3",
+        "slider_item_ipadpro": "2",
+        "slider_item_mobile": "1",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false
+      }
+    },
+    "blog_section_94z9Bi": {
+      "type": "blog-section",
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 0,
+        "section_padding_bottom_xs": 0,
+        "blog_bgcolor": "#ffffff",
+        "section_subheading": "",
+        "section_heading": "Our blog",
+        "blog": "multi-store",
+        "blog_limit": 12,
+        "view_all_button": "",
+        "view_all_button_url": "",
+        "slider_item_desktop": "4",
+        "slider_item_ipad": "3",
+        "slider_item_tablet": "2",
+        "slider_item_mobile": "1",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false
+      }
+    },
+    "logo_list_j7YXrd": {
+      "type": "logo-list",
+      "blocks": {
+        "single_brand_CtVpyT": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-1_00262485-4dc8-4d72-8438-bb771952e6ad.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_gRK8Mi": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-2_cb1564eb-4563-4c41-900f-180078aba773.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_gzg3fk": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-3_7103e7bb-17be-4085-b046-51f66bcd58b1.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_je8c8j": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-4_ccc8b636-eed1-4340-b722-c0fd04197fe8.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_Ve6fVm": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-5_c582f076-d094-465a-8870-a0597eda57a4.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_thhpDz": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-6_7b6901b1-7af0-485d-9b80-1d650b1777a8.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_ydajDa": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify:\/\/shop_images\/Brand-7.png",
+            "brand_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "single_brand_CtVpyT",
+        "single_brand_gRK8Mi",
+        "single_brand_gzg3fk",
+        "single_brand_je8c8j",
+        "single_brand_Ve6fVm",
+        "single_brand_thhpDz",
+        "single_brand_ydajDa"
+      ],
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "slider_item_desktop": "6",
+        "slider_item_ipadpro": "5",
+        "slider_item_ipad": "4",
+        "slider_item_tablet": "3",
+        "slider_item_mobile": "2",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "featured_collection_NK3dwr",
+    "banner_grid_mQzTGP",
+    "featured_collection_qynbPV",
+    "marquee_PHQfMk",
+    "featured_collection_JVeXfa",
+    "offer_banner_A9Fjar",
+    "testimonial_fEWfRj",
+    "blog_section_94z9Bi",
+    "logo_list_j7YXrd"
+  ]
+}

@@ -1,0 +1,55 @@
+{%- unless product.has_only_default_variant -%}
+  <div class="pr-gr-size">
+    {%- for option in product.options_with_values -%}
+    {%- liquid
+      assign is_size = false
+      assign downcase_option = option.name | downcase
+      if size_label contains downcase_option
+      assign is_size = true
+      assign variant_option = 'option' | append: forloop.index
+      endif
+    -%}
+    {%- if is_size -%}
+    <div class="option-block">
+      {%- capture option_name -%}option{{ option.position }}{%- endcapture -%}
+      {%- for value in option.values -%}
+      {%- liquid
+        for variant in product.variants
+        if variant[variant_option] == value
+        assign variant_for_value = variant
+        break
+        endif
+        endfor
+      -%}
+      <form-wrap class="variant-option item-color {% if forloop.first %}active-variant{% endif %}">
+        <div class="variant-item item-data" id="item-color-{{ section.id }}-{{ product.id }}-{{ variant_for_value.id }}" dataprice="{{ variant_for_value.price }}" datacompare="{{ variant_for_value.compare_at_price }}" dataavailable="{{ variant_for_value.available }}" dataimg="{{ variant_for_value.featured_image | image_url: width: 720 }}" dataurl="{{ variant_for_value.url }}">
+          {%- if settings.pro_gr_color_picker_type == "variant_image" -%}
+          <label class="op-lb color-img cust-checkbox-label {{ value | downcase | replace: " ", "-" }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ value }}">
+            {%- for variant in product.variants -%}
+            {%- if variant[option_name] == value and variant.image -%}
+            {{ variant.image | image_url: width: 40, height: 40, crop: 'center' | image_tag:
+              loading: 'lazy',
+              width: 40,
+              height: 40,
+              class: "img-fluid lazyload",
+              alt: variant.image.alt | escape
+            }}
+            {%- break -%}
+            {%- endif -%}
+            {%- endfor -%}
+          </label>
+          {%- else -%}
+          <label class="op-lb color cust-checkbox-label {{ value | downcase | replace: " ", "-" }}" data-bs-toggle="tooltip" data-bs-placement="top" title="{{ value }}">
+            <span class="color-swatch cust-check">
+              {{ value }}
+            </span>
+          </label>
+          {%- endif -%}
+        </div>
+      </form-wrap>
+      {%- endfor -%} 
+    </div>
+    {%- endif -%}
+    {%- endfor -%}
+  </div>
+  {%- endunless -%}

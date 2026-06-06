@@ -1,0 +1,192 @@
+{{ 'home-about.css' | asset_url | stylesheet_tag }}
+<section 
+  class="home-about"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};"
+  >
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="home-about-area">
+      <div class="about-content">
+        {% if section.settings.section_subheading != '' or section.settings.section_heading != '' or section.settings.section_desc != '' %}
+        <div class="section-capture">
+          <div class="section-title">
+            {% if section.settings.section_subheading != '' %}
+            <span class="sub-title">{{ section.settings.section_subheading }}</span>
+            {% endif %}
+            {% if section.settings.section_heading != '' %}
+            <h2 class="m-0">{{ section.settings.section_heading }}</h2>
+            {% endif %}
+            {% if section.settings.section_desc != '' %}
+            <p class="desc">{{ section.settings.section_desc }}</p>
+            {% endif %}
+          </div>
+        </div>
+        {% endif %}
+        {% if section.settings.home_about_btn_text != '' %}
+        <div cass="about-btn">
+          <a class="btn-wrap btn-style " href="{{ section.settings.home_about_btn_link }}">{{ section.settings.home_about_btn_text }}</a>
+        </div>
+        {% endif %}
+      </div>
+      <div class="about-image">
+        <div class="image-block">
+          <span class="image w-100">
+            {%- if section.settings.home_about_image != blank -%}
+              {{
+                section.settings.home_about_image
+                | image_url: width: 1920
+                | image_tag:
+                  loading: 'lazy',
+                  width: section.settings.home_about_image.width,
+                  height: section.settings.home_about_image.height,
+                  class: 'lazyload',
+                  alt: section.settings.home_about_image.alt
+                | escape
+              }}
+            {%- else -%}
+              {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
+              {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+            {%- endif -%}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Home about",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Section width"
+      },
+      {
+        "type": "select",
+        "id": "container",
+        "label": "Section width",
+        "options": [
+          {
+            "label": "Fluid",
+            "value": "fluid"
+          },
+          {
+            "label": "Normal",
+            "value": "normal"
+          }
+        ],
+        "default": "fluid"
+      },
+      {
+        "type": "header",
+        "content": "Section space top bottom"
+      },
+      {
+        "type": "paragraph",
+        "content": "Desktop"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top",
+        "label": "Space top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "default": 80
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom",
+        "label": "Space bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "default": 80
+      },
+      {
+        "type": "paragraph",
+        "content": "Mobile"
+      },
+      {
+        "type": "range",
+        "id": "section_padding_top_xs",
+        "label": "Space top",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "default": 60
+      },
+      {
+        "type": "range",
+        "id": "section_padding_bottom_xs",
+        "label": "Space bottom",
+        "min": 0,
+        "max": 100,
+        "step": 5,
+        "unit": "px",
+        "default": 60
+      },
+      {
+        "type": "header",
+        "content": "Section background color"
+      },
+      {
+        "type": "color",
+        "id": "section_bg_color",
+        "label": "Background color",
+        "default": "#F8F7F3"
+      },
+      {
+        "type": "header",
+        "content": "Section heading"
+      },
+      {
+        "type": "text",
+        "id": "section_subheading",
+        "label": "Subheading",
+        "default": "Sale up to 30% off"
+      },
+      {
+        "type": "text",
+        "id": "section_heading",
+        "label": "Heading",
+        "default": "Our latest collection of original Artworks & Paintings"
+      },
+      {
+        "type": "textarea",
+        "id": "section_desc",
+        "label": "Description",
+        "default": "At Artmart, we are passionate art enthusiasts dedicated to connecting artists and collectors through dynamic and exciting auctions. Our platform celebrates the creativity and diversity of artists from around the world, providing a space where their works can be appreciated and acquired by"
+      },
+      {
+        "type": "text",
+        "id": "home_about_btn_text",
+        "label": "Button text",
+        "default": "Shop now"
+      },
+      {
+        "type": "text",
+        "id": "home_about_btn_link",
+        "label": "Button url"
+      },
+      {
+        "type": "header",
+        "content": "About image"
+      },
+      {
+        "type": "image_picker",
+        "id": "home_about_image",
+        "label": "Image",
+        "info": "Recommended size: 1000x600px"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Home about"
+      }
+    ]
+  }
+  {% endschema %}
