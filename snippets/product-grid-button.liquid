@@ -75,7 +75,7 @@
     </div>
     {%- endif -%}
     {%- liquid
-      if settings.quickview_enable
+      if settings.quickview_enable and hide_quickview != true
       render 'quickview-button', product: product, section_id: section.id
       endif
     %}

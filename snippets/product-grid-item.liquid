@@ -46,16 +46,11 @@
       {%- endif -%}
     </a>
     {%- render 'product-label', product: product -%}
+    {%- if settings.wishlist_enable -%}
     <div class="product-action wishlist-btn">
-      {%- liquid
-        if settings.wishlist_enable
-          render 'wishlist-button', product: product
-        endif
-        if settings.quickview_enable
-          render 'quickview-button', product: product, section_id: section.id
-        endif
-      -%}
+      {%- render 'wishlist-button', product: product -%}
     </div>
+    {%- endif -%}
     {%- if product.metafields.custom.timer -%}
     <div class="countdown-desk counter-event-{{ product.id }}" id="counter-event" data-enddate="{{ product.metafields.custom.timer }}">
       {{ product.metafields.custom.timer }}
@@ -73,15 +68,22 @@
   <div class="product-content">
     <div class="type-title-price">
       <div class="type-title">
-        <h6 class="mr-0">
-          <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title | truncate: 15 }}</a>
-        </h6>
         {%- if settings.show_vendor -%}
         <div class="product-vendor">{{ product.vendor }}</div>
         {%- endif -%}
+        <h6 class="mr-0">
+          <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title }}</a>
+        </h6>
       </div>
       <div class="price-block">
         {% render 'price', product: product %}
+      </div>
+      <div class="product-stock-status">
+        {%- if product.available -%}
+          <span class="in-stock"><i class="feather-check-circle"></i> In Stock</span>
+        {%- else -%}
+          <span class="out-of-stock">{{ 'products.product.sold_out' | t }}</span>
+        {%- endif -%}
       </div>
     </div>
     {% if settings.pro_gr_option_enable %}
@@ -96,11 +98,18 @@
       <p class="mr-0 product-description">{{ product.description | strip_html | truncatewords: 26 }}</p>
     {%- endif -%}
     {%- endif -%}
-    <div class="qty-action">
+    {%- if product.available -%}
+    <div class="qty-action card-add-to-cart">
       {%- liquid
-        render 'product-grid-button', product: product, product_form_id: product_form_id, section_id: section.id
+        render 'product-grid-button', product: product, product_form_id: product_form_id, section_id: section.id, hide_quickview: true
       -%}
     </div>
+    {%- endif -%}
+    {%- if settings.quickview_enable -%}
+    <div class="quick-view-bar">
+      {%- render 'quickview-button', product: product, section_id: section.id -%}
+    </div>
+    {%- endif -%}
   </div>
 </div>
 <script type="text/javascript">
