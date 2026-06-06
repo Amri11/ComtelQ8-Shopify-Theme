@@ -326,7 +326,7 @@
             "banner_title": "",
             "banner_title_color": "#222222",
             "banner_button_text": "",
-            "banner_button_link": "",
+            "banner_button_link": "shopify://collections/frontpage",
             "banner_content_position": "right",
             "banner_text_position": "left"
           }
