@@ -446,36 +446,42 @@
         "single_brand_gRK8Mi": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/Group_267.svg",
             "brand_url": ""
           }
         },
         "single_brand_gzg3fk": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/Group_203.svg",
             "brand_url": ""
           }
         },
         "single_brand_je8c8j": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/Group_267.svg",
             "brand_url": ""
           }
         },
         "single_brand_Ve6fVm": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/kiwi_80ebaf91-800b-4b71-844c-f8a0a7a0fbf4.svg",
             "brand_url": ""
           }
         },
         "single_brand_thhpDz": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/Group_203.svg",
             "brand_url": ""
           }
         },
         "single_brand_ydajDa": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/kiwi_80ebaf91-800b-4b71-844c-f8a0a7a0fbf4.svg",
             "brand_url": ""
           }
         }
