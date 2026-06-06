@@ -645,13 +645,13 @@
       "type": "checkbox",
       "id": "arrow_enable",
       "label": "Show slider arrow",
-      "default": false
+      "default": true
     },
     {
       "type": "checkbox",
       "id": "dots_enable",
       "label": "Show slider dots",
-      "default": false
+      "default": true
     },
     {
       "type": "header",
@@ -797,6 +797,25 @@
     }
     .featured-collection .collection-wrap .view-collection {
       margin-top: {{ settings.title_padding_bottom_xs }}px;
+    }
+  }
+  /* On mobile Swiper's grid gives every slide an equal row height. Cards with
+     more content (e.g. "Sold out" vs "In Stock") overflow that height and the
+     rows stagger like a checkbox series. Make the card fill the slide and let
+     the image area flex so every card lines up. */
+  @media(max-width: 767px){
+    .fe-coll-{{ section.id }} .collection-wrap .swiper-slide {
+      display: flex;
+    }
+    .fe-coll-{{ section.id }} .collection-wrap .swiper-slide .single-product-wrap,
+    .fe-coll-{{ section.id }} .collection-wrap .swiper-slide .product-grid-list {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .fe-coll-{{ section.id }} .collection-wrap .swiper-slide .product-content {
+      margin-top: auto;
     }
   }
   @media(max-width: 991px){
