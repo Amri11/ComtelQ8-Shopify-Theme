@@ -351,6 +351,7 @@
         "single_banner_bJxagV"
       ],
       "settings": {
+        "columns": "2",
         "container": "normal",
         "section_padding_top": 0,
         "section_padding_bottom": 0,
