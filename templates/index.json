@@ -433,103 +433,13 @@
         "section_bg_color": "#ffffff"
       }
     },
-    "testimonial_fEWfRj": {
-      "type": "testimonial",
-      "blocks": {
-        "single_slide_aPrAGN": {
-          "type": "single_slide",
-          "settings": {
-            "pro_testi_review": "5",
-            "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
-            "testi_author_title": "Justin allison",
-            "testi_author_bio": "Electronics store"
-          }
-        },
-        "single_slide_trPpK6": {
-          "type": "single_slide",
-          "settings": {
-            "pro_testi_review": "5",
-            "testi_desc": "I finally found skincare products that work wonders! my skin feels radiant, and the quick delivery is a bonus. I’ll definitely keep coming back.",
-            "testi_author_title": "Peter smith",
-            "testi_author_bio": "Cosmetic store"
-          }
-        },
-        "single_slide_UXrgaV": {
-          "type": "single_slide",
-          "settings": {
-            "pro_testi_review": "5",
-            "testi_desc": "The jewelry here is stunning and perfect for gifting. The designs are elegant, and the customer is top-notch. I’ll definitely shop here again.",
-            "testi_author_title": "Audie dewey",
-            "testi_author_bio": "Jewelry store"
-          }
-        },
-        "single_slide_MwRdcX": {
-          "type": "single_slide",
-          "settings": {
-            "pro_testi_review": "5",
-            "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
-            "testi_author_title": "Justin allison",
-            "testi_author_bio": "Electronics store"
-          }
-        }
-      },
-      "block_order": [
-        "single_slide_aPrAGN",
-        "single_slide_trPpK6",
-        "single_slide_UXrgaV",
-        "single_slide_MwRdcX"
-      ],
-      "settings": {
-        "container": "fluid",
-        "section_padding_top": 100,
-        "section_padding_bottom": 100,
-        "section_padding_top_xs": 60,
-        "section_padding_bottom_xs": 60,
-        "section_background_color": "#ffffff",
-        "section_subheading": "",
-        "section_heading": "Customer say",
-        "slider_item_desktop": "3",
-        "slider_item_ipadpro": "2",
-        "slider_item_mobile": "1",
-        "slider_autoplay_enable": false,
-        "slider_autoplay_timeout": 5000,
-        "slider_autoplay_speed": 1000,
-        "arrow_enable": false,
-        "dots_enable": false
-      }
-    },
-    "blog_section_94z9Bi": {
-      "type": "blog-section",
-      "settings": {
-        "container": "fluid",
-        "section_padding_top": 0,
-        "section_padding_bottom": 0,
-        "section_padding_top_xs": 0,
-        "section_padding_bottom_xs": 0,
-        "blog_bgcolor": "#ffffff",
-        "section_subheading": "",
-        "section_heading": "Our blog",
-        "blog": "multi-store",
-        "blog_limit": 12,
-        "view_all_button": "",
-        "view_all_button_url": "",
-        "slider_item_desktop": "4",
-        "slider_item_ipad": "3",
-        "slider_item_tablet": "2",
-        "slider_item_mobile": "1",
-        "slider_autoplay_enable": false,
-        "slider_autoplay_timeout": 5000,
-        "slider_autoplay_speed": 1000,
-        "arrow_enable": false,
-        "dots_enable": false
-      }
-    },
     "logo_list_j7YXrd": {
       "type": "logo-list",
       "blocks": {
         "single_brand_CtVpyT": {
           "type": "single_brand",
           "settings": {
+            "brand_image": "shopify://shop_images/kiwi_80ebaf91-800b-4b71-844c-f8a0a7a0fbf4.svg",
             "brand_url": ""
           }
         },
@@ -594,6 +504,99 @@
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000
       }
+    },
+    "testimonial_fEWfRj": {
+      "type": "testimonial",
+      "blocks": {
+        "single_slide_aPrAGN": {
+          "type": "single_slide",
+          "settings": {
+            "pro_testi_review": "5",
+            "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
+            "testi_author_title": "Justin allison",
+            "testi_author_bio": "Electronics store"
+          }
+        },
+        "single_slide_trPpK6": {
+          "type": "single_slide",
+          "settings": {
+            "pro_testi_review": "5",
+            "testi_desc": "I finally found skincare products that work wonders! my skin feels radiant, and the quick delivery is a bonus. I’ll definitely keep coming back.",
+            "testi_author_title": "Peter smith",
+            "testi_author_bio": "Cosmetic store"
+          }
+        },
+        "single_slide_UXrgaV": {
+          "type": "single_slide",
+          "settings": {
+            "pro_testi_review": "5",
+            "testi_desc": "The jewelry here is stunning and perfect for gifting. The designs are elegant, and the customer is top-notch. I’ll definitely shop here again.",
+            "testi_author_title": "Audie dewey",
+            "testi_author_bio": "Jewelry store"
+          }
+        },
+        "single_slide_MwRdcX": {
+          "type": "single_slide",
+          "settings": {
+            "pro_testi_review": "5",
+            "testi_desc": "I’m thrilled with my experience! the deals are unbeatable, and my new arrived quickly and in perfect  It’s now my favorite for tech shopping.",
+            "testi_author_title": "Justin allison",
+            "testi_author_bio": "Electronics store"
+          }
+        }
+      },
+      "block_order": [
+        "single_slide_aPrAGN",
+        "single_slide_trPpK6",
+        "single_slide_UXrgaV",
+        "single_slide_MwRdcX"
+      ],
+      "disabled": true,
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 100,
+        "section_padding_bottom": 100,
+        "section_padding_top_xs": 60,
+        "section_padding_bottom_xs": 60,
+        "section_background_color": "#ffffff",
+        "section_subheading": "",
+        "section_heading": "Customer say",
+        "slider_item_desktop": "3",
+        "slider_item_ipadpro": "2",
+        "slider_item_mobile": "1",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false
+      }
+    },
+    "blog_section_94z9Bi": {
+      "type": "blog-section",
+      "disabled": true,
+      "settings": {
+        "container": "fluid",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 0,
+        "section_padding_bottom_xs": 0,
+        "blog_bgcolor": "#ffffff",
+        "section_subheading": "",
+        "section_heading": "Our blog",
+        "blog": "multi-store",
+        "blog_limit": 12,
+        "view_all_button": "",
+        "view_all_button_url": "",
+        "slider_item_desktop": "4",
+        "slider_item_ipad": "3",
+        "slider_item_tablet": "2",
+        "slider_item_mobile": "1",
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": false,
+        "dots_enable": false
+      }
     }
   },
   "order": [
@@ -604,8 +607,8 @@
     "banner_grid_mQzTGP",
     "featured_collection_JVeXfa",
     "offer_banner_A9Fjar",
+    "logo_list_j7YXrd",
     "testimonial_fEWfRj",
-    "blog_section_94z9Bi",
-    "logo_list_j7YXrd"
+    "blog_section_94z9Bi"
   ]
 }
