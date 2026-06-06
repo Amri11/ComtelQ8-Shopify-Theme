@@ -317,6 +317,19 @@
     "banner_grid_mQzTGP": {
       "type": "banner-grid",
       "blocks": {
+        "single_banner_cGVQrR": {
+          "type": "single_banner",
+          "settings": {
+            "banner_subtitle": "Big discount only 30% off",
+            "banner_subtitle_color": "#868686",
+            "banner_title": "Weekly sale",
+            "banner_title_color": "#222222",
+            "banner_button_text": "Shop now",
+            "banner_button_link": "",
+            "banner_content_position": "right",
+            "banner_text_position": "left"
+          }
+        },
         "single_banner_bJxagV": {
           "type": "single_banner",
           "settings": {
@@ -345,10 +358,10 @@
         }
       },
       "block_order": [
+        "single_banner_cGVQrR",
         "single_banner_bJxagV",
         "single_banner_3JzXyi"
       ],
-      "disabled": true,
       "settings": {
         "container": "normal",
         "section_padding_top": 0,
