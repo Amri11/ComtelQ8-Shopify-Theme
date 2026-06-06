@@ -50,8 +50,8 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_title": "",
-            "category_url": ""
+            "category_title": "Home",
+            "category_url": "shopify://collections/frontpage"
           }
         },
         "category_JBxP8d": {
