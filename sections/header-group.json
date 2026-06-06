@@ -385,7 +385,7 @@
         "vega_menu_link_HXB4pP"
       ],
       "settings": {
-        "container": "fluid",
+        "container": "normal",
         "logo_alignment": "left",
         "menu_alignment": "left",
         "header_transparent_enable": false,
