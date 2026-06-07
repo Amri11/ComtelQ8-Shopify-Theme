@@ -425,7 +425,7 @@
         "section_padding_bottom": 60,
         "section_padding_top_xs": 40,
         "section_padding_bottom_xs": 40,
-        "section_bg_color": "#FFFFFF",
+        "section_bg_color": "#ffffff",
         "section_heading": "Electronics",
         "shop_all_label": "Shop All",
         "shop_all_url": "",
@@ -440,10 +440,10 @@
         "banner_subtitle": "Turn up the sound, turn down the price.",
         "banner_btn_label": "Shop Now",
         "banner_url": "",
-        "banner_bg_color": "#14151A",
-        "banner_text_color": "#FFFFFF",
-        "badge_bg_color": "#4F46E5",
-        "badge_text_color": "#FFFFFF",
+        "banner_bg_color": "#14151a",
+        "banner_text_color": "#ffffff",
+        "badge_bg_color": "#4f46e5",
+        "badge_text_color": "#ffffff",
         "slider_item_desktop": "4",
         "slider_item_ipadpro": "3",
         "slider_item_ipad": "2.5",
@@ -532,6 +532,101 @@
         "slider_autoplay_enable": false,
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000
+      }
+    },
+    "best_offers_b7wDJA": {
+      "type": "best-offers",
+      "blocks": {
+        "feature_card_3fK9QY": {
+          "type": "feature_card",
+          "settings": {
+            "image": "shopify://shop_images/banner-L.webp",
+            "overlay_opacity": 25,
+            "card_link": "",
+            "text_color": "#FFFFFF",
+            "title": "Save on the Tech You Love",
+            "subtitle": "Take 5% off all electronics with code MEGA30 — small discount, big value.",
+            "badge_text": "Mega Sale",
+            "badge_icon": "feather-zap",
+            "badge_bg": "#E0322D",
+            "badge_text_color": "#FFFFFF",
+            "discount_label": "",
+            "compare_price": "",
+            "price": "",
+            "price_tag_bg": "#FFD43B",
+            "price_tag_color": "#1A1A1A",
+            "coupon_code": "MEGA30",
+            "button_label": "Shop Now",
+            "button_bg": "#FFD43B",
+            "button_text_color": "#1A1A1A"
+          }
+        },
+        "small_card_88eyiz": {
+          "type": "small_card",
+          "settings": {
+            "image": "shopify://shop_images/banner-s.webp",
+            "overlay_opacity": 15,
+            "card_link": "",
+            "card_bg": "#d5562c",
+            "text_color": "#FFFFFF",
+            "title": "Best-Selling Wall Art",
+            "badge_text": "-5%",
+            "badge_icon": "",
+            "badge_bg": "#FFD43B",
+            "badge_text_color": "#1A1A1A"
+          }
+        },
+        "small_card_NzWzia": {
+          "type": "small_card",
+          "settings": {
+            "image": "shopify://shop_images/banner-s1.webp",
+            "overlay_opacity": 15,
+            "card_link": "",
+            "card_bg": "#5b9bd5",
+            "text_color": "#FFFFFF",
+            "title": "Find Your Perfect Sound",
+            "badge_text": "Mega Sale",
+            "badge_icon": "",
+            "badge_bg": "#e0322d",
+            "badge_text_color": "#ffffff"
+          }
+        },
+        "wide_card_mWVbkp": {
+          "type": "wide_card",
+          "settings": {
+            "image": "shopify://shop_images/banner-m.webp",
+            "overlay_opacity": 0,
+            "card_link": "",
+            "card_bg": "#5B53E0",
+            "text_color": "#FFFFFF",
+            "badge_text": "Best Seller",
+            "badge_bg": "#3A33B5",
+            "badge_text_color": "#FFFFFF",
+            "title": "Fantasy Books with Exclusive Discounts",
+            "subtitle": "",
+            "button_label": "Shop Now",
+            "button_bg": "#FFD43B",
+            "button_text_color": "#1A1A1A"
+          }
+        }
+      },
+      "block_order": [
+        "feature_card_3fK9QY",
+        "small_card_88eyiz",
+        "small_card_NzWzia",
+        "wide_card_mWVbkp"
+      ],
+      "name": "Best Offers",
+      "settings": {
+        "container": "normal",
+        "section_padding_top": 60,
+        "section_padding_bottom": 60,
+        "section_padding_top_xs": 40,
+        "section_padding_bottom_xs": 40,
+        "section_bg_color": "#FFFFFF",
+        "section_heading": "Best Offers",
+        "card_radius": 12,
+        "grid_gap": 20
       }
     },
     "testimonial_fEWfRj": {
@@ -637,6 +732,7 @@
     "featured_collection_JVeXfa",
     "category_showcase_iqga9m",
     "logo_list_j7YXrd",
+    "best_offers_b7wDJA",
     "testimonial_fEWfRj",
     "blog_section_94z9Bi"
   ]
