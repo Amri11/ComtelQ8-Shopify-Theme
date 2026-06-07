@@ -6,6 +6,10 @@
 .header1 .header-area .header-top {
   padding: 20px 0px;
 }
+/* mobile full-width search row (hidden on desktop) */
+.header1 .header-area .header-top .header-search-row {
+  display: none;
+}
 .header1 .header-area .header-main .header-element.vegamenu-top {
   flex: 0 0 auto;
   order: 2;
@@ -132,6 +136,11 @@
   .header1 .header-area .header-main .header-element.vegamenu-top,
   .header1 .header-area .header-bottom-wrap .header-bottom {
     display: none;
+  }
+  .header1 .header-area .header-top .header-search-row {
+    display: block;
+    width: 100%;
+    margin-top: 12px;
   }
   .header1 .header-area .header-element.logo a {
     margin: 0 auto;
@@ -323,9 +332,12 @@
   .header1 .right-block-box ul.shop-element {
     gap: 15px;
   }
-  .header1 .right-block-box ul.shop-element li.side-wrap.search-wrap,
   .header1 .right-block-box ul.shop-element li.side-wrap .xs-user {
     display: flex;
+  }
+  /* full search row replaces the search icon on mobile */
+  .header1 .right-block-box ul.shop-element li.side-wrap.search-wrap {
+    display: none;
   }
   .header1 .right-block-box ul.shop-element li.side-wrap.full-search,
   .header1 .right-block-box ul.shop-element li.side-wrap .user-main {
