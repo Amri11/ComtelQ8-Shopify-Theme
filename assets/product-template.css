@@ -435,19 +435,44 @@ product detail css
 }
 .product_details_info .pro-nprist .product-info .pro-prlb .price-box span.new-price {
   color: var(--font-color-primary);
-  font-size: 30px;
+  font-size: 24px;
+  font-weight: 700;
 }
 .product_details_info .pro-nprist .product-info .pro-prlb .price-box span.old-price {
   display: none;
-  font-size: 20px;
-  margin-inline-start: 15px;
+  font-size: 17px;
+  font-weight: 600;
+  color: #9ca3af;
+  text-decoration: line-through;
+  margin-inline-start: 10px;
 }
 .product_details_info .pro-nprist .product-info .pro-prlb .price-box.price--on-sale span.old-price {
   display: block;
 }
 .product_details_info .pro-nprist .product-info .pro-prlb .product-label{
-  margin-inline-start: 10px;
+  margin-inline-start: 12px;
   position: unset;
+  top: auto;
+  left: auto;
+  right: auto;
+  padding: 0;
+  background-color: transparent;
+  background: none;
+  border-radius: 0;
+}
+.product_details_info .pro-nprist .product-info .pro-prlb .product-label span {
+  display: inline-block;
+  background: #facc15;
+  color: #1a1a1a;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1;
+  padding: 4px 8px;
+  border-radius: 5px;
+}
+.product_details_info .pro-nprist .product-info .pro-prlb .product-label span span {
+  padding: 0;
+  background: none;
 }
 .product_details_info .pro-nprist .product-info .pro-prlb .product-label .percent-count::after {
   content: "%";
