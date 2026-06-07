@@ -79,7 +79,7 @@
         "contact_info_WViyna"
       ],
       "settings": {
-        "container": "fluid",
+        "container": "normal",
         "section_padding_top": 100,
         "section_padding_bottom": 100,
         "section_padding_top_xs": 60,
@@ -98,6 +98,7 @@
         "menu_text_color": "#808080",
         "menu_text_hv_color": "#196087",
         "enable_follow_on_shop": true,
+        "copyright_text": "All rights reserved.",
         "show_policy": false
       }
     },
