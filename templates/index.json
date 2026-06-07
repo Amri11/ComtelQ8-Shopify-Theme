@@ -43,6 +43,44 @@
         "dots_enable": false
       }
     },
+    "category_showcase_aB3kQ9": {
+      "type": "category-showcase",
+      "settings": {
+        "container": "normal",
+        "section_padding_top": 35,
+        "section_padding_bottom": 35,
+        "section_padding_top_xs": 40,
+        "section_padding_bottom_xs": 40,
+        "section_bg_color": "#ffffff",
+        "section_heading": "Electronics",
+        "shop_all_label": "Shop All",
+        "shop_all_url": "",
+        "collection": "frontpage",
+        "product_limit": 10,
+        "banner_enable": true,
+        "banner_width": 25,
+        "banner_overlay_opacity": 30,
+        "banner_badge": "Best Seller",
+        "banner_title": "Sound Without Compromise",
+        "banner_subtitle": "Turn up the sound, turn down the price.",
+        "banner_btn_label": "Shop Now",
+        "banner_url": "",
+        "banner_bg_color": "#14151A",
+        "banner_text_color": "#FFFFFF",
+        "badge_bg_color": "#4F46E5",
+        "badge_text_color": "#FFFFFF",
+        "slider_item_desktop": "4",
+        "slider_item_ipadpro": "3",
+        "slider_item_ipad": "2.5",
+        "slider_item_mobile": "1.5",
+        "slider_loop": false,
+        "slider_autoplay_enable": false,
+        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_speed": 1000,
+        "arrow_enable": true,
+        "dots_enable": false
+      }
+    },
     "shop_by_category_kVFhjX": {
       "type": "shop-by-category",
       "blocks": {
@@ -622,6 +660,7 @@
   },
   "order": [
     "slideshow",
+    "category_showcase_aB3kQ9",
     "shop_by_category_kVFhjX",
     "offer_cards_bqaWQx",
     "featured_collection_NK3dwr",

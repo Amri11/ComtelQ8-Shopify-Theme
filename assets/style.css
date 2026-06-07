@@ -2795,9 +2795,7 @@ section{
   display: none;
 }
 
-.single-product-wrap .product-content .qty-action {
-  margin-top: 26px;
-}
+
 .single-product-wrap .product-content .qty-action .pr-form-button {
   display: flex;
   justify-content: space-between;

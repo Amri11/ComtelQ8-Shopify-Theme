@@ -1,0 +1,479 @@
+{{ 'category-showcase.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign showcase_collection = collections[section.settings.collection]
+  assign banner_image = section.settings.banner_image
+-%}
+<section
+  class="category-showcase cat-showcase-{{ section.id }}"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--banner-width: {{ section.settings.banner_width }}%;--banner-bg-color: {{ section.settings.banner_bg_color }};--banner-text-color: {{ section.settings.banner_text_color }};--banner-overlay-opacity: {{ section.settings.banner_overlay_opacity | divided_by: 100.0 }};--badge-bg-color: {{ section.settings.badge_bg_color }};--badge-text-color: {{ section.settings.badge_text_color }};"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    {% if section.settings.section_heading != '' or section.settings.shop_all_label != '' %}
+      <div class="category-showcase-head">
+        {% if section.settings.section_heading != '' %}
+          <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
+        {% endif %}
+        {% if section.settings.shop_all_label != '' %}
+          <a
+            href="{{ section.settings.shop_all_url | default: showcase_collection.url | default: '#' }}"
+            class="shop-all-link"
+            data-fade-in
+          >
+            {{ section.settings.shop_all_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="category-showcase-body">
+      {% if section.settings.banner_enable %}
+        <a
+          href="{{ section.settings.banner_url | default: showcase_collection.url | default: '#' }}"
+          class="showcase-banner"
+          data-fade-in
+        >
+          {%- if banner_image != blank -%}
+            <span class="banner-bg">
+              {{
+                banner_image
+                | image_url: width: 800
+                | image_tag:
+                  loading: 'lazy',
+                  width: banner_image.width,
+                  height: banner_image.height,
+                  class: 'lazyload',
+                  alt: section.settings.banner_title
+              }}
+            </span>
+            <span class="banner-overlay"></span>
+          {%- endif -%}
+          <span class="banner-inner">
+            {% if section.settings.banner_badge != '' %}
+              <span class="banner-badge">{{ section.settings.banner_badge }}</span>
+            {% endif %}
+            {% if section.settings.banner_title != '' %}
+              <span class="banner-title h2">{{ section.settings.banner_title }}</span>
+            {% endif %}
+            {% if section.settings.banner_subtitle != '' %}
+              <span class="banner-subtitle">{{ section.settings.banner_subtitle }}</span>
+            {% endif %}
+            {% if section.settings.banner_btn_label != '' %}
+              <span class="banner-btn btn-style">{{ section.settings.banner_btn_label }}</span>
+            {% endif %}
+          </span>
+        </a>
+      {% endif %}
+
+      <div class="showcase-products">
+        <div class="swiper" id="category-showcase-{{ section.id }}">
+          <div class="swiper-wrapper">
+            {% assign product_limit = section.settings.product_limit %}
+            {% for product in showcase_collection.products limit: product_limit %}
+              <div class="swiper-slide">
+                {% render 'product-grid-item', product: product, collection: showcase_collection %}
+              </div>
+            {% else %}
+              {% for i in (1..product_limit) %}
+                <div class="swiper-slide">
+                  <div class="single-product-wrap">
+                    <div class="product-image">
+                      {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
+                      {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                    </div>
+                    <div class="product-content">
+                      <div class="product-title">
+                        <h6 class="mr-0"><a>{{ 'homepage.sections.product_title' | t }}</a></h6>
+                      </div>
+                      <div class="price-box">
+                        <span class="new-price">{{ 'homepage.sections.product_price' | t }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+
+          {% if section.settings.arrow_enable %}
+            <div class="showcase-arrow arrow-prev arrow-prev-{{ section.id }}">
+              <button aria-label="{{ 'general.accessibility.previous' | t }}">
+                <i class="feather-chevron-left"></i>
+              </button>
+            </div>
+            <div class="showcase-arrow arrow-next arrow-next-{{ section.id }}">
+              <button aria-label="{{ 'general.accessibility.next' | t }}">
+                <i class="feather-chevron-right"></i>
+              </button>
+            </div>
+          {% endif %}
+
+          {% if section.settings.dots_enable %}
+            <div class="slider-dot slider-dot-{{ section.id }}"></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var swiper = new Swiper('#category-showcase-{{ section.id }}', {
+      slidesPerView: {{ section.settings.slider_item_mobile }},
+      spaceBetween: 16,
+      loop: {{ section.settings.slider_loop }},
+      watchOverflow: true,
+      {%- if request.locale.iso_code == 'ar' -%}
+      rtl: true,
+      {%- endif -%}
+      {% if section.settings.slider_autoplay_enable %}
+      autoplay: {
+        delay: {{ section.settings.slider_autoplay_timeout }},
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      speed: {{ section.settings.slider_autoplay_speed }},
+      {% endif %}
+      {% if section.settings.arrow_enable %}
+      navigation: {
+        nextEl: ".arrow-next-{{ section.id }}",
+        prevEl: ".arrow-prev-{{ section.id }}",
+      },
+      {% endif %}
+      {% if section.settings.dots_enable %}
+      pagination: {
+        el: ".slider-dot-{{ section.id }}",
+        clickable: true
+      },
+      {% endif %}
+      breakpoints: {
+        540: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 16
+        },
+        768: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: {{ section.settings.slider_item_ipadpro }},
+          spaceBetween: 20
+        },
+        1199: {
+          slidesPerView: {{ section.settings.slider_item_desktop }},
+          spaceBetween: 24
+        }
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Category Showcase",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        { "label": "Full width", "value": "fluid" },
+        { "label": "Contained", "value": "normal" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Electronics"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Shop all label",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_url",
+      "label": "Shop all link",
+      "info": "Falls back to the selected collection."
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "number",
+      "id": "product_limit",
+      "label": "Product limit",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Promo banner"
+    },
+    {
+      "type": "checkbox",
+      "id": "banner_enable",
+      "label": "Show promo banner",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "banner_width",
+      "label": "Banner width",
+      "min": 20,
+      "max": 40,
+      "step": 1,
+      "unit": "%",
+      "default": 25
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Banner image",
+      "info": "Recommended size: 600x800px"
+    },
+    {
+      "type": "range",
+      "id": "banner_overlay_opacity",
+      "label": "Image overlay",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 30
+    },
+    {
+      "type": "text",
+      "id": "banner_badge",
+      "label": "Badge text",
+      "default": "Best Seller"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Title",
+      "default": "Sound Without Compromise"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_subtitle",
+      "label": "Subtitle",
+      "default": "Turn up the sound, turn down the price."
+    },
+    {
+      "type": "text",
+      "id": "banner_btn_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Banner link",
+      "info": "Falls back to the selected collection."
+    },
+    {
+      "type": "color",
+      "id": "banner_bg_color",
+      "label": "Banner background color",
+      "default": "#14151A"
+    },
+    {
+      "type": "color",
+      "id": "banner_text_color",
+      "label": "Banner text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background color",
+      "default": "#4F46E5"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Slider option"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_desktop",
+      "label": "Desktop item",
+      "info": "Width : > 1199px",
+      "options": [
+        { "label": "3", "value": "3" },
+        { "label": "4", "value": "4" },
+        { "label": "5", "value": "5" }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipadpro",
+      "label": "Ipadpro item",
+      "info": "Width : > 1024px",
+      "options": [
+        { "label": "3", "value": "3" },
+        { "label": "4", "value": "4" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipad",
+      "label": "Ipad item",
+      "info": "Width : > 540px",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "2.5", "value": "2.5" },
+        { "label": "3", "value": "3" }
+      ],
+      "default": "2.5"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_mobile",
+      "label": "Mobile item",
+      "info": "Width : < 540px",
+      "options": [
+        { "label": "1.2", "value": "1.2" },
+        { "label": "1.5", "value": "1.5" },
+        { "label": "2", "value": "2" },
+        { "label": "2.5", "value": "2.5" }
+      ],
+      "default": "1.5"
+    },
+    {
+      "type": "header",
+      "content": "Slider autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_loop",
+      "label": "Loop slides",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay_enable",
+      "label": "Show autoplay",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_timeout",
+      "label": "Autoplay timeout",
+      "default": 5000,
+      "info": "Put timeout by multiply 'X1000' this field"
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_speed",
+      "label": "Autoplay speed",
+      "default": 1000,
+      "info": "Put speed by multiply 'X100' this field"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_enable",
+      "label": "Show slider arrow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dots_enable",
+      "label": "Show slider dots",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Category Showcase"
+    }
+  ]
+}
+{% endschema %}
