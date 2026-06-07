@@ -5,193 +5,94 @@
     | plus: predictive_search.resources.pages.size
     | plus: predictive_search.resources.articles.size
   %}
-  <div class="container">
-    <div id="search-ajax-results" role="listbox">
-      {%- if first_column_results_size > 0 or predictive_search.resources.products.size > 0 -%}
-        <div
-          id="search-ajax-block"
-          class="search-ajax-block{% unless predictive_search.resources.products.size > 0 %} search-ajax-block-no-products{% endunless %}{% unless predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 %} search-ajax-block-no-suggestions{% endunless %}"
-        >
-      {%- endif -%}
-      {%- if first_column_results_size > 0 -%}
-        <div class="ajax-result-group">
-      {%- endif -%}
-      {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 -%}
-        <div class="suggestions-list list-block">
-          <h6 class="mr-0 list-title">
-            {{- 'templates.search.suggestions' | t -}}
-            :
-          </h6>
-          <ul class="results-list list-unstyled">
-            {%- for query in predictive_search.resources.queries -%}
-              <li id="search-ajax-option-query-{{ forloop.index }}" class="list-item">
-                <a href="{{ query.url }}" class="list-item">
-                  {{ query.styled_text }}
-                </a>
-              </li>
-            {%- endfor -%}
-            {%- for collection in predictive_search.resources.collections -%}
-              <li
-                id="search-ajax-option-collection-{{ forloop.index }}"
-                class="list-item"
-                role="option"
-                aria-selected="false"
-              >
-                <a href="{{ collection.url }}" class="list-item">{{ collection.title }}</a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {%- endif -%}
-      {%- if predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
-        <div class="pages-list list-block">
-          <h6 class="mr-0 list-title">
-            {{- 'templates.search.pages' | t -}}
-            :
-          </h6>
-          <ul class="results-list list-unstyled">
-            {%- for page in predictive_search.resources.pages -%}
-              <li id="search-ajax-option-page-desktop-{{ forloop.index }}" class="list-item">
-                <a href="{{ page.url }}" class="list-item">
-                  {{ page.title }}
-                </a>
-              </li>
-            {%- endfor -%}
-            {%- for article in predictive_search.resources.articles -%}
-              <li
-                id="search-ajax-option-article-desktop-{{ forloop.index }}"
-                class="list-item"
-                role="option"
-                aria-selected="false"
-              >
-                <a href="{{ article.url }}" class="list-item">
-                  {{ article.title }}
-                </a>
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
-      {%- endif -%}
-      {%- if first_column_results_size > 0 -%}
-        </div>
-      {%- endif -%}
-      {%- if predictive_search.resources.products.size > 0
-        or predictive_search.resources.articles.size > 0
-        or predictive_search.resources.pages.size > 0
-      -%}
-        <div class="ajax-result-group">
-          {%- if predictive_search.resources.products.size > 0 -%}
-            <div class="product-list">
-              <ul class="grid-wrap list-unstyled">
-                {%- for product in predictive_search.resources.products -%}
-                  <li id="search-ajax-option-product-{{ forloop.index }}" class="grid-wrapper">
-                    {%- assign color_label = 'Color,color,colour,couleur,cor,colore,farbe,색,色,カラー,färg,farve,szín,barva'
-                      | split: ','
-                    -%}
-                    <div class="single-product-wrap">
-                      <div class="product-image" id="pro-img-{{ section.id }}-{{ product.id }}">
-                        {%- liquid
-                          assign ratio = 1
-                          if product.featured_media and settings.image_ratio == 'portrait'
-                            assign ratio = 0.973
-                          elsif product.featured_media and settings.image_ratio == 'adapt'
-                            assign ratio = product.featured_media.aspect_ratio
-                          endif
-                          if ratio == 0 or ratio == null
-                            assign ratio = 1
-                          endif
-                        -%}
-                        <a
-                          class="pro-img ratio"
-                          href="{{ product.url | within: collection }}"
-                          style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-                        >
-                          {%- if product.featured_media -%}
-                            <div class="{%- if product.media[1] != blank -%} img1{%- endif -%}">
-                              {% assign image_height = product.featured_media.width
-                                | divided_by: product.featured_media.aspect_ratio
-                              %}
-                              {{
-                                product.featured_media
-                                | image_url: width: 720
-                                | image_tag: width: product.featured_media.width, height: image_height, class: 'lazyload', loading: 'lazy'
-                              }}
-                            </div>
-                            {%- if settings.pro_hover_enable and product.media[1] != blank -%}
-                              <div class="img2">
-                                {% assign image_height = product.media[1].width | divided_by: product.media[1].aspect_ratio %}
-                                {{
-                                  product.media[1]
-                                  | image_url: width: 720
-                                  | image_tag: width: product.media[1].width, height: image_height, class: 'lazyload', loading: 'lazy'
-                                }}
-                              </div>
-                            {%- endif -%}
-                            {%- else -%}
-                            {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3 %}{%- endcapture -%}
-                            {{ placeholder | placeholder_svg_tag: 'placeholder-svg' }}
-                            {%- endif -%}
-                        </a>
-                        {%- render 'product-label', product: product -%}
-                        <div class="product-action wishlist-btn">
-                          {%- liquid
-                            if settings.wishlist_enable
-                              render 'wishlist-button', product: product
-                            endif
-                            if settings.quickview_enable
-                              render 'quickview-button', product: product, section_id: section.id
-                            endif
-                          -%}
-                        </div>
-                        {%- if product.metafields.custom.timer -%}
-                        <div class="countdown-desk counter-event-{{ product.id }}" id="counter-event" data-enddate="{{ product.metafields.custom.timer }}">
-                          {{ product.metafields.custom.timer }}
-                        </div>
-                        {% endif %}
-                        {%- if settings.show_rating -%}
-                        <div class="product-grid-rating">
-                          <span aria-hidden="true" class="rating-star" style="--rating: {{ product.metafields.reviews.rating.value.rating | floor }};">
-                            <i class="fa fa-star"></i>
-                          </span>
-                          <span>{% if product.metafields.reviews.rating.value == blank %}0{% else %}{{- product.metafields.reviews.rating.value }}{% endif %}</span>
-                        </div>
+  <div id="search-ajax-results" role="listbox">
+    {%- if first_column_results_size > 0 or predictive_search.resources.products.size > 0 -%}
+      <div id="search-ajax-block" class="search-ajax-two-col">
+
+        {%- comment %} LEFT: Suggestions & Pages {%- endcomment %}
+        {%- if first_column_results_size > 0 -%}
+          <div class="search-col search-col-suggestions">
+            {%- if predictive_search.resources.queries.size > 0 or predictive_search.resources.collections.size > 0 -%}
+              <div class="search-col-section">
+                <p class="search-col-heading">{{ 'templates.search.suggestions' | t }}</p>
+                <ul class="search-suggestion-list list-unstyled">
+                  {%- for query in predictive_search.resources.queries -%}
+                    <li id="search-ajax-option-query-{{ forloop.index }}" class="list-item">
+                      <a href="{{ query.url }}">{{ query.styled_text }}</a>
+                    </li>
+                  {%- endfor -%}
+                  {%- for collection in predictive_search.resources.collections -%}
+                    <li id="search-ajax-option-collection-{{ forloop.index }}" class="list-item" role="option" aria-selected="false">
+                      <a href="{{ collection.url }}">{{ collection.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+            {%- if predictive_search.resources.articles.size > 0 or predictive_search.resources.pages.size > 0 -%}
+              <div class="search-col-section">
+                <p class="search-col-heading">{{ 'templates.search.pages' | t }}</p>
+                <ul class="search-suggestion-list list-unstyled">
+                  {%- for page in predictive_search.resources.pages -%}
+                    <li id="search-ajax-option-page-desktop-{{ forloop.index }}" class="list-item">
+                      <a href="{{ page.url }}">{{ page.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                  {%- for article in predictive_search.resources.articles -%}
+                    <li id="search-ajax-option-article-desktop-{{ forloop.index }}" class="list-item" role="option" aria-selected="false">
+                      <a href="{{ article.url }}">{{ article.title }}</a>
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+
+        {%- comment %} RIGHT: Products {%- endcomment %}
+        {%- if predictive_search.resources.products.size > 0 -%}
+          <div class="search-col search-col-products">
+            <p class="search-col-heading">{{ 'templates.search.products' | t }}</p>
+            <ul class="ajax-products-list list-unstyled">
+              {%- for product in predictive_search.resources.products -%}
+                <li id="search-ajax-option-product-{{ forloop.index }}" role="option" aria-selected="false">
+                  <a href="{{ product.url }}" class="ajax-product-item">
+                    <div class="ajax-product-thumb">
+                      {%- if product.featured_media -%}
+                        {{
+                          product.featured_media
+                          | image_url: width: 120
+                          | image_tag: width: 60, height: 60, class: 'lazyload', loading: 'lazy'
+                        }}
+                      {%- else -%}
+                        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
+                    <div class="ajax-product-info">
+                      {%- if settings.show_vendor -%}
+                        <span class="ajax-product-vendor">{{ product.vendor }}</span>
+                      {%- elsif product.type != blank -%}
+                        <span class="ajax-product-vendor">{{ product.type }}</span>
+                      {%- endif -%}
+                      <span class="ajax-product-title">{{ product.title }}</span>
+                      <div class="ajax-product-price">
+                        {%- if product.compare_at_price > product.price -%}
+                          <span class="ajax-price-sale">{{ product.price | money }}</span>
+                          <span class="ajax-price-compare">{{ product.compare_at_price | money }}</span>
+                        {%- else -%}
+                          <span class="ajax-price-regular">{{ product.price | money }}</span>
                         {%- endif -%}
                       </div>
-                      <div class="product-content">
-                        <div class="type-title-price">
-                          <div class="type-title">
-                            {%- if settings.show_vendor -%}
-                            <div class="product-vendor">{{ product.vendor }}</div>
-                            {%- endif -%}
-                            <h6 class="mr-0">
-                              <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title | truncate: 15 }}</a>
-                            </h6>
-                          </div>
-                          <div class="price-block">
-                            {% render 'price', product: product %}
-                          </div>
-                        </div>
-                        {% if settings.pro_gr_option_enable %}
-                          {% render 'product-grid-option', product: product, color_label: color_label, section: section %}
-                        {% endif %}
-                        <div class="qty-action">
-                          {%- liquid
-                            render 'product-grid-button', product: product, product_form_id: product_form_id, section_id: section.id
-                          -%}
-                        </div>
-                      </div>
                     </div>
-                  </li>
-                {%- endfor -%}
-              </ul>
-            </div>
-          {%- endif -%}
-        </div>
-      {%- endif -%}
-      {%- if first_column_results_size > 0 or predictive_search.resources.products.size > 0 -%}
-        </div>
-      {%- endif -%}
-    </div>
+                  </a>
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+
+      </div>
+    {%- endif -%}
   </div>
   <span class="results-found" data-search-ajax-live-region-count-value>
     {% liquid
