@@ -73,11 +73,11 @@
         {%- endif -%}
       </div>
     </div>
+    {%- if section.settings.tab_bar_enable or section.settings.short_by_enable -%}
+      {%- render 'collection-sorting', results: collection -%}
+    {%- endif -%}
     <div class="pro-grli-wrapper{% if section.settings.sidebar_handle == 'left_sidebar_handle' %} left-side-wrap{% elsif section.settings.sidebar_handle == 'right_sidebar_handle' %} right-side-wrap{% else %} full-side-wrap{% endif %}">
       <div class="pro-grli-wrap product-grid">
-        {%- if section.settings.tab_bar_enable or section.settings.short_by_enable -%}
-          {%- render 'collection-sorting', results: collection -%}
-        {%- endif -%}
         <div class="get-data-products">
           <div id="ProductGridContainer">
             {%- assign products_limit = section.settings.products_limit_handle -%}
