@@ -35,6 +35,8 @@
   }
   .slider-content .home-slider .slide-image .mobile-img {
     display: block;
+    min-height: 200px;
+    object-fit: cover;
   }
   .slider-content .home-slider .slide-image video {
     min-height: 500px;
