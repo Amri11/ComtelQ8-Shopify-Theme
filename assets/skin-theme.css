@@ -14,9 +14,14 @@ body.hidden {
   container css
 ======================================*/
 .container {
-  max-width: 1380px;
+  max-width: 2800px;
   padding: 0 15px;
   margin: 0 auto;
+}
+@media(max-width: 2799px){
+  .container {
+    max-width: 2560px;
+  }
 }
 @media(max-width: 1499px){
   .container {
