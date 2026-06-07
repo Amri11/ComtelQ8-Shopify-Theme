@@ -86,7 +86,8 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_title": "",
+            "category_image": "shopify://shop_images/file_2_2_2.webp",
+            "category_title": "Books",
             "category_url": ""
           }
         },
