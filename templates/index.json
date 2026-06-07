@@ -59,7 +59,8 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_title": "",
+            "category_image": "shopify://shop_images/file_2_2_1.avif",
+            "category_title": "Watch",
             "category_url": ""
           }
         },
@@ -67,7 +68,8 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_title": "",
+            "category_image": "shopify://shop_images/file_2_2_3.avif",
+            "category_title": "Earphone",
             "category_url": ""
           }
         },
