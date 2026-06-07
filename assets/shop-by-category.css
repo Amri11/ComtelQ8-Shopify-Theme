@@ -13,16 +13,16 @@
 }
 .shop-by-category .shop-by-category-head h2 {
   margin: 0;
-  font-size: 36px;
+  font-size: 28px;
 }
 @media (max-width: 1199px) {
   .shop-by-category .shop-by-category-head h2 {
-    font-size: 32px;
+    font-size: 26px;
   }
 }
 @media (max-width: 767px) {
   .shop-by-category .shop-by-category-head h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 .shop-by-category .shop-by-category-head .shop-all-link {

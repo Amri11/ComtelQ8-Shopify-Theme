@@ -56,7 +56,7 @@ section{
   margin-bottom: 13px;
 }
 .section-title h2 {
-  font-size: 36px;
+  font-size: 28px;
 }
 .section-title p {
   font-size: var(--subtitle-font-size-body);
@@ -68,7 +68,7 @@ section{
     margin-bottom: 6px;
   }
   .section-title h2 {
-    font-size: 32px;
+    font-size: 26px;
   }
 }
 @media (max-width: 767px) {
@@ -77,7 +77,7 @@ section{
     margin-bottom: 9px;
   }
   .section-title h2 {
-    font-size: 24px;
+    font-size: 20px;
   }
   .section-title p {
     font-size: var(--font-size-body);
