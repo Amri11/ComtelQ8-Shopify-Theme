@@ -1,0 +1,12 @@
+{%- if product.vendor != blank -%}
+  <div class="product-info product-vendor" {{ block.shopify_attributes }}>
+    {%- if block.settings.vendor_title != blank -%}
+      <span class="vendor-label">{{ block.settings.vendor_title }}</span>
+    {%- endif -%}
+    {%- if block.settings.show_vendor_link -%}
+      <a class="vendor-value" href="{{ product.vendor | url_for_vendor }}">{{ product.vendor }}</a>
+    {%- else -%}
+      <span class="vendor-value">{{ product.vendor }}</span>
+    {%- endif -%}
+  </div>
+{%- endif -%}

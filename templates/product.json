@@ -26,6 +26,13 @@
           "type": "product_title",
           "settings": {}
         },
+        "product_vendor": {
+          "type": "product_vendor",
+          "settings": {
+            "vendor_title": "",
+            "show_vendor_link": true
+          }
+        },
         "product_price": {
           "type": "product_price",
           "settings": {
@@ -117,6 +124,7 @@
         }
       },
       "block_order": [
+        "product_vendor",
         "product_title_TgqDQg",
         "product_price",
         "18d14155-9145-4f99-b951-44d46831d46c",

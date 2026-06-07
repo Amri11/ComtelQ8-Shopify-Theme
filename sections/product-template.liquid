@@ -134,6 +134,8 @@
                       render 'product-template-custom-liquid', product: product, block: block
                     when 'product_title'
                       render 'product-template-title', product: product, block: block
+                    when 'product_vendor'
+                      render 'product-template-vendor', product: product, block: block
                     when 'product_price'
                       render 'product-template-price', product: product, block: block, current_variant: current_variant, use_variant: true
                     when 'short_description'
@@ -593,6 +595,25 @@
       "type": "product_title",
       "name": "Title",
       "limit": 1
+    },
+    {
+      "type": "product_vendor",
+      "name": "Vendor",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "vendor_title",
+          "label": "Label",
+          "default": "Brand:"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_vendor_link",
+          "label": "Link to vendor collection",
+          "default": true
+        }
+      ]
     },
     {
       "type": "product_price",
