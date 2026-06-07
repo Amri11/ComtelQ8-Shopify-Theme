@@ -174,10 +174,10 @@
           "type": "offer_card",
           "settings": {
             "card_image": "shopify://shop_images/03.webp",
-            "card_title": "Offer title",
+            "card_title": "Best Earbuds",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "Best Earbuds",
+            "badge_text": "Best Seller",
             "badge_bg_color": "#5599be",
             "badge_text_color": "#1a1a1a"
           }
