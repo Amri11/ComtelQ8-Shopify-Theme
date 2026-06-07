@@ -1,0 +1,614 @@
+{{ 'mega-sale.css' | asset_url | stylesheet_tag }}
+{%- liquid
+  assign sale_collection = collections[section.settings.collection]
+-%}
+<section
+  class="mega-sale mega-sale-{{ section.id }}"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px;--padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--banner-width: {{ section.settings.banner_width }}%;--banner-bg-color: {{ section.settings.banner_bg_color }};--banner-text-color: {{ section.settings.banner_text_color }};--banner-overlay-opacity: {{ section.settings.banner_overlay_opacity | divided_by: 100.0 }};--badge-bg-color: {{ section.settings.badge_bg_color }};--badge-text-color: {{ section.settings.badge_text_color }};--circle-bg-color: {{ section.settings.circle_bg_color }};--circle-text-color: {{ section.settings.circle_text_color }};--accent-color: {{ section.settings.accent_color }};--accent-text-color: {{ section.settings.accent_text_color }};{% if section.settings.banner_bg_gradient != blank %}--section-gradient: {{ section.settings.banner_bg_gradient }};{% endif %}"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    {% if section.settings.section_heading != '' or section.settings.shop_all_label != '' %}
+      <div class="mega-sale-head">
+        {% if section.settings.section_heading != '' %}
+          <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
+        {% endif %}
+        {% if section.settings.shop_all_label != '' %}
+          <a
+            href="{{ section.settings.shop_all_url | default: sale_collection.url | default: '#' }}"
+            class="shop-all-link"
+            data-fade-in
+          >
+            {{ section.settings.shop_all_label }}
+          </a>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="mega-sale-body">
+      <div class="mega-sale-banner" data-fade-in>
+        {%- if section.settings.banner_image != blank -%}
+          <span class="banner-bg">
+            {{
+              section.settings.banner_image
+              | image_url: width: 1000
+              | image_tag:
+                loading: 'lazy',
+                width: section.settings.banner_image.width,
+                height: section.settings.banner_image.height,
+                class: 'lazyload',
+                alt: section.settings.banner_title
+            }}
+          </span>
+          <span class="banner-overlay"></span>
+        {%- endif -%}
+
+        <div class="banner-inner">
+          {% if section.settings.circle_text != '' or section.settings.circle_value != '' %}
+            <div class="sale-circle">
+              {% if section.settings.circle_text != '' %}
+                <span class="sale-circle-text">{{ section.settings.circle_text }}</span>
+              {% endif %}
+              {% if section.settings.circle_value != '' %}
+                <span class="sale-circle-value">{{ section.settings.circle_value }}</span>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if section.settings.banner_badge != '' %}
+            <span class="banner-badge">
+              {% if section.settings.badge_icon != '' %}<i class="{{ section.settings.badge_icon }}"></i>{% endif %}
+              {{ section.settings.banner_badge }}
+            </span>
+          {% endif %}
+
+          {% if section.settings.banner_title != '' %}
+            <h3 class="banner-title">{{ section.settings.banner_title }}</h3>
+          {% endif %}
+
+          {% if section.settings.banner_subtitle != '' %}
+            <p class="banner-subtitle mr-0">{{ section.settings.banner_subtitle }}</p>
+          {% endif %}
+
+          <div class="banner-actions">
+            {% if section.settings.coupon_code != '' %}
+              <span class="sale-coupon" data-coupon="{{ section.settings.coupon_code }}">
+                <span class="sale-coupon-code">{{ section.settings.coupon_code }}</span>
+                <button type="button" class="sale-coupon-copy" aria-label="Copy code">
+                  <i class="feather-copy"></i>
+                </button>
+              </span>
+            {% endif %}
+            {% if section.settings.banner_btn_label != '' %}
+              <a
+                href="{{ section.settings.banner_url | default: sale_collection.url | default: '#' }}"
+                class="sale-btn"
+              >
+                {{ section.settings.banner_btn_label }}
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <div class="mega-sale-products">
+        <div class="swiper" id="mega-sale-slider-{{ section.id }}">
+          <div class="swiper-wrapper">
+            {% assign product_limit = section.settings.product_limit %}
+            {% for product in sale_collection.products limit: product_limit %}
+              <div class="swiper-slide">
+                {% render 'product-grid-item', product: product, collection: sale_collection %}
+              </div>
+            {% else %}
+              {% for i in (1..product_limit) %}
+                <div class="swiper-slide">
+                  <div class="single-product-wrap">
+                    <div class="product-image">
+                      {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
+                      {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                    </div>
+                    <div class="product-content">
+                      <div class="product-title">
+                        <h6 class="mr-0"><a>{{ 'homepage.sections.product_title' | t }}</a></h6>
+                      </div>
+                      <div class="price-box">
+                        <span class="new-price">{{ 'homepage.sections.product_price' | t }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            {% endfor %}
+          </div>
+
+          {% if section.settings.arrow_enable %}
+            <div class="sale-arrow arrow-prev arrow-prev-{{ section.id }}">
+              <button aria-label="{{ 'general.accessibility.previous' | t }}">
+                <i class="feather-chevron-left"></i>
+              </button>
+            </div>
+            <div class="sale-arrow arrow-next arrow-next-{{ section.id }}">
+              <button aria-label="{{ 'general.accessibility.next' | t }}">
+                <i class="feather-chevron-right"></i>
+              </button>
+            </div>
+          {% endif %}
+
+          {% if section.settings.dots_enable %}
+            <div class="slider-dot slider-dot-{{ section.id }}"></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script type="text/javascript">
+  addEventListener('DOMContentLoaded', (event) => {
+    var swiper = new Swiper('#mega-sale-slider-{{ section.id }}', {
+      slidesPerView: {{ section.settings.slider_item_mobile }},
+      spaceBetween: 16,
+      loop: {{ section.settings.slider_loop }},
+      watchOverflow: true,
+      {%- if request.locale.iso_code == 'ar' -%}
+      rtl: true,
+      {%- endif -%}
+      {% if section.settings.slider_autoplay_enable %}
+      autoplay: {
+        delay: {{ section.settings.slider_autoplay_timeout }},
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      speed: {{ section.settings.slider_autoplay_speed }},
+      {% endif %}
+      {% if section.settings.arrow_enable %}
+      navigation: {
+        nextEl: ".arrow-next-{{ section.id }}",
+        prevEl: ".arrow-prev-{{ section.id }}",
+      },
+      {% endif %}
+      {% if section.settings.dots_enable %}
+      pagination: {
+        el: ".slider-dot-{{ section.id }}",
+        clickable: true
+      },
+      {% endif %}
+      breakpoints: {
+        540: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 16
+        },
+        768: {
+          slidesPerView: {{ section.settings.slider_item_ipad }},
+          spaceBetween: 20
+        },
+        1024: {
+          slidesPerView: {{ section.settings.slider_item_ipadpro }},
+          spaceBetween: 20
+        },
+        1199: {
+          slidesPerView: {{ section.settings.slider_item_desktop }},
+          spaceBetween: 24
+        }
+      }
+    });
+  });
+</script>
+
+<script>
+  (function () {
+    var root = document.querySelector('.mega-sale-{{ section.id }}');
+    if (!root) return;
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest('.sale-coupon-copy');
+      if (!btn) return;
+      e.preventDefault();
+      var wrap = btn.closest('.sale-coupon');
+      var code = wrap ? wrap.getAttribute('data-coupon') : '';
+      if (!code) return;
+      var done = function () {
+        wrap.classList.add('is-copied');
+        setTimeout(function () { wrap.classList.remove('is-copied'); }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done).catch(function () {});
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (err) {}
+        document.body.removeChild(ta);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Mega Sale",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        { "label": "Full width", "value": "fluid" },
+        { "label": "Contained", "value": "normal" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Shop all label"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_url",
+      "label": "Shop all link",
+      "info": "Falls back to the selected collection."
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "number",
+      "id": "product_limit",
+      "label": "Product limit",
+      "default": 10
+    },
+    {
+      "type": "header",
+      "content": "Promo banner"
+    },
+    {
+      "type": "range",
+      "id": "banner_width",
+      "label": "Banner width",
+      "min": 25,
+      "max": 50,
+      "step": 1,
+      "unit": "%",
+      "default": 38
+    },
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Background image",
+      "info": "Optional. Spans the full section. Recommended size: 2000x700px"
+    },
+    {
+      "type": "range",
+      "id": "banner_overlay_opacity",
+      "label": "Image overlay (whole section)",
+      "min": 0,
+      "max": 90,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "color_background",
+      "id": "banner_bg_gradient",
+      "label": "Image gradient overlay",
+      "info": "Optional. Overlays the full-section background image."
+    },
+    {
+      "type": "color",
+      "id": "banner_bg_color",
+      "label": "Banner tint color",
+      "info": "Darkens the banner area behind the text for legibility.",
+      "default": "#3A3A33"
+    },
+    {
+      "type": "range",
+      "id": "banner_tint_opacity",
+      "label": "Banner tint opacity",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "default": 78
+    },
+    {
+      "type": "color",
+      "id": "banner_text_color",
+      "label": "Banner text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Discount circle"
+    },
+    {
+      "type": "text",
+      "id": "circle_text",
+      "label": "Top text",
+      "default": "Save Up to"
+    },
+    {
+      "type": "text",
+      "id": "circle_value",
+      "label": "Value",
+      "info": "e.g. 60%",
+      "default": "60%"
+    },
+    {
+      "type": "color",
+      "id": "circle_bg_color",
+      "label": "Circle background",
+      "default": "#FFD43B"
+    },
+    {
+      "type": "color",
+      "id": "circle_text_color",
+      "label": "Circle text color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "header",
+      "content": "Badge"
+    },
+    {
+      "type": "text",
+      "id": "banner_badge",
+      "label": "Badge text",
+      "default": "Mega Sale"
+    },
+    {
+      "type": "text",
+      "id": "badge_icon",
+      "label": "Badge icon class",
+      "info": "Optional Feather icon class, e.g. feather-zap",
+      "default": "feather-zap"
+    },
+    {
+      "type": "color",
+      "id": "badge_bg_color",
+      "label": "Badge background color",
+      "default": "#E0322D"
+    },
+    {
+      "type": "color",
+      "id": "badge_text_color",
+      "label": "Badge text color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Banner content"
+    },
+    {
+      "type": "text",
+      "id": "banner_title",
+      "label": "Title",
+      "default": "Your Favorite Electronics Now at Lower Prices"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_subtitle",
+      "label": "Subtitle",
+      "default": "Save 60% on the latest electronics—just use code MEGA30 at checkout."
+    },
+    {
+      "type": "header",
+      "content": "Coupon code"
+    },
+    {
+      "type": "text",
+      "id": "coupon_code",
+      "label": "Coupon code",
+      "info": "Leave empty to hide. Customers can copy it.",
+      "default": "MEGA30"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "text",
+      "id": "banner_btn_label",
+      "label": "Button label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "banner_url",
+      "label": "Button link",
+      "info": "Falls back to the selected collection."
+    },
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Button background color",
+      "default": "#FFD43B"
+    },
+    {
+      "type": "color",
+      "id": "accent_text_color",
+      "label": "Button text color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "header",
+      "content": "Slider option"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_desktop",
+      "label": "Desktop item",
+      "info": "Width : > 1199px",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "2.5", "value": "2.5" },
+        { "label": "3", "value": "3" }
+      ],
+      "default": "2.5"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipadpro",
+      "label": "Ipadpro item",
+      "info": "Width : > 1024px",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "2.5", "value": "2.5" },
+        { "label": "3", "value": "3" }
+      ],
+      "default": "2"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_ipad",
+      "label": "Ipad item",
+      "info": "Width : > 540px",
+      "options": [
+        { "label": "2", "value": "2" },
+        { "label": "2.5", "value": "2.5" },
+        { "label": "3", "value": "3" }
+      ],
+      "default": "2.5"
+    },
+    {
+      "type": "select",
+      "id": "slider_item_mobile",
+      "label": "Mobile item",
+      "info": "Width : < 540px",
+      "options": [
+        { "label": "1.2", "value": "1.2" },
+        { "label": "1.5", "value": "1.5" },
+        { "label": "2", "value": "2" }
+      ],
+      "default": "1.5"
+    },
+    {
+      "type": "header",
+      "content": "Slider autoplay"
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_loop",
+      "label": "Loop slides",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "slider_autoplay_enable",
+      "label": "Show autoplay",
+      "default": false
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_timeout",
+      "label": "Autoplay timeout",
+      "default": 5000,
+      "info": "Put timeout by multiply 'X1000' this field"
+    },
+    {
+      "type": "number",
+      "id": "slider_autoplay_speed",
+      "label": "Autoplay speed",
+      "default": 1000,
+      "info": "Put speed by multiply 'X100' this field"
+    },
+    {
+      "type": "checkbox",
+      "id": "arrow_enable",
+      "label": "Show slider arrow",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "dots_enable",
+      "label": "Show slider dots",
+      "default": false
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mega Sale"
+    }
+  ]
+}
+{% endschema %}
