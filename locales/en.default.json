@@ -395,6 +395,9 @@
       "page": "Page",
       "products": "Products",
       "submit": "Search",
+      "title": "Search Results",
+      "items": "Items",
+      "reset": "Clear",
       "placeholder": "Search product",
       "results_pages_with_count": {
         "one": "{{ count }} page",
