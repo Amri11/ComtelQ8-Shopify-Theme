@@ -122,6 +122,16 @@
             >
               {%- assign product_form_id = 'product-form-' | append: section.id -%}
               {%- liquid
+                assign has_quantity_block = false
+                assign has_buy_buttons_block = false
+                for b in section.blocks
+                  if b.type == 'product_quantity'
+                    assign has_quantity_block = true
+                  endif
+                  if b.type == 'product_buy_buttons'
+                    assign has_buy_buttons_block = true
+                  endif
+                endfor
                 for block in section.blocks
                   case block.type
                     when '@app'
@@ -147,9 +157,14 @@
                     when 'product_variant_picker'
                       render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id
                     when 'product_quantity'
-                      render 'product-template-quantity', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true
+                      # quantity selector is rendered inline inside the buy-buttons row
+                      # (see product-template-button.liquid). Only render standalone if
+                      # there is no buy-buttons block to host it.
+                      unless has_buy_buttons_block
+                        render 'product-template-quantity', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true
+                      endunless
                     when 'product_buy_buttons'
-                      render 'product-template-button', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true
+                      render 'product-template-button', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true, show_quantity_selector: has_quantity_block
                     when 'product_sku'
                       render 'product-template-sku', product: product, block: block, current_variant: current_variant
                     when 'product_payment'

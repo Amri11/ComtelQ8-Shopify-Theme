@@ -37,27 +37,57 @@
               assign quantity_rule_soldout = true
             endif
           -%}
-          <div class="ajax-cart-btn">
-            <button
-              id="ProductSubmitButton-{{ section_id }}"
-              type="submit"
-              name="add"
-              {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
-                disabled
-              {% endif %}
-              aria-label="{{ 'products.product.sold_out' | t }}"
-            >
-              <span class="cart-title">
-                {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
-                  {{ 'products.product.sold_out' | t }}
-                {%- else -%}
-                  {{ 'products.product.add_to_cart' | t }}
-                {%- endif -%}
-              </span>
-              <div class="ajax-loader hidden">
-                <span class="spinner-border"></span>
+          <div class="pr-atc-row">
+            {%- if show_quantity_selector -%}
+              {%- assign cart_qty = cart | item_count_for_variant: product.selected_or_first_available_variant.id -%}
+              <div class="product-qty">
+                <qty-box class="quantity qty-box">
+                  <button class="qty-bt" name="minus" type="button" aria-label="minus">
+                    <i class="feather-minus"></i>
+                  </button>
+                  <input
+                    class="qty-box-input"
+                    type="number"
+                    name="quantity"
+                    id="Quantity-{{ section_id }}"
+                    data-cart-quantity="{{ cart_qty }}"
+                    data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                      data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                      max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                    {% endif %}
+                    step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                    value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                    form="{{ product_form_id }}"
+                    aria-label="{{ 'products.product.quantity.input_label' | t: product: product.title | escape }}"
+                  >
+                  <button class="qty-bt" name="plus" type="button" aria-label="plus"><i class="feather-plus"></i></button>
+                </qty-box>
               </div>
-            </button>
+            {%- endif -%}
+            <div class="ajax-cart-btn">
+              <button
+                id="ProductSubmitButton-{{ section_id }}"
+                type="submit"
+                name="add"
+                {% if product.selected_or_first_available_variant.available == false or quantity_rule_soldout %}
+                  disabled
+                {% endif %}
+                aria-label="{{ 'products.product.sold_out' | t }}"
+              >
+                <span class="cart-title">
+                  {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                    {{ 'products.product.sold_out' | t }}
+                  {%- else -%}
+                    {{ 'products.product.add_to_cart' | t }}
+                  {%- endif -%}
+                </span>
+                <div class="ajax-loader hidden">
+                  <span class="spinner-border"></span>
+                </div>
+              </button>
+            </div>
           </div>
           {%- if block.settings.show_dynamic_checkout -%}
             {{ form | payment_button }}

@@ -547,13 +547,69 @@ product detail css
 .product_details_info .pro-nprist .product-info .product-qty h6 {
   font-size: 18px;
 }
+/* qty box: rounded clean - 1 + */
 .product_details_info .pro-nprist .product-info .product-qty .qty-box {
-  height: 55px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #fff;
+}
+.product_details_info .pro-nprist .product-info .product-qty .qty-box .qty-bt {
+  width: 44px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 16px;
+  color: var(--font-color-header);
+  transition: color .2s ease;
+}
+.product_details_info .pro-nprist .product-info .product-qty .qty-box .qty-bt:hover {
+  color: var(--font-color-primary);
 }
 .product_details_info .pro-nprist .product-info .product-qty .qty-box input {
+  width: 44px;
+  height: 100%;
+  text-align: center;
+  border: 0;
+  background: transparent;
   font-size: 16px;
   color: var(--font-color-header);
   font-weight: 600;
+  -moz-appearance: textfield;
+}
+.product_details_info .pro-nprist .product-info .product-qty .qty-box input::-webkit-outer-spin-button,
+.product_details_info .pro-nprist .product-info .product-qty .qty-box input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* qty + add-to-cart on one row, buy-it-now full width below.
+   The qty box is rendered inside the buy-buttons form (see product-template-button.liquid),
+   so they are real flex siblings in .pr-form-button. */
+.product_details_info .pr-form-button .pr-atc-row {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  width: 100%;
+}
+.product_details_info .pr-form-button .pr-atc-row .product-qty {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+.product_details_info .pr-form-button .pr-atc-row .ajax-cart-btn {
+  flex: 1 1 auto;
+  width: auto;
+}
+.product_details_info .pr-form-button .shopify-payment-button {
+  width: 100%;
 }
 
 /* product detail action button css */
@@ -566,18 +622,17 @@ product detail css
   width: 50%;
 }
 .product_details_info .pr-form-button .ajax-cart-btn button {
-  height: 55px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--font-color-header);
-  border: 1px solid var(--font-color-header);
-  text-transform: uppercase;
-  font-size: 16px;
+  border: 1px solid transparent;
+  font-size: 15px;
   font-weight: 600;
   width: 100%;
-  background-color: transparent;
-  border-radius: var(--sti-border-radius);
+  background-color: #f3f3f3;
+  border-radius: 10px;
 }
 .product_details_info .pr-form-button .ajax-cart-btn button:hover {
   color: #fff;
@@ -601,20 +656,20 @@ product detail css
   fill: #fff;
 }
 .product_details_info .pr-form-button .shopify-payment-button {
-  width: 50%;
+  width: 100%;
 }
 .product_details_info .pr-form-button .shopify-payment-button button {
   color: #fff;
-  height: 55px;
+  height: 52px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid var(--font-color-header);
-  text-transform: uppercase;
-  font-size: 16px;
+  border: 1px solid #000;
+  font-size: 15px;
   font-weight: 600;
-  border-radius: var(--sti-border-radius);
-  background-color: #222;
+  border-radius: 10px;
+  background-color: #000;
 }
 .product_details_info .pr-form-button .shopify-payment-button button:hover {
   color: #fff;
@@ -636,6 +691,23 @@ product detail css
   }
   .product_details_info .pr-form-button .shopify-payment-button {
     width: 100%;
+  }
+}
+@media(max-width: 575px) {
+  /* stack qty above full-width buttons on mobile */
+  .product_details_info .pro-nprist .product-info:has(.product-qty) {
+    float: none;
+    margin-inline-end: 0;
+  }
+  .product_details_info .pro-nprist .product-info:has(.product-qty) .qty-box {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .product_details_info .pro-nprist .product-info:has(.product-qty) + .product-info .pr-form-button .ajax-cart-btn {
+    flex: none;
+    width: 100%;
+    min-width: 0;
   }
 }
 
