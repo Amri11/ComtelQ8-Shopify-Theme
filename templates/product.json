@@ -142,7 +142,7 @@
         "pro_detail_bgcolor": "rgba(0,0,0,0)",
         "product_pos": "left",
         "product_pos_sticky_enable": true,
-        "product_img_pos": "bottom",
+        "product_img_pos": "left",
         "zoom_enable": true,
         "lightbox_enable": true,
         "image_ratio": "adapt",
