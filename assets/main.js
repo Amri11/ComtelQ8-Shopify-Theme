@@ -12,8 +12,9 @@
       $(".mm-fullscreen-bg").removeClass("active");
       $("body").removeClass("ov-hidden");
     });
-    // filter button js
+    // filter button js (off-canvas drawer — mobile/tablet only)
     $("button.filter-button").on('click', function() {
+      if (window.matchMedia('(min-width: 1200px)').matches) return;
       $(".filter-sidebar").addClass("active");
       $(".mm-fullscreen-bg").addClass("active");
     });

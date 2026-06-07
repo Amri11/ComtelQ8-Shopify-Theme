@@ -30,6 +30,17 @@
   .pro-grli-wrap.product-sidebar {
   width: 20%;
 }
+
+/* "Filters" button toggle — collapse sidebar, expand grid (desktop only) */
+@media (min-width: 1200px) {
+  .main-content-wrap .pro-grli-wrapper.filters-hidden .pro-grli-wrap.product-sidebar {
+    display: none;
+  }
+  .main-content-wrap .pro-grli-wrapper.filters-hidden .pro-grli-wrap.product-grid {
+    width: 100%;
+  }
+}
+
 @media (max-width: 1499px) {
   .main-content-wrap .pro-grli-wrapper.left-side-wrap,
   .main-content-wrap .pro-grli-wrapper.right-side-wrap {

@@ -1,47 +1,29 @@
 <!-- shop-top-bar start -->
 <div class="shop-top-bar">
-  <div class="product-filter{% if section.settings.sidebar_handle == 'without_sidebar' %} without-sidebar{% endif %}">
-    <button class="filter-button" type="button" aria-label="filter">
-      <i class="feather-filter"></i>
-      <span>{{ 'collections.facets.filter_button' | t }}</span>
-    </button>
-  </div>
-  {% if section.settings.tab_bar_enable %}
-    <div class="product-view-mode">
-      <!-- shop-item-filter-list start -->
-      <button
-        class="list-change-view grid-three{% if template == 'collection' or template == 'collection.right' or template == 'collection.without' %} active{% endif %}"
-        data-grid-view="3"
-        aria-label="grid"
-      >
-        <i class="feather-grid"></i>
+  <div class="shop-top-bar-left">
+    <div class="product-filter">
+      <button class="filter-button" type="button" aria-label="filter">
+        <span>{{ 'collections.facets.filter_button' | t }}</span>
+        <i class="feather-filter"></i>
       </button>
-      <button
-        class="list-change-view list-one{% if template == 'collection.list' or template == 'collection.list-right' or template == 'collection.list-without' %} active{% endif %}"
-        data-grid-view="1"
-        aria-label="list"
-      >
-        <i class="feather-list"></i>
-      </button>
-      <!-- shop-item-filter-list end -->
     </div>
-  {% endif %}
-  <span id="pro-count" class="product-count-text">
-    {%- if results.results_count -%}
-      {{
-        'collections.facets.results_with_count'
-        | t: terms: results.terms, count: results.results_count
-      }}
-    {%- elsif results.products_count == results.all_products_count -%}
-      {{ 'collections.facets.product_count_simple' | t: count: results.products_count }}
-    {%- else -%}
-      {{
-        'collections.facets.product_count'
-        | t: product_count: results.products_count, count: results.all_products_count
-      }}
-    {%- endif -%}
-  </span>
-  
+    <span id="pro-count" class="product-count-text">
+      {%- if results.results_count -%}
+        {{
+          'collections.facets.results_with_count'
+          | t: terms: results.terms, count: results.results_count
+        }}
+      {%- elsif results.products_count == results.all_products_count -%}
+        {{ 'collections.facets.product_count_simple' | t: count: results.products_count }}
+      {%- else -%}
+        {{
+          'collections.facets.product_count'
+          | t: product_count: results.products_count, count: results.all_products_count
+        }}
+      {%- endif -%}
+    </span>
+  </div>
+
   {% if section.settings.short_by_enable %}
     <!-- product-short start -->
     <div class="product-short">
@@ -223,6 +205,13 @@
         $(this).addClass('active');
       }
     });
+
+    // desktop: "Filters" button collapses/shows the sidebar column
+    $('.shop-top-bar .filter-button').on('click', function () {
+      if (window.matchMedia('(min-width: 1200px)').matches) {
+        $('.pro-grli-wrapper').toggleClass('filters-hidden');
+      }
+    });
   });
 </script>
 <style>
@@ -241,73 +230,39 @@
     border-bottom: 1px solid var(--theme-border-color);
   }
 
-  /* filter button css */
-  .shop-top-bar .product-filter {
-    display: none;
-    padding-inline-end: 15px;
-    border-inline-end: 2px solid var(--theme-border-color);
-  }
-  .shop-top-bar .product-filter.without-sidebar {
-    display: block;
-  }
-  .shop-top-bar .product-filter button {
-    color: var(--font-color-body);
+  /* left group: filters + count */
+  .shop-top-bar .shop-top-bar-left {
     display: flex;
     align-items: center;
-    font-size: 16px;
-    line-height: 0;
+    gap: 20px;
   }
-  .shop-top-bar .product-filter button span {
-    display: block;
+  .shop-top-bar .shop-top-bar-left .product-count-text {
     color: var(--font-color-body);
     font-size: var(--font-size-body);
-    margin-inline-end: 5px;
+    opacity: 0.7;
+    line-height: 1;
+  }
+
+  /* filter button css */
+  .shop-top-bar .product-filter button.filter-button {
+    color: var(--font-color-header);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .shop-top-bar .product-filter button.filter-button span {
+    color: var(--font-color-header);
+    font-size: var(--font-size-body);
     font-weight: 600;
     line-height: 1;
   }
-  @media (max-width: 1199px) {
-    .shop-top-bar .product-filter {
-      display: block;
-    }
-  }
-  @media (max-width: 479px) {
-    .shop-top-bar .product-filter {
-      margin: 0px;
-      padding: 0px;
-      border: none;
-    }
-  }
-
-  /* grid-list css */
-  .shop-top-bar .product-view-mode {
-    display: flex;
-    margin-inline-end: auto;
-  }
-  .shop-top-bar .product-view-mode .list-change-view {
-    display: block;
-    color: var(--font-color-header);
-    font-size: 18px;
-    margin-inline-end: 15px;
-    cursor: pointer;
+  .shop-top-bar .product-filter button.filter-button i {
+    font-size: 16px;
     line-height: 0;
-    -webkit-transition: all 0s ease-in-out 0s;
-    -o-transition: all 0s ease-in-out 0s;
-    transition: all 0s ease-in-out 0s;
-  }
-  .shop-top-bar .product-view-mode .list-change-view:last-child {
-    margin-inline-end: 0px;
-  }
-  .shop-top-bar .product-view-mode .list-change-view.active {
-    color: var(--font-color-primary);
-  }
-  .shop-top-bar .product-view-mode .list-change-view i {
-    display: block;
-    line-height: 1;
-  }
-  @media (max-width: 479px) {
-    .shop-top-bar .product-view-mode {
-      margin-inline-end: unset;
-    }
   }
 
   /* product sorting css */
