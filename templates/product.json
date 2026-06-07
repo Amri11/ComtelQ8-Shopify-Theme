@@ -70,35 +70,6 @@
           "type": "product_quantity",
           "settings": {}
         },
-        "product_buy_buttons": {
-          "type": "product_buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
-          }
-        },
-        "73f6da47-a354-4c24-84ea-4fab243257e4": {
-          "type": "product_modal",
-          "settings": {
-            "question_modal_enable": true,
-            "que_title": "Question",
-            "size_modal_enable": true,
-            "size_title": "Sizeguide",
-            "sizeguide_page": "sizeguid",
-            "share_modal_enable": true,
-            "share_title": "Share",
-            "copy_title": "Copy link",
-            "copy_button": "Copy"
-          }
-        },
-        "product_payment": {
-          "type": "product_payment",
-          "disabled": true,
-          "settings": {
-            "payment_title": "Payment & Security",
-            "payment_desc": "Your payment information is processed securely. We do not store credit card details nor have access to your credit card information."
-          }
-        },
         "icon_with_text_edbj7a": {
           "type": "icon_with_text",
           "settings": {
@@ -116,12 +87,20 @@
             "service_subtitle3": "Arrives September 3"
           }
         },
-        "complementary_C3HqGB": {
-          "type": "complementary",
-          "disabled": true,
+        "product_buy_buttons": {
+          "type": "product_buy_buttons",
           "settings": {
-            "block_heading": "Pairs well with",
-            "product_list_limit": 10
+            "show_dynamic_checkout": true,
+            "show_gift_card_recipient": true
+          }
+        },
+        "collapsible_w969VP": {
+          "type": "collapsible",
+          "settings": {
+            "collapse_title": "Free 90-Day Returns",
+            "collapse_title_icon": "<i class=\"feather-check-square\"></i>",
+            "content": "<p>Not quite right? Return any item within 90 days, free of charge. Hassle-free and customer-friendly — just the way it should be.</p>",
+            "page": ""
           }
         }
       },
@@ -134,11 +113,9 @@
         "product_price",
         "18d14155-9145-4f99-b951-44d46831d46c",
         "product_quantity_9QFCn8",
-        "product_buy_buttons",
-        "73f6da47-a354-4c24-84ea-4fab243257e4",
-        "product_payment",
         "icon_with_text_edbj7a",
-        "complementary_C3HqGB"
+        "product_buy_buttons",
+        "collapsible_w969VP"
       ],
       "settings": {
         "container": "normal",
