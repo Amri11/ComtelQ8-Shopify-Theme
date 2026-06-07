@@ -723,31 +723,23 @@ product detail css
   }
 }
 
-/* product detail sku social & payment-img css */
+/* product detail sku (simple, like vendor) */
 .product_details_info .pro-nprist .product-info.product-sku {
-  padding-top: 25px;
-  border-top: var(--sti-border);
-}
-.product_details_info .pro-nprist .product-info .sku-content:first-child {
-  padding-top: 0;
-}
-.product_details_info .pro-nprist .product-info .sku-content {
   display: flex;
   align-items: center;
-  padding-top: 10px;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--font-color-body);
 }
-.product_details_info .pro-nprist .product-info .sku-content h6 {
-  font-size: var(--subtitle-font-size-body);
-  font-weight: var(--subtitle-custom-font-weight-body);
-  min-width: 80px;
+.product_details_info .pro-nprist .product-info.product-sku.visibility-hidden {
+  display: none;
 }
-.product_details_info .pro-nprist .product-info .sku-content span {
-  margin-inline-start: 15px;
+.product_details_info .pro-nprist .product-info.product-sku .sku-label {
+  font-weight: 400;
 }
-@media(max-width: 479px) {
-  .product_details_info .pro-nprist .product-info.product-sku {
-    padding-top: 20px; 
-  }
+.product_details_info .pro-nprist .product-info.product-sku .sku-value {
+  font-weight: 600;
+  color: var(--font-color-header);
 }
 .product_details_info .product-info .dp-block button.dropdown-btn {
   display: flex;

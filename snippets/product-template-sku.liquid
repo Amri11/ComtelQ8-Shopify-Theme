@@ -1,16 +1,6 @@
-<div class="product-info product-sku" {{ block.shopify_attributes }}>
-  <div class="sku-content">
-    <h6 class="mr-0">{{ block.settings.delivery_title }}</h6>
-    <span class="variant-sku">{{ block.settings.delivery_text }}</span>
-  </div>
-  <div class="sku-content">
-    <h6 class="mr-0">{{ block.settings.return_title }}</h6>
-    <span class="variant-sku">{{ block.settings.return_text }}</span>
-  </div>
-  {%- if current_variant.sku.size > 0 -%}
-    <div class="sku-content">
-      <h6 class="mr-0">{{ 'products.product.product_sku_title' | t }}</h6>
-      <span class="variant-sku" id="Sku-{{ section.id }}">{{ current_variant.sku }}</span>
-    </div>
+<div class="product-info product-sku{% if current_variant.sku == blank %} visibility-hidden{% endif %}" id="Sku-{{ section.id }}" {{ block.shopify_attributes }}>
+  {%- if block.settings.sku_title != blank -%}
+    <span class="sku-label">{{ block.settings.sku_title }}</span>
   {%- endif -%}
+  <span class="sku-value">{{ current_variant.sku }}</span>
 </div>
