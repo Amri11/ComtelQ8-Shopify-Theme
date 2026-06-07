@@ -11,77 +11,6 @@
   "type": "footer",
   "name": "Footer group",
   "sections": {
-    "newsletter_XJkYqi": {
-      "type": "newsletter",
-      "settings": {
-        "container": "fluid",
-        "section_padding_top": 100,
-        "section_padding_bottom": 0,
-        "section_padding_top_xs": 60,
-        "section_padding_bottom_xs": 0,
-        "banner_bg_img_enable": false,
-        "section_background_color": "#fafafa",
-        "section_heading": "Subscribe to newsletter",
-        "section_heading_color": "#171717"
-      }
-    },
-    "icon_rows_9EPByc": {
-      "type": "icon-rows",
-      "blocks": {
-        "our_services_V6cNTD": {
-          "type": "our_services",
-          "settings": {
-            "icon": "",
-            "service_url": "",
-            "service_title": "14 Days return",
-            "service_desc": "Changed your mind? return within 14 days, hassle-free"
-          }
-        },
-        "our_services_rMzKLJ": {
-          "type": "our_services",
-          "settings": {
-            "icon": "",
-            "service_url": "",
-            "service_title": "Shipping worldwide",
-            "service_desc": "Connecting you to the world, one shipment at a time"
-          }
-        },
-        "our_services_4qyQJD": {
-          "type": "our_services",
-          "settings": {
-            "icon": "",
-            "service_url": "",
-            "service_title": "Security payment",
-            "service_desc": "Buy with confidence – secure payments guaranteed"
-          }
-        },
-        "our_services_WAUtAY": {
-          "type": "our_services",
-          "settings": {
-            "icon": "",
-            "service_url": "",
-            "service_title": "Money back guarantee",
-            "service_desc": "Your satisfaction assured with our money-back guarantee"
-          }
-        }
-      },
-      "block_order": [
-        "our_services_V6cNTD",
-        "our_services_rMzKLJ",
-        "our_services_4qyQJD",
-        "our_services_WAUtAY"
-      ],
-      "settings": {
-        "container": "fluid",
-        "section_padding_top": 100,
-        "section_padding_bottom": 0,
-        "section_padding_top_xs": 60,
-        "section_padding_bottom_xs": 0,
-        "section_background_color": "#fafafa",
-        "section_subheading": "",
-        "section_heading": ""
-      }
-    },
     "footer": {
       "type": "footer",
       "blocks": {
@@ -196,8 +125,6 @@
     }
   },
   "order": [
-    "newsletter_XJkYqi",
-    "icon_rows_9EPByc",
     "footer",
     "section_border_rLFfWK",
     "copy-right"
