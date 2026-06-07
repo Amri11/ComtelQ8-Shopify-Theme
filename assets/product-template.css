@@ -759,34 +759,28 @@ product detail css
 .product_details_info .product-info .dp-block .dropdown-content .content-block {
   margin-top: 15px;
 }
-.product_details_info .product-info .ser-block ul.grid-wrap {
+.product_details_info .product-info .ser-block ul.service-cards {
   display: grid;
-  gap: 30px;
+  gap: 12px;
   grid-template-columns: repeat(3, 1fr);
-  text-align: center;
+  text-align: left;
 }
-.product_details_info .product-info .ser-block a {
-  text-align: center;
+.product_details_info .product-info .ser-block .service-card-link {
+  text-align: left;
 }
-.product_details_info .product-info .ser-block a i {
-  font-size: 24px;
+.product_details_info .product-info .ser-block .service-card-icon i {
+  font-size: 22px;
   display: block;
-  -webkit-transition: all .3s ease-in-out 0s;
-  -o-transition: all .3s ease-in-out 0s;
-  transition: all .3s ease-in-out 0s;
 }
-.product_details_info .product-info .ser-block a:hover i {
-  transform: scaleX(-1);
+.product_details_info .product-info .ser-block .service-card-link .service-text {
+  margin-top: 14px;
 }
-.product_details_info .product-info .ser-block a .service-text {
-  margin-top: 10px;
+.product_details_info .product-info .ser-block .service-card-link .service-text h6 {
+  font-size: 15px;
+  font-weight: 700;
 }
-.product_details_info .product-info .ser-block a .service-text h6 {
-  font-size: var(--subtitle-font-size-body);
-  font-weight: var(--subtitle-custom-font-weight-body);
-}
-@media(max-width: 479px) {
-  .product_details_info .product-info .ser-block ul.grid-wrap {
+@media(max-width: 575px) {
+  .product_details_info .product-info .ser-block ul.service-cards {
     grid-template-columns: repeat(1, 1fr);
   }
 }

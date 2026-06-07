@@ -1,32 +1,41 @@
 <div class="product-info" {{ block.shopify_attributes }}>
   <div class="ser-block">
-    <ul class="list-unstyled grid-wrap">
-      <li class="grid-wrapper">
-        <a href="{{ block.settings.service_url }}">
-          {{ block.settings.icon_img }}
+    <ul class="list-unstyled service-cards">
+      <li class="service-card">
+        <a href="{{ block.settings.service_url }}" class="service-card-link">
+          <span class="service-card-icon">{{ block.settings.icon_img }}</span>
           <div class="service-text">
             {% if block.settings.service_title != '' %}
-              <h6 class="mr-0">{{ block.settings.service_title }}</h6>
+              <h6 class="service-card-title">{{ block.settings.service_title }}</h6>
+            {% endif %}
+            {% if block.settings.service_subtitle != '' %}
+              <p class="service-card-subtitle">{{ block.settings.service_subtitle }}</p>
             {% endif %}
           </div>
         </a>
       </li>
-      <li class="grid-wrapper">
-        <a href="{{ block.settings.service_url2 }}">
-          {{ block.settings.icon_img2 }}
+      <li class="service-card">
+        <a href="{{ block.settings.service_url2 }}" class="service-card-link">
+          <span class="service-card-icon">{{ block.settings.icon_img2 }}</span>
           <div class="service-text">
             {% if block.settings.service_title2 != '' %}
-              <h6 class="mr-0">{{ block.settings.service_title2 }}</h6>
+              <h6 class="service-card-title">{{ block.settings.service_title2 }}</h6>
+            {% endif %}
+            {% if block.settings.service_subtitle2 != '' %}
+              <p class="service-card-subtitle">{{ block.settings.service_subtitle2 }}</p>
             {% endif %}
           </div>
         </a>
       </li>
-      <li class="grid-wrapper">
-        <a href="{{ block.settings.service_url3 }}">
-          {{ block.settings.icon_img3 }}
+      <li class="service-card">
+        <a href="{{ block.settings.service_url3 }}" class="service-card-link">
+          <span class="service-card-icon">{{ block.settings.icon_img3 }}</span>
           <div class="service-text">
             {% if block.settings.service_title3 != '' %}
-              <h6 class="mr-0">{{ block.settings.service_title3 }}</h6>
+              <h6 class="service-card-title">{{ block.settings.service_title3 }}</h6>
+            {% endif %}
+            {% if block.settings.service_subtitle3 != '' %}
+              <p class="service-card-subtitle">{{ block.settings.service_subtitle3 }}</p>
             {% endif %}
           </div>
         </a>
@@ -36,8 +45,63 @@
 </div>
 <style type="text/css">
 .product-info .ser-block {
-  padding: 30px;
-  border: var(--sti-border);
-  border-radius: var(--sti-border-radius);
+  padding: 0;
+  border: 0;
+}
+.product-info .service-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+}
+.product-info .service-card {
+  list-style: none;
+}
+.product-info .service-card-link {
+  display: block;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  text-decoration: none;
+}
+.product-info .service-card-icon {
+  display: block;
+  margin-bottom: 0;
+  color: #6d5bd0;
+  font-size: 22px;
+  line-height: 1;
+}
+.product-info .service-card-icon i,
+.product-info .service-card-icon svg {
+  font-size: 22px;
+  width: 22px;
+  height: 22px;
+}
+.product-info .service-card-icon img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.product-info .service-card-title {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #14142b;
+  line-height: 1.3;
+}
+.product-info .service-card-subtitle {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9b9bb1;
+  line-height: 1.4;
+}
+@media (max-width: 575px) {
+  .product-info .service-cards {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
