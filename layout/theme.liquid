@@ -236,7 +236,7 @@
       endif
       sections 'header-group'
       if settings.breadcrumb_banner_enable and template != 'index'
-        unless template.name == 'product' or template.name == 'collection'
+        unless template.name == 'product' or template.name == 'collection' or template.name == 'search'
           render 'breadcrumb-banner'
         endunless
       endif
