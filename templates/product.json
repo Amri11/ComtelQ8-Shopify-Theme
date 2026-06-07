@@ -102,6 +102,15 @@
             "content": "<p>Not quite right? Return any item within 90 days, free of charge. Hassle-free and customer-friendly — just the way it should be.</p>",
             "page": ""
           }
+        },
+        "collapsible_YhY6EN": {
+          "type": "collapsible",
+          "settings": {
+            "collapse_title": "Shipping Information",
+            "collapse_title_icon": "<i class=\"feather-check-square\"></i>",
+            "content": "<p>Expect prompt delivery and easy tracking — every order comes with updates along the way.</p>",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -115,7 +124,8 @@
         "product_quantity_9QFCn8",
         "icon_with_text_edbj7a",
         "product_buy_buttons",
-        "collapsible_w969VP"
+        "collapsible_w969VP",
+        "collapsible_YhY6EN"
       ],
       "settings": {
         "container": "normal",
