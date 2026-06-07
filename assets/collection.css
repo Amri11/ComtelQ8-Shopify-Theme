@@ -128,17 +128,63 @@
   position: relative;
   font-size: var(--subtitle-font-size-body);
   font-weight: var(--subtitle-custom-font-weight-body);
-  line-height: 1;
+  line-height: 1.1;
 }
 
 /* collection-info css */
 .collection-img-wrap .collection-info {
-  margin-top: 30px;
+  display: flex;
+  align-items: stretch;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+.collection-img-wrap .collection-info .collection-content {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f4f4f5;
+  border-radius: var(--sti-border-radius);
+  padding: 50px;
+}
+.collection-img-wrap .collection-info .collection-content .breadcrumb-list {
+  justify-content: flex-start;
+  text-align: start;
+  margin-bottom: 20px;
+}
+.collection-img-wrap .collection-info .collection-content .breadcrumb-list li a {
+  color: var(--font-color-primary);
+  text-transform: capitalize;
+}
+.collection-img-wrap .collection-info .collection-content .breadcrumb-list li span {
+  color: var(--font-color-header);
+  text-transform: capitalize;
+  font-weight: var(--font-weight-body--bold);
+}
+.collection-img-wrap .collection-info .collection-content .breadcrumb-list li::after {
+  content: "\203A";
+  color: var(--font-color-body);
+  opacity: 0.6;
+}
+.collection-img-wrap .collection-info .collection-content h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--font-color-header);
+  margin-bottom: 15px;
 }
 .collection-img-wrap .collection-info .collection-description {
-  margin-top: 30px;
+  margin-top: 0;
+  color: var(--font-color-body);
+  opacity: 0.7;
+  max-width: 90%;
+}
+@media (max-width: 1199px) {
+  .collection-img-wrap .collection-info .collection-content h1 {
+    font-size: 36px;
+  }
 }
 .collection-img-wrap .collection-info .collection-image {
+  flex: 1 1 50%;
   border-radius: var(--sti-border-radius);
   overflow: hidden;
   position: relative;
@@ -146,6 +192,27 @@
 }
 .collection-img-wrap .collection-info .collection-image img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* single-column when image is disabled */
+.collection-img-wrap:not(.has-image) .collection-info {
+  display: block;
+}
+.collection-img-wrap:not(.has-image) .collection-info .collection-content {
+  padding: 0;
+  background-color: transparent;
+}
+
+/* stack on tablet/mobile */
+@media (max-width: 991px) {
+  .collection-img-wrap .collection-info {
+    flex-direction: column;
+  }
+  .collection-img-wrap .collection-info .collection-content {
+    padding: 30px;
+  }
 }
 
 /* empty product css */

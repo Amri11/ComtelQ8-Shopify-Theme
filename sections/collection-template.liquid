@@ -4,74 +4,77 @@
   style="--background-color: {{ section.settings.section_background_color }};"
 >
   <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
-    <div class="pro-grli-wrapper{% if section.settings.sidebar_handle == 'left_sidebar_handle' %} left-side-wrap{% elsif section.settings.sidebar_handle == 'right_sidebar_handle' %} right-side-wrap{% else %} full-side-wrap{% endif %}">
-      <div class="pro-grli-wrap product-grid">
-        <div class="collection-img-wrap">
+    <div class="collection-img-wrap{% if section.settings.collection_image_enable %} has-image{% endif %}">
+      <div class="collection-info">
+        <div class="collection-content">
+          {% render 'breadcrumb-builtin' %}
           <h1 class="st-title mr-0">{{ collection.title }}</h1>
-          <div class="collection-info">
-            {%- if section.settings.collection_image_enable -%}
-              <div class="collection-image">
-                {% unless request.path == '/collections/all' %}
-                  {% if collection.image %}
-                    {{
-                      collection.image
-                      | image_url: width: 1920
-                      | image_tag:
-                        loading: 'lazy',
-                        width: collection.image.width,
-                        height: collection.image.height,
-                        class: 'lazyload',
-                        alt: collection.image.alt
-                      | escape
-                    }}
-                  {% else %}
-                    {%- if section.settings.collection_image != blank -%}
-                      {{
-                        section.settings.collection_image
-                        | image_url: width: 1920
-                        | image_tag:
-                          loading: 'lazy',
-                          width: section.settings.collection_image.width,
-                          height: section.settings.collection_image.height,
-                          class: 'lazyload',
-                          alt: section.settings.collection_image.alt
-                        | escape
-                      }}
-                    {%- else -%}
-                      {{ 'hero-apparel-1' | placeholder_svg_tag }}
-                    {%- endif -%}
-                  {% endif %}
-                {% endunless %}
-                {% if request.path == '/collections/all' %}
-                  {%- if section.settings.collection_image != blank -%}
-                    {{
-                      section.settings.collection_image
-                      | image_url: width: 1920
-                      | image_tag:
-                        loading: 'lazy',
-                        width: section.settings.collection_image.width,
-                        height: section.settings.collection_image.height,
-                        class: 'lazyload',
-                        alt: section.settings.collection_image.alt
-                      | escape
-                    }}
-                  {%- else -%}
-                    {{ 'hero-apparel-1' | placeholder_svg_tag }}
-                  {%- endif -%}
+          {%- if section.settings.collection_desc_enable -%}
+            <div class="collection-description">
+              {% if collection.description != blank %}
+                {{ collection.description }}
+              {% else %}
+                <p class="mr-0">{{ section.settings.collection_desc }}</p>
+              {% endif %}
+            </div>
+          {%- endif -%}
+        </div>
+        {%- if section.settings.collection_image_enable -%}
+          <div class="collection-image">
+            {% unless request.path == '/collections/all' %}
+              {% if collection.image %}
+                {{
+                  collection.image
+                  | image_url: width: 1920
+                  | image_tag:
+                    loading: 'lazy',
+                    width: collection.image.width,
+                    height: collection.image.height,
+                    class: 'lazyload',
+                    alt: collection.image.alt
+                  | escape
+                }}
+              {% else %}
+                {%- if section.settings.collection_image != blank -%}
+                  {{
+                    section.settings.collection_image
+                    | image_url: width: 1920
+                    | image_tag:
+                      loading: 'lazy',
+                      width: section.settings.collection_image.width,
+                      height: section.settings.collection_image.height,
+                      class: 'lazyload',
+                      alt: section.settings.collection_image.alt
+                    | escape
+                  }}
+                {%- else -%}
+                  {{ 'hero-apparel-1' | placeholder_svg_tag }}
                 {%- endif -%}
-              </div>
-            {%- endif -%}
-            {%- if section.settings.collection_desc_enable -%}
-              <div class="collection-description">
-                {% if collection.description != blank %}
-                  {{ collection.description }}
-                {% else %}
-                  <p class="mr-0">{{ section.settings.collection_desc }}</p>
-                {% endif %}
-              </div>
+              {% endif %}
+            {% endunless %}
+            {% if request.path == '/collections/all' %}
+              {%- if section.settings.collection_image != blank -%}
+                {{
+                  section.settings.collection_image
+                  | image_url: width: 1920
+                  | image_tag:
+                    loading: 'lazy',
+                    width: section.settings.collection_image.width,
+                    height: section.settings.collection_image.height,
+                    class: 'lazyload',
+                    alt: section.settings.collection_image.alt
+                  | escape
+                }}
+              {%- else -%}
+                {{ 'hero-apparel-1' | placeholder_svg_tag }}
+              {%- endif -%}
             {%- endif -%}
           </div>
-        </div>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="pro-grli-wrapper{% if section.settings.sidebar_handle == 'left_sidebar_handle' %} left-side-wrap{% elsif section.settings.sidebar_handle == 'right_sidebar_handle' %} right-side-wrap{% else %} full-side-wrap{% endif %}">
+      <div class="pro-grli-wrap product-grid">
         {%- if section.settings.tab_bar_enable or section.settings.short_by_enable -%}
           {%- render 'collection-sorting', results: collection -%}
         {%- endif -%}
