@@ -173,21 +173,23 @@
         "offer_card_ApwThj": {
           "type": "offer_card",
           "settings": {
+            "card_image": "shopify://shop_images/03.webp",
             "card_title": "Offer title",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
-            "badge_bg_color": "#ffe34d",
+            "badge_text": "Best Earbuds",
+            "badge_bg_color": "#5599be",
             "badge_text_color": "#1a1a1a"
           }
         },
         "offer_card_3RNftf": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/04.webp",
+            "card_title": "Hot Book Deals",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
+            "badge_text": "-25",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
@@ -195,10 +197,11 @@
         "offer_card_E7DXxU": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/05.webp",
+            "card_title": "Easphone Hits",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
+            "badge_text": "-5",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
