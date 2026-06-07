@@ -33,6 +33,15 @@
           "type": "product_title",
           "settings": {}
         },
+        "product_sku": {
+          "type": "product_sku",
+          "settings": {
+            "delivery_title": "Delivery:",
+            "delivery_text": "Estimated delivery time: 5-7 days",
+            "return_title": "Returns:",
+            "return_text": "Within 45 days of purchase"
+          }
+        },
         "37aeb358-fd5e-46ca-bd88-373779c12327": {
           "type": "short_description",
           "settings": {
@@ -85,15 +94,6 @@
             "copy_button": "Copy"
           }
         },
-        "product_sku": {
-          "type": "product_sku",
-          "settings": {
-            "delivery_title": "Delivery:",
-            "delivery_text": "Estimated delivery time: 5-7 days",
-            "return_title": "Returns:",
-            "return_text": "Within 45 days of purchase"
-          }
-        },
         "product_payment": {
           "type": "product_payment",
           "settings": {
@@ -126,6 +126,7 @@
       "block_order": [
         "product_vendor",
         "product_title_TgqDQg",
+        "product_sku",
         "37aeb358-fd5e-46ca-bd88-373779c12327",
         "product_price",
         "product_variant_picker",
@@ -133,7 +134,6 @@
         "product_quantity_9QFCn8",
         "product_buy_buttons",
         "73f6da47-a354-4c24-84ea-4fab243257e4",
-        "product_sku",
         "product_payment",
         "icon_with_text_edbj7a",
         "complementary_C3HqGB"
