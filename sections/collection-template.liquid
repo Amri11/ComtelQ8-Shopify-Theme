@@ -124,30 +124,6 @@
         <div id="main-collection-filters" data-id="{{ section.id }}">
           {% render 'collection-sidebar', results: collection %}
           <script src="{{ 'collection-sidebar.js' | asset_url }}" defer="defer"></script>
-          {% if section.settings.sidebar_banner_enable %}
-            <div class="sidebar-banner banner-hover{% if section.settings.sidebar_handle == 'without_sidebar' %} sidebar-without-banner{% endif %}">
-              <a href="{{ section.settings.sidebar_banner_url }}" class="sidebar-img banner-img">
-                <span class="sidebar-banner-image">
-                  {%- if section.settings.sidebar_banner_img != blank -%}
-                    {{
-                      section.settings.sidebar_banner_img
-                      | image_url: width: 500
-                      | image_tag:
-                        loading: 'lazy',
-                        width: section.settings.sidebar_banner_img.width,
-                        height: section.settings.sidebar_banner_img.height,
-                        class: 'lazyload',
-                        alt: section.settings.sidebar_banner_img.alt
-                      | escape
-                    }}
-                  {%- else -%}
-                    {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
-                    {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
-                  {%- endif -%}
-                </span>
-              </a>
-            </div>
-          {% endif %}
         </div>
       </div>
     </div>
@@ -373,27 +349,6 @@
       "id": "collection_categories_enable",
       "label": "Show collection",
       "default": false
-    },
-    {
-      "type": "header",
-      "content": "Sidebar banner"
-    },
-    {
-      "type": "image_picker",
-      "id": "sidebar_banner_img",
-      "label": "Image",
-      "info": "Recommended size: 350x470px"
-    },
-    {
-      "type": "url",
-      "id": "sidebar_banner_url",
-      "label": "url"
-    },
-    {
-      "type": "checkbox",
-      "id": "sidebar_banner_enable",
-      "label": "Show banner",
-      "default": true
     }
   ]
 }

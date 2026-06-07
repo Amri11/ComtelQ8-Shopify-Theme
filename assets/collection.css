@@ -79,31 +79,6 @@
   }
 }
 
-/* sidebar banner css */
-.sidebar-banner {
-  margin-top: 30px;
-}
-.sidebar-banner.sidebar-without-banner {
-  display: none;
-}
-.sidebar-banner a.sidebar-img {
-  position: relative;
-}
-.sidebar-banner a.sidebar-img span {
-  display: block;
-  border-radius: var(--sti-border-radius);
-  overflow: hidden;
-  display: block;
-}
-.sidebar-banner a.sidebar-img span svg {
-  width: 100%;
-}
-@media (max-width: 1199px) {
-  .sidebar-banner {
-    display: none;
-  }
-}
-
 
 /* collection info title css */
 .collection-img-wrap h1 {

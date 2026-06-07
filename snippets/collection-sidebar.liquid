@@ -156,28 +156,20 @@
             </div>
           </div>
           {% when 'price_range' %}
-          <div class="shop-sidebar st-filter" data-index="{{ forloop.index }}">
+          {%- liquid
+            assign min_value = filter.min_value.value | default: 0.0 | divided_by: 100.0
+            assign max_value = filter.max_value.value | default: filter.range_max | divided_by: 100.0
+            assign range_max = filter.range_max | divided_by: 100.0 | ceil
+            assign lower_bound_progress = min_value | divided_by: range_max | times: 100.0
+            assign higher_bound_progress = max_value | divided_by: range_max | times: 100.0
+            assign price_from = filter.min_value.value | default: 0 | money | strip_html | escape
+            assign price_to = filter.max_value.value | default: filter.range_max | money | strip_html | escape
+          -%}
+          <div class="shop-sidebar st-filter price-filter" data-index="{{ forloop.index }}">
             <h6 class="m-0 title filter-toggle" data-filter-toggle>{{ filter.label | escape }}<i class="feather-chevron-down filter-toggle-icon"></i></h6>
-            <div class="sidebar-header">
-              {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
-              <span class="flt-selected">{{ 'collections.facets.max_price' | t: price: max_price_amount }}</span>
-              <flt-clear>
-                <a href="{{ filter.url_to_remove }}">{{ 'collections.facets.filter_reset' | t }}</a>
-              </flt-clear>
-            </div>
             <div class="collapse flt-ele" id="collapse-{{ i }}">
+              <span class="price-range-label">{{ filter.label | escape }}: {{ price_from }} &ndash; {{ price_to }}</span>
               <range-slider class="range-slider">
-                {%- liquid
-                  assign min_value = filter.min_value.value | default: 0.0 | divided_by: 100.0
-                  assign max_value = filter.max_value.value | default: filter.range_max | divided_by: 100.0
-                  assign range_max = filter.range_max | divided_by: 100.0 | ceil
-                  assign lower_bound_progress = min_value | divided_by: range_max | times: 100.0
-                  assign higher_bound_progress = max_value | divided_by: range_max | times: 100.0
-               -%}
-                <div class="range-slider-group group-range" style="--range-min: {{ lower_bound_progress }}%; --range-max: {{ higher_bound_progress }}%">
-                  <input type="range" aria-label="{{ 'collections.facets.price_filter_from' | t }}" class="range" min="0" max="{{ range_max | ceil }}" value="{{ min_value | ceil }}">
-                  <input type="range" aria-label="{{ 'collections.facets.price_filter_to' | t }}" class="range" min="0" max="{{ range_max | ceil }}" value="{{ max_value | ceil }}">
-                </div>
                 <div class="price-input-group group-input">
                   <div class="range-slider-input input-prefix">
                     <label class="input-prefix-label">{{ 'collections.facets.price_filter_from' | t }}</label>
@@ -190,6 +182,10 @@
                     <span class="input-prefix-value">{{ cart.currency.symbol }}</span>
                     <input aria-label="{{ 'collections.facets.price_filter_to' | t }}" class="input-prefix-field" type="number" inputmode="numeric" {% if filter.max_value.value %}value="{{ max_value | ceil }}"{% endif %} name="{{ filter.max_value.param_name }}" min="{{ min_value | ceil }}" max="{{ range_max | ceil }}" placeholder="{{ range_max | ceil }}">
                   </div>
+                </div>
+                <div class="range-slider-group group-range" style="--range-min: {{ lower_bound_progress }}%; --range-max: {{ higher_bound_progress }}%">
+                  <input type="range" aria-label="{{ 'collections.facets.price_filter_from' | t }}" class="range" min="0" max="{{ range_max | ceil }}" value="{{ min_value | ceil }}">
+                  <input type="range" aria-label="{{ 'collections.facets.price_filter_to' | t }}" class="range" min="0" max="{{ range_max | ceil }}" value="{{ max_value | ceil }}">
                 </div>
               </range-slider>
             </div>
