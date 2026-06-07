@@ -742,22 +742,50 @@ product detail css
   font-weight: 600;
   color: var(--font-color-header);
 }
+.product_details_info .product-info .dp-block {
+  border-top: 1px solid #ececf1;
+}
 .product_details_info .product-info .dp-block button.dropdown-btn {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  padding: 16px 0;
+  background: transparent;
+  border: 0;
 }
 .product_details_info .product-info .dp-block button.dropdown-btn h6 {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #14142b;
 }
-.product_details_info .product-info .dp-block button.dropdown-btn[aria-expanded=true] .tab-icon i:before{
-  content: "\e996";
+.product_details_info .product-info .dp-block button.dropdown-btn h6 .icon {
+  display: inline-flex;
+  align-items: center;
+  color: #6d5bd0;
+  font-size: 18px;
+  line-height: 1;
+}
+.product_details_info .product-info .dp-block button.dropdown-btn .tab-icon {
+  display: inline-flex;
+  align-items: center;
+  color: #9b9bb1;
+  font-size: 16px;
+  transition: transform 0.25s ease;
+}
+.product_details_info .product-info .dp-block button.dropdown-btn[aria-expanded=true] .tab-icon {
+  transform: rotate(180deg);
 }
 .product_details_info .product-info .dp-block .dropdown-content .content-block {
-  margin-top: 15px;
+  margin-top: 0;
+  padding-bottom: 18px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #6e6e82;
 }
 .product_details_info .product-info .ser-block ul.service-cards {
   display: grid;
