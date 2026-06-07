@@ -1,0 +1,678 @@
+{{ 'best-offers.css' | asset_url | stylesheet_tag }}
+<section
+  class="best-offers best-offers-{{ section.id }}"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px;--padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--card-radius: {{ section.settings.card_radius }}px;--grid-gap: {{ section.settings.grid_gap }}px;"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    {% if section.settings.section_heading != '' %}
+      <div class="best-offers-head">
+        <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
+      </div>
+    {% endif %}
+
+    <div class="best-offers-grid">
+      {% for block in section.blocks %}
+        {%- liquid
+          assign image = block.settings.image
+          assign card_link = block.settings.card_link
+        -%}
+
+        {%- case block.type -%}
+
+          {%- when 'feature_card' -%}
+            <a
+              href="{{ card_link | default: '#' }}"
+              class="bo-card bo-card--feature"
+              data-fade-in
+              style="--text-color: {{ block.settings.text_color }};--overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"
+              {{ block.shopify_attributes }}
+            >
+              <span class="bo-card-bg">
+                {%- if image != blank -%}
+                  {{
+                    image
+                    | image_url: width: 1200
+                    | image_tag:
+                      loading: 'lazy',
+                      width: image.width,
+                      height: image.height,
+                      class: 'lazyload',
+                      alt: block.settings.title | default: image.alt | escape
+                  }}
+                {%- else -%}
+                  {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+                {%- endif -%}
+              </span>
+              <span class="bo-card-overlay"></span>
+
+              {% if block.settings.badge_text != '' %}
+                <span
+                  class="bo-badge bo-badge--corner"
+                  style="--badge-bg: {{ block.settings.badge_bg }};--badge-color: {{ block.settings.badge_text_color }};"
+                >
+                  {% if block.settings.badge_icon != '' %}<i class="{{ block.settings.badge_icon }}"></i>{% endif %}
+                  {{ block.settings.badge_text }}
+                </span>
+              {% endif %}
+
+              {% if block.settings.price != '' %}
+                <span
+                  class="bo-price-tag"
+                  style="--tag-bg: {{ block.settings.price_tag_bg }};--tag-color: {{ block.settings.price_tag_color }};"
+                >
+                  {% if block.settings.discount_label != '' %}
+                    <span class="bo-price-discount">{{ block.settings.discount_label }}</span>
+                  {% endif %}
+                  {% if block.settings.compare_price != '' %}
+                    <span class="bo-price-compare">{{ block.settings.compare_price }}</span>
+                  {% endif %}
+                  <span class="bo-price-now">{{ block.settings.price }}</span>
+                </span>
+              {% endif %}
+
+              <span class="bo-card-inner">
+                {% if block.settings.title != '' %}
+                  <span class="bo-card-title">{{ block.settings.title }}</span>
+                {% endif %}
+                {% if block.settings.subtitle != '' %}
+                  <span class="bo-card-subtitle">{{ block.settings.subtitle }}</span>
+                {% endif %}
+
+                <span class="bo-card-actions">
+                  {% if block.settings.coupon_code != '' %}
+                    <span class="bo-coupon" data-coupon="{{ block.settings.coupon_code }}">
+                      <span class="bo-coupon-code">{{ block.settings.coupon_code }}</span>
+                      <button type="button" class="bo-coupon-copy" aria-label="Copy code">
+                        <i class="feather-copy"></i>
+                      </button>
+                    </span>
+                  {% endif %}
+                  {% if block.settings.button_label != '' %}
+                    <span
+                      class="bo-btn"
+                      style="--btn-bg: {{ block.settings.button_bg }};--btn-color: {{ block.settings.button_text_color }};"
+                    >
+                      {{ block.settings.button_label }}
+                    </span>
+                  {% endif %}
+                </span>
+              </span>
+            </a>
+
+          {%- when 'small_card' -%}
+            <a
+              href="{{ card_link | default: '#' }}"
+              class="bo-card bo-card--small"
+              data-fade-in
+              style="--text-color: {{ block.settings.text_color }};--card-bg: {{ block.settings.card_bg }};--overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"
+              {{ block.shopify_attributes }}
+            >
+              <span class="bo-card-bg">
+                {%- if image != blank -%}
+                  {{
+                    image
+                    | image_url: width: 700
+                    | image_tag:
+                      loading: 'lazy',
+                      width: image.width,
+                      height: image.height,
+                      class: 'lazyload',
+                      alt: block.settings.title | default: image.alt | escape
+                  }}
+                {%- endif -%}
+              </span>
+              <span class="bo-card-overlay"></span>
+
+              {% if block.settings.badge_text != '' %}
+                <span
+                  class="bo-badge bo-badge--corner"
+                  style="--badge-bg: {{ block.settings.badge_bg }};--badge-color: {{ block.settings.badge_text_color }};"
+                >
+                  {% if block.settings.badge_icon != '' %}<i class="{{ block.settings.badge_icon }}"></i>{% endif %}
+                  {{ block.settings.badge_text }}
+                </span>
+              {% endif %}
+
+              <span class="bo-card-inner">
+                {% if block.settings.title != '' %}
+                  <span class="bo-card-title">{{ block.settings.title }}</span>
+                {% endif %}
+              </span>
+            </a>
+
+          {%- when 'wide_card' -%}
+            <a
+              href="{{ card_link | default: '#' }}"
+              class="bo-card bo-card--wide"
+              data-fade-in
+              style="--text-color: {{ block.settings.text_color }};--card-bg: {{ block.settings.card_bg }};--overlay-opacity: {{ block.settings.overlay_opacity | divided_by: 100.0 }};"
+              {{ block.shopify_attributes }}
+            >
+              <span class="bo-card-overlay"></span>
+
+              <span class="bo-card-inner bo-card-inner--wide">
+                {% if block.settings.badge_text != '' %}
+                  <span
+                    class="bo-badge bo-badge--inline"
+                    style="--badge-bg: {{ block.settings.badge_bg }};--badge-color: {{ block.settings.badge_text_color }};"
+                  >
+                    {{ block.settings.badge_text }}
+                  </span>
+                {% endif %}
+                {% if block.settings.title != '' %}
+                  <span class="bo-card-title bo-card-title--wide">{{ block.settings.title }}</span>
+                {% endif %}
+                {% if block.settings.subtitle != '' %}
+                  <span class="bo-card-subtitle">{{ block.settings.subtitle }}</span>
+                {% endif %}
+                {% if block.settings.button_label != '' %}
+                  <span
+                    class="bo-btn"
+                    style="--btn-bg: {{ block.settings.button_bg }};--btn-color: {{ block.settings.button_text_color }};"
+                  >
+                    {{ block.settings.button_label }}
+                  </span>
+                {% endif %}
+              </span>
+
+              <span class="bo-card-media">
+                {%- if image != blank -%}
+                  {{
+                    image
+                    | image_url: width: 700
+                    | image_tag:
+                      loading: 'lazy',
+                      width: image.width,
+                      height: image.height,
+                      class: 'lazyload',
+                      alt: block.settings.title | default: image.alt | escape
+                  }}
+                {%- endif -%}
+              </span>
+            </a>
+
+        {%- endcase -%}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+  (function () {
+    var root = document.querySelector('.best-offers-{{ section.id }}');
+    if (!root) return;
+    root.addEventListener('click', function (e) {
+      var btn = e.target.closest('.bo-coupon-copy');
+      if (!btn) return;
+      e.preventDefault();
+      var wrap = btn.closest('.bo-coupon');
+      var code = wrap ? wrap.getAttribute('data-coupon') : '';
+      if (!code) return;
+      var done = function () {
+        wrap.classList.add('is-copied');
+        setTimeout(function () { wrap.classList.remove('is-copied'); }, 1500);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(done).catch(function () {});
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = code;
+        document.body.appendChild(ta);
+        ta.select();
+        try { document.execCommand('copy'); done(); } catch (err) {}
+        document.body.removeChild(ta);
+      }
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Best Offers",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        { "label": "Full width", "value": "fluid" },
+        { "label": "Contained", "value": "normal" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Best Offers"
+    },
+    {
+      "type": "header",
+      "content": "Grid style"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "label": "Card corner radius",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 12
+    },
+    {
+      "type": "range",
+      "id": "grid_gap",
+      "label": "Gap between cards",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 20
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature_card",
+      "name": "Feature card (large)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image",
+          "info": "Recommended size: 1200x1000px"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Image overlay",
+          "min": 0,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "default": 25
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Card link"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Save on the Tech You Love"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle",
+          "default": "Take 5% off all electronics with code MEGA30 — small discount, big value."
+        },
+        {
+          "type": "header",
+          "content": "Badge (top-left)"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "Mega Sale"
+        },
+        {
+          "type": "text",
+          "id": "badge_icon",
+          "label": "Badge icon class",
+          "info": "Optional Feather icon class, e.g. feather-zap",
+          "default": "feather-zap"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg",
+          "label": "Badge background",
+          "default": "#E0322D"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Price tag (top-right)"
+        },
+        {
+          "type": "text",
+          "id": "discount_label",
+          "label": "Discount label",
+          "info": "Small dark pill, e.g. -5%"
+        },
+        {
+          "type": "text",
+          "id": "compare_price",
+          "label": "Compare-at price",
+          "info": "Shown with strike-through, e.g. $68,00"
+        },
+        {
+          "type": "text",
+          "id": "price",
+          "label": "Price",
+          "info": "Leave empty to hide the whole price tag. e.g. $48,50"
+        },
+        {
+          "type": "color",
+          "id": "price_tag_bg",
+          "label": "Price tag background",
+          "default": "#FFD43B"
+        },
+        {
+          "type": "color",
+          "id": "price_tag_color",
+          "label": "Price tag text color",
+          "default": "#1A1A1A"
+        },
+        {
+          "type": "header",
+          "content": "Coupon code"
+        },
+        {
+          "type": "text",
+          "id": "coupon_code",
+          "label": "Coupon code",
+          "info": "Leave empty to hide. Customers can copy it.",
+          "default": "MEGA30"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "color",
+          "id": "button_bg",
+          "label": "Button background",
+          "default": "#FFD43B"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#1A1A1A"
+        }
+      ]
+    },
+    {
+      "type": "small_card",
+      "name": "Small card",
+      "limit": 2,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Background image",
+          "info": "Recommended size: 700x500px"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Image overlay",
+          "min": 0,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "default": 15
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Card link"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Background color",
+          "info": "Used as a fallback / behind the image.",
+          "default": "#D5562C"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Best-Selling Wall Art"
+        },
+        {
+          "type": "header",
+          "content": "Badge (top-left)"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "-5%"
+        },
+        {
+          "type": "text",
+          "id": "badge_icon",
+          "label": "Badge icon class",
+          "info": "Optional Feather icon class"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg",
+          "label": "Badge background",
+          "default": "#FFD43B"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#1A1A1A"
+        }
+      ]
+    },
+    {
+      "type": "wide_card",
+      "name": "Wide card (bottom)",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Side image",
+          "info": "Shown on the right. Recommended size: 700x500px"
+        },
+        {
+          "type": "range",
+          "id": "overlay_opacity",
+          "label": "Background overlay",
+          "min": 0,
+          "max": 90,
+          "step": 5,
+          "unit": "%",
+          "default": 0
+        },
+        {
+          "type": "url",
+          "id": "card_link",
+          "label": "Card link"
+        },
+        {
+          "type": "color",
+          "id": "card_bg",
+          "label": "Background color",
+          "default": "#5B53E0"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge text",
+          "default": "Best Seller"
+        },
+        {
+          "type": "color",
+          "id": "badge_bg",
+          "label": "Badge background",
+          "default": "#3A33B5"
+        },
+        {
+          "type": "color",
+          "id": "badge_text_color",
+          "label": "Badge text color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Fantasy Books with Exclusive Discounts"
+        },
+        {
+          "type": "textarea",
+          "id": "subtitle",
+          "label": "Subtitle"
+        },
+        {
+          "type": "header",
+          "content": "Button"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button label",
+          "default": "Shop Now"
+        },
+        {
+          "type": "color",
+          "id": "button_bg",
+          "label": "Button background",
+          "default": "#FFD43B"
+        },
+        {
+          "type": "color",
+          "id": "button_text_color",
+          "label": "Button text color",
+          "default": "#1A1A1A"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Best Offers",
+      "blocks": [
+        { "type": "feature_card" },
+        { "type": "small_card", "settings": { "title": "Best-Selling Wall Art", "badge_text": "-5%", "card_bg": "#D5562C" } },
+        { "type": "small_card", "settings": { "title": "Find Your Perfect Sound", "badge_text": "Mega Sale", "badge_bg": "#E0322D", "badge_text_color": "#FFFFFF", "card_bg": "#5B9BD5" } },
+        { "type": "wide_card" }
+      ]
+    }
+  ]
+}
+{% endschema %}
