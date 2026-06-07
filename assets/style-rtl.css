@@ -2981,6 +2981,12 @@ section{
   grid-template-columns: repeat(6, 1fr);
 }
 @media (max-width: 1499px) {
+  .shop-product-wrap ul.product-view.grid-lg-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .shop-product-wrap ul.product-view.grid-lg-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
   .shop-product-wrap ul.product-view.grid-lg-4 {
     grid-template-columns: repeat(4, 1fr);
   }

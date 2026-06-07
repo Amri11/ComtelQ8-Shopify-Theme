@@ -16,7 +16,7 @@
         "section_background_color": "rgba(0,0,0,0)",
         "products_limit_handle": 16,
         "product_view": "grid-6",
-        "product_view_lg": "grid-lg-4",
+        "product_view_lg": "grid-lg-5",
         "product_view_ip": "grid-ip-3",
         "product_view_sm": "grid-sm-2",
         "collection_image_enable": true,
