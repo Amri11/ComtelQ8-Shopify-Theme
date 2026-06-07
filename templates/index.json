@@ -108,6 +108,15 @@
             "category_title": "Camera",
             "category_url": ""
           }
+        },
+        "category_gfrJNG": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_image": "shopify://shop_images/image_4.webp",
+            "category_title": "Sale",
+            "category_url": ""
+          }
         }
       },
       "block_order": [
@@ -117,7 +126,8 @@
         "category_Xjyajz",
         "category_N4yRn9",
         "category_3rNrh9",
-        "category_bccCqW"
+        "category_bccCqW",
+        "category_gfrJNG"
       ],
       "name": "Shop by Category",
       "settings": {
@@ -161,10 +171,11 @@
         "offer_card_PFrwAW": {
           "type": "offer_card",
           "settings": {
+            "card_image": "shopify://shop_images/02.webp",
             "card_title": "Offer title",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
+            "badge_text": "-5",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
@@ -172,21 +183,23 @@
         "offer_card_ApwThj": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/03.webp",
+            "card_title": "Best Earbuds",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
-            "badge_bg_color": "#ffe34d",
+            "badge_text": "Best Seller",
+            "badge_bg_color": "#5599be",
             "badge_text_color": "#1a1a1a"
           }
         },
         "offer_card_3RNftf": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/04.webp",
+            "card_title": "Hot Book Deals",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
+            "badge_text": "-25",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
@@ -194,10 +207,11 @@
         "offer_card_E7DXxU": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/05.webp",
+            "card_title": "Easphone Hits",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
+            "badge_text": "-5",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
@@ -205,7 +219,8 @@
         "offer_card_9FGR38": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/06.webp",
+            "card_title": "Large Screen TV",
             "card_title_color": "#ffffff",
             "card_link": "",
             "badge_text": "",
@@ -216,7 +231,8 @@
         "offer_card_WT7VT4": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/07.webp",
+            "card_title": "Season Best Art",
             "card_title_color": "#ffffff",
             "card_link": "",
             "badge_text": "",
