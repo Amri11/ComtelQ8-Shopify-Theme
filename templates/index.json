@@ -366,30 +366,43 @@
         "view_btn": ""
       }
     },
-    "banner_grid_mQzTGP": {
-      "type": "banner-grid",
+    "offer_banner_A9Fjar": {
+      "type": "offer-banner",
       "blocks": {
-        "single_banner_cGVQrR": {
-          "type": "single_banner",
+        "offer_banner_iqfp7r": {
+          "type": "offer_banner",
           "settings": {
             "banner_img": "shopify://shop_images/banner-1.webp",
-            "banner_link": ""
+            "banner_url": "shopify://collections/all",
+            "banner_subtitle": "Ultimate portability",
+            "banner_subtitle_color": "#db5bdb",
+            "banner_title": "Innovation at your fingertips",
+            "banner_title_color": "#333333",
+            "banner_btn_text": "Shop now",
+            "banner_content_position": "left",
+            "banner_text_position": "left"
           }
         },
-        "single_banner_bJxagV": {
-          "type": "single_banner",
+        "offer_banner_CDGdEb": {
+          "type": "offer_banner",
           "settings": {
             "banner_img": "shopify://shop_images/banner-2.webp",
-            "banner_link": "shopify://collections/all"
+            "banner_url": "shopify://collections/all",
+            "banner_subtitle": "Timeless precision",
+            "banner_subtitle_color": "#09729f",
+            "banner_title": "Sophistication around the clock",
+            "banner_title_color": "#333333",
+            "banner_btn_text": "Shop now",
+            "banner_content_position": "left",
+            "banner_text_position": "left"
           }
         }
       },
       "block_order": [
-        "single_banner_cGVQrR",
-        "single_banner_bJxagV"
+        "offer_banner_iqfp7r",
+        "offer_banner_CDGdEb"
       ],
       "settings": {
-        "columns": "2",
         "container": "normal",
         "section_padding_top": 0,
         "section_padding_bottom": 0,
@@ -439,51 +452,6 @@
         "arrow_enable": false,
         "dots_enable": false,
         "view_btn": ""
-      }
-    },
-    "offer_banner_A9Fjar": {
-      "type": "offer-banner",
-      "blocks": {
-        "offer_banner_iqfp7r": {
-          "type": "offer_banner",
-          "settings": {
-            "banner_img": "shopify://shop_images/banner-1.webp",
-            "banner_url": "shopify://collections/all",
-            "banner_subtitle": "Ultimate portability",
-            "banner_subtitle_color": "#db5bdb",
-            "banner_title": "Innovation at your fingertips",
-            "banner_title_color": "#333333",
-            "banner_btn_text": "Shop now",
-            "banner_content_position": "left",
-            "banner_text_position": "left"
-          }
-        },
-        "offer_banner_CDGdEb": {
-          "type": "offer_banner",
-          "settings": {
-            "banner_img": "shopify://shop_images/banner-2.webp",
-            "banner_url": "shopify://collections/all",
-            "banner_subtitle": "Timeless precision",
-            "banner_subtitle_color": "#09729f",
-            "banner_title": "Sophistication around the clock",
-            "banner_title_color": "#333333",
-            "banner_btn_text": "Shop now",
-            "banner_content_position": "left",
-            "banner_text_position": "left"
-          }
-        }
-      },
-      "block_order": [
-        "offer_banner_iqfp7r",
-        "offer_banner_CDGdEb"
-      ],
-      "settings": {
-        "container": "normal",
-        "section_padding_top": 0,
-        "section_padding_bottom": 0,
-        "section_padding_top_xs": 0,
-        "section_padding_bottom_xs": 0,
-        "section_bg_color": "#ffffff"
       }
     },
     "logo_list_j7YXrd": {
@@ -664,9 +632,8 @@
     "shop_by_category_kVFhjX",
     "offer_cards_bqaWQx",
     "featured_collection_NK3dwr",
-    "banner_grid_mQzTGP",
-    "featured_collection_JVeXfa",
     "offer_banner_A9Fjar",
+    "featured_collection_JVeXfa",
     "logo_list_j7YXrd",
     "testimonial_fEWfRj",
     "blog_section_94z9Bi"
