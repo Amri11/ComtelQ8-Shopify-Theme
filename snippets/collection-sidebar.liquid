@@ -14,8 +14,7 @@
     {%- if section.settings.collection_categories_enable -%}
     <div class="shop-sidebar shop-collection">
       {%- if section.settings.collection_categories_title != '' -%}
-      <h6 class="m-0 title">{{ section.settings.collection_categories_title }}</h6>
-      <a class="title" data-toggle="collapse" href="#collapse-{{ settings.categories_title }}">{{ section.settings.collection_categories_title }}</a>
+      <h6 class="m-0 title filter-toggle" data-filter-toggle>{{ section.settings.collection_categories_title }}<i class="feather-chevron-down filter-toggle-icon"></i></h6>
       {%- endif -%}
       <div class="collapse flt-ele" id="collapse-{{ section.settings.collection_categories_title }}">
         <ul class="list-unstyled scrollbar">
@@ -111,8 +110,7 @@
           {% case filter.type %}
           {% when 'list' %}
           <div class="shop-sidebar st-filter {% if presentation == 'swatch' %}color{% endif %}" data-index="{{ forloop.index }}">
-            <h6 class="m-0 title">{{ filter.label | escape }}</h6>
-            <a class="title" data-toggle="collapse" href="#collapse-{{ i }}">{{ filter.label | escape }}</a>
+            <h6 class="m-0 title filter-toggle" data-filter-toggle>{{ filter.label | escape }}<i class="feather-chevron-down filter-toggle-icon"></i></h6>
             <div class="sidebar-header">
               <span class="flt-selected">{{ 'collections.facets.filters_selected' | t: count: filter.active_values.size }}</span>
               <flt-clear>
@@ -159,8 +157,7 @@
           </div>
           {% when 'price_range' %}
           <div class="shop-sidebar st-filter" data-index="{{ forloop.index }}">
-            <h6 class="m-0 title">{{ filter.label | escape }}</h6>
-            <a class="title" data-toggle="collapse" href="#collapse-{{ i }}">{{ filter.label | escape }}</a>
+            <h6 class="m-0 title filter-toggle" data-filter-toggle>{{ filter.label | escape }}<i class="feather-chevron-down filter-toggle-icon"></i></h6>
             <div class="sidebar-header">
               {%- assign max_price_amount = filter.range_max | money | strip_html | escape -%}
               <span class="flt-selected">{{ 'collections.facets.max_price' | t: price: max_price_amount }}</span>

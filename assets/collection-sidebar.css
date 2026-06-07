@@ -74,50 +74,50 @@
 
 /* filter side-sidebar css */
 .shop-sidebar-inner .shop-sidebar.shop-collection {
-  margin-bottom: 30px;
-  padding: 0px 0px 30px;
+  margin-bottom: 0;
+  padding: 0px 0px 16px;
   border-bottom: 1px solid var(--theme-border-color);
 }
 .shop-sidebar-inner form .shop-sidebar {
-  margin-top: 30px;
-  padding: 30px 0px 0px;
-  border-top: 1px solid var(--theme-border-color);
+  margin-top: 0;
+  padding: 16px 0px;
+  border-top: none;
+  border-bottom: 1px solid var(--theme-border-color);
 }
 .shop-sidebar-inner form .shop-sidebar:first-child {
   margin-top: 0px;
-  padding: 0px;
+  padding: 16px 0px;
   border-top: none;
 }
 
 /* filter side-sidebar title css */
 .shop-sidebar .title {
-  font-size: var(--subtitle-font-size-body);
-  font-weight: var(--subtitle-custom-font-weight-body);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--font-color-header);
   position: relative;
-  line-height: 1;
+  line-height: 1.2;
 }
-.shop-sidebar a.title {
-  display: none;
+
+/* collapsible filter header */
+.shop-sidebar .title.filter-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
-@media (max-width: 767px) {
-  /*.shop-sidebar .title {
-    display: none;
-  }*/
-  .shop-sidebar a.title {
-    display: none;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-    -webkit-transition: all 0s ease-in-out 0s;
-    -o-transition: all 0s ease-in-out 0s;
-    transition: all 0s ease-in-out 0s;
-  }
-  .shop-sidebar a.title[aria-expanded="false"] {
-    color: var(--font-color-header);
-  }
-  .shop-sidebar a.title[aria-expanded="true"] {
-    color: var(--font-color-primary);
-  }
+.shop-sidebar .title.filter-toggle .filter-toggle-icon {
+  font-size: 18px;
+  line-height: 0;
+  color: var(--font-color-body);
+  transition: transform 0.3s ease;
+}
+.shop-sidebar.filter-collapsed .title.filter-toggle .filter-toggle-icon {
+  transform: rotate(-90deg);
 }
 
 /* filter side-sidebar face-header css */
@@ -125,8 +125,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 30px;
+  margin-top: 12px;
   position: relative;
+}
+/* hide the per-filter "X selected / reset" row for a cleaner, compact look
+   (active filters are still shown/cleared via the chips at the top) */
+.shop-sidebar.st-filter .sidebar-header {
+  display: none;
 }
 
 /* filter side-sidebar reset css */
@@ -183,6 +188,26 @@
   }
 }
 
+/* hide redundant "Filter by / X products" block — count lives in the top bar.
+   active-filter chips below still show when filters are applied. */
+.shop-sidebar.sidebar-filter > .title,
+.shop-sidebar.sidebar-filter > .sidebar-header {
+  display: none;
+}
+.shop-sidebar.sidebar-filter {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  border-top: none !important;
+}
+.shop-sidebar.sidebar-filter .active-flt:empty {
+  display: none;
+}
+/* when only the hidden "clear all" remains, collapse the chips block so the
+   sidebar starts cleanly at Availability/Color like the reference */
+.shop-sidebar.sidebar-filter .active-flt ul li:has(flt-clear:only-child) {
+  margin: 0;
+}
+
 /* filter side-sidebar filter css */
 .sidebar-filter ul li {
   display: flex;
@@ -217,14 +242,21 @@
   display: block;
 }
 .shop-sidebar .flt-ele {
-  margin-top: 30px;
+  margin-top: 10px;
+}
+
+/* collapsed state — hide values + header row */
+.shop-sidebar.filter-collapsed .flt-ele.collapse:not(.show),
+.shop-sidebar.filter-collapsed .flt-ele,
+.shop-sidebar.filter-collapsed .sidebar-header {
+  display: none;
 }
 .shop-sidebar .flt-ele ul.scrollbar {
   max-height: 257px;
   overflow-y: auto;
 }
 .shop-sidebar .flt-ele ul.scrollbar li {
-  padding-top: 15px;
+  padding-top: 7px;
 }
 .shop-sidebar .flt-ele ul.scrollbar li:first-of-type {
   padding-top: 0px;
@@ -232,13 +264,14 @@
 
 /* filter side-sidebar checkbox css */
 .shop-sidebar .flt-ele ul.scrollbar li .cust-checkbox-label {
-  color: var(--font-color-body);
+  color: var(--font-color-header);
+  font-size: 14px;
+  line-height: 1.3;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  gap: 6px;
   position: relative;
-  padding: 0px 10px 0px 25px;
+  padding: 0px 0px 0px 24px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -252,10 +285,15 @@
   margin-bottom: 0;
 }
 .shop-sidebar .flt-ele ul.scrollbar li .cust-checkbox-label span.filter-name {
-  width: 100%;
+  flex: 0 1 auto;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+}
+.shop-sidebar .flt-ele ul.scrollbar li .cust-checkbox-label span.count-check {
+  color: var(--font-color-primary);
+  font-size: 0.9em;
+  flex-shrink: 0;
 }
 .shop-sidebar .flt-ele ul.scrollbar li input.cust-checkbox,
 .shop-sidebar .flt-ele ul.scrollbar li .cust-checkbox-label input.cust-checkbox {
@@ -268,14 +306,14 @@
 .shop-sidebar .flt-ele ul.scrollbar li .cust-checkbox-label .cust-check {
   position: absolute;
   inset-inline-start: 0;
-  width: 17px;
-  height: 17px;
+  width: 16px;
+  height: 16px;
   background-color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid var(--theme-border-color);
-  border-radius: 0px;
+  border-radius: 3px;
   overflow: hidden;
 }
 .shop-sidebar .flt-ele ul.scrollbar li .cust-checkbox-label .cust-check::after {
@@ -462,11 +500,20 @@
 .shop-sidebar.color .flt-ele ul.scrollbar li .cust-checkbox-label {
   padding: 0;
 }
+/* label first, count next, swatch pushed to the far right */
+.shop-sidebar.color .flt-ele ul.scrollbar li .cust-checkbox-label span.filter-name {
+  order: 1;
+}
+.shop-sidebar.color .flt-ele ul.scrollbar li .cust-checkbox-label span.count-check {
+  order: 2;
+  margin-inline-start: auto;
+}
 .shop-sidebar.color .flt-ele ul.scrollbar li .cust-checkbox-label span.cust-check {
+  order: 3;
   position: unset;
-  min-width: 25px;
-  width: 25px;
-  height: 25px;
+  min-width: 18px;
+  width: 18px;
+  height: 18px;
   border: none;
   border-radius: 100%;
   box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.15);

@@ -351,3 +351,12 @@ class stFacetRemove extends HTMLElement {
   }
 }
 customElements.define('flt-clear', stFacetRemove);
+
+// Collapsible filter section headers (delegated so it survives AJAX re-renders)
+document.addEventListener('click', function (event) {
+  const toggle = event.target.closest('[data-filter-toggle]');
+  if (!toggle) return;
+  const section = toggle.closest('.shop-sidebar');
+  if (!section) return;
+  section.classList.toggle('filter-collapsed');
+});

@@ -28,10 +28,7 @@
         "collection_categories_title": "Categories",
         "collection_categories_enable": true,
         "sidebar_banner_url": "shopify://collections/all",
-        "sidebar_banner_enable": true,
-        "special_pro_title": "Special product",
-        "special_pro": "acrylic-painting",
-        "special_pro_limit": 10
+        "sidebar_banner_enable": true
       }
     }
   },
