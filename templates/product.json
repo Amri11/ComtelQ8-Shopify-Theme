@@ -93,6 +93,7 @@
         },
         "product_payment": {
           "type": "product_payment",
+          "disabled": true,
           "settings": {
             "payment_title": "Payment & Security",
             "payment_desc": "Your payment information is processed securely. We do not store credit card details nor have access to your credit card information."
@@ -114,6 +115,7 @@
         },
         "complementary_C3HqGB": {
           "type": "complementary",
+          "disabled": true,
           "settings": {
             "block_heading": "Pairs well with",
             "product_list_limit": 10
