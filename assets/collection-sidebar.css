@@ -357,14 +357,6 @@
 .shop-sidebar .flt-ele .range-slider {
   display: block;
 }
-/* "Price: $0 – $949.00" label */
-.shop-sidebar .price-filter .flt-ele .price-range-label {
-  display: block;
-  color: var(--font-color-primary);
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 12px;
-}
 .shop-sidebar .flt-ele .range-slider .range-slider-group {
   position: relative;
   margin-top: 22px;

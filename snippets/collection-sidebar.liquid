@@ -162,13 +162,10 @@
             assign range_max = filter.range_max | divided_by: 100.0 | ceil
             assign lower_bound_progress = min_value | divided_by: range_max | times: 100.0
             assign higher_bound_progress = max_value | divided_by: range_max | times: 100.0
-            assign price_from = filter.min_value.value | default: 0 | money | strip_html | escape
-            assign price_to = filter.max_value.value | default: filter.range_max | money | strip_html | escape
           -%}
           <div class="shop-sidebar st-filter price-filter" data-index="{{ forloop.index }}">
             <h6 class="m-0 title filter-toggle" data-filter-toggle>{{ filter.label | escape }}<i class="feather-chevron-down filter-toggle-icon"></i></h6>
             <div class="collapse flt-ele" id="collapse-{{ i }}">
-              <span class="price-range-label">{{ filter.label | escape }}: {{ price_from }} &ndash; {{ price_to }}</span>
               <range-slider class="range-slider">
                 <div class="price-input-group group-input">
                   <div class="range-slider-input input-prefix">

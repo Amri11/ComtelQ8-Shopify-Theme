@@ -20,7 +20,7 @@
 .main-content-wrap
   .pro-grli-wrapper.right-side-wrap
   .pro-grli-wrap.product-grid {
-  width: 80%;
+  width: 84%;
 }
 .main-content-wrap
   .pro-grli-wrapper.left-side-wrap
@@ -28,7 +28,7 @@
 .main-content-wrap
   .pro-grli-wrapper.right-side-wrap
   .pro-grli-wrap.product-sidebar {
-  width: 20%;
+  width: 16%;
 }
 
 /* "Filters" button toggle — collapse sidebar, expand grid (desktop only) */
