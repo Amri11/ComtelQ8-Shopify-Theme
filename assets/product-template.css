@@ -315,6 +315,7 @@ product detail css
 }
 .pro_details_left_pos .product_details_info {
   padding-inline-start: 60px;
+  margin-inline: 50px;
 }
 @media (max-width: 1199px) {
   .pro_details_right_pos .product_details_info {
