@@ -108,6 +108,15 @@
             "category_title": "Camera",
             "category_url": ""
           }
+        },
+        "category_gfrJNG": {
+          "type": "category",
+          "settings": {
+            "category_handle": "",
+            "category_image": "shopify://shop_images/image_4.webp",
+            "category_title": "Sale",
+            "category_url": ""
+          }
         }
       },
       "block_order": [
@@ -117,7 +126,8 @@
         "category_Xjyajz",
         "category_N4yRn9",
         "category_3rNrh9",
-        "category_bccCqW"
+        "category_bccCqW",
+        "category_gfrJNG"
       ],
       "name": "Shop by Category",
       "settings": {
