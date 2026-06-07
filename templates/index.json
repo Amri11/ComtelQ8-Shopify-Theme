@@ -161,10 +161,11 @@
         "offer_card_PFrwAW": {
           "type": "offer_card",
           "settings": {
+            "card_image": "shopify://shop_images/02.webp",
             "card_title": "Offer title",
             "card_title_color": "#ffffff",
             "card_link": "",
-            "badge_text": "",
+            "badge_text": "-5",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
