@@ -2,14 +2,26 @@
   <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
     <div class="row">
       <div class="col">
-        <ul class="breadcrumb-list list-unstyled">
-          <li class="breadcrumb-item">
-            <a href="/" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
-          </li>
-          <li class="breadcrumb-item">
-            <span>{{ product.title }}</span>
-          </li>
-        </ul>
+        <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumbs">
+          <ul class="breadcrumb-list list-unstyled">
+            <li class="breadcrumb-item">
+              <a href="{{ routes.root_url }}" title="{{ 'general.breadcrumbs.home_link_title' | t }}">{{ 'general.breadcrumbs.home' | t }}</a>
+            </li>
+            {%- if collection.url -%}
+              <li class="breadcrumb-item">
+                <a href="{{ collection.url }}">{{ collection.title }}</a>
+              </li>
+            {%- elsif product.collections.size > 0 -%}
+              {%- assign first_collection = product.collections.first -%}
+              <li class="breadcrumb-item">
+                <a href="{{ first_collection.url }}">{{ first_collection.title }}</a>
+              </li>
+            {%- endif -%}
+            <li class="breadcrumb-item breadcrumb-item--current" aria-current="page">
+              <span>{{ product.title }}</span>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
@@ -22,20 +34,34 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: 4px 0;
 }
 .product-breadcrumb ul li {
   display: flex;
   align-items: center;
 }
-.product-breadcrumb .breadcrumb-item+.breadcrumb-item {
+.product-breadcrumb .breadcrumb-item a,
+.product-breadcrumb .breadcrumb-item span {
+  font-size: 14px;
+  line-height: 1.2;
+  color: #9b9b9b;
+  transition: color .2s ease;
+}
+.product-breadcrumb .breadcrumb-item a:hover {
+  color: var(--font-color-header);
+}
+.product-breadcrumb .breadcrumb-item--current span {
+  color: var(--font-color-header);
+  font-weight: 600;
+}
+.product-breadcrumb .breadcrumb-item + .breadcrumb-item {
   padding: 0;
 }
-.product-breadcrumb .breadcrumb-item+.breadcrumb-item::before {
-  content: "/";
-  color: var(--font-color-header);
-  font-size: 12px;
+.product-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+  content: "\203A";
+  color: #9b9b9b;
+  font-size: 15px;
   line-height: 1;
-  float: none;
   padding: 0 10px;
 }
 </style>
