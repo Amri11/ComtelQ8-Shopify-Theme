@@ -36,10 +36,7 @@
         "product_sku": {
           "type": "product_sku",
           "settings": {
-            "delivery_title": "Delivery:",
-            "delivery_text": "Estimated delivery time: 5-7 days",
-            "return_title": "Returns:",
-            "return_text": "Within 45 days of purchase"
+            "sku_title": "SKU:"
           }
         },
         "37aeb358-fd5e-46ca-bd88-373779c12327": {
@@ -48,17 +45,17 @@
             "short_description": "Care for fiber: 30% more recycled polyester. We label garments manufactured using environmentally friendly technologies and raw materials with the Join Life label."
           }
         },
-        "product_price": {
-          "type": "product_price",
-          "settings": {
-            "shipping_tax": ""
-          }
-        },
         "product_variant_picker": {
           "type": "product_variant_picker",
           "settings": {
             "picker_type": "button",
             "swatch_shape": "circle"
+          }
+        },
+        "product_price": {
+          "type": "product_price",
+          "settings": {
+            "shipping_tax": ""
           }
         },
         "18d14155-9145-4f99-b951-44d46831d46c": {
@@ -128,8 +125,8 @@
         "product_title_TgqDQg",
         "product_sku",
         "37aeb358-fd5e-46ca-bd88-373779c12327",
-        "product_price",
         "product_variant_picker",
+        "product_price",
         "18d14155-9145-4f99-b951-44d46831d46c",
         "product_quantity_9QFCn8",
         "product_buy_buttons",
