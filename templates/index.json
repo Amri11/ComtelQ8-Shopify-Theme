@@ -95,7 +95,8 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_title": "",
+            "category_image": "shopify://shop_images/image_3.webp",
+            "category_title": "Creatives",
             "category_url": ""
           }
         },
@@ -103,15 +104,8 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_title": "",
-            "category_url": ""
-          }
-        },
-        "category_NYPnxw": {
-          "type": "category",
-          "settings": {
-            "category_handle": "",
-            "category_title": "",
+            "category_image": "shopify://shop_images/file_2_2_2_c5493c51-2514-4f17-a32e-1d98ccce2483.webp",
+            "category_title": "Camera",
             "category_url": ""
           }
         }
@@ -123,8 +117,7 @@
         "category_Xjyajz",
         "category_N4yRn9",
         "category_3rNrh9",
-        "category_bccCqW",
-        "category_NYPnxw"
+        "category_bccCqW"
       ],
       "name": "Shop by Category",
       "settings": {
