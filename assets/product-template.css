@@ -535,12 +535,24 @@ product detail css
 .product_details_info .pro-nprist .product-info .product-inventory.hidden {
   display: none;
 }
+.product_details_info .pro-nprist .product-info .product-inventory .inventory-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.060em;
+}
+/* in-stock: green check + green text */
+.product_details_info .pro-nprist .product-info .product-inventory .inventory-status.is-instock {
+  color: #16a34a;
+}
+.product_details_info .pro-nprist .product-info .product-inventory .inventory-check {
+  flex: 0 0 auto;
+}
 .product_details_info .pro-nprist .product-info .product-inventory h6{
   font-size: 18px;
   margin-inline-end: 15px;
-}
-.product_details_info .pro-nprist .product-info .product-inventory span {
-  margin-inline-start: 5px;
 }
 
 /* product detail quantity css*/

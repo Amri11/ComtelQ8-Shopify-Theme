@@ -1,3 +1,21 @@
+{%- liquid
+  assign inventory_state = ''
+  if current_variant.inventory_management == 'shopify'
+    if current_variant.inventory_quantity > 0
+      if current_variant.inventory_quantity <= block.settings.inventory_threshold
+        assign inventory_state = 'is-low'
+      else
+        assign inventory_state = 'is-instock'
+      endif
+    else
+      if current_variant.inventory_policy == 'continue'
+        assign inventory_state = 'is-instock'
+      else
+        assign inventory_state = 'is-out'
+      endif
+    endif
+  endif
+-%}
 <div class="product-info" {{ block.shopify_attributes }}>
   <div
     class="product-inventory{% if current_variant.inventory_management != 'shopify' %} hidden{% endif %}"
@@ -5,6 +23,7 @@
     id="Inventory-{{ section.id }}"
     role="status"
   >
+    <span class="inventory-status {{ inventory_state }}">
     {%- if current_variant.inventory_management == 'shopify' -%}
       {%- if current_variant.inventory_quantity > 0 -%}
         {%- if current_variant.inventory_quantity <= block.settings.inventory_threshold -%}
@@ -23,9 +42,8 @@
             <span>{{- 'products.product.inventory_low_stock' | t -}}</span>
           {%- endif -%}
         {%- else -%}
-          <svg width="15" height="15" aria-hidden="true">
-            <circle cx="7.5" cy="7.5" r="7.5" fill="rgb(62,214,96, 0.3)"/>
-            <circle cx="7.5" cy="7.5" r="5" stroke="rgb(255, 255, 255)" stroke-width="1" fill="rgb(62,214,96)"/>
+          <svg class="inventory-check" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M3.5 8.5L6.5 11.5L12.5 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           {%- if block.settings.show_inventory_quantity -%}
             <span>
@@ -51,5 +69,6 @@
         {%- endif -%}
       {%- endif -%}
     {%- endif -%}
+    </span>
   </div>
 </div>
