@@ -4864,4 +4864,97 @@
       color: {{ section.settings.header_menuicon_color_mobile }};
     }
   }
+
+  /*=====================================
+    Enhanced navigation sub-menu dropdown UI (desktop)
+  ======================================*/
+  @media (min-width: 1199px) {
+    /* Flyout panel: rounded, soft elevation, breathing room */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown {
+      min-width: 230px;
+      max-width: 260px;
+      padding: 12px 0;
+      margin-top: 10px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 12px;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+    /* Nested flyouts open to the side with a small gap, top-aligned */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown {
+      margin-top: 0;
+      margin-left: 8px;
+      top: -12px;
+    }
+
+    /* Link rows: pill hover, accent text, sliding indicator */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li .sublink-title,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown li.childsupmenu-li a.childsuplink-title {
+      position: relative;
+      margin: 1px 10px;
+      padding: 9px 16px;
+      border-radius: 8px;
+      width: auto;
+      transition: background-color 0.22s ease, color 0.22s ease, padding-left 0.22s ease;
+    }
+
+    /* Sliding accent bar that appears on hover */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li .sublink-title::before,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title::before,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown li.childsupmenu-li a.childsuplink-title::before {
+      content: "";
+      position: absolute;
+      left: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 3px;
+      height: 0;
+      border-radius: 3px;
+      background-color: {{ section.settings.header_menutext_hvr_color }};
+      transition: height 0.22s ease;
+    }
+
+    /* Hover / active states */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover > .sublink-title,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > a.suplink-title,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown li.childsupmenu-li a.childsuplink-title:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+      color: {{ section.settings.header_menutext_hvr_color }};
+      padding-left: 22px;
+    }
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover > .sublink-title::before,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > a.suplink-title::before,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown li.childsupmenu-li a.childsuplink-title:hover::before {
+      height: 16px;
+    }
+
+    /* Caret nudges toward the accent on hover */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li .sublink-title span.menu-arrow,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title span.menu-arrow {
+      transition: transform 0.22s ease, color 0.22s ease;
+    }
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover > .sublink-title span.menu-arrow,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > a.suplink-title span.menu-arrow {
+      transform: translateX(3px);
+      color: {{ section.settings.header_menutext_hvr_color }};
+    }
+
+    /* Smooth fade+rise instead of the hard pop */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown {
+      animation: none;
+      transform: translateY(8px);
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+    }
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link:hover > ul.menu-dropdown.sub-menu,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover > ul.supmenu-dropdown,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > ul.childsupmenu-dropdown {
+      transform: translateY(0);
+    }
+  }
 </style>
