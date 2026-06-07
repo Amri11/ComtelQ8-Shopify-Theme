@@ -22,10 +22,6 @@
     "product-template": {
       "type": "product-template",
       "blocks": {
-        "product_title_TgqDQg": {
-          "type": "product_title",
-          "settings": {}
-        },
         "product_vendor": {
           "type": "product_vendor",
           "settings": {
@@ -33,10 +29,27 @@
             "show_vendor_link": true
           }
         },
+        "product_title_TgqDQg": {
+          "type": "product_title",
+          "settings": {}
+        },
+        "37aeb358-fd5e-46ca-bd88-373779c12327": {
+          "type": "short_description",
+          "settings": {
+            "short_description": "Care for fiber: 30% more recycled polyester. We label garments manufactured using environmentally friendly technologies and raw materials with the Join Life label."
+          }
+        },
         "product_price": {
           "type": "product_price",
           "settings": {
-            "shipping_tax": "Tax included. Shipping calculated at checkout."
+            "shipping_tax": ""
+          }
+        },
+        "product_variant_picker": {
+          "type": "product_variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
         "18d14155-9145-4f99-b951-44d46831d46c": {
@@ -45,19 +58,6 @@
             "availability_title": "Availability:",
             "inventory_threshold": 10,
             "show_inventory_quantity": true
-          }
-        },
-        "37aeb358-fd5e-46ca-bd88-373779c12327": {
-          "type": "short_description",
-          "settings": {
-            "short_description": "Care for fiber: 30% more recycled polyester. We label garments manufactured using environmentally friendly technologies and raw materials with the Join Life label."
-          }
-        },
-        "product_variant_picker": {
-          "type": "product_variant_picker",
-          "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
           }
         },
         "product_quantity_9QFCn8": {
@@ -126,10 +126,10 @@
       "block_order": [
         "product_vendor",
         "product_title_TgqDQg",
-        "product_price",
-        "18d14155-9145-4f99-b951-44d46831d46c",
         "37aeb358-fd5e-46ca-bd88-373779c12327",
+        "product_price",
         "product_variant_picker",
+        "18d14155-9145-4f99-b951-44d46831d46c",
         "product_quantity_9QFCn8",
         "product_buy_buttons",
         "73f6da47-a354-4c24-84ea-4fab243257e4",
