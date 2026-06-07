@@ -1,0 +1,289 @@
+{{ 'support-cards.css' | asset_url | stylesheet_tag }}
+<section
+  class="support-cards"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px;--padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--card-bg-color: {{ section.settings.card_bg_color }};--card-border-color: {{ section.settings.card_border_color }};--icon-color: {{ section.settings.icon_color }};--title-color: {{ section.settings.title_color }};--desc-color: {{ section.settings.desc_color }};--link-color: {{ section.settings.link_color }};--columns: {{ section.settings.columns }};"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    {% if section.settings.section_subheading != '' or section.settings.section_heading != '' %}
+      <div class="section-capture">
+        <div class="section-title">
+          {% if section.settings.section_subheading != '' %}
+            <span data-fade-in class="sub-title">{{ section.settings.section_subheading }}</span>
+          {% endif %}
+          {% if section.settings.section_heading != '' %}
+            <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="support-cards-grid">
+      {% for block in section.blocks %}
+        <div class="support-card" data-fade-in {{ block.shopify_attributes }}>
+          {%- if block.settings.card_url != blank -%}
+            <a href="{{ block.settings.card_url }}" class="support-card-link-wrap" aria-label="{{ block.settings.title | default: 'Learn more' | escape }}"></a>
+          {%- endif -%}
+          <span class="support-card-icon">
+            {%- if block.settings.icon_img != blank -%}
+              {{
+                block.settings.icon_img
+                | image_url: width: 256
+                | image_tag:
+                  loading: 'lazy',
+                  width: block.settings.icon_img.width,
+                  height: block.settings.icon_img.height,
+                  class: 'lazyload',
+                  alt: block.settings.title
+              }}
+            {%- else -%}
+              {{ block.settings.icon }}
+            {%- endif -%}
+          </span>
+          {% if block.settings.title != '' %}
+            <h6 class="support-card-title mr-0">{{ block.settings.title }}</h6>
+          {% endif %}
+          {% if block.settings.description != '' %}
+            <p class="support-card-desc mr-0">{{ block.settings.description }}</p>
+          {% endif %}
+          {% if block.settings.link_label != '' %}
+            <span class="support-card-link">{{ block.settings.link_label }}</span>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Support Cards",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        { "label": "Full width", "value": "fluid" },
+        { "label": "Contained", "value": "normal" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "range",
+      "id": "columns",
+      "label": "Columns (desktop)",
+      "min": 2,
+      "max": 5,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Section background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_bg_color",
+      "label": "Card background",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#E5E5E5"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "color",
+      "id": "desc_color",
+      "label": "Description color",
+      "default": "#6B7280"
+    },
+    {
+      "type": "color",
+      "id": "link_color",
+      "label": "Link color",
+      "default": "#1A1A1A"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Icon"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_img",
+          "label": "Icon image",
+          "info": "Optional. Overrides the icon below. Recommended size: 256x256px"
+        },
+        {
+          "type": "textarea",
+          "id": "icon",
+          "label": "Icon",
+          "info": "Feather icon. [More icons](https://dropways.github.io/feathericons/)",
+          "default": "<i class='feather-help-circle'></i>"
+        },
+        {
+          "type": "header",
+          "content": "Content"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Returns & Exchanges"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Not happy? Return or exchange your items quickly and hassle-free."
+        },
+        {
+          "type": "text",
+          "id": "link_label",
+          "label": "Link label",
+          "default": "Learn More"
+        },
+        {
+          "type": "url",
+          "id": "card_url",
+          "label": "Link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support Cards",
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "icon": "<i class='feather-corner-up-left'></i>",
+            "title": "Returns & Exchanges",
+            "description": "Not happy? Return or exchange your items quickly and hassle-free."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "<i class='feather-package'></i>",
+            "title": "Check Your Order Status",
+            "description": "Stay updated every step of the way — from purchase to delivery."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "<i class='feather-message-circle'></i>",
+            "title": "Visit Our Support Center",
+            "description": "Need assistance? Find answers and support anytime, anywhere."
+          }
+        },
+        {
+          "type": "card",
+          "settings": {
+            "icon": "<i class='feather-dollar-sign'></i>",
+            "title": "Price-Match Guarantee",
+            "description": "Found a better price? We'll match it so you get the best deal."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

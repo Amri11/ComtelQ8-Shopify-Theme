@@ -1,0 +1,284 @@
+{{ 'support-faq.css' | asset_url | stylesheet_tag }}
+<section
+  class="support-faq support-faq-{{ section.id }}"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px;--padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--col-gap: {{ section.settings.column_gap }}px;"
+>
+  <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
+    <div class="support-faq-grid">
+
+      <div class="support-faq-intro">
+        {% if section.settings.heading != '' %}
+          <h2 class="support-faq-heading mr-0" data-fade-in>{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != '' %}
+          <p class="support-faq-subheading mr-0" data-fade-in>{{ section.settings.subheading }}</p>
+        {% endif %}
+        {% if section.settings.button_label != '' %}
+          <a
+            href="{{ section.settings.button_url | default: '#' }}"
+            class="support-faq-btn"
+            data-fade-in
+            style="--btn-bg: {{ section.settings.button_bg }};--btn-color: {{ section.settings.button_text_color }};"
+          >
+            {{ section.settings.button_label }}
+          </a>
+        {% endif %}
+      </div>
+
+      <div class="support-faq-list" id="support-faq-tab-{{ section.id }}">
+        {% liquid
+          assign i = 0
+        %}
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'group' -%}
+              {% if block.settings.group_title != '' %}
+                <span class="support-faq-group-title" data-fade-in {{ block.shopify_attributes }}>
+                  {{- block.settings.group_title -}}
+                </span>
+              {% endif %}
+
+            {%- when 'question' -%}
+              {% assign i = i | plus: 1 %}
+              {% if block.settings.question != '' %}
+                <div class="support-faq-item" data-fade-in {{ block.shopify_attributes }}>
+                  <button
+                    type="button"
+                    class="support-faq-question"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#support-faq-{{ section.id }}-{{ block.id }}"
+                    aria-expanded="{% if block.settings.open_by_default %}true{% else %}false{% endif %}"
+                    aria-label="{{ block.settings.question | escape }}"
+                  >
+                    <span class="support-faq-q-text">{{ block.settings.question }}</span>
+                    <span class="support-faq-icon"><i class="feather-chevron-down"></i></span>
+                  </button>
+                  <div
+                    class="support-faq-answer collapse {% if block.settings.open_by_default %}show{% endif %}"
+                    id="support-faq-{{ section.id }}-{{ block.id }}"
+                    data-bs-parent="#support-faq-tab-{{ section.id }}"
+                  >
+                    {% if block.settings.answer != '' %}
+                      <div class="support-faq-answer-inner mr-0">{{ block.settings.answer }}</div>
+                    {% endif %}
+                  </div>
+                </div>
+              {% endif %}
+          {%- endcase -%}
+        {% endfor %}
+
+        {% if section.settings.read_all_label != '' %}
+          <a href="{{ section.settings.read_all_url | default: '#' }}" class="support-faq-read-all" data-fade-in>
+            {{ section.settings.read_all_label }}
+          </a>
+        {% endif %}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Support FAQ",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        { "label": "Full width", "value": "fluid" },
+        { "label": "Contained", "value": "normal" }
+      ],
+      "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_bg_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "column_gap",
+      "label": "Gap between columns",
+      "min": 20,
+      "max": 120,
+      "step": 5,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "header",
+      "content": "Intro panel"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "24/7 Assistance, Whenever You Need It"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Round-the-clock support for a smooth shopping experience."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Contact Support"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button link"
+    },
+    {
+      "type": "color",
+      "id": "button_bg",
+      "label": "Button background",
+      "default": "#F3F3F3"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text color",
+      "default": "#1A1A1A"
+    },
+    {
+      "type": "header",
+      "content": "Read all link"
+    },
+    {
+      "type": "text",
+      "id": "read_all_label",
+      "label": "Link label",
+      "default": "Read All"
+    },
+    {
+      "type": "url",
+      "id": "read_all_url",
+      "label": "Link url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "group",
+      "name": "Group title",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_title",
+          "label": "Group title",
+          "default": "Shipping"
+        }
+      ]
+    },
+    {
+      "type": "question",
+      "name": "Question",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "How long does it typically take to process an order?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>Yes, international shipping is available. Delivery times and costs vary based on your location and selected shipping method.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Support FAQ",
+      "blocks": [
+        { "type": "group", "settings": { "group_title": "Shipping" } },
+        { "type": "question", "settings": { "question": "How long does it typically take to process an order?", "open_by_default": true } },
+        { "type": "question", "settings": { "question": "Can I change the contents of my order?" } },
+        { "type": "question", "settings": { "question": "Do you ship internationally?" } },
+        { "type": "question", "settings": { "question": "Is my personal information secure during checkout?" } },
+        { "type": "group", "settings": { "group_title": "Returns & Refund" } },
+        { "type": "question", "settings": { "question": "What is your return policy?" } },
+        { "type": "question", "settings": { "question": "How long does it take to process a refund?" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
