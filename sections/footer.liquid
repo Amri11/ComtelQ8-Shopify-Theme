@@ -217,17 +217,22 @@
         {{ shop | login_button: action: 'follow' }}
       </div>
       {%- endif -%}
-      {%- if section.settings.show_policy -%}
-      <ul class="list-unstyled policies">
-        {%- for policy in shop.policies -%}
-          {%- if policy != blank -%}
-            <li>
-              <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
-            </li>
-          {%- endif -%}
-        {%- endfor -%}
-      </ul>
-      {%- endif -%}
+      <div class="footer-bottom-bar">
+        <span class="footer-copyright">
+          &copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}. {{ section.settings.copyright_text }}
+        </span>
+        {%- if section.settings.show_policy -%}
+        <ul class="list-unstyled policies">
+          {%- for policy in shop.policies -%}
+            {%- if policy != blank -%}
+              <li>
+                <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+        {%- endif -%}
+      </div>
     </div>
   </div>
 </section>
@@ -255,7 +260,7 @@
           "value": "normal"
         }
       ],
-      "default": "fluid"
+      "default": "normal"
     },
     {
       "type": "header",
@@ -473,6 +478,17 @@
       "id": "enable_follow_on_shop",
       "label": "Show follow on shop",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Bottom bar"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "All rights reserved.",
+      "info": "Appended after the year and store name."
     },
     {
       "type": "header",
