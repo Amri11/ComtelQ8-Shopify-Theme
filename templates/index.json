@@ -209,7 +209,8 @@
         "offer_card_9FGR38": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/06.webp",
+            "card_title": "Large Screen TV",
             "card_title_color": "#ffffff",
             "card_link": "",
             "badge_text": "",
@@ -220,7 +221,8 @@
         "offer_card_WT7VT4": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/07.webp",
+            "card_title": "Season Best Art",
             "card_title_color": "#ffffff",
             "card_link": "",
             "badge_text": "",
