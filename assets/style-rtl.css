@@ -2875,7 +2875,7 @@ section{
     transform: translateY(0);
   }
   .product-content .pr-gr-option .option-block {
-    justify-content: center;
+    justify-content: flex-end;
   }
   .single-product-wrap .product-content {
     padding: 26px 20px 30px;
@@ -2946,21 +2946,21 @@ section{
   }
   .single-product-wrap .product-content .type-title-price {
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: right;
   }
   .single-product-wrap .product-content .price-box {
-    align-items: center;
-    justify-content: center;  
-    text-align: center;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: right;
   }
   .single-product-wrap .product-content .price-box span.old-price {
     margin-top: 5px;
     margin-right: 0px;
   }
   .single-product-wrap .product-content .product-action {
-    justify-content: center;
+    justify-content: flex-start;
   }
   .single-product-wrap .product-content .qty-action .pr-form-button .product-action .ajax-cart-btn,
   .single-product-wrap .product-action button, .single-product-wrap .product-action a {
@@ -3402,7 +3402,7 @@ section{
 
 /* Content: right-aligned vendor / title / price / stock stack (RTL) */
 .single-product-wrap .product-content {
-  padding: 12px 14px 0;
+  padding: 12px 2px 0;
   box-shadow: none;
   border-radius: 0;
   text-align: right;
