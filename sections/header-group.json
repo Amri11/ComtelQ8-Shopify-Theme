@@ -67,6 +67,23 @@
             "menu_link_label_line_height": 1.1
           }
         },
+        "menu_sub_jQnXVY": {
+          "type": "menu_sub",
+          "settings": {
+            "menu_sub_title": "Tablet & Accessories",
+            "menu_sub_url": "shopify://collections/tablet-accessories",
+            "menu_sub_label": "",
+            "menu_sub_label_color": "#ffffff",
+            "menu_sub_label_font_size": 10,
+            "menu_sub_label_top_position": 10,
+            "menu_sub_label_bgcolor": "#0c32ff",
+            "menu_sub_label_text_transform": "uppercase",
+            "menu_sub_label_font-weight": 400,
+            "menu_sub_label_border_radius": 3,
+            "menu_sub_label_line_height": 1.1,
+            "menu_sub_select": "all-tablet-accessories"
+          }
+        },
         "5037c259-47ec-480f-bb36-2ed33b54ddf2": {
           "type": "menu_sub",
           "settings": {
@@ -134,6 +151,7 @@
       "block_order": [
         "d8c14ef8-1cc1-4e85-987c-43ddaea91fc4",
         "menu_link_TREYF8",
+        "menu_sub_jQnXVY",
         "5037c259-47ec-480f-bb36-2ed33b54ddf2",
         "vega_menu_product2_xwWUfP",
         "vega_menu_product2_Jykgh4"
