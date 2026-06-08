@@ -87,8 +87,8 @@
         "vega_menu_product2_xwWUfP": {
           "type": "vega_menu_product2",
           "settings": {
-            "menu_product_title": "Jewellery",
-            "menu_product_url": "shopify://collections",
+            "menu_product_title": "Mobile & Accessories",
+            "menu_product_url": "shopify://collections/mobile-accessories",
             "menu_product_label": "",
             "menu_product_label_color": "#ffffff",
             "menu_product_label_font_size": 10,
@@ -98,142 +98,13 @@
             "menu_product_label_font-weight": 400,
             "menu_product_label_border_radius": 3,
             "menu_product_label_line_height": 1.1,
-            "menu_product_select": "",
+            "menu_product_select": "all-mobile-accessories",
             "menu_product_collection_select": "",
             "menu_product_select2": "",
             "menu_product_collection_select2": "",
             "product_title": "Best seller",
-            "menu_product_collection1": "multi-store-trending",
+            "menu_product_collection1": "frontpage",
             "menu_product_collection1_limit": 12
-          }
-        },
-        "vega_menu_single_d4ByDj": {
-          "type": "vega_menu_single",
-          "settings": {
-            "menu_single_title": "Cosmetics",
-            "menu_single_url": "shopify://collections",
-            "menu_single_label": "",
-            "menu_single_label_color": "#ffffff",
-            "menu_single_label_font_size": 10,
-            "menu_single_label_top_position": 10,
-            "menu_single_label_bgcolor": "#05d14b",
-            "menu_single_label_text_transform": "uppercase",
-            "menu_single_label_font-weight": 400,
-            "menu_single_label_border_radius": 3,
-            "menu_single_label_line_height": 1.1,
-            "menu_single_select": ""
-          }
-        },
-        "vega_menu_link_TdHrGf": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Electronics",
-            "menu_link_url": "shopify://collections/painting-brush",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
-          }
-        },
-        "vega_menu_link_FURkPN": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Medical",
-            "menu_link_url": "shopify://collections/tools",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
-          }
-        },
-        "vega_menu_link_HpBRBU": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Plants",
-            "menu_link_url": "shopify://collections/diary-book",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
-          }
-        },
-        "vega_menu_link_zgfW89": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Sheos",
-            "menu_link_url": "shopify://collections/clipboard",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
-          }
-        },
-        "vega_menu_link_eNbxNe": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Gifts",
-            "menu_link_url": "shopify://collections/ballpen",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
-          }
-        },
-        "vega_menu_link_px7tfK": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Flowers",
-            "menu_link_url": "shopify://collections/photo-paper",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
-          }
-        },
-        "vega_menu_link_HXB4pP": {
-          "type": "vega_menu_link",
-          "settings": {
-            "menu_link_title": "Drinks",
-            "menu_link_url": "shopify://collections/colour-palette",
-            "menu_link_label": "",
-            "menu_link_label_color": "#ffffff",
-            "menu_link_label_font_size": 10,
-            "menu_link_label_top_position": 10,
-            "menu_link_label_bgcolor": "#05d14b",
-            "menu_link_label_text_transform": "uppercase",
-            "menu_link_label_font-weight": 400,
-            "menu_link_label_border_radius": 3,
-            "menu_link_label_line_height": 1.1
           }
         }
       },
@@ -241,15 +112,7 @@
         "d8c14ef8-1cc1-4e85-987c-43ddaea91fc4",
         "menu_link_TREYF8",
         "5037c259-47ec-480f-bb36-2ed33b54ddf2",
-        "vega_menu_product2_xwWUfP",
-        "vega_menu_single_d4ByDj",
-        "vega_menu_link_TdHrGf",
-        "vega_menu_link_FURkPN",
-        "vega_menu_link_HpBRBU",
-        "vega_menu_link_zgfW89",
-        "vega_menu_link_eNbxNe",
-        "vega_menu_link_px7tfK",
-        "vega_menu_link_HXB4pP"
+        "vega_menu_product2_xwWUfP"
       ],
       "settings": {
         "container": "normal",
