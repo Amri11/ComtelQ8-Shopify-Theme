@@ -368,8 +368,8 @@
         "container": "normal",
         "section_padding_top": 0,
         "section_padding_bottom": 0,
-        "section_padding_top_xs": 0,
-        "section_padding_bottom_xs": 0,
+        "section_padding_top_xs": 10,
+        "section_padding_bottom_xs": 15,
         "section_bg_color": "#ffffff"
       }
     },
