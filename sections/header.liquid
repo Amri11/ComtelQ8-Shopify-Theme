@@ -4882,12 +4882,26 @@
       /* overflow must stay visible so nested flyouts (positioned at left:100%) aren't clipped */
       overflow: visible;
     }
-    /* Nested flyouts open to the side with a small gap, top-aligned */
+    /* Nested flyouts open to the side, top-aligned. No left margin: a gap there
+       would break the :hover chain mid-cursor-travel. The visual offset is kept via
+       left:100% on the panel; a transparent ::before bridges any sub-pixel gap. */
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown {
       margin-top: 0;
-      margin-left: 8px;
+      margin-left: 0;
       top: -12px;
+    }
+    /* Invisible hover bridge: spans the left edge of the flyout back to the parent row
+       so the cursor never crosses a dead zone between them. */
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown::before,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -16px;
+      width: 16px;
+      height: 100%;
+      background: transparent;
     }
 
     /* Link rows: pill hover, accent text, sliding indicator */
@@ -4948,7 +4962,9 @@
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown {
       animation: none;
       transform: translateY(8px);
-      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+      /* Slight delay on hide so brief cursor jitter while travelling to the flyout
+         doesn't snap it shut; reveal (below) overrides the delay to 0 so it opens instantly. */
+      transition: opacity 0.2s ease 0.18s, transform 0.2s ease 0.18s, visibility 0.2s ease 0.18s;
     }
     /* Reveal nested flyouts on hover. These selectors carry the .header1 prefix so they
        out-specify both the base style.css rules and Bootstrap's .collapse:not(.show). */
@@ -4960,6 +4976,7 @@
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
+      transition-delay: 0s;
     }
   }
 </style>
