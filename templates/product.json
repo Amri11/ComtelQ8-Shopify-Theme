@@ -211,6 +211,7 @@
         "about_description_7AjG9a",
         "about_description_eJgxFB"
       ],
+      "disabled": true,
       "settings": {
         "container": "fluid",
         "section_padding_top": 100,
