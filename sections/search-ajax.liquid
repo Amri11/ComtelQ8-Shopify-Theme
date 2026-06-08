@@ -54,9 +54,46 @@
           <div class="search-col search-col-products">
             <p class="search-col-heading">{{ 'templates.search.products' | t }}</p>
             <ul class="ajax-products-list list-unstyled">
+              {%- comment %} In-stock products first {%- endcomment %}
               {%- for product in predictive_search.resources.products -%}
+                {%- unless product.available -%}{%- continue -%}{%- endunless -%}
                 <li id="search-ajax-option-product-{{ forloop.index }}" role="option" aria-selected="false">
                   <a href="{{ product.url }}" class="ajax-product-item">
+                    <div class="ajax-product-thumb">
+                      {%- if product.featured_media -%}
+                        {{
+                          product.featured_media
+                          | image_url: width: 120
+                          | image_tag: width: 60, height: 60, class: 'lazyload', loading: 'lazy'
+                        }}
+                      {%- else -%}
+                        {{ 'product-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                      {%- endif -%}
+                    </div>
+                    <div class="ajax-product-info">
+                      {%- if settings.show_vendor -%}
+                        <span class="ajax-product-vendor">{{ product.vendor }}</span>
+                      {%- elsif product.type != blank -%}
+                        <span class="ajax-product-vendor">{{ product.type }}</span>
+                      {%- endif -%}
+                      <span class="ajax-product-title">{{ product.title }}</span>
+                      <div class="ajax-product-price">
+                        {%- if product.compare_at_price > product.price -%}
+                          <span class="ajax-price-sale">{{ product.price | money }}</span>
+                          <span class="ajax-price-compare">{{ product.compare_at_price | money }}</span>
+                        {%- else -%}
+                          <span class="ajax-price-regular">{{ product.price | money }}</span>
+                        {%- endif -%}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              {%- endfor -%}
+              {%- comment %} Out-of-stock products after {%- endcomment %}
+              {%- for product in predictive_search.resources.products -%}
+                {%- if product.available -%}{%- continue -%}{%- endif -%}
+                <li id="search-ajax-option-product-oos-{{ forloop.index }}" role="option" aria-selected="false">
+                  <a href="{{ product.url }}" class="ajax-product-item ajax-product-item--oos">
                     <div class="ajax-product-thumb">
                       {%- if product.featured_media -%}
                         {{
