@@ -197,12 +197,17 @@
 
 /* ── Responsive: stack columns on small screens ── */
 @media (max-width: 600px) {
+  .search-ajax {
+    overflow: visible;
+  }
   .search-ajax-two-col {
     grid-template-columns: 1fr;
     max-height: 70vh;
+    overflow-y: auto;
   }
   .search-col {
     max-height: none;
+    overflow-y: visible;
   }
   .search-col-suggestions {
     border-right: none;
