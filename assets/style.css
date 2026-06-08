@@ -1229,7 +1229,8 @@ section{
     overflow: visible;
   }
 }
-.megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown {
+.megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown,
+.megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown.collapse:not(.show) {
   opacity: 1;
   visibility: visible;
   display: block;
@@ -1274,7 +1275,8 @@ section{
     overflow: visible;
   }
 }
-.megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover ul.childsupmenu-dropdown{
+.megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover ul.childsupmenu-dropdown,
+.megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover ul.childsupmenu-dropdown.collapse:not(.show){
   opacity: 1;
   visibility: visible;
   display: block;

@@ -4879,7 +4879,8 @@
       border: 1px solid rgba(0, 0, 0, 0.06);
       border-radius: 12px;
       box-shadow: 0 12px 34px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.06);
-      overflow: hidden;
+      /* overflow must stay visible so nested flyouts (positioned at left:100%) aren't clipped */
+      overflow: visible;
     }
     /* Nested flyouts open to the side with a small gap, top-aligned */
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
@@ -4943,16 +4944,21 @@
     }
 
     /* Smooth fade+rise instead of the hard pop */
-    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu,
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li ul.childsupmenu-dropdown {
       animation: none;
       transform: translateY(8px);
       transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
     }
-    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link:hover > ul.menu-dropdown.sub-menu,
+    /* Reveal nested flyouts on hover. These selectors carry the .header1 prefix so they
+       out-specify both the base style.css rules and Bootstrap's .collapse:not(.show). */
     .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover > ul.supmenu-dropdown,
-    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > ul.childsupmenu-dropdown {
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover > ul.supmenu-dropdown.collapse:not(.show),
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > ul.childsupmenu-dropdown,
+    .header1 .megamenu-content .mainwrap ul.main-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li:hover > ul.childsupmenu-dropdown.collapse:not(.show) {
+      display: block;
+      opacity: 1;
+      visibility: visible;
       transform: translateY(0);
     }
   }

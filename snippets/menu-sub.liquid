@@ -29,8 +29,13 @@
   >
     {% assign menu_sub_select = block.settings.menu_sub_select %}
     {% for link in linklists[menu_sub_select].links %}
-      {% assign sublink = link.title | handle %}
-      {% if linklists[sublink].links != '' %}
+      {%- comment -%} Resolve second-level children: prefer native link.links, fall back to a linklist named after the link handle {%- endcomment -%}
+      {%- assign child_handle = link.title | handle -%}
+      {%- assign second_level = link.links -%}
+      {%- if second_level == blank and linklists[child_handle].links.size > 0 -%}
+        {%- assign second_level = linklists[child_handle].links -%}
+      {%- endif -%}
+      {% if second_level.size > 0 %}
         <li class="submenu-li">
           <a href="{{ link.url }}" class="sublink-title">
             <span class="sp-link-title">{{ link.title }}</span>
@@ -48,9 +53,14 @@
             </button>
           </div>
           <ul class="list-unstyled supmenu-dropdown dropdown-content collapse" id="sup-collapse-{{ link.title | handleize }}">
-            {% for sublink in linklists[sublink].links %}
-              {% assign suplink = sublink.title | handle %}
-              {% if linklists[suplink].links != '' %}
+            {% for sublink in second_level %}
+              {%- comment -%} Resolve third-level children the same way {%- endcomment -%}
+              {%- assign sub_child_handle = sublink.title | handle -%}
+              {%- assign third_level = sublink.links -%}
+              {%- if third_level == blank and linklists[sub_child_handle].links.size > 0 -%}
+                {%- assign third_level = linklists[sub_child_handle].links -%}
+              {%- endif -%}
+              {% if third_level.size > 0 %}
               <li class="supmenu-li">
                 <a href="{{ sublink.url }}" class="suplink-title">
                   <span class="sp-link-title">{{ sublink.title }}</span>
@@ -67,15 +77,13 @@
                     <i class="feather-plus"></i>
                   </button>
                 </div>
-                {% if sublink.links.size > 0 %}
-                <ul class="list-unstyled childsupmenu-dropdown dropdown-content collapse" id="childsup-collapse-{{ link.title | handleize }}">
-                  {% for third_level_link in sublink.links %}
+                <ul class="list-unstyled childsupmenu-dropdown dropdown-content collapse" id="childsup-collapse-{{ sublink.title | handleize }}">
+                  {% for third_level_link in third_level %}
                     <li class="childsupmenu-li">
                       <a href="{{ third_level_link.url }}" class="childsuplink-title">{{ third_level_link.title }}</a>
                     </li>
                   {% endfor %}
                 </ul>
-              {% endif %}
               </li>
               {% else %}
               <li class="supmenu-li">
