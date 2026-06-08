@@ -299,7 +299,7 @@ section{
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  column-gap: 30px;
+  column-gap: 20px;
   row-gap: 10px;
 }
 .megamenu-content .mainwrap ul.main-menu.menu-center {
