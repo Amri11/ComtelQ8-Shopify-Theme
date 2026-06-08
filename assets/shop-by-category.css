@@ -9,8 +9,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 15px;
-  margin-bottom: var(--section-title-bottom-space, 30px);
-  padding-bottom: 15px;
+  margin-bottom: 20px;
 }
 .shop-by-category .shop-by-category-head h2 {
   margin: 0;
