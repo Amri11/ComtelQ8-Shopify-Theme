@@ -132,9 +132,9 @@
       "name": "Shop by Category",
       "settings": {
         "container": "normal",
-        "section_padding_top": 0,
+        "section_padding_top": 15,
         "section_padding_bottom": 35,
-        "section_padding_top_xs": 15,
+        "section_padding_top_xs": 0,
         "section_padding_bottom_xs": 20,
         "section_bg_color": "#ffffff",
         "circle_bg_color": "#f4f4f6",
