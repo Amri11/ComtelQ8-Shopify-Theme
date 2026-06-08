@@ -520,8 +520,8 @@
       ],
       "settings": {
         "container": "normal",
-        "section_padding_top": 100,
-        "section_padding_bottom": 100,
+        "section_padding_top": 20,
+        "section_padding_bottom": 20,
         "section_padding_top_xs": 20,
         "section_padding_bottom_xs": 20,
         "slider_item_desktop": "6",
