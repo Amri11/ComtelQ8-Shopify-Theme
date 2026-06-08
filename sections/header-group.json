@@ -102,8 +102,8 @@
             "menu_product_collection_select": "",
             "menu_product_select2": "",
             "menu_product_collection_select2": "",
-            "product_title": "Best seller",
-            "menu_product_collection1": "frontpage",
+            "product_title": "",
+            "menu_product_collection1": "",
             "menu_product_collection1_limit": 12
           }
         },
