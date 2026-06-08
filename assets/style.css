@@ -1449,17 +1449,25 @@ section{
   background-color: #fff;
   border: 1px solid #ececec;
   border-radius: 12px;
-  -webkit-animation-name: DropDownSlide;
-  animation-name: DropDownSlide;
-  -webkit-animation-duration: .3s;
-  animation-duration: .3s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
   box-shadow: 0 10px 30px rgba(0,0,0,8%);
+  /* Slight hide delay so cursor jitter while travelling to the dropdown doesn't snap it shut */
+  transition: opacity 0.2s ease 0.18s, visibility 0.2s ease 0.18s;
+}
+/* Invisible hover bridge spanning the calc(100% + 8px) gap back to the menu item,
+   so moving the cursor from the item into the dropdown never crosses a dead zone */
+.header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -16px;
+  width: 16px;
+  height: 100%;
+  background: transparent;
 }
 .header1 .vega-menu-area ul.vega-menu li.menu-link:hover ul.menu-dropdown {
   opacity: 1;
   visibility: visible;
+  transition-delay: 0s;
 }
 .header1 .vega-menu-area ul.vega-menu li.menu-link:hover ul.menu-dropdown.collapse:not(.show) {
   display: block;
@@ -2342,17 +2350,24 @@ section{
   opacity: 0;
   visibility: hidden;
   padding: 15px 0;
-  -webkit-animation-name: DropDownSlide;
-  animation-name: DropDownSlide;
-  -webkit-animation-duration: 0.3s;
-  animation-duration: 0.3s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.15);
+  /* Slight hide delay so cursor jitter while travelling to the flyout doesn't snap it shut */
+  transition: opacity 0.2s ease 0.18s, visibility 0.2s ease 0.18s;
+}
+/* Invisible hover bridge across the left edge so the cursor never crosses a dead zone */
+.header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -16px;
+  width: 16px;
+  height: 100%;
+  background: transparent;
 }
 .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown {
   opacity: 1;
   visibility: visible;
+  transition-delay: 0s;
 }
 .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown.collapse:not(.show) {
   display: block;
