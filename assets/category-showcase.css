@@ -112,6 +112,11 @@
 }
 
 /* product carousel */
+.category-showcase .single-product-wrap .product-content {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .category-showcase .showcase-products {
   position: relative;
   min-width: 0;
