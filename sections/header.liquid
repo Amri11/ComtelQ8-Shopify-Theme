@@ -24,12 +24,10 @@
             {%- render 'header-icon', section: section -%}
           </div>
           {%- if section.settings.show_language_selector and localization.available_languages.size > 1 -%}
-          <div class="header-element head-language-selector">
-            <localization-form>
-              {%- form 'localization', id: 'HeaderLanguageFormDesktop', class: 'localization-form' -%}
-                {%- render 'language-localization', localPosition: 'HeaderLanguageDesktop' -%}
-              {%- endform -%}
-            </localization-form>
+          <div class="header-element head-language-selector head-language-toggle">
+            {%- form 'localization', id: 'HeaderLanguageFormDesktop', class: 'localization-form' -%}
+              {%- render 'language-toggle' -%}
+            {%- endform -%}
           </div>
           {%- endif -%}
         </div>
@@ -218,29 +216,10 @@
                 </div>
               {% endif %}
               {%- if section.settings.enable_language_selector and localization.available_languages.size > 1 -%}
-                <div class="locali-box">
-                  <noscript>
-                    {%- form 'localization', id: 'HeaderLanguageMobileFormNoScript', class: 'localization-form' -%}
-                      <select name="locale_code" aria-labelledby="HeaderLanguageMobileLabelNoScript">
-                        {%- for language in localization.available_languages -%}
-                          <option
-                            value="{{ language.iso_code }}"
-                            lang="{{ language.iso_code }}"
-                            {%- if language.iso_code == localization.language.iso_code %}
-                              selected
-                            {% endif %}
-                          >
-                            {{ language.endonym_name | capitalize }}
-                          </option>
-                        {%- endfor -%}
-                      </select>
-                    {%- endform -%}
-                  </noscript>
-                  <localization-form>
-                    {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-                      {%- render 'language-localization', localPosition: 'HeaderLanguage' -%}
-                    {%- endform -%}
-                  </localization-form>
+                <div class="locali-box head-language-toggle">
+                  {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+                    {%- render 'language-toggle' -%}
+                  {%- endform -%}
                 </div>
               {%- endif -%}
             </div>
@@ -4845,6 +4824,24 @@
   .header1 .right-block-box ul.shop-element li.side-wrap .header-icon:hover span.mini-cart-total-price,
   .header1 .header-area .header-bottom-wrap .header-bottom .head-language-selector form button:hover {
     color: {{ section.settings.header_menutext_hvr_color }};
+  }
+  .head-language-toggle form {
+    margin: 0;
+  }
+  .head-language-toggle form button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font: inherit;
+    color: inherit;
+  }
+  .head-language-toggle form button:hover {
+    opacity: .8;
   }
 
   /*=====================================

@@ -1,0 +1,28 @@
+{% doc %}
+  Renders a two-language toggle for the localization form.
+
+  With exactly two languages, this shows the OTHER language as a clickable
+  button. Clicking it submits the form and switches to that language.
+
+  @example
+  {% render 'language-toggle' %}
+{% enddoc %}
+{%- liquid
+  assign other_language = nil
+  for language in localization.available_languages
+    unless language.iso_code == localization.language.iso_code
+      assign other_language = language
+      break
+    endunless
+  endfor
+-%}
+{%- if other_language != nil -%}
+  <input type="hidden" name="locale_code" value="{{ other_language.iso_code }}">
+  <button
+    type="submit"
+    lang="{{ other_language.iso_code }}"
+    aria-label="{{ other_language.endonym_name | capitalize }}"
+  >
+    <span>{{ other_language.endonym_name | capitalize }}</span>
+  </button>
+{%- endif -%}
