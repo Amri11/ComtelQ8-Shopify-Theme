@@ -6,7 +6,7 @@
 }
 @media (max-width: 767px) {
   .slider-content .slider-container-wrap.container {
-    padding: 0 12px;
+    padding: 0 1px;
   }
 }
 .slider-content .home-slider .slide-image > a {
@@ -14,8 +14,10 @@
   position: relative;
 }
 .slider-content .home-slider .slide-image > a img {
-  height: 100%;
   width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 @media (max-width: 767px) {
   .slider-content.slider-contained {
@@ -35,8 +37,10 @@
   }
   .slider-content .home-slider .slide-image .mobile-img {
     display: block;
-    min-height: 200px;
+    width: 100%;
+    height: auto;
     object-fit: cover;
+    aspect-ratio: 16 / 10;
   }
   .slider-content .home-slider .slide-image video {
     min-height: 500px;
