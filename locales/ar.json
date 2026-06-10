@@ -1,447 +1,493 @@
 {
   "general": {
     "accessibility": {
-      "error": "Грешка",
-      "skip_to_text": "Преминете към съдържанието"
+      "error": "خطأ",
+      "skip_to_text": "تخطَّ إلى المحتوى",
+      "previous": "السابق",
+      "next": "التالي"
     },
     "breadcrumbs": {
-      "home": "Начало",
-      "home_link_title": "Назад към началната страница"
+      "home": "الرئيسية",
+      "home_link_title": "العودة إلى الصفحة الرئيسية"
     },
     "newsletter_form": {
-      "newsletter_email": "Въведете своя имейл",
-      "submit": "Абонирайте се",
-      "confirmation": "Благодарим ви, че се абонирахте, код за отстъпка: WC5"
+      "newsletter_email": "أدخل بريدك الإلكتروني",
+      "submit": "اشترك",
+      "confirmation": "شكرًا لاشتراكك، رمز الخصم: WC5"
     },
     "password_page": {
-      "opening_soon": "Скоро отваряне",
-      "login_form_heading": "Влезте в магазина с парола",
-      "login_form_password_label": "Парола",
-      "login_form_password_placeholder": "Вашата парола",
-      "login_form_submit": "Въведете",
-      "signup_form_email_label": "Имейл адрес",
-      "signup_form_success": "Ще ви изпратим имейл точно преди да отворим!",
-      "admin_link_html": "Вие ли сте собственикът на магазина? <a href=\"\/admin\" class=\"text-link\">Влезте тук<\/a>",
-      "password_link": "Въведете с парола",
-      "powered_by_shopify_html": "Този магазин ще се захранва от {{ shopify }}"
+      "opening_soon": "الافتتاح قريبًا",
+      "login_form_heading": "ادخل إلى المتجر باستخدام كلمة المرور",
+      "login_form_password_label": "كلمة المرور",
+      "login_form_password_placeholder": "كلمة المرور الخاصة بك",
+      "login_form_submit": "دخول",
+      "signup_form_email_label": "البريد الإلكتروني",
+      "signup_form_success": "سنرسل لك بريدًا إلكترونيًا قبل الافتتاح مباشرة!",
+      "admin_link_html": "هل أنت صاحب المتجر؟ <a href=\"\/admin\" class=\"text-link\">سجّل الدخول هنا<\/a>",
+      "password_link": "الدخول بكلمة المرور",
+      "powered_by_shopify_html": "سيتم تشغيل هذا المتجر بواسطة {{ shopify }}"
     }
   },
   "accessibility": {
-    "unit_price_separator": "пер"
+    "unit_price_separator": "لكل"
   },
   "blogs": {
     "article": {
-      "author_by": "от"
+      "author_by": "بواسطة"
     },
     "comments": {
-      "title": "Оставете коментар",
-      "comments_label": "Comment",
-      "name": "Име",
-      "email": "Имейл адрес",
-      "message": "Съобщение",
-      "post": "Публикувайте коментар",
-      "moderated": "Моля, имайте предвид, че коментарите трябва да бъдат одобрени, преди да бъдат публикувани",
-      "success_moderated": "Вашият коментар беше публикуван успешно. ",
-      "success": "Вашият коментар беше публикуван успешно! ",
+      "title": "اترك تعليقًا",
+      "comments_label": "تعليق",
+      "name": "الاسم",
+      "email": "البريد الإلكتروني",
+      "message": "الرسالة",
+      "post": "نشر التعليق",
+      "moderated": "يرجى الملاحظة أنه يجب الموافقة على التعليقات قبل نشرها",
+      "success_moderated": "تم إرسال تعليقك بنجاح. سننشره بعد قليل، حيث تخضع مدونتنا للمراجعة.",
+      "success": "تم نشر تعليقك بنجاح! شكرًا لك!",
       "with_count": {
-        "one": "{{ count }} коментар",
-        "other": "{{ count }} коментари"
+        "zero": "لا توجد تعليقات",
+        "one": "تعليق واحد",
+        "two": "تعليقان",
+        "few": "{{ count }} تعليقات",
+        "many": "{{ count }} تعليقًا",
+        "other": "{{ count }} تعليق"
       }
     }
   },
   "sections": {
     "cart_count": {
-      "one": "{{ count }} елемент",
-      "other": "{{ count }} елементи"
+      "zero": "لا توجد منتجات",
+      "one": "منتج واحد",
+      "two": "منتجان",
+      "few": "{{ count }} منتجات",
+      "many": "{{ count }} منتجًا",
+      "other": "{{ count }} منتج"
     },
     "cart": {
-      "title": "Моята пазарска количка",
-      "caption": "Количка артикули",
-      "remove_title": "Премахнете {{ title }}",
-      "subtotal": "Междинна сума",
-      "new_subtotal": "Нова междинна сума",
-      "note": "Поръчайте специални инструкции",
-      "checkout": "Плащане",
-      "view_cart": "Вижте количката",
-      "empty": "Вашата количка е празна",
-      "continue_shopping": "Продължете да пазарувате",
-      "cart_error": "Възникна грешка при актуализирането на вашата количка. ",
-      "cart_quantity_error_html": "Можете само да добавите {{ quantity }} от този артикул във вашата количка.",
-      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "Включени мита и данъци.  <a href=\"{{ link }}\">доставка<\/a> изчислено при плащане.",
-      "duties_and_taxes_included_shipping_at_checkout_without_policy": "Включени мита и данъци. ",
-      "taxes_included_shipping_at_checkout_with_policy_html": "Включени данъци.  <a href=\"{{ link }}\">доставка<\/a> изчислено при плащане.",
-      "taxes_included_shipping_at_checkout_without_policy": "Включени данъци. ",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "Включени задължения.  <a href=\"{{ link }}\">доставка<\/a> изчислено при плащане.",
-      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "Включени задължения. ",
-      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "Данъци, отстъпки и <a href=\"{{ link }}\">доставка<\/a> изчислено при плащане.",
-      "taxes_at_checkout_shipping_at_checkout_without_policy": "Данъци, отстъпки и доставка, изчислени при плащане.",
+      "title": "سلة التسوق الخاصة بي",
+      "caption": "منتجات السلة",
+      "remove_title": "إزالة {{ title }}",
+      "subtotal": "المجموع الفرعي",
+      "new_subtotal": "المجموع الفرعي الجديد",
+      "note": "تعليمات خاصة بالطلب",
+      "checkout": "إتمام الشراء",
+      "view_cart": "عرض السلة",
+      "empty": "سلة التسوق فارغة",
+      "continue_shopping": "مواصلة التسوق",
+      "cart_error": "حدث خطأ أثناء تحديث سلة التسوق. يرجى المحاولة مرة أخرى.",
+      "cart_quantity_error_html": "يمكنك إضافة {{ quantity }} فقط من هذا المنتج إلى سلتك.",
+      "duties_and_taxes_included_shipping_at_checkout_with_policy_html": "شامل الرسوم الجمركية والضرائب. يتم احتساب الخصومات و<a href=\"{{ link }}\">الشحن<\/a> عند إتمام الشراء.",
+      "duties_and_taxes_included_shipping_at_checkout_without_policy": "شامل الرسوم الجمركية والضرائب. يتم احتساب الخصومات والشحن عند إتمام الشراء.",
+      "taxes_included_shipping_at_checkout_with_policy_html": "شامل الضريبة. يتم احتساب الخصومات و<a href=\"{{ link }}\">الشحن<\/a> عند إتمام الشراء.",
+      "taxes_included_shipping_at_checkout_without_policy": "شامل الضريبة. يتم احتساب الخصومات والشحن عند إتمام الشراء.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_with_policy_html": "شامل الرسوم الجمركية. يتم احتساب الضرائب والخصومات و<a href=\"{{ link }}\">الشحن<\/a> عند إتمام الشراء.",
+      "duties_included_taxes_at_checkout_shipping_at_checkout_without_policy": "شامل الرسوم الجمركية. يتم احتساب الضرائب والخصومات والشحن عند إتمام الشراء.",
+      "taxes_at_checkout_shipping_at_checkout_with_policy_html": "يتم احتساب الضرائب والخصومات و<a href=\"{{ link }}\">الشحن<\/a> عند إتمام الشراء.",
+      "taxes_at_checkout_shipping_at_checkout_without_policy": "يتم احتساب الضرائب والخصومات والشحن عند إتمام الشراء.",
       "headings": {
-        "product": "Продукт",
-        "price": "Цена",
-        "total": "Общо",
-        "quantity": "Количество",
-        "image": "Изображение на продукта"
+        "product": "المنتج",
+        "price": "السعر",
+        "total": "الإجمالي",
+        "quantity": "الكمية",
+        "image": "صورة المنتج"
       },
-      "update": "Актуализация",
+      "update": "تحديث",
       "login": {
-        "title": "Имате акаунт?",
-        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">влезте<\/a> за по-бързо плащане."
+        "title": "هل لديك حساب؟",
+        "paragraph_html": "<a href=\"{{ link }}\" class=\"link underlined-link\">سجّل الدخول<\/a> لإتمام الشراء بشكل أسرع."
       }
     },
     "quick_order_list": {
-      "product_total": "Product subtotal",
-      "view_cart": "View cart",
-      "each": "{{ money }}\/ea",
-      "product": "Product",
-      "variant": "Variant",
-      "variant_total": "Variant total",
+      "product_total": "المجموع الفرعي للمنتج",
+      "view_cart": "عرض السلة",
+      "each": "{{ money }}\/للقطعة",
+      "product": "المنتج",
+      "variant": "الخيار",
+      "variant_total": "إجمالي الخيار",
       "items_added": {
-        "one": "{{ quantity }} item added",
-        "other": "{{ quantity }} items added"
+        "zero": "لم تتم إضافة منتجات",
+        "one": "تمت إضافة منتج واحد",
+        "two": "تمت إضافة منتجين",
+        "few": "تمت إضافة {{ quantity }} منتجات",
+        "many": "تمت إضافة {{ quantity }} منتجًا",
+        "other": "تمت إضافة {{ quantity }} منتج"
       },
       "items_removed": {
-        "one": "{{ quantity }} item removed",
-        "other": "{{ quantity }} items removed"
+        "zero": "لم تتم إزالة منتجات",
+        "one": "تمت إزالة منتج واحد",
+        "two": "تمت إزالة منتجين",
+        "few": "تمت إزالة {{ quantity }} منتجات",
+        "many": "تمت إزالة {{ quantity }} منتجًا",
+        "other": "تمت إزالة {{ quantity }} منتج"
       },
-      "product_variants": "Product variants",
-      "total_items": "Total items",
-      "remove_all_single_item_confirmation": "Remove 1 item from your cart?",
-      "remove_all_items_confirmation": "Remove all {{ quantity }} items from your cart?",
-      "remove_all": "Remove all",
-      "cancel": "Cancel",
-      "min_error": "This item has a minimum of {{ min }}",
-      "max_error": "This item has a maximum of {{ max }}",
-      "step_error": "You can only add this item in increments of {{ step }}"
+      "product_variants": "خيارات المنتج",
+      "total_items": "إجمالي المنتجات",
+      "remove_all_single_item_confirmation": "هل تريد إزالة منتج واحد من سلتك؟",
+      "remove_all_items_confirmation": "هل تريد إزالة جميع المنتجات ({{ quantity }}) من سلتك؟",
+      "remove_all": "إزالة الكل",
+      "cancel": "إلغاء",
+      "min_error": "الحد الأدنى لهذا المنتج هو {{ min }}",
+      "max_error": "الحد الأقصى لهذا المنتج هو {{ max }}",
+      "step_error": "يمكنك إضافة هذا المنتج بمضاعفات {{ step }} فقط"
     }
   },
   "collections": {
     "general": {
-      "empty_product_title": "Няма намерени продукти",
-      "empty_product_desc": "Няма съответстващи продукти от селекцията",
-      "empty_product_use_fewer_filters": "Моля, изберете по-малко филтри",
-      "empty_product_text_or": "или",
-      "empty_product_html_link": "изчисти всичко"
+      "empty_product_title": "لم يتم العثور على منتجات",
+      "empty_product_desc": "لا توجد منتجات مطابقة لاختيارك",
+      "empty_product_use_fewer_filters": "يرجى تحديد عدد أقل من عوامل التصفية",
+      "empty_product_text_or": "أو",
+      "empty_product_html_link": "مسح الكل"
     },
     "sorting": {
-      "title": "Сортирай по",
-      "featured": "Представено",
-      "best_selling": "Най-продаван",
-      "az": "По азбучен ред, A-Z",
-      "za": "По азбучен ред Я-А",
-      "price_ascending": "Цена, ниска към висока",
-      "price_descending": "Цена, висока към ниска",
-      "date_descending": "Дата, нова към стара",
-      "date_ascending": "Дата, старо към ново"
+      "title": "ترتيب حسب",
+      "featured": "مميز",
+      "best_selling": "الأكثر مبيعًا",
+      "az": "أبجديًا، أ-ي",
+      "za": "أبجديًا، ي-أ",
+      "price_ascending": "السعر: من الأقل إلى الأعلى",
+      "price_descending": "السعر: من الأعلى إلى الأقل",
+      "date_descending": "التاريخ: من الأحدث إلى الأقدم",
+      "date_ascending": "التاريخ: من الأقدم إلى الأحدث"
     },
     "facets": {
-      "filter_by_label": "Филтър",
+      "filter_by_label": "تصفية",
       "results_with_count": {
-        "one": "{{ count }} намерен резултат за „{{ terms }}”",
-        "other": "{{ count }} намерени резултати за „{{ terms }}”"
+        "zero": "لا توجد نتائج لـ “{{ terms }}”",
+        "one": "تم العثور على نتيجة واحدة لـ “{{ terms }}”",
+        "two": "تم العثور على نتيجتين لـ “{{ terms }}”",
+        "few": "تم العثور على {{ count }} نتائج لـ “{{ terms }}”",
+        "many": "تم العثور على {{ count }} نتيجة لـ “{{ terms }}”",
+        "other": "تم العثور على {{ count }} نتيجة لـ “{{ terms }}”"
       },
       "product_count_simple": {
-        "one": "{{ count }} продукт",
-        "other": "{{ count }} продукти"
+        "zero": "لا توجد منتجات",
+        "one": "منتج واحد",
+        "two": "منتجان",
+        "few": "{{ count }} منتجات",
+        "many": "{{ count }} منتجًا",
+        "other": "{{ count }} منتج"
       },
       "product_count": {
-        "one": "{{ product_count }} на {{ count }} продукт",
-        "other": "{{ product_count }} на {{ count }} продукти"
+        "one": "{{ product_count }} من {{ count }} منتج",
+        "other": "{{ product_count }} من {{ count }} منتج"
       },
-      "clear_all": "Изчисти всичко",
+      "clear_all": "مسح الكل",
       "filters_selected": {
-        "one": "{{ count }} избрани",
-        "other": "{{ count }} избрани"
+        "one": "تم تحديد {{ count }}",
+        "other": "تم تحديد {{ count }}"
       },
-      "max_price": "Най-високата цена е {{ price }}",
-      "filter_reset": "Нулиране",
-      "price_filter_from": "от",
-      "price_filter_to": "до",
-      "filter_button": "Филтър"
+      "max_price": "أعلى سعر هو {{ price }}",
+      "filter_reset": "إعادة تعيين",
+      "price_filter_from": "من",
+      "price_filter_to": "إلى",
+      "filter_button": "تصفية"
     }
   },
   "contact": {
     "form": {
-      "post_success": "Благодаря, че се свързахте с нас. "
+      "post_success": "شكرًا لتواصلك معنا. سنرد عليك في أقرب وقت ممكن."
     },
     "ask-form": {
-      "heading": "Задайте въпрос",
-      "name": "Вашето име",
-      "email": "Вашият имейл",
-      "phone": "Вашият телефонен номер",
-      "message": "Вашето съобщение",
-      "required-fields": "Задължителни полета",
-      "send": "Изпратете сега",
-      "post_success": "Благодаря за въпроса. "
+      "heading": "اطرح سؤالاً",
+      "name": "اسمك",
+      "email": "بريدك الإلكتروني",
+      "phone": "رقم هاتفك",
+      "message": "رسالتك",
+      "required-fields": "حقول مطلوبة",
+      "send": "إرسال الآن",
+      "post_success": "شكرًا لسؤالك. سنرد عليك في أقرب وقت ممكن."
     }
   },
   "customer": {
     "account": {
-      "title": "Моят акаунт",
-      "details": "Данни за акаунта",
-      "logout": "Изход",
-      "view_addresses": "Вижте адреси",
-      "return": "Върнете се към подробностите за акаунта",
-      "note": "Забележка"
+      "title": "حسابي",
+      "details": "تفاصيل الحساب",
+      "logout": "تسجيل الخروج",
+      "view_addresses": "عرض العناوين",
+      "return": "العودة إلى تفاصيل الحساب",
+      "note": "ملاحظة"
     },
     "activate_account": {
-      "title": "Активирайте акаунта",
-      "subtext": "Създайте парола, за да активирате акаунта си.",
-      "password": "Парола",
-      "password_confirm": "Потвърдете паролата",
-      "submit": "Активирайте акаунта",
-      "cancel": "Отклонете поканата"
+      "title": "تفعيل الحساب",
+      "subtext": "أنشئ كلمة المرور لتفعيل حسابك.",
+      "password": "كلمة المرور",
+      "password_confirm": "تأكيد كلمة المرور",
+      "submit": "تفعيل الحساب",
+      "cancel": "رفض الدعوة"
     },
     "addresses": {
-      "title": "Вашите адреси",
-      "default": "По подразбиране",
-      "add_new": "Добавете нов адрес",
-      "edit_address": "Редактиране на адреса",
-      "first_name": "Първо име",
-      "last_name": "Фамилия",
-      "company": "Компания",
-      "address1": "Адрес1",
-      "address2": "Адрес2",
-      "city": "град",
-      "country": "държава",
-      "province": "Провинция",
-      "zip": "Пощенски код",
-      "phone": "Телефон",
-      "set_default": "Задайте като адрес по подразбиране",
-      "add": "Добавете адрес",
-      "update": "Актуализирайте адреса",
-      "cancel": "Отказ",
-      "edit": "Редактиране",
-      "delete": "Изтриване"
+      "title": "عناوينك",
+      "default": "افتراضي",
+      "add_new": "إضافة عنوان جديد",
+      "edit_address": "تعديل العنوان",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "company": "الشركة",
+      "address1": "العنوان 1",
+      "address2": "العنوان 2",
+      "city": "المدينة",
+      "country": "الدولة",
+      "province": "المنطقة",
+      "zip": "الرمز البريدي",
+      "phone": "الهاتف",
+      "set_default": "تعيين كعنوان افتراضي",
+      "add": "إضافة عنوان",
+      "update": "تحديث العنوان",
+      "cancel": "إلغاء",
+      "edit": "تعديل",
+      "delete": "حذف"
     },
     "login": {
-      "title": "Вход в акаунт",
-      "email": "Имейл адрес",
-      "password": "Парола",
-      "forgot_password": "Забравена парола?",
-      "sign_in": "влезте",
-      "cancel": "Връщане в магазина",
-      "guest_title": "Продължете като гост",
-      "guest_continue": "Продължи",
-      "alternate_provider_separator": "или"
+      "title": "تسجيل الدخول",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "forgot_password": "هل نسيت كلمة المرور؟",
+      "sign_in": "تسجيل الدخول",
+      "cancel": "العودة إلى المتجر",
+      "guest_title": "المتابعة كزائر",
+      "guest_continue": "متابعة",
+      "alternate_provider_separator": "أو"
     },
     "orders": {
-      "title": "История на поръчките",
-      "order_number": "ред",
-      "date": "Дата",
-      "payment_status": "Състояние на плащане",
-      "fulfillment_status": "Статус на изпълнение",
-      "total": "Общо",
-      "none": "Все още не сте направили никакви поръчки."
+      "title": "سجل الطلبات",
+      "order_number": "الطلب",
+      "date": "التاريخ",
+      "payment_status": "حالة الدفع",
+      "fulfillment_status": "حالة التجهيز",
+      "total": "الإجمالي",
+      "none": "لم تقم بأي طلبات حتى الآن."
     },
     "order": {
-      "title": "ред {{ name }}",
-      "date": "Поставен на {{ date }}",
-      "cancelled": "Поръчката е анулирана на {{ date }}",
-      "cancelled_reason": "причина: {{ reason }}",
-      "order_summery": "Резюме на поръчката",
-      "payment_summery": "Обобщение на плащането",
-      "billing_address": "Адрес за фактуриране",
-      "payment_status": "Състояние на плащане",
-      "shipping_address": "Адрес за доставка",
-      "fulfillment_status": "Статус на изпълнение",
-      "discount": "Отстъпка",
-      "shipping": "Доставка",
-      "tax": "Данък",
-      "product": "Продукт",
-      "sku": "SKU",
-      "price": "Цена",
-      "quantity": "Количество",
-      "total": "Общо",
-      "fulfilled_at": "Изпълнено {{ date }}",
-      "subtotal": "Междинна сума"
+      "title": "الطلب {{ name }}",
+      "date": "تم الطلب في {{ date }}",
+      "cancelled": "تم إلغاء الطلب في {{ date }}",
+      "cancelled_reason": "السبب: {{ reason }}",
+      "order_summery": "ملخص الطلب",
+      "payment_summery": "ملخص الدفع",
+      "billing_address": "عنوان الفوترة",
+      "payment_status": "حالة الدفع",
+      "shipping_address": "عنوان الشحن",
+      "fulfillment_status": "حالة التجهيز",
+      "discount": "الخصم",
+      "shipping": "الشحن",
+      "tax": "الضريبة",
+      "product": "المنتج",
+      "sku": "رمز المنتج (SKU)",
+      "price": "السعر",
+      "quantity": "الكمية",
+      "total": "الإجمالي",
+      "fulfilled_at": "تم التجهيز في {{ date }}",
+      "subtotal": "المجموع الفرعي"
     },
     "recover_password": {
-      "title": "Нулирайте паролата си",
-      "email": "Имейл адрес",
-      "submit": "Изпратете",
-      "cancel": "Отказ",
-      "subtext": "Ще ви изпратим имейл, за да нулирате паролата си.",
-      "success": "Изпратихме ви имейл с връзка за актуализиране на паролата ви."
+      "title": "إعادة تعيين كلمة المرور",
+      "email": "البريد الإلكتروني",
+      "submit": "إرسال",
+      "cancel": "إلغاء",
+      "subtext": "سنرسل لك بريدًا إلكترونيًا لإعادة تعيين كلمة المرور.",
+      "success": "أرسلنا لك بريدًا إلكترونيًا يحتوي على رابط لتحديث كلمة المرور."
     },
     "reset_password": {
-      "title": "Нулирайте паролата на акаунта",
-      "subtext": "Въведете нова парола за {{ email }}",
-      "password": "Парола",
-      "password_confirm": "Потвърдете паролата",
-      "submit": "Нулирайте паролата"
+      "title": "إعادة تعيين كلمة مرور الحساب",
+      "subtext": "أدخل كلمة مرور جديدة لـ {{ email }}",
+      "password": "كلمة المرور",
+      "password_confirm": "تأكيد كلمة المرور",
+      "submit": "إعادة تعيين كلمة المرور"
     },
     "register": {
-      "title": "Създаване на акаунт",
-      "first_name": "Първо име",
-      "last_name": "Фамилия",
-      "email": "Имейл адрес",
-      "password": "Парола",
-      "submit": "Създавайте",
-      "cancel": "Връщане в магазина"
+      "title": "إنشاء حساب",
+      "first_name": "الاسم الأول",
+      "last_name": "اسم العائلة",
+      "email": "البريد الإلكتروني",
+      "password": "كلمة المرور",
+      "submit": "إنشاء",
+      "cancel": "العودة إلى المتجر"
     }
   },
   "homepage": {
     "header": {
-      "wishlist_title": "Wishlist",
-      "login_title": "Login",
-      "register_title": "Register",
-      "account_title": "Account",
-      "logout_title": "Logout"
+      "wishlist_title": "المفضلة",
+      "login_title": "تسجيل الدخول",
+      "register_title": "إنشاء حساب",
+      "account_title": "الحساب",
+      "logout_title": "تسجيل الخروج",
+      "cart_title": "السلة"
     },
     "sections": {
-      "product_title": "Примерен продукт",
+      "product_title": "منتج تجريبي",
       "product_price": "$19.00"
     }
   },
   "layout": {
     "customer": {
-      "create_account": "Създаване на акаунт"
+      "create_account": "إنشاء حساب"
     }
   },
   "products": {
     "general": {
-      "vendor": "Доставчик",
-      "type": "Тип",
-      "sku": "Sku",
-      "barcode": "Баркод",
-      "weight": "Тегло",
-      "from_text_html": "от {{ price }}",
-      "sale_price": "Продажна цена",
-      "regular_price": "Редовна цена",
-      "availability": "Наличност:",
-      "in_stock": "В наличност",
-      "out_of_stock": "Изчерпана наличност",
-      "share": "споделяне:"
+      "vendor": "العلامة التجارية",
+      "type": "النوع",
+      "sku": "رمز المنتج",
+      "barcode": "الباركود",
+      "weight": "الوزن",
+      "from_text_html": "ابتداءً من {{ price }}",
+      "sale_price": "سعر التخفيض",
+      "regular_price": "السعر الأصلي",
+      "availability": "التوفر:",
+      "in_stock": "متوفر",
+      "out_of_stock": "غير متوفر",
+      "share": "مشاركة:"
     },
     "product": {
-      "sale": "Разпродажба",
-      "sold_out": "Разпродадени",
-      "add_to_cart": "Добавяне в количката",
-      "grid_add_to_cart": "Add",
-      "quick_view": "Quickview",
-      "wishlist": "Wishlist",
-      "unavailable": "Недостъпен",
-      "value_unavailable": "Недостъпен",
-      "choose_options": "Изберете опции",
-      "choose_product_options": "Изберете опции за {{ product_name }}",
-      "description": "Описание",
-      "inventory_in_stock": "В наличност",
-      "inventory_in_stock_show_count": "{{ quantity }} в наличност",
-      "inventory_low_stock": "Нисък запас",
-      "inventory_low_stock_show_count": "Нисък запас: {{ quantity }} наляво",
-      "inventory_out_of_stock": "Изчерпана наличност",
-      "inventory_out_of_stock_continue_selling": "В наличност",
-      "xr_button": "View in your space",
-      "xr_button_label": "View in your space, loads item in augmented reality window",
-      "qty_title": "Количество:",
-      "product_sku_title": "Sku:",
-      "social_share_title": "споделяне:",
-      "product_variants": "Варианти на продукта",
+      "sale": "تخفيض",
+      "sold_out": "نفدت الكمية",
+      "add_to_cart": "أضف إلى السلة",
+      "grid_add_to_cart": "إضافة",
+      "quick_view": "عرض سريع",
+      "wishlist": "المفضلة",
+      "unavailable": "غير متاح",
+      "value_unavailable": "غير متاح",
+      "choose_options": "اختر الخيارات",
+      "choose_product_options": "اختر خيارات {{ product_name }}",
+      "description": "الوصف",
+      "inventory_in_stock": "متوفر. جاهز للشحن!",
+      "inventory_in_stock_show_count": "{{ quantity }} متوفر. جاهز للشحن!",
+      "inventory_low_stock": "الكمية محدودة",
+      "inventory_low_stock_show_count": "الكمية محدودة: متبقي {{ quantity }}",
+      "inventory_out_of_stock": "نفدت الكمية",
+      "inventory_out_of_stock_continue_selling": "متوفر",
+      "xr_button": "اعرضه في مساحتك",
+      "xr_button_label": "اعرضه في مساحتك، يفتح المنتج في نافذة الواقع المعزز",
+      "qty_title": "الكمية:",
+      "product_sku_title": "رمز المنتج:",
+      "social_share_title": "مشاركة:",
+      "product_variants": "خيارات المنتج",
       "price": {
         "from_price_html": "{{ price }}",
-        "regular_price": "Редовна цена",
-        "sale_price": "Продажна цена",
-        "unit_price": "Единична цена"
+        "regular_price": "السعر الأصلي",
+        "sale_price": "سعر التخفيض",
+        "unit_price": "سعر الوحدة"
       },
       "quantity": {
-        "label": "Количество:",
-        "input_label": "Количество за {{ product }}",
-        "increase": "Увеличете количеството за {{ product }}",
-        "decrease": "Намаляване на количеството за {{ product }}",
-        "minimum_of": "Минимум от {{ quantity }}",
-        "maximum_of": "Максимум от {{ quantity }}",
-        "multiples_of": "Увеличения на {{ quantity }}",
-        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}<\/span> в количката"
+        "label": "الكمية:",
+        "input_label": "الكمية لـ {{ product }}",
+        "increase": "زيادة الكمية لـ {{ product }}",
+        "decrease": "تقليل الكمية لـ {{ product }}",
+        "minimum_of": "الحد الأدنى {{ quantity }}",
+        "maximum_of": "الحد الأقصى {{ quantity }}",
+        "multiples_of": "بمضاعفات {{ quantity }}",
+        "in_cart_html": "<span class=\"quantity-cart\">{{ quantity }}<\/span> في السلة"
       },
       "pickup_availability": {
-        "view_store_info": "Вижте информацията за магазина",
-        "check_other_stores": "Проверете наличността в други магазини",
-        "pick_up_available": "Възможност за вземане",
-        "pick_up_unavailable": "Вземането в момента не е налично на <span class=\"color-foreground\">{{ location_name }}<\/span>",
-        "unavailable": "Наличността за получаване на място не можа да се зареди",
-        "refresh": "Опресняване"
+        "view_store_info": "عرض معلومات المتجر",
+        "check_other_stores": "تحقق من التوفر في متاجر أخرى",
+        "pick_up_available": "الاستلام من المتجر متاح",
+        "pick_up_unavailable": "الاستلام غير متاح حاليًا في <span class=\"color-foreground\">{{ location_name }}<\/span>",
+        "unavailable": "تعذر تحميل معلومات الاستلام",
+        "refresh": "تحديث"
       },
       "volume_pricing": {
-        "title": "Обемно ценообразуване",
-        "note": "Предлага се ценообразуване за обем",
-        "minimum": "{{ quantity }}+",
-        "price_at_each": "при {{ price }}\/ea",
+        "title": "أسعار الكميات",
+        "note": "أسعار الكميات متاحة",
+        "minimum": "+{{ quantity }}",
+        "price_at_each": "بسعر {{ price }}\/للقطعة",
         "price_range": "{{ minimum }} - {{ maximum }}"
       },
-      "taxes_included": "Включени данъци.",
-      "duties_included": "Включени задължения.",
-      "duties_and_taxes_included": "Включени мита и данъци.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Доставка<\/a> изчислено при плащане."
+      "taxes_included": "شامل الضريبة.",
+      "duties_included": "شامل الرسوم الجمركية.",
+      "duties_and_taxes_included": "شامل الرسوم الجمركية والضرائب.",
+      "shipping_policy_html": "يتم احتساب <a href=\"{{ link }}\">الشحن<\/a> عند إتمام الشراء."
     },
     "facets": {
-      "show_more": "Show more"
+      "show_more": "عرض المزيد"
     }
   },
   "templates": {
     "search": {
-      "no_results": "Няма намерени резултати за „{{ terms }}”. ",
-      "page": "Страница",
-      "products": "Продукти",
-      "submit": "Search",
-      "placeholder": "Търсете в нашия магазин",
+      "no_results": "لم يتم العثور على نتائج لـ “{{ terms }}”. تحقق من الإملاء أو استخدم كلمة أو عبارة مختلفة.",
+      "page": "صفحة",
+      "products": "المنتجات",
+      "submit": "بحث",
+      "title": "نتائج البحث",
+      "items": "العناصر",
+      "reset": "مسح",
+      "placeholder": "ابحث عن منتج",
       "results_pages_with_count": {
-        "one": "{{ count }} страница",
-        "other": "{{ count }} страници"
+        "zero": "لا توجد صفحات",
+        "one": "صفحة واحدة",
+        "two": "صفحتان",
+        "few": "{{ count }} صفحات",
+        "many": "{{ count }} صفحة",
+        "other": "{{ count }} صفحة"
       },
       "results_suggestions_with_count": {
-        "one": "{{ count }} предложение",
-        "other": "{{ count }} предложения"
+        "zero": "لا توجد اقتراحات",
+        "one": "اقتراح واحد",
+        "two": "اقتراحان",
+        "few": "{{ count }} اقتراحات",
+        "many": "{{ count }} اقتراحًا",
+        "other": "{{ count }} اقتراح"
       },
       "results_products_with_count": {
-        "one": "{{ count }} продукт",
-        "other": "{{ count }} продукти"
+        "zero": "لا توجد منتجات",
+        "one": "منتج واحد",
+        "two": "منتجان",
+        "few": "{{ count }} منتجات",
+        "many": "{{ count }} منتجًا",
+        "other": "{{ count }} منتج"
       },
       "results_with_count": {
-        "one": "{{ count }} резултат",
-        "other": "{{ count }} резултати"
+        "zero": "لا توجد نتائج",
+        "one": "نتيجة واحدة",
+        "two": "نتيجتان",
+        "few": "{{ count }} نتائج",
+        "many": "{{ count }} نتيجة",
+        "other": "{{ count }} نتيجة"
       },
-      "suggestions": "Предложения",
-      "pages": "Страници"
+      "suggestions": "اقتراحات",
+      "pages": "الصفحات"
     },
     "contact": {
       "form": {
-        "error_heading": "Please adjust the following:"
+        "error_heading": "يرجى تصحيح ما يلي:"
       }
     }
   },
   "gift_cards": {
     "issued": {
-      "how_to_use_gift_card": "Използвайте кода на подаръчната карта онлайн или QR кода в магазина",
-      "title": "Ето го твоя {{ value }} баланс на подаръчна карта за {{ shop }}!",
-      "subtext": "Вашата карта за подарък",
-      "gift_card_code": "Код на подаръчна карта",
-      "shop_link": "Посетете онлайн магазина",
-      "add_to_apple_wallet": "Добавете към Apple Wallet",
-      "qr_image_alt": "QR код — сканирайте, за да осребрите подаръчна карта",
-      "copy_code": "Копирайте кода на картата за подарък",
-      "expiration_date": "Изтича {{ expires_on }}",
-      "copy_code_success": "Кодът е копиран успешно",
-      "expired": "Изтекъл"
+      "how_to_use_gift_card": "استخدم رمز بطاقة الهدايا عبر الإنترنت أو رمز QR داخل المتجر",
+      "title": "إليك رصيد بطاقة الهدايا بقيمة {{ value }} لمتجر {{ shop }}!",
+      "subtext": "بطاقة الهدايا الخاصة بك",
+      "gift_card_code": "رمز بطاقة الهدايا",
+      "shop_link": "زيارة المتجر الإلكتروني",
+      "add_to_apple_wallet": "إضافة إلى Apple Wallet",
+      "qr_image_alt": "رمز QR — امسحه لاسترداد بطاقة الهدايا",
+      "copy_code": "نسخ رمز بطاقة الهدايا",
+      "expiration_date": "تنتهي الصلاحية في {{ expires_on }}",
+      "copy_code_success": "تم نسخ الرمز بنجاح",
+      "expired": "منتهية الصلاحية"
     }
   },
   "recipient": {
     "form": {
-      "checkbox": "Искам да изпратя това като подарък",
-      "expanded": "Формулярът за получател на карта за подарък е разширен",
-      "collapsed": "Формулярът за получател на карта за подарък е свит",
-      "email_label": "Имейл на получателя",
-      "email_label_optional_for_no_js_behavior": "Имейл на получателя (по избор)",
-      "email": "Имейл",
-      "name_label": "Име на получателя (по избор)",
-      "name": "Име",
-      "message_label": "Съобщение (по избор)",
-      "message": "Съобщение",
-      "max_characters": "{{ max_chars }} знаци макс",
-      "send_on": "ГГГГ-ММ-ДД",
-      "send_on_label": "Изпрати на (по избор)"
+      "checkbox": "أريد إرسال هذا كهدية",
+      "expanded": "تم توسيع نموذج مستلم بطاقة الهدايا",
+      "collapsed": "تم طي نموذج مستلم بطاقة الهدايا",
+      "email_label": "البريد الإلكتروني للمستلم",
+      "email_label_optional_for_no_js_behavior": "البريد الإلكتروني للمستلم (اختياري)",
+      "email": "البريد الإلكتروني",
+      "name_label": "اسم المستلم (اختياري)",
+      "name": "الاسم",
+      "message_label": "الرسالة (اختياري)",
+      "message": "الرسالة",
+      "max_characters": "{{ max_chars }} حرفًا كحد أقصى",
+      "send_on": "YYYY-MM-DD",
+      "send_on_label": "تاريخ الإرسال (اختياري)"
     }
   },
   "date_formats": {
-    "month_day_year": "%B %d, %Y"
+    "month_day_year": "%d %B %Y"
   }
 }

@@ -18,7 +18,7 @@
         <div class="cart-inner-empty">
           <i class="feather-shopping-bag"></i>
           <span>{{ 'sections.cart.empty' | t }}</span>
-          <a href="/collections" class="btn-style">{{ 'sections.cart.continue_shopping' | t }}</a>
+          <a href="{{ routes.collections_url }}" class="btn-style">{{ 'sections.cart.continue_shopping' | t }}</a>
         </div>
       {%- endif -%}
       {% if settings.is_free_shipping_bar %}
@@ -298,7 +298,7 @@
               {{ 'sections.cart.update' | t }}
             </button>
           </noscript>
-          <a href="/cart" class="btn-style">{{ 'sections.cart.view_cart' | t }}</a>
+          <a href="{{ routes.cart_url }}" class="btn-style">{{ 'sections.cart.view_cart' | t }}</a>
           <button
             class="btn-style2 check-btn"
             type="submit"

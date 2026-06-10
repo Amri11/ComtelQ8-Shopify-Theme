@@ -2,7 +2,7 @@
 <section class="customer-page section-ptb my-account-page">
   <div class="container">
     <div class="return-acc-detail">
-      <a href="/account">{{ 'customer.account.return' | t }}</a>
+      <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
     </div>
     <div class="order-info-overwrap">
       <h2 class="mr-0">
@@ -198,7 +198,6 @@
                               {{- unit_price_base_unit -}}
                             </span>
                         {%- endif -%}
-                      </dl>
                     {%- else -%}
                       {{ line_item.price | money }}
                     {%- endif -%}

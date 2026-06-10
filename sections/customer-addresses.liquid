@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="return-acc-detail">
-      <a href="/account">{{ 'customer.account.return' | t }}</a>
+      <a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a>
     </div>
     {% paginate customer.addresses by 5 %}
       <div class="address-wrap">

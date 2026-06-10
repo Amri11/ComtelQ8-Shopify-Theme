@@ -247,7 +247,7 @@
                 data-bs-target="#pro-review"
                 class="tab-title"
                 data-bs-toggle="collapse"
-                {% if forloop.first %}aria-expanded="true"{% else %}aria-expanded="false"{% endif %}
+                aria-expanded="false"
                 aria-label="{{ section.settings.review_title }}"
               >
                 <h6 class="mr-0 tab-name">{{ section.settings.review_title }}</h6>
@@ -270,7 +270,7 @@
                 type="button"
                 data-bs-target="#pro-review"
                 data-bs-toggle="tab"
-                {% if forloop.first %}aria-selected="true"{% else %}aria-selected="false"{% endif %}
+                aria-selected="false"
                 aria-label="{{ section.settings.review_title }}"
               >
                 {{ section.settings.review_title }}

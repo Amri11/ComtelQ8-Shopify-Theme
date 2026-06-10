@@ -75,60 +75,10 @@
       {{ body_font_italic | font_face: font_display: 'swap' }}
       {{ body_font_bold_italic | font_face: font_display: 'swap' }}
       {% endif %}
-      {%- liquid
-      unless settings.header_custom_font_handle_enable
-        assign header_font = settings.header_font_handle
-       endunless 
-      -%}
-      {%- liquid
-        unless settings.section_header_custom_font_handle_enable
-          assign section_header_font = settings.section_header_font_handle
-        endunless
-      -%}
-      {%- liquid
-        unless settings.paragraph_custom_font_handle_enable
-        assign paragraph_font = settings.paragraph_font_handle
-        endunless
-      -%}
-      {%- liquid
-        unless settings.other_custom_font_handle_enable
-          assign other_font = settings.other_font_handle
-        endunless
-      -%}
-      {%- liquid
-        unless settings.body_custom_font_handle_enable
-          assign body_font = settings.body_font_handle
-          assign body_font_bolder = body_font | font_modify: 'weight', 'bolder'
-          assign body_font_bold = body_font | font_modify: 'weight', 'bold'
-          assign body_font_italic = body_font | font_modify: 'style', 'italic'
-          assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
-        endunless
-      -%}
     </style>
     {%- render 'header-css' -%}
     {%- render 'css-variables' -%}
     <style>
-      {%- liquid 
-        unless settings.header_custom_font_handle_enable
-          echo header_font | font_face: font_display: 'swap'
-        endunless
-      -%}
-      {% unless settings.section_header_custom_font_handle_enable %}
-      {{ section_header_font | font_face: font_display: 'swap' }}
-      {% endunless %}
-      {% unless settings.paragraph_custom_font_handle_enable %}
-      {{ paragraph_font | font_face: font_display: 'swap' }}
-      {% endunless %}
-      {% unless settings.other_custom_font_handle_enable %}
-      {{ other_font | font_face: font_display: 'swap' }}
-      {% endunless %}
-      {% unless settings.body_custom_font_handle_enable %}
-      {{ body_font | font_face: font_display: 'swap' }}
-      {{ body_font_bolder | font_face: font_display: 'swap' }}
-      {{ body_font_bold | font_face: font_display: 'swap' }}
-      {{ body_font_italic | font_face: font_display: 'swap' }}
-      {{ body_font_bold_italic | font_face: font_display: 'swap' }}
-      {% endunless %}
       :root {
         --section-title-bottom-space: {{ settings.title_padding_bottom }}px;
         --section-title-bottom-space-mobile: {{ settings.title_padding_bottom_xs }}px;
@@ -210,7 +160,7 @@
     {{ content_for_header }}
     <script type="text/javascript" src="{{ 'plugins.js' | asset_url }}" defer></script>
     {%- render 'header-js' -%}
-    {% if template contains 'customers' or 'cart' %}
+    {% if template contains 'customers' or template contains 'cart' %}
       <script type="text/javascript" src="{{ 'shopify_common.js' | shopify_asset_url }}" defer="defer"></script>
     {% endif %}
     <script>

@@ -63,7 +63,6 @@
                     }
                     jQuery(document).on('click', '.wishlist-custom-action', function(e) {
                       e.preventDefault();
-                      console.log(wishlist_pro);
                       var value = $(this).attr('data-handle');
                       if ($.inArray(value, wishlist_pro) === -1) {
                         if (localStorage.getItem("wishlist")) {
