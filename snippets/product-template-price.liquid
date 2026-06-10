@@ -73,9 +73,13 @@
       >
         <span>
         -<span class="percent-count" id="ProductDiscount">
-          {%- assign _cap = product.selected_or_first_available_variant.compare_at_price -%}
-          {%- assign _p = product.selected_or_first_available_variant.price -%}
-          {{- _cap | minus: _p | times: 100 | divided_by: _cap -}}
+          {%- assign compare_price = product.selected_or_first_available_variant.compare_at_price -%}
+          {%- assign current_price = product.selected_or_first_available_variant.price -%}
+          {%- if compare_price > 0 -%}
+            {{- compare_price | minus: current_price | times: 100 | divided_by: compare_price -}}
+          {%- else -%}
+            0
+          {%- endif -%}
         </span>
         </span>
       </div>

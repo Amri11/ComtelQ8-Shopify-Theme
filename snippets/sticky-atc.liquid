@@ -104,7 +104,7 @@
                 var displayedImage = document.getElementById('imageSelect');
                 var imageMap = {
                   {%- for variant in product.variants -%}
-                    '{{ variant.id }}': '{{ variant.image.src | image_url: width: 720 }}'{% unless forloop.last %},{% endunless %}
+                    '{{ variant.id }}': '{% if variant.image %}{{ variant.image | image_url: width: 720 }}{% endif %}'{% unless forloop.last %},{% endunless %}
                   {%- endfor -%}
                 };
                 imageSelect.addEventListener('change', function() {
