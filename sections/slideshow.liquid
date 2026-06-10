@@ -30,9 +30,20 @@
                 {% assign image_height = block.settings.slider_mobile_img.width | divided_by: block.settings.slider_mobile_img.aspect_ratio %}
                 {{
                   block.settings.slider_mobile_img
-                  | image_url: width: 600
+                  | image_url: width: 1000
                   | image_tag:
                     width: block.settings.slider_mobile_img.width,
+                    height: image_height,
+                    class: 'lazyload mobile-img',
+                    loading: 'lazy'
+                }}
+              {%- elsif block.settings.slider_img != blank -%}
+                {% assign image_height = block.settings.slider_img.width | divided_by: block.settings.slider_img.aspect_ratio %}
+                {{
+                  block.settings.slider_img
+                  | image_url: width: 1000
+                  | image_tag:
+                    width: block.settings.slider_img.width,
                     height: image_height,
                     class: 'lazyload mobile-img',
                     loading: 'lazy'
@@ -174,7 +185,7 @@
           "type": "image_picker",
           "id": "slider_mobile_img",
           "label": "Mobile image",
-          "info": "Recommended: 1000x620px (landscape, ~16:10)"
+          "info": "Recommended: 1000x620px (landscape, ~16:10). Optional — if empty, the desktop image is used on mobile."
         },
         {
           "type": "url",
