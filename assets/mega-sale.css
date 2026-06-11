@@ -45,6 +45,7 @@
   display: grid;
   grid-template-columns: var(--banner-width, 38%) 1fr;
   gap: 24px;
+  padding-top: 12px;
   align-items: stretch;
 }
 .mega-sale .mega-sale-banner,
@@ -274,6 +275,7 @@
 }
 .mega-sale .mega-sale-products .single-product-wrap {
   height: 100%;
+  padding: 12px;
 }
 
 /* slider arrows */
