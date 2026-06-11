@@ -4,7 +4,7 @@
 -%}
 <section
   class="mega-sale mega-sale-{{ section.id }}"
-  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px;--padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--banner-width: {{ section.settings.banner_width }}%;--banner-bg-color: {{ section.settings.banner_bg_color }};--banner-text-color: {{ section.settings.banner_text_color }};--banner-overlay-opacity: {{ section.settings.banner_overlay_opacity | divided_by: 100.0 }};--badge-bg-color: {{ section.settings.badge_bg_color }};--badge-text-color: {{ section.settings.badge_text_color }};--circle-bg-color: {{ section.settings.circle_bg_color }};--circle-text-color: {{ section.settings.circle_text_color }};--accent-color: {{ section.settings.accent_color }};--accent-text-color: {{ section.settings.accent_text_color }};{% if section.settings.banner_bg_gradient != blank %}--section-gradient: {{ section.settings.banner_bg_gradient }};{% endif %}"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px;--padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};--banner-width: {{ section.settings.banner_width }}%;--banner-bg-color: {{ section.settings.banner_bg_color }};--banner-tint-rgb: {{ section.settings.banner_bg_color.red }}, {{ section.settings.banner_bg_color.green }}, {{ section.settings.banner_bg_color.blue }};--banner-text-color: {{ section.settings.banner_text_color }};--banner-tint-opacity: {{ section.settings.banner_tint_opacity | divided_by: 100.0 }};--banner-overlay-opacity: {{ section.settings.banner_overlay_opacity | divided_by: 100.0 }};--badge-bg-color: {{ section.settings.badge_bg_color }};--badge-text-color: {{ section.settings.badge_text_color }};--circle-bg-color: {{ section.settings.circle_bg_color }};--circle-text-color: {{ section.settings.circle_text_color }};--accent-color: {{ section.settings.accent_color }};--accent-text-color: {{ section.settings.accent_text_color }};{% if section.settings.banner_bg_gradient != blank %}--section-gradient: {{ section.settings.banner_bg_gradient }};{% endif %}"
 >
   <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
     {% if section.settings.section_heading != '' or section.settings.shop_all_label != '' %}
@@ -24,23 +24,25 @@
       </div>
     {% endif %}
 
-    <div class="mega-sale-body">
+    <div class="mega-sale-body{% if section.settings.banner_image != blank %} has-bg-image{% endif %}">
+      {%- if section.settings.banner_image != blank -%}
+        <span class="mega-sale-bg" aria-hidden="true">
+          {{
+            section.settings.banner_image
+            | image_url: width: 2000
+            | image_tag:
+              loading: 'lazy',
+              width: section.settings.banner_image.width,
+              height: section.settings.banner_image.height,
+              class: 'lazyload',
+              alt: ''
+          }}
+        </span>
+        <span class="mega-sale-bg-overlay" aria-hidden="true"></span>
+      {%- endif -%}
+
       <div class="mega-sale-banner" data-fade-in>
-        {%- if section.settings.banner_image != blank -%}
-          <span class="banner-bg">
-            {{
-              section.settings.banner_image
-              | image_url: width: 1000
-              | image_tag:
-                loading: 'lazy',
-                width: section.settings.banner_image.width,
-                height: section.settings.banner_image.height,
-                class: 'lazyload',
-                alt: section.settings.banner_title
-            }}
-          </span>
-          <span class="banner-overlay"></span>
-        {%- endif -%}
+        <span class="banner-tint" aria-hidden="true"></span>
 
         <div class="banner-inner">
           {% if section.settings.circle_text != '' or section.settings.circle_value != '' %}
@@ -103,15 +105,27 @@
                 <div class="swiper-slide">
                   <div class="single-product-wrap">
                     <div class="product-image">
+                      <div class="product-label">
+                        {{ 'products.product.sale' | t }}
+                        <span class="percent-count">-14%</span>
+                      </div>
                       {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
                       {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
                     </div>
                     <div class="product-content">
-                      <div class="product-title">
-                        <h6 class="mr-0"><a>{{ 'homepage.sections.product_title' | t }}</a></h6>
-                      </div>
-                      <div class="price-box">
-                        <span class="new-price">{{ 'homepage.sections.product_price' | t }}</span>
+                      <div class="type-title-price">
+                        <div class="type-title">
+                          <div class="product-vendor">Electronics</div>
+                          <h6 class="mr-0"><a>{{ 'homepage.sections.product_title' | t }}</a></h6>
+                        </div>
+                        <div class="price-block">
+                          <span class="price-box">
+                            <span class="new-price">{{ 'homepage.sections.product_price' | t }}</span>
+                          </span>
+                        </div>
+                        <div class="product-stock-status">
+                          <span class="in-stock"><i class="feather-check-circle"></i> In Stock</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -389,7 +403,7 @@
       "max": 100,
       "step": 5,
       "unit": "%",
-      "default": 78
+      "default": 80
     },
     {
       "type": "color",

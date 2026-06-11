@@ -54,6 +54,29 @@
   min-width: 0;
 }
 
+/* full-section background image (spans behind banner + products) */
+.mega-sale .mega-sale-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: 14px;
+  overflow: hidden;
+}
+.mega-sale .mega-sale-bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mega-sale .mega-sale-bg-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 14px;
+  background-color: rgba(0, 0, 0, var(--banner-overlay-opacity, 0));
+  background-image: var(--section-gradient, none);
+}
+
 /* promo banner */
 .mega-sale .mega-sale-banner {
   position: relative;
@@ -64,6 +87,8 @@
   color: var(--banner-text-color, #ffffff);
   background-color: var(--banner-bg-color, #3a3a33);
 }
+/* legacy in-banner image markup — kept so an older cached copy of the
+   section liquid still renders correctly with this stylesheet */
 .mega-sale .mega-sale-banner .banner-bg {
   position: absolute;
   inset: 0;
@@ -81,6 +106,25 @@
   z-index: 1;
   background-color: rgba(0, 0, 0, var(--banner-overlay-opacity, 0));
   background-image: var(--section-gradient, none);
+}
+/* with a section background image, the banner is just a color tint over it */
+.mega-sale .mega-sale-body.has-bg-image .mega-sale-banner {
+  background-color: transparent;
+}
+.mega-sale .mega-sale-banner .banner-tint {
+  display: none;
+}
+.mega-sale .mega-sale-body.has-bg-image .banner-tint {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--banner-tint-rgb, 58, 58, 51), var(--banner-tint-opacity, 0.78)) 0%,
+    rgba(var(--banner-tint-rgb, 58, 58, 51), var(--banner-tint-opacity, 0.78)) 55%,
+    rgba(var(--banner-tint-rgb, 58, 58, 51), 0) 100%
+  );
 }
 .mega-sale .mega-sale-banner .banner-inner {
   position: relative;
@@ -291,6 +335,9 @@
   }
   .mega-sale .mega-sale-banner {
     min-height: 260px;
+  }
+  .mega-sale .mega-sale-body.has-bg-image .banner-tint {
+    background: rgba(var(--banner-tint-rgb, 58, 58, 51), var(--banner-tint-opacity, 0.78));
   }
 }
 
