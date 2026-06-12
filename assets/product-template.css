@@ -334,7 +334,12 @@ product detail css
     margin-inline: 0;
   }
 }
-
+.product_details_info .pro-nprist .product-info:not(.short-description) {
+  margin-top: 25px;
+}
+.product-info.short-description {
+  margin-top: 0px;
+}
 /* product detail rating css*/
 
 .product_details_info .pro-nprist .product-info:first-child {
