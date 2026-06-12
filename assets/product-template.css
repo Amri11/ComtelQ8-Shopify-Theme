@@ -336,9 +336,7 @@ product detail css
 }
 
 /* product detail rating css*/
-.product_details_info .pro-nprist .product-info {
-  margin-top: 25px;
-}
+
 .product_details_info .pro-nprist .product-info:first-child {
   margin-top: 0;
 }
@@ -413,10 +411,7 @@ product detail css
 .product_details_info .pro-nprist .product-info.review .product-count-sale span {
   padding: 0 3px;
 }
-.product_details_info .pro-nprist .product-info.short-description {
-  padding-top: 25px;
-  border-top: var(--sti-border);
-}
+
 @media(max-width: 479px) {
   .product_details_info .pro-nprist .product-info.review {
     align-items: flex-start;
