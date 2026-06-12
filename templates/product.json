@@ -182,7 +182,7 @@
         "section_padding_bottom_xs": 0,
         "product_detail_tab_bgcolor": "rgba(0,0,0,0)",
         "review_title": "Review",
-        "product_detail_tab_option": "collpase_tab"
+        "product_detail_tab_option": "horizontal_tab"
       }
     },
     "about_us_multirow_KmL94K": {
