@@ -62,17 +62,18 @@
           {%- when 'footer_menu' -%}
           <li class="ftlink-li link-list" data-fade-in {{ block.shopify_attributes }}>
             {% assign footer_menu = block.settings.footer_menu_handle %}
+            {%- assign nav_title = block.settings.nav_title | default: linklists[footer_menu].title -%}
             {%- if block.settings.show_nav_title -%}
-              <h2 class="ft-title mr-0">{{ linklists[footer_menu].title }}</h2>
+              <h2 class="ft-title mr-0">{{ nav_title }}</h2>
               <button
                 type="button"
                 data-bs-toggle="collapse"
                 aria-expanded="false"
                 data-bs-target="#collapse-{{ block.id }}"
                 class="ft-title accordian-btn"
-                aria-label="{{ linklists[footer_menu].title }}"
+                aria-label="{{ nav_title }}"
               >
-                <span>{{ linklists[footer_menu].title }}</span>
+                <span>{{ nav_title }}</span>
                 <i class="feather-plus"></i>
               </button>
             {%- endif -%}
@@ -581,6 +582,12 @@
           "id": "show_nav_title",
           "label": "Show heading",
           "default": true
+        },
+        {
+          "type": "text",
+          "id": "nav_title",
+          "label": "Custom heading",
+          "info": "Leave blank to use the selected navigation's name."
         },
         {
           "type": "link_list",
