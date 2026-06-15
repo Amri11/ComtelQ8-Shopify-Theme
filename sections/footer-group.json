@@ -102,7 +102,7 @@
         "menu_text_color": "#808080",
         "menu_text_hv_color": "#196087",
         "enable_follow_on_shop": true,
-        "copyright_text": "All rights reserved.",
+        "copyright_text": "",
         "show_policy": false
       }
     },
