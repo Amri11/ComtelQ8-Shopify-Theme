@@ -13,18 +13,17 @@
   "sections": {
     "campaign-bar": {
       "type": "campaign-bar",
-      "disabled": true,
       "settings": {
-        "container": "fluid",
-        "campaign_text": "<p>Big sale this weekend — up to 50% off!</p>",
+        "container": "normal",
+        "campaign_text": "<p>Use Code <strong>WELCOME </strong>for 10% Off Your First Purchase — New Customers Only</p>",
         "font_size": 14,
         "font_size_xs": 13,
-        "campaign_bg_color": "#196087",
-        "campaign_txt_color": "#ffffff",
-        "section_padding_top": 10,
-        "section_padding_bottom": 10,
-        "section_padding_top_xs": 8,
-        "section_padding_bottom_xs": 8
+        "campaign_bg_color": "#FC0A0A",
+        "campaign_txt_color": "#FC0A0A",
+        "section_padding_top": 0,
+        "section_padding_bottom": 0,
+        "section_padding_top_xs": 0,
+        "section_padding_bottom_xs": 0
       }
     },
     "announcement-bar": {
