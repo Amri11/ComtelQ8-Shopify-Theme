@@ -20,12 +20,12 @@
             "logo_enable": true,
             "logo_desc": "",
             "footer_social_enable": false,
-            "custom_info_1_label": "Mon - fri :",
-            "custom_info_1_text": "<p>9AM - 10PM</p>",
-            "custom_info_2_label": "Set :",
-            "custom_info_2_text": "<p>9AM - 4PM </p>",
-            "custom_info_3_label": "Sun :",
-            "custom_info_3_text": "<p>Closed</p>"
+            "custom_info_1_label": "",
+            "custom_info_1_text": "",
+            "custom_info_2_label": "",
+            "custom_info_2_text": "",
+            "custom_info_3_label": "",
+            "custom_info_3_text": ""
           }
         },
         "footer_menu_6afLjr": {
