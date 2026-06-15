@@ -115,6 +115,7 @@
         "9384f672-312a-4eb6-b7ab-0422efd80cbb",
         "dd0af453-a978-4e5a-b39e-8ea4378716aa"
       ],
+      "disabled": true,
       "settings": {
         "container": "fluid",
         "section_padding_top": 0,
