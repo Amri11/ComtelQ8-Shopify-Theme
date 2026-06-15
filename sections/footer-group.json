@@ -32,6 +32,7 @@
           "type": "footer_menu",
           "settings": {
             "show_nav_title": true,
+            "nav_title": "",
             "footer_menu_handle": "footer"
           }
         },
@@ -39,6 +40,7 @@
           "type": "footer_menu",
           "settings": {
             "show_nav_title": true,
+            "nav_title": "Pages",
             "footer_menu_handle": "footer-2"
           }
         },
@@ -46,6 +48,7 @@
           "type": "footer_menu",
           "settings": {
             "show_nav_title": true,
+            "nav_title": "",
             "footer_menu_handle": ""
           }
         },
@@ -53,6 +56,7 @@
           "type": "footer_menu",
           "settings": {
             "show_nav_title": true,
+            "nav_title": "",
             "footer_menu_handle": ""
           }
         },
@@ -64,7 +68,7 @@
             "contact_info_1_icon": "feather-map-pin",
             "contact_info_1_text": "<p>487, eight avenue, new york</p>",
             "contact_info_2_icon": "feather-phone-call",
-            "contact_info_2_text": "<p><a href=\"tel:+0123 456 789\" title=\"tel:+0123 456 789\">+0123 456 789</a></p>",
+            "contact_info_2_text": "<p>98820909</p>",
             "contact_info_3_icon": "feather-mail",
             "contact_info_3_text": "<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com</a></p>"
           }
