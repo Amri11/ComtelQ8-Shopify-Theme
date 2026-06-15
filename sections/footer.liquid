@@ -218,22 +218,7 @@
         {{ shop | login_button: action: 'follow' }}
       </div>
       {%- endif -%}
-      <div class="footer-bottom-bar">
-        <span class="footer-copyright">
-          &copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}. {{ section.settings.copyright_text }}
-        </span>
-        {%- if section.settings.show_policy -%}
-        <ul class="list-unstyled policies">
-          {%- for policy in shop.policies -%}
-            {%- if policy != blank -%}
-              <li>
-                <a href="{{ policy.url }}">{{ policy.title | escape }}</a>
-              </li>
-            {%- endif -%}
-          {%- endfor -%}
-        </ul>
-        {%- endif -%}
-      </div>
+    
     </div>
   </div>
 </section>
