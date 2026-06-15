@@ -130,7 +130,7 @@
     "contact-form": {
       "type": "contact-form",
       "settings": {
-        "container": "fluid",
+        "container": "normal",
         "section_padding_top": 100,
         "section_padding_bottom": 100,
         "section_padding_top_xs": 60,
