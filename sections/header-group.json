@@ -13,6 +13,7 @@
   "sections": {
     "campaign-bar": {
       "type": "campaign-bar",
+      "disabled": true,
       "settings": {
         "container": "fluid",
         "campaign_text": "<p>Big sale this weekend — up to 50% off!</p>",
