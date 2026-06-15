@@ -27,37 +27,6 @@
       </h1>
     </div>
 
-    <form action="{{ routes.search_url }}" method="get" role="search" class="search">
-      <div class="field">
-        <label for="search" class="hidden">{{ 'templates.search.placeholder' | t }}</label>
-        <input
-          id="search"
-          type="search"
-          name="q"
-          value="{{ search.terms | escape }}"
-          placeholder="{{ 'templates.search.placeholder' | t }}"
-          {%- if settings.ajax_search_enabled -%}
-            role="combobox"
-            aria-owns="search-ajax-results"
-            aria-controls="search-ajax-results"
-            aria-haspopup="listbox"
-            aria-autocomplete="list"
-            autocorrect="off"
-            autocomplete="off"
-            autocapitalize="off"
-            spellcheck="false"
-          {%- endif -%}
-          required
-        >
-        <input type="hidden" name="options[prefix]" value="last">
-        <button type="reset" class="reset-input{% if search.terms == blank %} hidden{% endif %}" aria-label="{{ 'templates.search.reset' | t }}">
-          <i class="feather-x"></i>
-        </button>
-        <button type="submit" class="search-btn" aria-label="search">
-          {{ 'templates.search.submit' | t }}
-        </button>
-      </div>
-    </form>
     {%- if search.performed -%}
       <div class="search-items-head">
         <h2 class="search-items-title mr-0">{{ 'templates.search.items' | t | default: 'Items' }}</h2>
@@ -158,27 +127,6 @@
     {%- endif -%}
   </div>
 </section>
-<script type="text/javascript">
-  addEventListener('DOMContentLoaded', function () {
-    var searchForm = document.querySelector('.search-page form.search');
-    if (searchForm) {
-      var searchInput = searchForm.querySelector('input[type="search"]');
-      var clearBtn = searchForm.querySelector('.reset-input');
-      if (searchInput && clearBtn) {
-        var toggleClear = function () {
-          clearBtn.classList.toggle('hidden', searchInput.value.trim() === '');
-        };
-        searchInput.addEventListener('input', toggleClear);
-        clearBtn.addEventListener('click', function () {
-          searchInput.value = '';
-          clearBtn.classList.add('hidden');
-          searchInput.focus();
-        });
-        toggleClear();
-      }
-    }
-  });
-</script>
 <script type="text/javascript">
   addEventListener('DOMContentLoaded', function () {
     var swiper = new Swiper('#pro-{{ section.id }}', {
