@@ -28,7 +28,6 @@
     },
     "announcement-bar": {
       "type": "announcement-bar",
-      "disabled": true,
       "settings": {
         "container": "normal",
         "section_padding_top": 15,
