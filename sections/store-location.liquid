@@ -1,93 +1,102 @@
 {{ 'store-location.css' | asset_url | stylesheet_tag }}
 <section
   class="store-location"
-  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;"
+  style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px; --background-color: {{ section.settings.section_background_color }};"
 >
   <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
-    {% for block in section.blocks %}
-      <div class="store-content" {{ block.shopify_attributes }}>
-        <div class="contact-content">
-          <div class="contact-detail image-warp">
-            <a href="{{ block.settings.contact_img_url }}" class="contact-img-wrap banner-hover">
-              {%- if block.settings.contact_img != blank -%}
-                {{
-                  block.settings.contact_img
-                  | image_url: width: 1024
-                  | image_tag:
-                    loading: 'lazy',
-                    width: block.settings.contact_img.width,
-                    height: block.settings.contact_img.height,
-                    class: 'lazyload',
-                    alt: block.settings.contact_img.alt
-                  | escape
-                }}
-              {%- else -%}
-                {%- capture placeholder -%}product-apparel-{% cycle 1, 2, 3, 4 %}{%- endcapture -%}
-                {{ placeholder | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
-              {%- endif -%}
-            </a>
-          </div>
-          <div class="contact-detail get-info">
-            <div class="store-info">
-              <div class="section-title">
-                <h2 class="mr-0" data-fade-in>{{ block.settings.store_title }}</h2>
-              </div>
-              <ul class="info_wrap list-unstyled">
-                <li data-fade-in class="info_wrapper">
-                  <div class="info-block">
-                    <div class="icon">
-                      {{ block.settings.info_icon1 }}
-                    </div>
-                    <div class="text-block">
-                      <span>{{ block.settings.sub_title1 }}</span>
-                      <a href="tel:{{ block.settings.contact_number }}">{{ block.settings.contact_number }}</a>
-                    </div>
-                  </div>
-                </li>
-                <li data-fade-in class="info_wrapper">
-                  <div class="info-block">
-                    <div class="icon">
-                      {{ block.settings.info_icon2 }}
-                    </div>
-                    <div class="text-block">
-                      <span>{{ block.settings.sub_title2 }}</span>
-                      <a href="mailto:{{ block.settings.mail_address }}">{{ block.settings.mail_address }}</a>
-                    </div>
-                  </div>
-                </li>
-                <li data-fade-in class="info_wrapper">
-                  <div class="info-block">
-                    <div class="icon">
-                      {{ block.settings.info_icon3 }}
-                    </div>
-                    <div class="text-block">
-                      <span>{{ block.settings.sub_title3 }}</span>
-                      <p class="mr-0">{{ block.settings.info_link3 }}</p>
-                    </div>
-                  </div>
-                </li>
-                <li data-fade-in class="info_wrapper">
-                  <div class="info-block">
-                    <div class="icon">
-                      {{ block.settings.info_icon4 }}
-                    </div>
-                    <div class="text-block">
-                      <span>{{ block.settings.sub_title4 }}</span>
-                      <p class="mr-0">{{ block.settings.info_link4 }}</p>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
+    {% if section.settings.section_subheading != blank or section.settings.section_heading != blank %}
+      <div class="section-capture">
+        <div class="section-title">
+          {% if section.settings.section_subheading != blank %}
+            <span data-fade-in class="sub-title">{{ section.settings.section_subheading }}</span>
+          {% endif %}
+          {% if section.settings.section_heading != blank %}
+            <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
+          {% endif %}
         </div>
       </div>
-    {% endfor %}
+    {% endif %}
+
+    <div class="store-grid">
+      {% for block in section.blocks %}
+        <div class="store-card" {{ block.shopify_attributes }}>
+          <div class="store-card-map">
+            {%- if block.settings.map_embed != blank -%}
+              {{ block.settings.map_embed }}
+            {%- else -%}
+              <div class="store-card-map-placeholder">
+                {{ 'image' | placeholder_svg_tag: 'placeholder-svg w-100 h-100' }}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="store-card-info">
+            {% if block.settings.store_title != blank %}
+              <h3 class="store-card-title mr-0" data-fade-in>{{ block.settings.store_title }}</h3>
+            {% endif %}
+
+            <ul class="store-card-list list-unstyled">
+              {% if block.settings.store_address != blank %}
+                <li class="store-card-row" data-fade-in>
+                  <span class="store-card-icon"><i class="feather-map-pin"></i></span>
+                  <div class="store-card-text">
+                    <span class="store-card-label">{{ 'sections.store_location.address' | t | default: 'Address' }}</span>
+                    <p class="mr-0">{{ block.settings.store_address }}</p>
+                  </div>
+                </li>
+              {% endif %}
+
+              {% if block.settings.store_phone != blank %}
+                <li class="store-card-row" data-fade-in>
+                  <span class="store-card-icon"><i class="feather-phone-call"></i></span>
+                  <div class="store-card-text">
+                    <span class="store-card-label">{{ 'sections.store_location.phone' | t | default: 'Phone' }}</span>
+                    <a href="tel:{{ block.settings.store_phone | strip | replace: ' ', '' }}">{{ block.settings.store_phone }}</a>
+                  </div>
+                </li>
+              {% endif %}
+
+              {% if block.settings.store_email != blank %}
+                <li class="store-card-row" data-fade-in>
+                  <span class="store-card-icon"><i class="feather-mail"></i></span>
+                  <div class="store-card-text">
+                    <span class="store-card-label">{{ 'sections.store_location.email' | t | default: 'Email' }}</span>
+                    <a href="mailto:{{ block.settings.store_email }}">{{ block.settings.store_email }}</a>
+                  </div>
+                </li>
+              {% endif %}
+
+              {% if block.settings.store_hours != blank %}
+                <li class="store-card-row" data-fade-in>
+                  <span class="store-card-icon"><i class="feather-clock"></i></span>
+                  <div class="store-card-text">
+                    <span class="store-card-label">{{ 'sections.store_location.hours' | t | default: 'Opening hours' }}</span>
+                    <p class="mr-0">{{ block.settings.store_hours }}</p>
+                  </div>
+                </li>
+              {% endif %}
+            </ul>
+
+            {% if block.settings.directions_url != blank %}
+              <a
+                href="{{ block.settings.directions_url }}"
+                class="store-card-directions"
+                target="_blank"
+                rel="noopener"
+              >
+                {{ block.settings.directions_label | default: 'Get directions' }}
+                <i class="feather-arrow-right"></i>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </section>
 {% schema %}
 {
-  "name": "Store location multirow",
+  "name": "Store location",
   "settings": [
     {
       "type": "header",
@@ -108,6 +117,22 @@
         }
       ],
       "default": "normal"
+    },
+    {
+      "type": "header",
+      "content": "Section heading"
+    },
+    {
+      "type": "text",
+      "id": "section_subheading",
+      "label": "Subheading",
+      "default": "Visit us"
+    },
+    {
+      "type": "text",
+      "id": "section_heading",
+      "label": "Heading",
+      "default": "Our stores"
     },
     {
       "type": "header",
@@ -160,113 +185,91 @@
       "step": 5,
       "unit": "px",
       "default": 60
+    },
+    {
+      "type": "header",
+      "content": "Section background color"
+    },
+    {
+      "type": "color",
+      "id": "section_background_color",
+      "label": "Background color",
+      "default": "#FFFFFF"
     }
   ],
   "blocks": [
     {
-      "type": "store-image",
-      "name": "Image",
+      "type": "store",
+      "name": "Store",
       "settings": [
         {
           "type": "text",
           "id": "store_title",
-          "label": "Heading",
-          "default": "Valsone shop"
+          "label": "Store name",
+          "default": "Store name"
         },
         {
-          "type": "image_picker",
-          "id": "contact_img",
-          "label": "Contact image",
-          "info": "Recommended size: 855x550px"
+          "type": "text",
+          "id": "store_phone",
+          "label": "Phone number",
+          "default": "+965 0000 0000"
+        },
+        {
+          "type": "text",
+          "id": "store_email",
+          "label": "Email address",
+          "info": "Optional"
+        },
+        {
+          "type": "textarea",
+          "id": "store_address",
+          "label": "Address",
+          "default": "Store address, City, Country"
+        },
+        {
+          "type": "textarea",
+          "id": "store_hours",
+          "label": "Opening hours",
+          "info": "Optional",
+          "default": "Sun - Thu : 9:00am - 9:00pm"
+        },
+        {
+          "type": "header",
+          "content": "Google map"
+        },
+        {
+          "type": "textarea",
+          "id": "map_embed",
+          "label": "Google map embed",
+          "info": "On Google Maps: Share > Embed a map > copy the full <iframe> code and paste it here."
         },
         {
           "type": "url",
-          "id": "contact_img_url",
-          "label": "url"
-        },
-        {
-          "type": "textarea",
-          "id": "info_icon1",
-          "label": "Icon"
+          "id": "directions_url",
+          "label": "Directions link",
+          "info": "Optional. Link to the store on Google Maps."
         },
         {
           "type": "text",
-          "id": "sub_title1",
-          "label": "Subheading",
-          "default": "Subheading"
-        },
-        {
-          "type": "text",
-          "id": "contact_number",
-          "label": "Contact number",
-          "default": "+999 3222 000 388"
-        },
-        {
-          "type": "textarea",
-          "id": "info_icon2",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "sub_title2",
-          "label": "Subheading",
-          "default": "Subheading"
-        },
-        {
-          "type": "text",
-          "id": "mail_address",
-          "label": "Mail address",
-          "default": "Mail address"
-        },
-        {
-          "type": "textarea",
-          "id": "info_icon3",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "sub_title3",
-          "label": "Subheading",
-          "default": "Subheading"
-        },
-        {
-          "type": "text",
-          "id": "info_link3",
-          "label": "Store address",
-          "default": "Store address"
-        },
-        {
-          "type": "textarea",
-          "id": "info_icon4",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "sub_title4",
-          "label": "Subheading",
-          "default": "Subheading"
-        },
-        {
-          "type": "text",
-          "id": "info_link4",
-          "label": "Store time",
-          "default": "Store time"
+          "id": "directions_label",
+          "label": "Directions button text",
+          "default": "Get directions"
         }
       ]
     }
   ],
   "presets": [
     {
-      "name": "Store location multirow",
+      "name": "Store location",
       "blocks": [
         {
-          "type": "store-image"
+          "type": "store"
         },
         {
-          "type": "store-image"
+          "type": "store"
         },
         {
-          "type": "store-image"
+          "type": "store"
         }
       ]
     }

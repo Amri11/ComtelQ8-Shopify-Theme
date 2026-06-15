@@ -65,6 +65,12 @@
       "one": "{{ count }} item",
       "other": "{{ count }} items"
     },
+    "store_location": {
+      "address": "Address",
+      "phone": "Phone",
+      "email": "Email",
+      "hours": "Opening hours"
+    },
     "cart": {
       "title": "My shopping cart",
       "caption": "Cart items",
