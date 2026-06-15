@@ -1,7 +1,11 @@
 {%- style -%}
+  #shopify-section-{{ section.id }} {
+    margin: 0;
+  }
   #shopify-section-{{ section.id }} .campaign-bar {
     background-color: {{ section.settings.campaign_bg_color }};
     color: {{ section.settings.campaign_txt_color }};
+    margin: 0;
     padding-top: {{ section.settings.section_padding_top }}px;
     padding-bottom: {{ section.settings.section_padding_bottom }}px;
   }
@@ -9,6 +13,9 @@
     text-align: center;
     margin: 0;
     font-size: {{ section.settings.font_size }}px;
+  }
+  #shopify-section-{{ section.id }} .campaign-bar .campaign-text p {
+    margin: 0;
   }
   #shopify-section-{{ section.id }} .campaign-bar .campaign-text a {
     color: {{ section.settings.campaign_txt_color }};
