@@ -1,0 +1,241 @@
+{%- if settings.whatsapp_enable and settings.whatsapp_number != blank -%}
+  {%- liquid
+    assign wa_number = settings.whatsapp_number | remove: ' ' | remove: '+' | remove: '-' | remove: '(' | remove: ')'
+    assign wa_message = settings.whatsapp_message | url_encode
+    assign wa_position = settings.whatsapp_position | default: 'right'
+    assign wa_agent = settings.whatsapp_agent_name | default: 'Customer Support'
+    assign wa_status = settings.whatsapp_agent_status
+    assign wa_greeting = settings.whatsapp_greeting | default: 'Hi there! How can we help you today?'
+    assign wa_btn_label = settings.whatsapp_button_label | default: 'Start Chat'
+  -%}
+
+  <div class="wa-widget wa-widget--{{ wa_position }}" id="wa-widget">
+    {%- comment -%} Chat popup panel {%- endcomment -%}
+    <div class="wa-panel" id="wa-panel" role="dialog" aria-label="WhatsApp chat" aria-hidden="true">
+      <div class="wa-panel__header">
+        <div class="wa-panel__avatar">
+          {%- if settings.whatsapp_agent_avatar != blank -%}
+            {{ settings.whatsapp_agent_avatar | image_url: width: 100 | image_tag: alt: wa_agent, loading: 'lazy', class: 'wa-panel__avatar-img' }}
+          {%- else -%}
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="#fff" aria-hidden="true"><path d="M16.004 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.46 1.73 6.4L3.2 28.8l6.58-1.72a12.74 12.74 0 0 0 6.22 1.6h.01c7.06 0 12.8-5.73 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.06-3.63zm5.83 15.4c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.18.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.66 0 1.57 1.14 3.08 1.3 3.29.16.21 2.25 3.43 5.45 4.81.76.33 1.35.52 1.81.67.76.24 1.46.21 2.01.13.61-.09 1.89-.77 2.16-1.52.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
+          {%- endif -%}
+          <span class="wa-panel__online"></span>
+        </div>
+        <div class="wa-panel__heading">
+          <span class="wa-panel__name">{{ wa_agent }}</span>
+          {%- if wa_status != blank -%}<span class="wa-panel__status">{{ wa_status }}</span>{%- endif -%}
+        </div>
+        <button type="button" class="wa-panel__close" id="wa-close" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="wa-panel__body">
+        <div class="wa-bubble">
+          <span class="wa-bubble__name">{{ wa_agent }}</span>
+          <p class="wa-bubble__text">{{ wa_greeting }}</p>
+          <span class="wa-bubble__time" data-wa-time></span>
+        </div>
+      </div>
+
+      <a
+        class="wa-panel__cta"
+        href="https://wa.me/{{ wa_number }}{% if wa_message != blank %}?text={{ wa_message }}{% endif %}"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg viewBox="0 0 32 32" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M16.004 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.46 1.73 6.4L3.2 28.8l6.58-1.72a12.74 12.74 0 0 0 6.22 1.6h.01c7.06 0 12.8-5.73 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.06-3.63zm5.83 15.4c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.18.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.66 0 1.57 1.14 3.08 1.3 3.29.16.21 2.25 3.43 5.45 4.81.76.33 1.35.52 1.81.67.76.24 1.46.21 2.01.13.61-.09 1.89-.77 2.16-1.52.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
+        <span>{{ wa_btn_label }}</span>
+      </a>
+    </div>
+
+    {%- comment -%} Floating launcher button {%- endcomment -%}
+    <button type="button" class="wa-launcher" id="wa-launcher" aria-label="Open WhatsApp chat" aria-expanded="false">
+      <svg class="wa-launcher__icon-chat" viewBox="0 0 32 32" width="30" height="30" fill="#fff" aria-hidden="true"><path d="M16.004 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.6 4.46 1.73 6.4L3.2 28.8l6.58-1.72a12.74 12.74 0 0 0 6.22 1.6h.01c7.06 0 12.8-5.73 12.8-12.8 0-3.42-1.33-6.63-3.75-9.05a12.7 12.7 0 0 0-9.06-3.63zm5.83 15.4c-.32-.16-1.89-.93-2.18-1.04-.29-.11-.5-.16-.71.16-.21.32-.82 1.04-1 1.25-.18.21-.37.24-.69.08-.32-.16-1.35-.5-2.57-1.58-.95-.85-1.59-1.9-1.78-2.22-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.11-.21.05-.4-.03-.56-.08-.16-.71-1.72-.98-2.35-.26-.62-.52-.54-.71-.55l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.66 0 1.57 1.14 3.08 1.3 3.29.16.21 2.25 3.43 5.45 4.81.76.33 1.35.52 1.81.67.76.24 1.46.21 2.01.13.61-.09 1.89-.77 2.16-1.52.27-.74.27-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
+      <svg class="wa-launcher__icon-close" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <style>
+    .wa-widget {
+      position: fixed;
+      bottom: 24px;
+      z-index: 1000;
+    }
+    .wa-widget--right { inset-inline-end: 30px; }
+    .wa-widget--left  { inset-inline-start: 30px; }
+
+    /* Launcher */
+    .wa-launcher {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 56px;
+      width: 56px;
+      margin-inline-start: auto;
+      border: 0;
+      border-radius: 50%;
+      background-color: #25d366;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .wa-launcher:hover { transform: scale(1.06); box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }
+    .wa-launcher__icon-close { display: none; }
+    .wa-widget.is-open .wa-launcher__icon-chat { display: none; }
+    .wa-widget.is-open .wa-launcher__icon-close { display: block; }
+
+    /* Panel */
+    .wa-panel {
+      position: absolute;
+      bottom: 72px;
+      width: 320px;
+      max-width: calc(100vw - 40px);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(12px) scale(0.96);
+      transform-origin: bottom right;
+      transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+    }
+    .wa-widget--right .wa-panel { inset-inline-end: 0; transform-origin: bottom right; }
+    .wa-widget--left  .wa-panel { inset-inline-start: 0; transform-origin: bottom left; }
+    .wa-widget.is-open .wa-panel {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0) scale(1);
+    }
+
+    .wa-panel__header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: #075e54;
+      color: #fff;
+    }
+    .wa-panel__avatar {
+      position: relative;
+      flex: 0 0 auto;
+      height: 44px;
+      width: 44px;
+      border-radius: 50%;
+      background: #128c7e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .wa-panel__avatar-img { height: 100%; width: 100%; object-fit: cover; }
+    .wa-panel__online {
+      position: absolute;
+      bottom: 1px;
+      inset-inline-end: 1px;
+      height: 11px;
+      width: 11px;
+      border-radius: 50%;
+      background: #4ade80;
+      border: 2px solid #075e54;
+    }
+    .wa-panel__heading { display: flex; flex-direction: column; line-height: 1.3; min-width: 0; }
+    .wa-panel__name { font-weight: 600; font-size: 15px; }
+    .wa-panel__status { font-size: 12px; opacity: 0.85; }
+    .wa-panel__close {
+      margin-inline-start: auto;
+      background: transparent;
+      border: 0;
+      color: #fff;
+      cursor: pointer;
+      opacity: 0.85;
+      padding: 4px;
+      line-height: 0;
+    }
+    .wa-panel__close:hover { opacity: 1; }
+
+    .wa-panel__body {
+      padding: 20px 16px;
+      background: #e5ddd5;
+      background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.03'%3E%3Cpath d='M0 0h20v20H0zM20 20h20v20H20z'/%3E%3C/g%3E%3C/svg%3E");
+      min-height: 90px;
+    }
+    .wa-bubble {
+      position: relative;
+      max-width: 85%;
+      background: #fff;
+      border-radius: 0 10px 10px 10px;
+      padding: 8px 12px 6px;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.12);
+      animation: wa-bubble-in 0.4s ease both;
+    }
+    [dir="rtl"] .wa-bubble { border-radius: 10px 0 10px 10px; }
+    @keyframes wa-bubble-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .wa-bubble__name { display: block; font-size: 12.5px; font-weight: 600; color: #1f7aec; margin-bottom: 2px; }
+    .wa-bubble__text { margin: 0; font-size: 14px; line-height: 1.45; color: #303030; white-space: pre-line; }
+    .wa-bubble__time { display: block; text-align: end; font-size: 10.5px; color: #8b8b8b; margin-top: 2px; }
+
+    .wa-panel__cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px;
+      background: #25d366;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .wa-panel__cta:hover { background: #1ebe5b; color: #fff; }
+
+    @media (max-width: 749px) {
+      .wa-widget { bottom: 20px; }
+      .wa-widget--right { inset-inline-end: 16px; }
+      .wa-widget--left  { inset-inline-start: 16px; }
+      .wa-launcher { height: 52px; width: 52px; }
+      .wa-panel { width: 300px; bottom: 66px; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      var widget = document.getElementById('wa-widget');
+      if (!widget) return;
+      var launcher = document.getElementById('wa-launcher');
+      var closeBtn = document.getElementById('wa-close');
+      var timeEl = widget.querySelector('[data-wa-time]');
+
+      if (timeEl) {
+        try {
+          timeEl.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        } catch (e) {}
+      }
+
+      function setOpen(open) {
+        widget.classList.toggle('is-open', open);
+        launcher.setAttribute('aria-expanded', open ? 'true' : 'false');
+        var panel = document.getElementById('wa-panel');
+        if (panel) panel.setAttribute('aria-hidden', open ? 'false' : 'true');
+      }
+
+      launcher.addEventListener('click', function () {
+        setOpen(!widget.classList.contains('is-open'));
+      });
+      if (closeBtn) closeBtn.addEventListener('click', function () { setOpen(false); });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') setOpen(false);
+      });
+      document.addEventListener('click', function (e) {
+        if (widget.classList.contains('is-open') && !widget.contains(e.target)) setOpen(false);
+      });
+    })();
+  </script>
+{%- endif -%}

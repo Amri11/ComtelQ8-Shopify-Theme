@@ -1942,5 +1942,72 @@
         "default": true
       }
     ]
+  },
+  {
+    "name": "WhatsApp button",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "whatsapp_enable",
+        "label": "Enable WhatsApp button",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_number",
+        "label": "WhatsApp number",
+        "info": "Include country code, digits only. Example: 96512345678"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_message",
+        "label": "Pre-filled message",
+        "default": "Hello! I have a question.",
+        "info": "Text that pre-fills the chat when a customer opens WhatsApp."
+      },
+      {
+        "type": "header",
+        "content": "Chat window"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_agent_name",
+        "label": "Agent / business name",
+        "default": "Customer Support"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_agent_status",
+        "label": "Status line",
+        "default": "Typically replies within minutes"
+      },
+      {
+        "type": "textarea",
+        "id": "whatsapp_greeting",
+        "label": "Greeting bubble text",
+        "default": "Hi there! 👋 How can we help you today?"
+      },
+      {
+        "type": "text",
+        "id": "whatsapp_button_label",
+        "label": "Start chat button label",
+        "default": "Start Chat"
+      },
+      {
+        "type": "image_picker",
+        "id": "whatsapp_agent_avatar",
+        "label": "Agent avatar (optional)"
+      },
+      {
+        "type": "select",
+        "id": "whatsapp_position",
+        "label": "Position",
+        "options": [
+          { "value": "right", "label": "Bottom right" },
+          { "value": "left", "label": "Bottom left" }
+        ],
+        "default": "right"
+      }
+    ]
   }
 ]

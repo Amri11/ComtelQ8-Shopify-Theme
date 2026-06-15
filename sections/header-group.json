@@ -11,6 +11,21 @@
   "type": "header",
   "name": "Header group",
   "sections": {
+    "campaign-bar": {
+      "type": "campaign-bar",
+      "settings": {
+        "container": "fluid",
+        "campaign_text": "<p>Big sale this weekend — up to 50% off!</p>",
+        "font_size": 14,
+        "font_size_xs": 13,
+        "campaign_bg_color": "#196087",
+        "campaign_txt_color": "#ffffff",
+        "section_padding_top": 10,
+        "section_padding_bottom": 10,
+        "section_padding_top_xs": 8,
+        "section_padding_bottom_xs": 8
+      }
+    },
     "announcement-bar": {
       "type": "announcement-bar",
       "disabled": true,
@@ -259,6 +274,7 @@
     }
   },
   "order": [
+    "campaign-bar",
     "announcement-bar",
     "header",
     "news-popup"

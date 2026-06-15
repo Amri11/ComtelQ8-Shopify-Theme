@@ -1,0 +1,164 @@
+{%- style -%}
+  #shopify-section-{{ section.id }} .campaign-bar {
+    background-color: {{ section.settings.campaign_bg_color }};
+    color: {{ section.settings.campaign_txt_color }};
+    padding-top: {{ section.settings.section_padding_top }}px;
+    padding-bottom: {{ section.settings.section_padding_bottom }}px;
+  }
+  #shopify-section-{{ section.id }} .campaign-bar .campaign-text {
+    text-align: center;
+    margin: 0;
+    font-size: {{ section.settings.font_size }}px;
+  }
+  #shopify-section-{{ section.id }} .campaign-bar .campaign-text a {
+    color: {{ section.settings.campaign_txt_color }};
+  }
+  @media (max-width: 767px) {
+    #shopify-section-{{ section.id }} .campaign-bar {
+      padding-top: {{ section.settings.section_padding_top_xs }}px;
+      padding-bottom: {{ section.settings.section_padding_bottom_xs }}px;
+    }
+    #shopify-section-{{ section.id }} .campaign-bar .campaign-text {
+      font-size: {{ section.settings.font_size_xs }}px;
+    }
+  }
+{%- endstyle -%}
+{%- if section.settings.campaign_text != blank -%}
+  <section class="campaign-bar">
+    <div class="{% if section.settings.container == 'fluid' %}container-fluid{% else %}container{% endif %}">
+      <div class="campaign-text richtext">
+        {{ section.settings.campaign_text }}
+      </div>
+    </div>
+  </section>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Campaign bar",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Section width"
+    },
+    {
+      "type": "select",
+      "id": "container",
+      "label": "Section width",
+      "options": [
+        {
+          "label": "Fluid",
+          "value": "fluid"
+        },
+        {
+          "label": "Normal",
+          "value": "normal"
+        }
+      ],
+      "default": "fluid"
+    },
+    {
+      "type": "header",
+      "content": "Campaign text"
+    },
+    {
+      "type": "richtext",
+      "id": "campaign_text",
+      "label": "Text",
+      "default": "<p>Big sale this weekend — up to 50% off!</p>"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size (desktop)",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "font_size_xs",
+      "label": "Font size (mobile)",
+      "min": 10,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "default": 13
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "campaign_bg_color",
+      "label": "Background color",
+      "default": "#196087"
+    },
+    {
+      "type": "color",
+      "id": "campaign_txt_color",
+      "label": "Text color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "header",
+      "content": "Section space top bottom"
+    },
+    {
+      "type": "paragraph",
+      "content": "Desktop"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 10
+    },
+    {
+      "type": "paragraph",
+      "content": "Mobile"
+    },
+    {
+      "type": "range",
+      "id": "section_padding_top_xs",
+      "label": "Space top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "section_padding_bottom_xs",
+      "label": "Space bottom",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 8
+    }
+  ],
+  "presets": [
+    {
+      "name": "Campaign bar"
+    }
+  ]
+}
+{% endschema %}
