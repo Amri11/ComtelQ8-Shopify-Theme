@@ -15,7 +15,7 @@
       "type": "announcement-bar",
       "disabled": true,
       "settings": {
-        "container": "fluid",
+        "container": "normal",
         "section_padding_top": 15,
         "section_padding_bottom": 15,
         "section_padding_top_xs": 10,
@@ -27,9 +27,9 @@
         "custom_info_1_text": "<p><a href=\"tel:+0123 456 789\" title=\"tel:+0123 456 789\">+0123 456 789</a></p>",
         "custom_info_2_icon": "feather-mail",
         "custom_info_2_text": "<p><a href=\"mailto:demo@demo.com\" title=\"mailto:demo@demo.com\">demo@demo.com</a></p>",
-        "show_custom_info_mobile": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true
+        "show_custom_info_mobile": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
       }
     },
     "header": {
@@ -88,8 +88,24 @@
         "menu_link_TREYF8": {
           "type": "menu_link",
           "settings": {
-            "menu_link_title": "Blogs",
-            "menu_link_url": "shopify://blogs/multi-store",
+            "menu_link_title": "Deals",
+            "menu_link_url": "shopify://collections",
+            "menu_link_label": "",
+            "menu_link_label_color": "#ffffff",
+            "menu_link_label_font_size": 10,
+            "menu_link_label_top_position": 10,
+            "menu_link_label_bgcolor": "#05d14b",
+            "menu_link_label_text_transform": "uppercase",
+            "menu_link_label_font-weight": 400,
+            "menu_link_label_border_radius": 3,
+            "menu_link_label_line_height": 1.1
+          }
+        },
+        "menu_link_zDYtYg": {
+          "type": "menu_link",
+          "settings": {
+            "menu_link_title": "New Arrivals",
+            "menu_link_url": "shopify://collections",
             "menu_link_label": "",
             "menu_link_label_color": "#ffffff",
             "menu_link_label_font_size": 10,
@@ -170,6 +186,7 @@
         "menu_sub_jQnXVY",
         "menu_sub_RDWEry",
         "menu_link_TREYF8",
+        "menu_link_zDYtYg",
         "5037c259-47ec-480f-bb36-2ed33b54ddf2",
         "vega_menu_product2_xwWUfP",
         "vega_menu_product2_Jykgh4"
