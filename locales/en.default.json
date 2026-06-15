@@ -135,6 +135,7 @@
     },
     "sorting": {
       "title": "Sort by",
+      "relevance": "Relevance",
       "featured": "Featured",
       "best_selling": "Best selling",
       "az": "Alphabetically, A-Z",

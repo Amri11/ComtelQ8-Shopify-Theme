@@ -49,81 +49,6 @@
   line-height: 1.2;
 }
 
-/* search bar */
-.search-page form.search {
-  margin: 0 auto;
-  max-width: 520px;
-}
-.search-page form.search .field {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.search-page form.search .field input[type="search"] {
-  flex: 1 1 auto;
-  width: 100%;
-  height: 44px;
-  padding-inline-start: 16px;
-  padding-inline-end: 40px;
-  background: var(--extra-color-body, #f4f4f4);
-  border: 1px solid transparent;
-  border-radius: var(--sti-border-radius, 8px);
-  font-size: 14px;
-}
-.search-page form.search .field input[type="search"]:focus {
-  border-color: var(--font-color-primary);
-  outline: none;
-}
-.search-page form.search .field input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-  appearance: none;
-}
-.search-page form.search .field .reset-input {
-  position: absolute;
-  inset-inline-end: 112px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  font-size: 15px;
-  line-height: 1;
-  color: var(--font-color-primary);
-  opacity: 0.6;
-  cursor: pointer;
-  background: transparent;
-  border: 0;
-}
-.search-page form.search .field .reset-input:hover {
-  opacity: 1;
-}
-.search-page form.search .field .reset-input.hidden {
-  display: none;
-}
-.search-page form.search .field .search-btn {
-  position: static;
-  flex: 0 0 auto;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 44px;
-  padding: 0 22px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  background: var(--font-color-primary, #000);
-  border: 0;
-  border-radius: var(--sti-border-radius, 8px);
-  cursor: pointer;
-  transition: opacity 0.2s ease;
-}
-.search-page form.search .field .search-btn:hover {
-  opacity: 0.85;
-}
-
 /* items heading */
 .search-page .search-items-head {
   margin-top: 28px;
@@ -138,26 +63,6 @@
 .search-page .pro-grli-wrapper {
   margin-top: 0;
 }
-.shop-page .filter-button {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 13px 20px;
-  line-height: 1;
-  border: var(--sti-border);
-  text-transform: uppercase;
-  transition: none;
-  border-radius: var(--sti-border-radius);    
-}
-.shop-top-bar .product-filter button span {
-  margin-inline-start: 5px;
-}
-.shop-top-bar .product-filter button:hover {
-  color: #fff;
-  border-color: var(--font-color-primary);
-  background: var(--font-color-primary);
-}
 .shop-page .page-wrapper {
   padding: 30px;
   background: var(--extra-color-body);
@@ -168,61 +73,7 @@
   display: block;
   padding-top: 5px;
 }
-.search-page .page-search-bar form .form-search {
-  position: relative;
-  display: flex;
-  align-items: center;
-  border-radius: 0;
-  overflow: hidden;
-}
-.search-page .page-search-bar form .form-search input {
-  width: 100%;
-  height: 45px;
-}
-.search-page .page-search-bar form .form-search button.page-search-button {
-  color: #fff;
-  font-size: 16px;
-  position: absolute;
-  inset-inline-end: 0;
-  width: 60px;
-  height: 100%;
-  border-radius: var(--sti-border-radius);
-  background-color: var(--font-color-primary);
-}
-.search-page .page-search-bar form .form-search button.page-search-button:hover {
-}
-.search-page .page-search-bar form .form-search button.page-search-button i {
-  display: block;
-  line-height: 0;
-}
-.search-page .shop-top-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/*search grid css*/
-.search-page .search-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 0 0 -30px;
-}
-.search-page .search-list .page-wrapper {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: var(--extra-color-body);
-  padding: 30px;
-}
-.search-page .search-list .page-wrapper span.label {
-  display: block;
-  padding-top: 5px;
-}
 @media(max-width: 767px) {
-  .search-page .search-list {
-    margin: 0 0 0 -12px;
-  }
   .search-page .main-title h2 {
     font-size: 22px;
   }
@@ -231,12 +82,6 @@
   }
   .search-page .search-items-title {
     font-size: 18px;
-  }
-  .search-page form.search .field .reset-input {
-    inset-inline-end: 88px;
-  }
-  .search-page form.search .field .search-btn {
-    padding: 0 16px;
   }
 }
 @media(max-width: 479px) {
