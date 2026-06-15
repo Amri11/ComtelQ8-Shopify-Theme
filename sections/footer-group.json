@@ -39,7 +39,7 @@
           "type": "footer_menu",
           "settings": {
             "show_nav_title": true,
-            "footer_menu_handle": ""
+            "footer_menu_handle": "footer-2"
           }
         },
         "footer_menu_bjhKfw": {
