@@ -1,1 +1,28 @@
-{"sections":{"search-page":{"type":"search-page","settings":{"container":"normal","products_limit_handle":24,"product_view":"grid-4","product_view_lg":"grid-lg-3","product_view_sm":"grid-sm-2","tab_bar_enable":true,"short_by_enable":true}}},"order":["search-page"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "search-page": {
+      "type": "search-page",
+      "settings": {
+        "container": "normal",
+        "products_limit_handle": 24,
+        "product_view": "grid-4",
+        "product_view_lg": "grid-lg-3",
+        "product_view_sm": "grid-sm-2",
+        "tab_bar_enable": true,
+        "short_by_enable": true
+      }
+    }
+  },
+  "order": [
+    "search-page"
+  ]
+}
