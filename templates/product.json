@@ -41,6 +41,7 @@
         },
         "37aeb358-fd5e-46ca-bd88-373779c12327": {
           "type": "short_description",
+          "disabled": true,
           "settings": {
             "short_description": "Care for fiber: 30% more recycled polyester. We label garments manufactured using environmentally friendly technologies and raw materials with the Join Life label."
           }
