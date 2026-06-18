@@ -169,6 +169,8 @@
                       render 'product-template-sku', product: product, block: block, current_variant: current_variant
                     when 'product_payment'
                       render 'product-template-payment', product: product, block: block
+                    when 'taly'
+                      render 'product-template-taly', product: product, block: block
                     when 'product_modal'
                       render 'product-template-modal', product: product, block: block
                     when 'complementary'
@@ -774,6 +776,12 @@
           "label": "Description"
         }
       ]
+    },
+    {
+      "type": "taly",
+      "name": "Taly",
+      "limit": 1,
+      "settings": []
     },
     {
       "type": "collapsible",

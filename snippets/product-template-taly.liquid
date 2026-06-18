@@ -1,0 +1,143 @@
+<div class="product-info product-taly" {{ block.shopify_attributes }}>
+  <!-- Taly: Split into 4 payments widget (uses selected variant price, DEV) -->
+  <div class="taly-popup-modal__opener" data-modal="#TalyPopupModal">
+    <button id="TalyProductPopup" class="split-into-payment-btn" type="button" aria-haspopup="dialog">
+      <div class="d-flex align-items-center">
+        <img src="https://widget.taly.io/assets/images/taly-dark-logo.svg" alt="Taly" loading="lazy" height="28" width="75">
+        <div class="ps-3">
+          {%- assign price_cents = product.selected_or_first_available_variant.price -%}
+          {%- assign installment_cents = price_cents | times: 0.25 | round -%}
+          <div class="TalyPopup-btn-title">
+            Split into 4 payments of KWD {{ installment_cents | money_without_currency }}
+          </div>
+          <div class="TalyPopup-btn-subtitle">0% Interest, 100% Shariah-compliant.</div>
+        </div>
+      </div>
+      <span aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512">
+          <path fill="#006FBB" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM216 336h24V272H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h48c13.3 0 24 10.7 24 24v88h8c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24zm40-208a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/>
+        </svg>
+      </span>
+    </button>
+  </div>
+  <!-- Modal -->
+  <div id="TalyPopupModal" class="taly-popup-modal">
+    <div role="dialog" aria-label="split into payment" aria-modal="true" class="taly-popup-modal__content" tabindex="-1">
+      <button id="TalyModalClose" type="button" class="taly-popup-modal__toggle" aria-label="Close" data-modal="TalyPopupModal">
+        <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+          <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor"></path>
+        </svg>
+      </button>
+      <div class="taly-popup-modal__content-info">
+        <iframe
+          id="priceIframe"
+          class="iframe-content"
+          src="https://widget.taly.io/how-it-works?price={{ product.price | money_without_currency | remove: ',' }}&lang={{ shop.locale }}"
+          title="Taly payment details">
+        </iframe>
+      </div>
+    </div>
+  </div>
+  <script>
+    // Move modal to body to prevent theme overflow clipping
+    document.addEventListener('DOMContentLoaded', () => {
+      const modal = document.getElementById('TalyPopupModal');
+      if (modal && modal.parentNode !== document.body) document.body.appendChild(modal);
+      const opener = document.querySelector('.taly-popup-modal__opener');
+      const closer = document.getElementById('TalyModalClose');
+      if (opener) {
+        opener.addEventListener('click', function () {
+          const rawPrice = "{{ product.price | money_without_currency | remove: ',' }}";
+          const priceValue = (rawPrice || '').replace(/[^0-9.-]+/g, '');
+          const iframe = document.getElementById('priceIframe');
+           if (iframe) {
+            iframe.src = `https://widget.taly.io/how-it-works?price=${priceValue}&installmenttype=4&lang={{ shop.locale }}`;
+          }
+          modal.classList.add('active');
+        });
+      }
+      if (closer) closer.addEventListener('click', () => modal.classList.remove('active'));
+      // Close on overlay click or ESC
+      modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('active'); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') modal.classList.remove('active'); });
+    });
+  </script>
+  <style>
+    :root {
+      --taly-radius: 12px;
+      --taly-padding: 14px;
+      --taly-shadow: 0 4px 14px rgba(0,0,0,.12);
+    }
+    .taly-popup-modal__opener { display: block; width: 100%; }
+    .split-into-payment-btn {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background-color: #fff;
+      border-radius: var(--taly-radius);
+      padding: var(--taly-padding);
+      border: 1px solid rgba(0,0,0,.06);
+      box-shadow: var(--taly-shadow);
+      text-decoration: none !important;
+    }
+    .split-into-payment-btn img { height: clamp(22px, 2.4vw, 28px); width: auto; }
+    .TalyPopup-btn-title {
+      margin: 0;
+      line-height: 1.35;
+      font-size: clamp(14px, 1.6vw, 16px);
+      text-align: start;
+      font-weight: 600;
+    }
+    .TalyPopup-btn-subtitle {
+      margin-top: 2px;
+      font-size: clamp(12px, 1.4vw, 14px);
+      font-weight: 500;
+      color: rgba(0,0,0,.62);
+      text-align: start;
+      line-height: 1.2;
+    }
+    .d-flex { display: flex; }
+    .align-items-center { align-items: center; }
+    .ps-3 { padding-inline-start: 1rem; }
+    .taly-popup-modal { display: none; }
+    .taly-popup-modal.active {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0,0,0,.5);
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .taly-popup-modal__content {
+      position: relative;
+      background: #fff;
+      width: min(720px, 92vw);
+      height: min(640px, 85vh);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 28px rgba(0,0,0,.2);
+    }
+    .taly-popup-modal__toggle {
+      position: absolute !important;
+      top: 12px;
+      inset-inline-end: 12px;
+      width: 40px;
+      aspect-ratio: 1 / 1;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: #fafaf9;
+      border: 1px solid rgba(0,0,0,.1);
+      cursor: pointer;
+    }
+    .taly-popup-modal__content-info { height: 100%; }
+    .iframe-content { height: 100%; width: 100%; border: none; display: block; }
+    html[lang="ar"] .split-into-payment-btn > .d-flex { flex-direction: row-reverse; }
+    html[lang="ar"] .ps-3 { padding-inline-start: 0; padding-inline-end: 1rem; }
+  </style>
+</div>
