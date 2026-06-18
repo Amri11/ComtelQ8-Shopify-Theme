@@ -39,43 +39,45 @@
       endif
     -%}
     {%- liquid
+      # NOTE: option values and labels are separated by "~~" (not ",") because
+      # the translated labels themselves contain commas, e.g. "Price, low to high".
       if is_search
         capture sort_options
-          echo 'relevance,'
+          echo 'relevance~~'
           echo 'collections.sorting.relevance' | t
         endcapture
       else
         capture sort_options
-          echo 'manual,'
+          echo 'manual~~'
           echo 'collections.sorting.featured' | t
-          echo '|best-selling,'
+          echo '|best-selling~~'
           echo 'collections.sorting.best_selling' | t
         endcapture
       endif
       capture sort_options_rest
-        echo '|title-ascending,'
+        echo '|title-ascending~~'
         echo 'collections.sorting.az' | t
-        echo '|title-descending,'
+        echo '|title-descending~~'
         echo 'collections.sorting.za' | t
-        echo '|price-ascending,'
+        echo '|price-ascending~~'
         echo 'collections.sorting.price_ascending' | t
-        echo '|price-descending,'
+        echo '|price-descending~~'
         echo 'collections.sorting.price_descending' | t
-        echo '|created-descending,'
+        echo '|created-descending~~'
         echo 'collections.sorting.date_descending' | t
-        echo '|created-ascending,'
+        echo '|created-ascending~~'
         echo 'collections.sorting.date_ascending' | t
       endcapture
       assign sort_options = sort_options | append: sort_options_rest | split: '|'
       assign sort_current_label = ''
       for option in sort_options
-        assign pair = option | split: ','
+        assign pair = option | split: '~~'
         if pair[0] == sort_by
           assign sort_current_label = pair[1]
         endif
       endfor
       if sort_current_label == ''
-        assign first_pair = sort_options[0] | split: ','
+        assign first_pair = sort_options[0] | split: '~~'
         assign sort_current_label = first_pair[1]
       endif
     -%}
@@ -84,7 +86,7 @@
       <label for="SortBy">{{ 'collections.sorting.title' | t | append: ':' }}</label>
       <select class="nice-select" name="sortby" id="SortBy">
         {%- for option in sort_options -%}
-          {%- assign pair = option | split: ',' -%}
+          {%- assign pair = option | split: '~~' -%}
           <option value="{{ pair[0] }}">{{ pair[1] }}</option>
         {%- endfor -%}
       </select>
@@ -98,7 +100,7 @@
       </button>
       <ul class="list-unstyled" role="list" id="select-wrap">
         {%- for option in sort_options -%}
-          {%- assign pair = option | split: ',' -%}
+          {%- assign pair = option | split: '~~' -%}
           <li{% if sort_by == pair[0] %} class="selected"{% endif %}>
             <a href="{{ sort_base_url }}{{ pair[0] }}">{{ pair[1] }}</a>
           </li>
@@ -297,7 +299,8 @@
   .product-short ul {
     position: absolute;
     inset-inline-end: 0;
-    min-width: 180px;
+    min-width: 200px;
+    white-space: nowrap;
     top: calc(100% - -10px);
     z-index: 2;
     opacity: 0;

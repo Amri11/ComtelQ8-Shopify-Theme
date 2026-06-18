@@ -1382,7 +1382,7 @@ section{
 }
 .header1 .vega-menu-area .vegawrap {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 1px);
   width: 100%;
   z-index: 2;
   padding: 8px;
@@ -1446,7 +1446,7 @@ section{
   z-index: 2;
   opacity: 0;
   visibility: hidden;
-  background-color: #fff;
+  background-color: #eeeeee;
   border: 1px solid #ececec;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,8%);
