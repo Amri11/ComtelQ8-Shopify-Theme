@@ -59,6 +59,10 @@
             "shipping_tax": ""
           }
         },
+        "taly_KaxFd8": {
+          "type": "taly",
+          "settings": {}
+        },
         "18d14155-9145-4f99-b951-44d46831d46c": {
           "type": "product_stock_inventory",
           "settings": {
@@ -121,6 +125,7 @@
         "37aeb358-fd5e-46ca-bd88-373779c12327",
         "product_variant_picker",
         "product_price",
+        "taly_KaxFd8",
         "18d14155-9145-4f99-b951-44d46831d46c",
         "product_quantity_9QFCn8",
         "icon_with_text_edbj7a",
