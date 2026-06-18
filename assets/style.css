@@ -1391,6 +1391,19 @@ section{
   border: 1px solid #ececec;
   border-radius: 12px;
 }
+/* Invisible bridge so the cursor can cross the gap to the dropdown without closing it */
+.header1 .vega-menu-area a.browse-cat::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 6px;
+}
+/* Show the vega menu on hover (and keep it open while hovering the dropdown) */
+.header1 .vega-menu-area:hover .vegawrap.collapse:not(.show) {
+  display: block;
+}
 .header1 .vega-menu-area .vegawrap ul.vega-menu li.menu-link {
   position: relative;
 }
