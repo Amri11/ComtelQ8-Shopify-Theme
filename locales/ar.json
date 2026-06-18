@@ -144,12 +144,12 @@
       "title": "ترتيب حسب",
       "featured": "مميز",
       "best_selling": "الأكثر مبيعًا",
-      "az": "أبجديًا، أ-ي",
-      "za": "أبجديًا، ي-أ",
-      "price_ascending": "السعر: من الأقل إلى الأعلى",
-      "price_descending": "السعر: من الأعلى إلى الأقل",
-      "date_descending": "التاريخ: من الأحدث إلى الأقدم",
-      "date_ascending": "التاريخ: من الأقدم إلى الأحدث"
+      "az": "الاسم أ ← ي",
+      "za": "الاسم ي ← أ",
+      "price_ascending": "السعر من الأقل ← الأعلى",
+      "price_descending": "السعر من الأعلى ← الأقل",
+      "date_descending": "الأحدث أولاً",
+      "date_ascending": "الأقدم أولاً"
     },
     "facets": {
       "filter_by_label": "تصفية",

@@ -143,13 +143,13 @@
       "title": "Sort by",
       "relevance": "Relevance",
       "featured": "Featured",
-      "best_selling": "Best selling",
-      "az": "Alphabetically, A-Z",
-      "za": "Alphabetically, Z-A",
-      "price_ascending": "Price, low to high",
-      "price_descending": "Price, high to low",
-      "date_descending": "Date, new to old",
-      "date_ascending": "Date, old to new"
+      "best_selling": "Best Sellers",
+      "az": "Name A → Z",
+      "za": "Name Z → A",
+      "price_ascending": "Price Low → High",
+      "price_descending": "Price High → Low",
+      "date_descending": "Newest First",
+      "date_ascending": "Oldest First"
     },
     "facets": {
       "filter_by_label": "Filter",
