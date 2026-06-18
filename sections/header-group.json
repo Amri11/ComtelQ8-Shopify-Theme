@@ -15,11 +15,11 @@
       "type": "campaign-bar",
       "settings": {
         "container": "normal",
-        "campaign_text": "<p>Use Code <strong>WELCOME </strong>for 10% Off Your First Purchase — New Customers Only</p>",
+        "campaign_text": "<p>Use Code <strong>WELCOME </strong>for 20% Off Your First Purchase — New Customers Only</p>",
         "font_size": 14,
         "font_size_xs": 13,
         "campaign_bg_color": "#000000",
-        "campaign_txt_color": "#FFFFFF",
+        "campaign_txt_color": "#ffffff",
         "section_padding_top": 5,
         "section_padding_bottom": 5,
         "section_padding_top_xs": 0,
