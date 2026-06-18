@@ -160,7 +160,7 @@
           "type": "offer_card",
           "settings": {
             "card_image": "shopify://shop_images/01.webp",
-            "card_title": "Summer Style",
+            "card_title": "Hello",
             "card_title_color": "#ffffff",
             "card_link": "shopify://collections/frontpage",
             "badge_text": "",
