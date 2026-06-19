@@ -30,6 +30,7 @@
         },
         "slide_CnBRkq": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slider_img": "shopify://shop_images/slider-1_1_1.webp",
             "slider_mobile_img": "shopify://shop_images/slider-1_1_1.webp",
