@@ -48,8 +48,8 @@
           "type": "footer_menu",
           "settings": {
             "show_nav_title": true,
-            "nav_title": "",
-            "footer_menu_handle": ""
+            "nav_title": "Reach Us",
+            "footer_menu_handle": "footer-3"
           }
         },
         "footer_menu_UxgBkr": {
