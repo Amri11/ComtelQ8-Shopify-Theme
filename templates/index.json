@@ -20,6 +20,14 @@
             "slide_url": ""
           }
         },
+        "slide_c7jeYt": {
+          "type": "slide",
+          "settings": {
+            "slider_img": "shopify://shop_images/Hero-banner_jpg.jpg",
+            "slider_mobile_img": "shopify://shop_images/Hero-banner_jpg.jpg",
+            "slide_url": ""
+          }
+        },
         "slide_CnBRkq": {
           "type": "slide",
           "settings": {
@@ -31,6 +39,7 @@
       },
       "block_order": [
         "slide_amfL9A",
+        "slide_c7jeYt",
         "slide_CnBRkq"
       ],
       "settings": {
