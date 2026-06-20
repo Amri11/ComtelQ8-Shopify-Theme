@@ -66,7 +66,7 @@
         "social_payment_KRRT6k": {
           "type": "social_payment",
           "settings": {
-            "footer_social_title": "Keep in touch:",
+            "footer_social_title": "Follow us on:",
             "footer_payment_title": "Available Payments:"
           }
         },
