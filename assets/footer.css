@@ -27,7 +27,7 @@
   text-transform: var(--footer-menu-title-text-transform);
   letter-spacing: 0.02em;
   position: relative;
-  padding-bottom: 14px;
+  padding-bottom: 8px;
 }
 /* subtle accent underline under each column heading */
 .footer .footer-list-wrap .footer-list-main .ft-title::after {
@@ -140,7 +140,7 @@
   margin-top: 18px;
 }
 .contact-info .contact-info-wrap .contact-info-item span.contact-info-icon {
-  color: var(--font-color-secondary);
+  color: #FFFFFF;
   font-size: 18px;
   padding-inline-end: 10px;
 }
