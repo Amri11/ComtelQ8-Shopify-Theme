@@ -607,7 +607,7 @@
             "card_bg": "#d5562c",
             "text_color": "#ffffff",
             "title": "Best-Selling Wall Art",
-            "badge_text": "-5%",
+            "badge_text": "Upto 50%",
             "badge_icon": "",
             "badge_bg": "#ffd43b",
             "badge_text_color": "#1a1a1a"
@@ -622,7 +622,7 @@
             "card_bg": "#5b9bd5",
             "text_color": "#ffffff",
             "title": "Find Your Perfect Sound",
-            "badge_text": "Mega Sale",
+            "badge_text": "",
             "badge_icon": "",
             "badge_bg": "#e0322d",
             "badge_text_color": "#ffffff"
