@@ -577,13 +577,13 @@
         "feature_card_3fK9QY": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/banner-L.webp",
+            "image": "shopify://shop_images/IMG-20260618-WA0027_548d4db5-a19d-4f20-b3c4-e8fa34035eab.jpg",
             "overlay_opacity": 25,
             "card_link": "",
             "text_color": "#ffffff",
-            "title": "Save on the Tech You Love",
-            "subtitle": "Take 5% off all electronics with code MEGA30 — small discount, big value.",
-            "badge_text": "Mega Sale",
+            "title": "",
+            "subtitle": "",
+            "badge_text": "Sale",
             "badge_icon": "feather-zap",
             "badge_bg": "#e0322d",
             "badge_text_color": "#ffffff",
