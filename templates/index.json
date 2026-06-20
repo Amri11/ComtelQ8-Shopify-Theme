@@ -385,13 +385,13 @@
         "offer_banner_CDGdEb": {
           "type": "offer_banner",
           "settings": {
-            "banner_img": "shopify://shop_images/banner-2.webp",
+            "banner_img": "shopify://shop_images/IMG-20260618-WA0029.jpg",
             "banner_url": "shopify://collections/all",
-            "banner_subtitle": "Timeless precision",
+            "banner_subtitle": "",
             "banner_subtitle_color": "#09729f",
-            "banner_title": "Sophistication around the clock",
+            "banner_title": "",
             "banner_title_color": "#333333",
-            "banner_btn_text": "Shop now",
+            "banner_btn_text": "",
             "banner_content_position": "left",
             "banner_text_position": "left"
           }
