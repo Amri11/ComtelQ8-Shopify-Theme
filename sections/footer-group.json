@@ -16,6 +16,7 @@
       "blocks": {
         "logo_info_gmtQBF": {
           "type": "logo_info",
+          "disabled": true,
           "settings": {
             "logo_enable": true,
             "logo_desc": "",
@@ -90,12 +91,12 @@
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60,
         "section_background_image_enable": false,
-        "section_background_color": "#fafafa",
+        "section_background_color": "#000000",
         "menu_title_font_size": 18,
         "menu_title_font_size_lg": 18,
         "menu_title_font_weight": 600,
         "menu_title_text_transform": "none",
-        "menu_title_color": "#196087",
+        "menu_title_color": "#0BA6FB",
         "menu_text_font_size": 16,
         "menu_text_font_size_lg": 16,
         "menu_text_font_weight": 400,
