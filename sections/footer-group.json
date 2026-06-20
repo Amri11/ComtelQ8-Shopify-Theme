@@ -67,7 +67,7 @@
           "type": "social_payment",
           "settings": {
             "footer_social_title": "Keep in touch:",
-            "footer_payment_title": "Payment accepted:"
+            "footer_payment_title": "Available Payments:"
           }
         },
         "contact_info_WViyna": {
