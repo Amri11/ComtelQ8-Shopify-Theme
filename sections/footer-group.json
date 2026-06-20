@@ -63,6 +63,13 @@
             "footer_menu_handle": "footer-4"
           }
         },
+        "social_payment_KRRT6k": {
+          "type": "social_payment",
+          "settings": {
+            "footer_social_title": "Keep in touch:",
+            "footer_payment_title": "Payment accepted:"
+          }
+        },
         "contact_info_WViyna": {
           "type": "contact_info",
           "settings": {
@@ -83,6 +90,7 @@
         "footer_menu_dKDEb4",
         "footer_menu_bjhKfw",
         "footer_menu_UxgBkr",
+        "social_payment_KRRT6k",
         "contact_info_WViyna"
       ],
       "settings": {
@@ -102,7 +110,7 @@
         "menu_text_font_size_lg": 16,
         "menu_text_font_weight": 400,
         "menu_text_text_transform": "capitalize",
-        "menu_text_color": "#DADADA",
+        "menu_text_color": "#ffffff",
         "menu_text_hv_color": "#FCD307",
         "enable_follow_on_shop": true,
         "copyright_text": "",
