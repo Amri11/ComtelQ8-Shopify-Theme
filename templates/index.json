@@ -69,7 +69,7 @@
           "type": "category",
           "settings": {
             "category_handle": "",
-            "category_image": "shopify://shop_images/IMG-20260618-WA0032.jpg",
+            "category_image": "shopify://shop_images/IMG-20260618-WA0023.jpg",
             "category_title": "Watch",
             "category_url": ""
           }
@@ -472,14 +472,14 @@
         "single_brand_CtVpyT": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/1.png",
+            "brand_image": "shopify://shop_images/MOFT_idnoTwlb_2_1.svg",
             "brand_url": ""
           }
         },
         "single_brand_gRK8Mi": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/2.png",
+            "brand_image": "shopify://shop_images/Urban_Armor_Gear_id13A0bVSJ_1.svg",
             "brand_url": ""
           }
         },
@@ -493,21 +493,21 @@
         "single_brand_je8c8j": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/Untitled_design_4.png",
+            "brand_image": "shopify://shop_images/idDkfqEP0N_logos.png",
             "brand_url": ""
           }
         },
         "single_brand_Ve6fVm": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/4.png",
+            "brand_image": "shopify://shop_images/Xiaomi_logo.svg",
             "brand_url": ""
           }
         },
         "single_brand_thhpDz": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/3.png",
+            "brand_image": "shopify://shop_images/soundcore-logo.svg",
             "brand_url": ""
           }
         },
