@@ -344,7 +344,7 @@
         "section_bg_color": "rgba(0,0,0,0)",
         "section_subheading": "",
         "section_heading": "Trending product",
-        "countdown_enable": true,
+        "countdown_enable": false,
         "product_month": "June",
         "product_year": 2026,
         "product_date": 30,
