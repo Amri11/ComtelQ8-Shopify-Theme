@@ -858,6 +858,7 @@
         "question_jLx9QH",
         "question_9JjemW"
       ],
+      "disabled": true,
       "name": "Support FAQ",
       "settings": {
         "container": "normal",
@@ -883,7 +884,7 @@
       "settings": {
         "container": "normal",
         "logo": "shopify://shop_images/logo2.png",
-        "heading": "Join the Club and Get 10% Off Your First Order!",
+        "heading": "Join the Club and Get 20% Off Your First Order!",
         "placeholder": "E-mail",
         "button_label": "Sign Up",
         "consent_text": "<p>By clicking on the \"Sign Up\" button, I confirm my agreement with the <a href=\"/policies/privacy-policy\">Privacy Policy</a> and <a href=\"/policies/terms-of-service\">Terms of Use</a></p>",
