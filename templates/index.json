@@ -577,7 +577,7 @@
         "feature_card_3fK9QY": {
           "type": "feature_card",
           "settings": {
-            "image": "shopify://shop_images/IMG-20260618-WA0027_548d4db5-a19d-4f20-b3c4-e8fa34035eab.jpg",
+            "image": "shopify://shop_images/IMG-20260618-WA0026.jpg",
             "overlay_opacity": 25,
             "card_link": "",
             "text_color": "#ffffff",
@@ -601,7 +601,7 @@
         "small_card_88eyiz": {
           "type": "small_card",
           "settings": {
-            "image": "shopify://shop_images/banner-s.webp",
+            "image": "shopify://shop_images/IMG-20260618-WA0029_e011f189-3100-4ef2-ab0a-1f1efb20231b.jpg",
             "overlay_opacity": 15,
             "card_link": "",
             "card_bg": "#d5562c",
@@ -631,7 +631,7 @@
         "wide_card_mWVbkp": {
           "type": "wide_card",
           "settings": {
-            "image": "shopify://shop_images/banner-m.webp",
+            "image": "shopify://shop_images/IMG-20260618-WA0027_548d4db5-a19d-4f20-b3c4-e8fa34035eab.jpg",
             "overlay_opacity": 0,
             "card_link": "",
             "card_bg": "#5b53e0",
@@ -639,7 +639,7 @@
             "badge_text": "Best Seller",
             "badge_bg": "#3a33b5",
             "badge_text_color": "#ffffff",
-            "title": "Fantasy Books with Exclusive Discounts",
+            "title": "Screen Protectors with Exclusive Discounts",
             "subtitle": "",
             "button_label": "Shop Now",
             "button_bg": "#ffd43b",
