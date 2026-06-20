@@ -56,6 +56,7 @@
         },
         "footer_menu_UxgBkr": {
           "type": "footer_menu",
+          "disabled": true,
           "settings": {
             "show_nav_title": true,
             "nav_title": "Quick Links",
