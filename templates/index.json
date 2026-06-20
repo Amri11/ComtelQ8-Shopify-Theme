@@ -181,7 +181,7 @@
         "offer_card_PFrwAW": {
           "type": "offer_card",
           "settings": {
-            "card_image": "shopify://shop_images/02.webp",
+            "card_image": "shopify://shop_images/IMG-20260618-WA0032_9f500de1-03cc-4846-adfd-53c401ad8b9f.jpg",
             "card_title": "Offer title",
             "card_title_color": "#ffffff",
             "card_link": "",
@@ -202,10 +202,22 @@
             "badge_text_color": "#1a1a1a"
           }
         },
+        "offer_card_PBMH8j": {
+          "type": "offer_card",
+          "settings": {
+            "card_image": "shopify://shop_images/IMG-20260618-WA0040.jpg",
+            "card_title": "Season Best Art",
+            "card_title_color": "#ffffff",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#ffe34d",
+            "badge_text_color": "#1a1a1a"
+          }
+        },
         "offer_card_3RNftf": {
           "type": "offer_card",
           "settings": {
-            "card_image": "shopify://shop_images/04.webp",
+            "card_image": "shopify://shop_images/IMG-20260618-WA0033.jpg",
             "card_title": "Hot Book Deals",
             "card_title_color": "#ffffff",
             "card_link": "",
@@ -229,7 +241,7 @@
         "offer_card_9FGR38": {
           "type": "offer_card",
           "settings": {
-            "card_image": "shopify://shop_images/06.webp",
+            "card_image": "shopify://shop_images/IMG-20260618-WA0035.jpg",
             "card_title": "Large Screen TV",
             "card_title_color": "#ffffff",
             "card_link": "",
@@ -241,7 +253,7 @@
         "offer_card_WT7VT4": {
           "type": "offer_card",
           "settings": {
-            "card_image": "shopify://shop_images/07.webp",
+            "card_image": "shopify://shop_images/IMG-20260618-WA0034.jpg",
             "card_title": "Season Best Art",
             "card_title_color": "#ffffff",
             "card_link": "",
@@ -250,10 +262,23 @@
             "badge_text_color": "#1a1a1a"
           }
         },
-        "offer_card_NVHUzx": {
+        "offer_card_TkpKTE": {
           "type": "offer_card",
           "settings": {
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/IMG-20260618-WA0038.jpg",
+            "card_title": "Season Best Art",
+            "card_title_color": "#ffffff",
+            "card_link": "",
+            "badge_text": "",
+            "badge_bg_color": "#ffe34d",
+            "badge_text_color": "#1a1a1a"
+          }
+        },
+        "offer_card_CHjRra": {
+          "type": "offer_card",
+          "settings": {
+            "card_image": "shopify://shop_images/IMG-20260618-WA0041.jpg",
+            "card_title": "Season Best Art",
             "card_title_color": "#ffffff",
             "card_link": "",
             "badge_text": "",
@@ -266,11 +291,13 @@
         "offer_card_MEexDw",
         "offer_card_PFrwAW",
         "offer_card_ApwThj",
+        "offer_card_PBMH8j",
         "offer_card_3RNftf",
         "offer_card_E7DXxU",
         "offer_card_9FGR38",
         "offer_card_WT7VT4",
-        "offer_card_NVHUzx"
+        "offer_card_TkpKTE",
+        "offer_card_CHjRra"
       ],
       "name": "Offer cards",
       "settings": {
