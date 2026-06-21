@@ -7,12 +7,6 @@
             <p class="mr-0">&copy; {{ 'now' | date: '%Y' }} {{ section.settings.copy_right_text }}</p>
           </div>
         </li>
-        <li class="copy-right copy-social">
-          {% render 'social-media' %}
-        </li>
-        <li class="copy-right copy-payment">
-          {% render 'payment-icon' %}
-        </li>
       </ul>
     </div>
   </div>
@@ -111,17 +105,15 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 12px;
   }
   .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right {
-    width: 33.33%;
+    width: 100%;
+    text-align: center;
   }
   .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-social ul.social-icon {
     justify-content: center;
-  }
-  .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-payment {
-    display: flex;
-    justify-content: flex-end;
   }
   .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right .link-copyright a,
   .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right .link-copyright p {
@@ -147,9 +139,6 @@
     }
     .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-text {
       text-align: center;
-    }
-    .footer-bottom-area .copyright-main ul.ft-bottom li.copy-right.copy-payment {
-      justify-content: center;
     }
   }
 </style>
