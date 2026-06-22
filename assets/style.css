@@ -2938,6 +2938,7 @@ section{
 }
 .single-product-wrap .product-content .price-box span.old-price {
   margin-left: 5px;
+  padding-top:12px;
 }
 .single-product-wrap .product-content .product-action a.wishlist,
 .single-product-wrap .product-content .product-action .quick-view,
