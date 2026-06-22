@@ -72,7 +72,7 @@
         <div class="product-vendor">{{ product.vendor }}</div>
         {%- endif -%}
         <h6 class="mr-0">
-          <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title }}</a>
+          <a href="{{ product.url | within: collection }}" title="{{ product.title }}">{{ product.title | truncate: 70 }}</a>
         </h6>
       </div>
       <div class="price-block">
