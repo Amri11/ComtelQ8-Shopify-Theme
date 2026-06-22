@@ -1446,8 +1446,8 @@ section{
   z-index: 2;
   opacity: 0;
   visibility: hidden;
-  background-color: #eeeeee;
-  border: 1px solid #ececec;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
   border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,8%);
   /* Slight hide delay so cursor jitter while travelling to the dropdown doesn't snap it shut */
@@ -1888,8 +1888,91 @@ section{
   padding-inline-end: 15px;
   border-inline-end: var(--sti-border);
 }
+/* =====================================================
+   Vega menu - Cascading (breakdown) mode for product-menu2 (RTL)
+   Mirrors the LTR cascade: vertical category list, 2nd level
+   slides out to the LEFT on hover. Desktop only.
+   ===================================================== */
+@media (min-width: 1200px) {
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
+    width: 260px;
+    padding: 12px 0;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul {
+    display: block;
+    margin: 0;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li {
+    width: 100%;
+    border-left: none;
+    position: relative;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li a.productlink-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li a.productlink-title::after {
+    content: "\f104"; /* fa-angle-left */
+    font-family: "FontAwesome";
+    font-size: 14px;
+    color: #9a9a9a;
+    line-height: 1;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover a.productlink-title,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover a.productlink-title::after {
+    color: var(--font-color-primary);
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li.menu-li a.productlink-title::after {
+    content: none;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li ul.productsupmenu-dropdown,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li ul.productsupmenu-dropdown.collapse:not(.show) {
+    position: absolute;
+    top: -12px;
+    right: 100%;
+    left: auto;
+    min-width: 240px;
+    padding: 12px 0;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,8%);
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    z-index: 2;
+    transition: opacity 0.2s ease 0.18s, visibility 0.2s ease 0.18s;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li ul.productsupmenu-dropdown::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -16px;
+    width: 16px;
+    height: 100%;
+    background: transparent;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover ul.productsupmenu-dropdown,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover ul.productsupmenu-dropdown.collapse:not(.show) {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .menu-product,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li.menu-product {
+    display: none;
+  }
+}
 @media (max-width: 1499px) {
-  .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
+    width: 260px;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
     width: 870px;
   }
 }
@@ -2382,6 +2465,38 @@ section{
 }
 .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title span.sp-link-title {
   position: relative;
+}
+/* =====================================================
+   Vega menu - "All at once" (flat) mode (RTL)
+   Mirrors the LTR flat override: 3rd-level sub-items render
+   inline beneath their parent so the whole sub-tree is
+   visible at a glance. Desktop only.
+   ===================================================== */
+@media (min-width: 1200px) {
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu {
+    padding: 25px 0;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li .sublink-title .menu-arrow {
+    display: none;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    padding: 0 0 8px;
+    box-shadow: none;
+    transition: none;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown::before {
+    display: none;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title {
+    padding: 5px 42px 5px 30px;
+    font-size: 15px;
+    color: #6f6f6f;
+  }
 }
 @media (max-width: 1199px) {
   .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu {
@@ -3462,6 +3577,7 @@ section{
 .single-product-wrap .product-content .price-box span.new-price {
   font-size: 16px;
   font-weight: 700;
+  padding-top:12px;
 }
 .single-product-wrap .product-content .price-box.price--on-sale span.new-price {
   color: #e02424;

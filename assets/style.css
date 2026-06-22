@@ -1902,8 +1902,102 @@ section{
   padding-inline-end: 15px;
   border-inline-end: var(--sti-border);
 }
+/* =====================================================
+   Vega menu - Cascading (breakdown) mode for product-menu2
+   Default behaviour (when .vega-flat is NOT set): instead of
+   showing every category column + sub-links at once, the panel
+   becomes a narrow vertical list of categories. Hovering a
+   category slides its sub-links out into the next panel.
+   The product slider column doesn't fit a cascade column, so
+   it's hidden in this mode. Desktop only - mobile keeps its
+   accordion. The "All at once" setting (.vega-flat) skips all
+   of this and keeps the original multi-column layout.
+   ===================================================== */
+@media (min-width: 1200px) {
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
+    width: 260px;
+    padding: 12px 0;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul {
+    display: block;
+    margin: 0;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li {
+    width: 100%;
+    border-right: none;
+    position: relative;
+  }
+  /* Top-level category row */
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li a.productlink-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 20px;
+  }
+  /* Right-pointing arrow to signal a deeper panel */
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li a.productlink-title::after {
+    content: "\f105"; /* fa-angle-right */
+    font-family: "FontAwesome";
+    font-size: 14px;
+    color: #9a9a9a;
+    line-height: 1;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover a.productlink-title,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover a.productlink-title::after {
+    color: var(--font-color-primary);
+  }
+  /* Category rows without children get no arrow */
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li.menu-li a.productlink-title::after {
+    content: none;
+  }
+  /* 2nd level slides out as a flyout instead of being inline */
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li ul.productsupmenu-dropdown,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li ul.productsupmenu-dropdown.collapse:not(.show) {
+    position: absolute;
+    top: -12px;
+    left: 100%;
+    min-width: 240px;
+    padding: 12px 0;
+    background-color: #fff;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,8%);
+    opacity: 0;
+    visibility: hidden;
+    display: block;
+    z-index: 2;
+    transition: opacity 0.2s ease 0.18s, visibility 0.2s ease 0.18s;
+  }
+  /* Invisible hover bridge so the cursor can cross into the flyout */
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li ul.productsupmenu-dropdown::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -16px;
+    width: 16px;
+    height: 100%;
+    background: transparent;
+  }
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover ul.productsupmenu-dropdown,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li:hover ul.productsupmenu-dropdown.collapse:not(.show) {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s;
+  }
+  /* Hide the product slider + shop banner column in cascade mode */
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .menu-product,
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 .ul li.productlink-li.menu-product {
+    display: none;
+  }
+}
 @media (max-width: 1499px) {
-  .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
+  .header1 .vega-menu-area:not(.vega-flat) ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
+    width: 260px;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.product-menu2 {
     width: 870px;
   }
 }
@@ -2396,6 +2490,43 @@ section{
 }
 .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title span.sp-link-title {
   position: relative;
+}
+/* =====================================================
+   Vega menu - "All at once" (flat) mode
+   When .vega-flat is set, the 3rd-level sub-items render
+   inline beneath their parent inside the same flyout panel,
+   so the whole sub-tree is visible at a glance instead of
+   cascading out on hover. Desktop only; mobile keeps its
+   own accordion behaviour below.
+   ===================================================== */
+@media (min-width: 1200px) {
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu {
+    padding: 25px 0;
+  }
+  /* Parent row no longer needs the side-flyout arrow */
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li .sublink-title .menu-arrow {
+    display: none;
+  }
+  /* Show the 3rd level inline instead of as an absolute flyout */
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown,
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li:hover ul.supmenu-dropdown {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    width: 100%;
+    padding: 0 0 8px;
+    box-shadow: none;
+    transition: none;
+  }
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown::before {
+    display: none;
+  }
+  /* Indent the inline 3rd-level rows so the hierarchy still reads clearly */
+  .header1 .vega-menu-area.vega-flat ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu li.submenu-li ul.supmenu-dropdown li.supmenu-li a.suplink-title {
+    padding: 5px 30px 5px 42px;
+    font-size: 15px;
+    color: #6f6f6f;
+  }
 }
 @media (max-width: 1199px) {
   .header1 .vega-menu-area ul.vega-menu li.menu-link ul.menu-dropdown.sub-menu {
@@ -3478,6 +3609,8 @@ section{
 .single-product-wrap .product-content .price-box span.new-price {
   font-size: 16px;
   font-weight: 700;
+    padding-top:12px;
+
 }
 .single-product-wrap .product-content .price-box.price--on-sale span.new-price {
   color: #e02424;
