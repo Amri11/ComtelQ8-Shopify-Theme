@@ -168,7 +168,25 @@ product image slider css
   }
   .product_details .product_detail_img.product_detail_img_left .slider-small,
   .product_details .product_detail_img.product_detail_img_right .slider-small {
-    margin-top: 15px;    
+    margin-top: 15px;
+  }
+  /* on mobile, thumb-stack switches to a horizontal scrollable row */
+  .product_detail_img.product_detail_img_left .pro-slider,
+  .product_detail_img.product_detail_img_right .pro-slider {
+    width: 100%;
+    margin-top: 10px;
+  }
+  .product_detail_img.product_detail_img_left .pro-slider .thumb-stack,
+  .product_detail_img.product_detail_img_right .pro-slider .thumb-stack {
+    flex-direction: row;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none !important;
+  }
+  .product_detail_img.product_detail_img_left .pro-slider .thumb-stack__item,
+  .product_detail_img.product_detail_img_right .pro-slider .thumb-stack__item {
+    width: 70px;
+    flex-shrink: 0;
   }
 }
 
