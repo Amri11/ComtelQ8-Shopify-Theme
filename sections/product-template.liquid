@@ -25,6 +25,53 @@
         <div class="product_detail_img{% if section.settings.product_img_pos == 'top' %} product_detail_img_top{% elsif section.settings.product_img_pos == 'bottom' %} product_detail_img_bottom{% elsif section.settings.product_img_pos == 'left' %} product_detail_img_left{% elsif section.settings.product_img_pos == 'right' %} product_detail_img_right{% endif %}">
           {%- if product.featured_media -%}
           <div class="pro-slider">
+            {% if section.settings.product_img_pos == 'left' or section.settings.product_img_pos == 'right' %}
+            <div
+              class="thumb-stack"
+              id="slider-small-{{ section.id }}-{{ product.id }}"
+            >
+              {% for media in product.media %}
+                {% assign i = forloop.index0 %}
+                {%- liquid
+                  assign img_url = media | image_url
+                  assign ratio = 1
+                  if media.preview_image and section.settings.image_ratio == 'portrait'
+                    assign ratio = 0.8
+                  elsif media.preview_image and section.settings.image_ratio == 'adapt'
+                    assign ratio = img_url.aspect_ratio
+                  endif
+                  if ratio == 0 or ratio == null
+                    assign ratio = 1
+                  endif
+                -%}
+                <div
+                  class="thumb-stack__item{% if forloop.first %} is-active{% endif %}"
+                  data-index="{{ i }}"
+                  data-image-id="{{ media.id }}"
+                >
+                  <span class="product-thumb" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
+                    {% assign image_height = media.preview_image.width
+                      | divided_by: media.preview_image.aspect_ratio
+                    %}
+                    {{
+                      media.preview_image
+                      | image_url: width: 300
+                      | image_tag:
+                        width: media.preview_image.width,
+                        height: image_height,
+                        loading: 'lazy'
+                    }}
+                    {%- if media.media_type == 'video' or media.media_type == 'external_video' -%}
+                      <span class="icon-play"><i class="feather-play"></i></span>
+                    {%- endif -%}
+                    {%- if media.media_type == 'model' -%}
+                      <span class="icon-modal"><i class="feather-box"></i></span>
+                    {%- endif -%}
+                  </span>
+                </div>
+              {% endfor %}
+            </div>
+            {% else %}
             <div
               class="slider-small swiper slider-small-{{ section.id }}-{{ product.id }}"
               id="slider-small-{{ section.id }}-{{ product.id }}"
@@ -51,11 +98,7 @@
                     data-image="{{ media.preview_image | image_url }}"
                     data-image-id="{{ media.id }}"
                     data-index="{{ i }}"
-                    {% if section.settings.product_img_pos == 'left' or section.settings.product_img_pos == 'right' %}
-                      data-slide="vertical"
-                    {% else %}
-                      data-slide="horizontal"
-                    {% endif %}
+                    data-slide="horizontal"
                   >
                     <span class="product-thumb" style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;">
                       {% assign image_height = media.preview_image.width
@@ -81,6 +124,7 @@
                 {% endfor %}
               </div>
             </div>
+            {% endif %}
           </div>
           <div class="product_img_top">
             <div
@@ -205,29 +249,46 @@
     (function() {
       setTimeout(function () {
         {% if section.settings.product_img_pos == 'left' or section.settings.product_img_pos == 'right' %}
-        function setheight(){
-          var element = document.getElementById('slider-big-{{ section.id }}-{{ product.id }}');
-          var height = element.offsetHeight;
-          document.getElementById('slider-small-{{ section.id }}-{{ product.id }}').style.maxHeight = height+"px";
-        };
-        const observer = new MutationObserver(list => {
-          setheight();
+        // vertical thumbnail stack — no Swiper needed, plain CSS column
+        var stackEl = document.getElementById('slider-small-{{ section.id }}-{{ product.id }}');
+        var swiper2 = new Swiper(".slider-big-{{ section.id }}-{{ product.id }}", {
+          spaceBetween: 0,
+          slidesPerView: 1,
+          autoHeight: true,
+          slideToClickedSlide: true,
+          loopedSlides: 0,
+          navigation: {
+            nextEl: ".button-next",
+            prevEl: ".button-prev"
+          }
         });
-        observer.observe(document.body, {attributes: true, childList: true, subtree: true});
-        {% endif %}
+        function setStackHeight() {
+          var bigEl = document.getElementById('slider-big-{{ section.id }}-{{ product.id }}');
+          if (bigEl && stackEl) {
+            stackEl.style.maxHeight = bigEl.offsetHeight + 'px';
+          }
+        }
+        setStackHeight();
+        swiper2.on('resize', setStackHeight);
+        swiper2.on('slideChange', function() {
+          var idx = swiper2.activeIndex;
+          stackEl.querySelectorAll('.thumb-stack__item').forEach(function(el, i) {
+            el.classList.toggle('is-active', i === idx);
+          });
+        });
+        stackEl.addEventListener('click', function(e) {
+          var item = e.target.closest('.thumb-stack__item');
+          if (!item) return;
+          var idx = parseInt(item.dataset.index, 10);
+          swiper2.slideTo(idx, 0);
+          stackEl.querySelectorAll('.thumb-stack__item').forEach(function(el, i) {
+            el.classList.toggle('is-active', i === idx);
+          });
+        });
+        {% else %}
         var swiper = new Swiper(".slider-small-{{ section.id }}-{{ product.id }}", {
-        spaceBetween: 15,
-        {% if section.settings.product_img_pos == 'top' or section.settings.product_img_pos == 'bottom' %}
-        slidesPerView: 5,
-        {% endif %}
-        {% if section.settings.product_img_pos == 'left' or section.settings.product_img_pos == 'right' %}
-        direction: 'vertical',
-        slidesPerView: "auto",
-        mousewheel: true,
-        slideToClickedSlide: true,
-        loopedSlides: 0,
-        autoHeight: true,
-        {% endif %}
+          spaceBetween: 15,
+          slidesPerView: 5,
           breakpoints: {
             0: {
               slidesPerView: 3,
@@ -238,13 +299,7 @@
               direction: 'horizontal'
             },
             480: {
-              {% if section.settings.product_img_pos == 'left' or section.settings.product_img_pos == 'right' %}
-              direction: 'vertical',
-              slidesPerView: "auto",
-              {% endif %}
-              {% if section.settings.product_img_pos == 'top' or section.settings.product_img_pos == 'bottom' %}
               slidesPerView: 5,
-              {% endif %}
             },
           }
         });
@@ -262,38 +317,11 @@
             swiper: swiper
           }
         });
-
         swiper.on('click', function (thumbswiper, event) {
-          const clickedIndex = thumbswiper.clickedIndex; // Get the index of the clicked thumbnail
-          updateSwiperWithNewContent(clickedIndex);
+          var clickedIndex = thumbswiper.clickedIndex;
+          swiper2.slideTo(clickedIndex, 0);
         });
-
-        function updateSwiperWithNewContent(slideIndex = 0) {
-            // Destroy the current Swiper instance
-            if (swiper2 && swiper2.destroy) {
-              swiper2.destroy(true, true);
-            }
-          
-            // Update your slide content dynamically here if needed
-          
-            // Reinitialize Swiper with updated options
-            var swiper2 = new Swiper(".slider-big-{{ section.id }}-{{ product.id }}", {
-            spaceBetween: 0,
-            slidesPerView: 1,
-            autoHeight: true,
-            slideToClickedSlide: true,
-            navigation: {
-              nextEl: ".button-next",
-              prevEl: ".button-prev"
-            },
-            thumbs: {
-              swiper: swiper
-            }
-          });
-        
-          // Navigate to a specific slide after reinitialization
-          swiper2.slideTo(slideIndex, 0); // Go to the specified slide index (0 for the first slide)
-        }
+        {% endif %}
         
         $(".option-block .op-lb").click(function(){
           var op_select = $(this).text();
