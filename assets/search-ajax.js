@@ -37,7 +37,15 @@ class AjaxSearch extends ajaxSearchForm {
     this.getAjaxResults(this.searchCond);
   }
   ajaxFormSubmit(event) {
-    if (!this.ajaxgetInquiry ().length || this.querySelector('[aria-selected="true"] a')) event.preventDefault();
+    // If a suggestion is keyboard-selected, let it handle the navigation instead of submitting.
+    if (this.querySelector('[aria-selected="true"] a')) {
+      event.preventDefault();
+      return;
+    }
+    // Blank search: send the wildcard so the search page returns all products.
+    if (!this.ajaxgetInquiry ().length) {
+      this.input.value = '*';
+    }
   }
   ajaxFormReset(event) {
     super.ajaxFormReset(event);

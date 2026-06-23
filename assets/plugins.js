@@ -910,12 +910,19 @@ class ajaxSearchForm extends HTMLElement {
     this.resetButton = this.querySelector('button[type="reset"]');
     if (this.input) {
       this.input.form.addEventListener('reset', this.onFormReset.bind(this));
+      this.input.form.addEventListener('submit', this.onFormSubmit.bind(this));
       this.input.addEventListener(
         'input',
         stdebounce((event) => {
           this.triggerChange(event);
         }, 300).bind(this)
       );
+    }
+  }
+  onFormSubmit() {
+    // Blank search: send the wildcard so the search page returns all products.
+    if (!this.input.value.trim().length) {
+      this.input.value = '*';
     }
   }
   ajaxResetBtn() {
