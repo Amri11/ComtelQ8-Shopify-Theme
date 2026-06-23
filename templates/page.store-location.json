@@ -15,12 +15,12 @@
         "store-1": {
           "type": "store",
           "settings": {
-            "store_title": "Store 1",
-            "store_phone": "+965 0000 0000",
+            "store_title": "Sahari Showroom",
+            "store_phone": "+965-98820909",
             "store_email": "",
-            "store_address": "Store address, City, Kuwait",
-            "store_hours": "Sun - Thu : 9:00am - 9:00pm",
-            "map_embed": "",
+            "store_address": "Sahari Mall, Marzouq Al Miteb St, Al Jahra.",
+            "store_hours": "Sun - Thu : 10:00am - 10:00pm \nFri - Sat : 10:00am - 11:00pm",
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3477.7894164779914!2d47.671805600000006!3d29.3471667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDIwJzQ5LjgiTiA0N8KwNDAnMTguNSJF!5e0!3m2!1sen!2skw!4v1782246919399!5m2!1sen!2skw\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
             "directions_url": "",
             "directions_label": "Get directions"
           }
@@ -52,7 +52,11 @@
           }
         }
       },
-      "block_order": ["store-1", "store-2", "store-3"],
+      "block_order": [
+        "store-1",
+        "store-2",
+        "store-3"
+      ],
       "settings": {
         "container": "normal",
         "section_subheading": "Visit us",
@@ -61,9 +65,11 @@
         "section_padding_bottom": 100,
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60,
-        "section_background_color": "#FFFFFF"
+        "section_background_color": "#ffffff"
       }
     }
   },
-  "order": ["store-location"]
+  "order": [
+    "store-location"
+  ]
 }
