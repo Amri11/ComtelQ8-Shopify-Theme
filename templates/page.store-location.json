@@ -28,25 +28,51 @@
         "store-2": {
           "type": "store",
           "settings": {
-            "store_title": "Store 2",
-            "store_phone": "+965 0000 0000",
+            "store_title": "Yarmouk",
+            "store_phone": " +965-98820909",
             "store_email": "",
-            "store_address": "Store address, City, Kuwait",
-            "store_hours": "Sun - Thu : 9:00am - 9:00pm",
-            "map_embed": "",
+            "store_address": "Block-1, Street -3,Yarmouk",
+            "store_hours": "Sun - Thu : 10:00am - 10:00pm \nFri - Sat : 10:00am - 11:00pm",
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3478.937805115007!2d47.966416699999996!3d29.3135!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDE4JzQ4LjYiTiA0N8KwNTcnNTkuMSJF!5e0!3m2!1sen!2skw!4v1782247090840!5m2!1sen!2skw\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
             "directions_url": "",
             "directions_label": "Get directions"
           }
         },
-        "store-3": {
+        "store_tpeqjA": {
           "type": "store",
           "settings": {
-            "store_title": "Store 3",
-            "store_phone": "+965 0000 0000",
+            "store_title": "Marina Mall",
+            "store_phone": " +965-98820909",
             "store_email": "",
-            "store_address": "Store address, City, Kuwait",
-            "store_hours": "Sun - Thu : 9:00am - 9:00pm",
-            "map_embed": "",
+            "store_address": "1st, Marina Mall, Salem Mubarak Street, Gulf Road, Salmiya",
+            "store_hours": "Sun - Thu : 10:00am - 10:00pm \nFri - Sat : 10:00am - 11:00pm",
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d13912.10276960099!2d48.0658874!3d29.3402428!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDIwJzE3LjUiTiA0OMKwMDMnNTguMSJF!5e0!3m2!1sen!2skw!4v1782247145930!5m2!1sen!2skw\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+            "directions_url": "",
+            "directions_label": "Get directions"
+          }
+        },
+        "store_aeGniJ": {
+          "type": "store",
+          "settings": {
+            "store_title": "Avenues",
+            "store_phone": " +965-98820909",
+            "store_email": "",
+            "store_address": "Avenues Mall, 2nd Avenue, Ground floor.",
+            "store_hours": "Sun - Thu : 10:00am - 10:00pm \nFri - Sat : 10:00am - 11:00pm",
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3479.3042402185397!2d47.9344167!3d29.302749999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjnCsDE4JzA5LjkiTiA0N8KwNTYnMDMuOSJF!5e0!3m2!1sen!2skw!4v1782247199741!5m2!1sen!2skw\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
+            "directions_url": "",
+            "directions_label": "Get directions"
+          }
+        },
+        "store_F4XJyc": {
+          "type": "store",
+          "settings": {
+            "store_title": "Qasr",
+            "store_phone": " +965-98820909",
+            "store_email": "",
+            "store_address": "Al Naeem Co-op, Qasr Supermarket",
+            "store_hours": "Sun - Thu : 10:00am - 10:00pm \nFri - Sat : 10:00am - 11:00pm",
+            "map_embed": "<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d434.7691993027365!2d47.6992816!3d29.3364941!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3fcff4169b4807d9%3A0x5bb4c0a68074d96f!2sAl%20Naeem%20Co-op%2C%20Qasr%20Supermarket!5e0!3m2!1sen!2skw!4v1782247260056!5m2!1sen!2skw\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"strict-origin-when-cross-origin\"></iframe>",
             "directions_url": "",
             "directions_label": "Get directions"
           }
@@ -55,7 +81,9 @@
       "block_order": [
         "store-1",
         "store-2",
-        "store-3"
+        "store_tpeqjA",
+        "store_aeGniJ",
+        "store_F4XJyc"
       ],
       "settings": {
         "container": "normal",
