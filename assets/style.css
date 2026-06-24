@@ -4971,4 +4971,10 @@ image ratio
   100% {
     transform: rotate(360deg);
   }
+}.product-description,
+.product-description p,
+.product-description li,
+.product-description strong,
+.product-description b {
+    color: #000000 !important;
 }
