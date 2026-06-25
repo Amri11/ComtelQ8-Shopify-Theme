@@ -46,11 +46,11 @@
       "settings": {
         "slider_width": "contained",
         "slider_border_radius": 16,
-        "slider_autoplay_enable": false,
+        "slider_autoplay_enable": true,
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000,
-        "arrow_enable": false,
-        "dots_enable": false
+        "arrow_enable": true,
+        "dots_enable": true
       }
     },
     "shop_by_category_kVFhjX": {
