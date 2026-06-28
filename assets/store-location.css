@@ -106,13 +106,24 @@
   align-items: center;
   gap: 8px;
   margin-top: 24px;
+  padding: 12px 26px;
   font-size: var(--font-size-body);
   font-weight: var(--subtitle-custom-font-weight-body);
-  color: var(--font-color-primary);
+  line-height: 1;
+  color: var(--background-color, #fff);
   text-transform: uppercase;
+  border: 1px solid var(--font-color-primary);
+  border-radius: 999px;
+  background-color: var(--font-color-primary);
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 .store-location .store-card-directions i {
   transition: transform 0.3s ease;
+}
+.store-location .store-card-directions:hover {
+  color: var(--font-color-primary);
+  background-color: transparent;
+  border-color: var(--font-color-primary);
 }
 .store-location .store-card-directions:hover i {
   transform: translateX(4px);
