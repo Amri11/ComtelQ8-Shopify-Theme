@@ -121,12 +121,6 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(
-    90deg,
-    rgba(var(--banner-tint-rgb, 58, 58, 51), var(--banner-tint-opacity, 0.78)) 0%,
-    rgba(var(--banner-tint-rgb, 58, 58, 51), var(--banner-tint-opacity, 0.78)) 55%,
-    rgba(var(--banner-tint-rgb, 58, 58, 51), 0) 100%
-  );
 }
 .mega-sale .mega-sale-banner .banner-inner {
   position: relative;
@@ -338,9 +332,6 @@
   }
   .mega-sale .mega-sale-banner {
     min-height: 260px;
-  }
-  .mega-sale .mega-sale-body.has-bg-image .banner-tint {
-    background: rgba(var(--banner-tint-rgb, 58, 58, 51), var(--banner-tint-opacity, 0.78));
   }
 }
 
