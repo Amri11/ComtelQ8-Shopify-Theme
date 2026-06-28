@@ -318,7 +318,7 @@
         "section_bg_color": "#ffffff",
         "section_heading": "New Products and Current Offers",
         "section_subheading": "",
-        "card_radius": 12,
+        "card_radius": 20,
         "slider_item_desktop": "6",
         "slider_item_ipadpro": "4",
         "slider_item_ipad": "3",
