@@ -18,7 +18,7 @@
             "text_icon1": "<i class=\"feather-map-pin\"></i>",
             "icon_url": "",
             "service_title": "Store location",
-            "service_desc": "14 Ringe lane, las vegas,\nnv, 89156 united states",
+            "service_desc": "Building 240, Street 43, Al-Rai Industrial, AlShuwaikh",
             "service_bg_color": "#fafafa"
           }
         },
@@ -26,9 +26,9 @@
           "type": "our_services",
           "settings": {
             "text_icon1": "<i class=\"feather-phone-call\"></i>",
-            "icon_url": "tel:+00-1234567890",
+            "icon_url": "tel:+965-98820909",
             "service_title": "Contact call",
-            "service_desc": "+00-1234567890",
+            "service_desc": "+965-98820909",
             "service_bg_color": "#fafafa"
           }
         },
@@ -38,7 +38,7 @@
             "text_icon1": "<i class=\"feather-mail\"></i>",
             "icon_url": "mailto:demo@support.com",
             "service_title": "Contact mail",
-            "service_desc": "demo@support.com",
+            "service_desc": "support@comtelq8.com",
             "service_bg_color": "#fafafa"
           }
         }
