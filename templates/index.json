@@ -15,21 +15,22 @@
         "slide_amfL9A": {
           "type": "slide",
           "settings": {
-            "slider_img": "shopify://shop_images/Hero-banner-04_jpg.jpg",
-            "slider_mobile_img": "shopify://shop_images/Hero-banner-04_jpg.jpg",
+            "slider_img": "shopify://shop_images/Apple_Banner_Homepage.png",
+            "slider_mobile_img": "shopify://shop_images/Apple_Banner_Homepage.png",
             "slide_url": ""
           }
         },
         "slide_gzcMRU": {
           "type": "slide",
           "settings": {
-            "slider_img": "shopify://shop_images/Anker_Homepage_Banner.png",
-            "slider_mobile_img": "shopify://shop_images/Anker_Homepage_Banner.png",
+            "slider_img": "shopify://shop_images/Home_Anker.png",
+            "slider_mobile_img": "shopify://shop_images/Home_Anker.png",
             "slide_url": ""
           }
         },
         "slide_c7jeYt": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slider_img": "shopify://shop_images/Hero-banner_jpg.jpg",
             "slider_mobile_img": "shopify://shop_images/Hero-banner_jpg.jpg",
