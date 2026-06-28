@@ -20,6 +20,14 @@
             "slide_url": ""
           }
         },
+        "slide_gzcMRU": {
+          "type": "slide",
+          "settings": {
+            "slider_img": "shopify://shop_images/Anker_Homepage_Banner.png",
+            "slider_mobile_img": "shopify://shop_images/Anker_Homepage_Banner.png",
+            "slide_url": ""
+          }
+        },
         "slide_c7jeYt": {
           "type": "slide",
           "settings": {
@@ -40,6 +48,7 @@
       },
       "block_order": [
         "slide_amfL9A",
+        "slide_gzcMRU",
         "slide_c7jeYt",
         "slide_CnBRkq"
       ],
