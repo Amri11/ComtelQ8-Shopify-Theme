@@ -239,6 +239,7 @@
         "ef1289de-6886-4199-ad9d-7730ee781af6",
         "b3353f5e-eaea-4f3f-84d5-728efbad54ed"
       ],
+      "disabled": true,
       "settings": {
         "container": "normal",
         "section_padding_top": 100,
@@ -246,9 +247,15 @@
         "section_padding_top_xs": 60,
         "section_padding_bottom_xs": 60
       }
+    },
+    "page_xbegGj": {
+      "type": "page",
+      "name": "Page",
+      "settings": {}
     }
   },
   "order": [
-    "refund-policy"
+    "refund-policy",
+    "page_xbegGj"
   ]
 }
