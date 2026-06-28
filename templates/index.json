@@ -190,8 +190,8 @@
         "offer_card_PFrwAW": {
           "type": "offer_card",
           "settings": {
-            "card_image": "shopify://shop_images/IMG-20260618-WA0032_9f500de1-03cc-4846-adfd-53c401ad8b9f.jpg",
-            "card_title": "Offer title",
+            "card_image": "shopify://shop_images/Card_3.png",
+            "card_title": "Headphones",
             "card_title_color": "#ffffff",
             "card_link": "",
             "badge_text": "-5",
