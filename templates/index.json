@@ -380,7 +380,7 @@
         "offer_banner_iqfp7r": {
           "type": "offer_banner",
           "settings": {
-            "banner_img": "shopify://shop_images/apple_banner.webp",
+            "banner_img": "shopify://shop_images/Apple_banner.png",
             "banner_url": "shopify://collections/all",
             "banner_subtitle": "",
             "banner_subtitle_color": "#db5bdb",
@@ -394,7 +394,7 @@
         "offer_banner_CDGdEb": {
           "type": "offer_banner",
           "settings": {
-            "banner_img": "shopify://shop_images/Gemini_Generated_Image_2fuyxa2fuyxa2fuy.png",
+            "banner_img": "shopify://shop_images/Samsung_banner_e15acda6-be36-4ee5-a702-6647142e1152.png",
             "banner_url": "shopify://collections/all",
             "banner_subtitle": "",
             "banner_subtitle_color": "#09729f",
