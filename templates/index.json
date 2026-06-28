@@ -480,7 +480,7 @@
         "banner_enable": true,
         "banner_width": 25,
         "banner_image": "shopify://shop_images/Side_Banner.png",
-        "banner_overlay_opacity": 30,
+        "banner_overlay_opacity": 0,
         "banner_badge": "Best Seller",
         "banner_title": "Sound Without Compromise",
         "banner_subtitle": "Turn up the sound, turn down the price.",
