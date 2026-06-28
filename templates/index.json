@@ -28,6 +28,14 @@
             "slide_url": ""
           }
         },
+        "slide_xjjYAq": {
+          "type": "slide",
+          "settings": {
+            "slider_img": "shopify://shop_images/Samsung_Banner_Homepage.png",
+            "slider_mobile_img": "shopify://shop_images/Samsung_Banner_Homepage.png",
+            "slide_url": ""
+          }
+        },
         "slide_c7jeYt": {
           "type": "slide",
           "disabled": true,
@@ -50,6 +58,7 @@
       "block_order": [
         "slide_amfL9A",
         "slide_gzcMRU",
+        "slide_xjjYAq",
         "slide_c7jeYt",
         "slide_CnBRkq"
       ],
