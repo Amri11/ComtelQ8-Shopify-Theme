@@ -533,14 +533,14 @@
           "type": "single_brand",
           "settings": {
             "brand_image": "shopify://shop_images/samsung-8.svg",
-            "brand_url": ""
+            "brand_url": "https://comtelq8.myshopify.com/search?q=samsung&options%5Bprefix%5D=last&type=product"
           }
         },
         "single_brand_je8c8j": {
           "type": "single_brand",
           "settings": {
             "brand_image": "shopify://shop_images/Untitled_design_4.png",
-            "brand_url": ""
+            "brand_url": "https://comtelq8.myshopify.com/search?q=rav+power&options%5Bprefix%5D=last&type=product"
           }
         },
         "single_brand_Ve6fVm": {
