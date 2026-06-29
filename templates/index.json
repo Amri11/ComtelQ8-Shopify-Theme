@@ -144,7 +144,7 @@
             "category_handle": "",
             "category_image": "shopify://shop_images/8_0863eece-aa07-442c-a282-8dc0ec5755ce.png",
             "category_title": "Sale",
-            "category_url": ""
+            "category_url": "shopify://collections/weekly-deals"
           }
         }
       },
@@ -191,7 +191,7 @@
             "card_image": "shopify://shop_images/Card_1.png",
             "card_title": "Smart Watches",
             "card_title_color": "#ffffff",
-            "card_link": "shopify://collections/frontpage",
+            "card_link": "shopify://collections/smart-watches",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
