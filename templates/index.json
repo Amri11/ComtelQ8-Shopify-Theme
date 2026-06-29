@@ -484,7 +484,7 @@
         "section_bg_color": "#ffffff",
         "section_heading": "Electronics",
         "shop_all_label": "Shop All",
-        "shop_all_url": "",
+        "shop_all_url": "shopify://collections/earphones",
         "collection": "frontpage",
         "product_limit": 10,
         "banner_enable": true,
