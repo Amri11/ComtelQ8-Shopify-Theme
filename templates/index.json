@@ -519,7 +519,7 @@
           "type": "single_brand",
           "settings": {
             "brand_image": "shopify://shop_images/1.png",
-            "brand_url": ""
+            "brand_url": "https://comtelq8.myshopify.com/search?q=moft&options%5Bprefix%5D=last&type=product"
           }
         },
         "single_brand_gRK8Mi": {
