@@ -405,7 +405,7 @@
           "type": "offer_banner",
           "settings": {
             "banner_img": "shopify://shop_images/Samsung_banner_e15acda6-be36-4ee5-a702-6647142e1152.png",
-            "banner_url": "shopify://collections/all",
+            "banner_url": "shopify://collections/samsung-galaxy-tablets",
             "banner_subtitle": "",
             "banner_subtitle_color": "#09729f",
             "banner_title": "",
