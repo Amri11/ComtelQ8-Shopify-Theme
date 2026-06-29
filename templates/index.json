@@ -391,7 +391,7 @@
           "type": "offer_banner",
           "settings": {
             "banner_img": "shopify://shop_images/Apple_banner.png",
-            "banner_url": "shopify://collections/all",
+            "banner_url": "shopify://collections/apple-ipads",
             "banner_subtitle": "",
             "banner_subtitle_color": "#db5bdb",
             "banner_title": "",
