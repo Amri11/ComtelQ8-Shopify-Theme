@@ -347,7 +347,7 @@
         "product_tab_J9V89F": {
           "type": "product_tab",
           "settings": {
-            "tab_product": "frontpage"
+            "tab_product": "smart-phones"
           }
         }
       },
@@ -362,7 +362,7 @@
         "section_padding_bottom_xs": 5,
         "section_bg_color": "rgba(0,0,0,0)",
         "section_subheading": "",
-        "section_heading": "Trending product",
+        "section_heading": "New Arrivals",
         "countdown_enable": false,
         "product_month": "June",
         "product_year": 2026,
