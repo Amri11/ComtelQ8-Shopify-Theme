@@ -263,7 +263,7 @@
             "card_image": "shopify://shop_images/Card_8.png",
             "card_title": "Smart Glasses",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/smart-glasses",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
@@ -275,7 +275,7 @@
             "card_image": "shopify://shop_images/Card_9.png",
             "card_title": "Kids Tablets",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/kids-tablets",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
@@ -287,7 +287,7 @@
             "card_image": "shopify://shop_images/Card_1_8bb1ca56-3b72-420f-8ff9-d879450af862.png",
             "card_title": "Cameras & Drones",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/cameras-drones",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
