@@ -547,7 +547,7 @@
           "type": "single_brand",
           "settings": {
             "brand_image": "shopify://shop_images/4.png",
-            "brand_url": ""
+            "brand_url": "https://comtelq8.myshopify.com/search?q=xiaomi&_pos=1&_psq=xiaomi&_ss=e&_v=1.0"
           }
         },
         "single_brand_thhpDz": {
@@ -598,7 +598,7 @@
           "settings": {
             "image": "shopify://shop_images/Accessories.png",
             "overlay_opacity": 0,
-            "card_link": "",
+            "card_link": "shopify://collections/mobile-accessories-1",
             "text_color": "#ffffff",
             "title": "",
             "subtitle": "",
@@ -622,7 +622,7 @@
           "settings": {
             "image": "shopify://shop_images/Smart_Watches.png",
             "overlay_opacity": 15,
-            "card_link": "",
+            "card_link": "shopify://collections/smart-watches",
             "card_bg": "#d5562c",
             "text_color": "#ffffff",
             "title": "",
@@ -637,7 +637,7 @@
           "settings": {
             "image": "shopify://shop_images/Speakers.png",
             "overlay_opacity": 10,
-            "card_link": "",
+            "card_link": "shopify://collections/audio",
             "card_bg": "#5b9bd5",
             "text_color": "#ffffff",
             "title": "Find Your Perfect Sound",
@@ -652,7 +652,7 @@
           "settings": {
             "image": "shopify://shop_images/Screen_protector.png",
             "overlay_opacity": 0,
-            "card_link": "",
+            "card_link": "shopify://collections/screen-protectors",
             "card_bg": "#53bfe0",
             "text_color": "#ffffff",
             "badge_text": "Best Seller",
