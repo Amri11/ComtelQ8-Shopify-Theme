@@ -17,7 +17,7 @@
           "settings": {
             "slider_img": "shopify://shop_images/Apple_Banner_Homepage.png",
             "slider_mobile_img": "shopify://shop_images/Apple_Banner_Homepage.png",
-            "slide_url": ""
+            "slide_url": "https://comtelq8.myshopify.com/collections/apple-iphone"
           }
         },
         "slide_gzcMRU": {
@@ -653,7 +653,7 @@
             "image": "shopify://shop_images/Screen_protector.png",
             "overlay_opacity": 0,
             "card_link": "",
-            "card_bg": "#53BFE0",
+            "card_bg": "#53bfe0",
             "text_color": "#ffffff",
             "badge_text": "Best Seller",
             "badge_bg": "#3a33b5",
