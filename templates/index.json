@@ -299,7 +299,7 @@
             "card_image": "shopify://shop_images/Card_2.png",
             "card_title": "Cases & Covers",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/cases-covers",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
