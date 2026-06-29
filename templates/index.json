@@ -203,7 +203,7 @@
             "card_image": "shopify://shop_images/Card_3.png",
             "card_title": "Headphones",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/headphones",
             "badge_text": "-5",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
@@ -215,7 +215,7 @@
             "card_image": "shopify://shop_images/Card_4.png",
             "card_title": "Blutooth Speakers",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/bluetooth-speakers",
             "badge_text": "Best Seller",
             "badge_bg_color": "#5599be",
             "badge_text_color": "#1a1a1a"
@@ -227,7 +227,7 @@
             "card_image": "shopify://shop_images/Card_5.png",
             "card_title": "Power Banks & Stations",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/power-banks-stations",
             "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
