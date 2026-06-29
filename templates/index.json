@@ -251,7 +251,7 @@
             "card_image": "shopify://shop_images/Card_7.png",
             "card_title": "Screen Protectors",
             "card_title_color": "#ffffff",
-            "card_link": "",
+            "card_link": "shopify://collections/screen-protectors",
             "badge_text": "-5",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
