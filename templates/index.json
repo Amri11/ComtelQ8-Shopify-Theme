@@ -526,7 +526,7 @@
           "type": "single_brand",
           "settings": {
             "brand_image": "shopify://shop_images/2.png",
-            "brand_url": ""
+            "brand_url": "https://comtelq8.myshopify.com/search?q=UAG&options%5Bprefix%5D=last&type=product"
           }
         },
         "single_brand_gzg3fk": {
