@@ -4,7 +4,7 @@
   style="--padding-top: {{ section.settings.section_padding_top }}px;--padding-bottom: {{ section.settings.section_padding_bottom }}px; --padding-top-xs: {{ section.settings.section_padding_top_xs }}px;--padding-bottom-xs: {{ section.settings.section_padding_bottom_xs }}px;--background-color: {{ section.settings.section_bg_color }};"
 >
   <div class="{% if section.settings.container == 'fluid' %}container-fluid {% else %}container{% endif %}">
-    {% if section.settings.section_subheading != '' or section.settings.section_heading != '' %}
+    {% if section.settings.section_subheading != '' or section.settings.section_heading != '' or section.settings.shop_all_label != '' %}
     <div class="section-capture {% if section.settings.countdown_enable %} deal-counter {% endif %}">
       <div class="section-title">
         {% if section.settings.section_subheading != '' %}
@@ -14,6 +14,15 @@
           <h2 class="mr-0" data-fade-in>{{ section.settings.section_heading }}</h2>
         {% endif %}
       </div>
+      {% if section.settings.shop_all_label != '' %}
+        <a
+          href="{{ section.settings.shop_all_url | default: '#' }}"
+          class="shop-all-link"
+          data-fade-in
+        >
+          {{ section.settings.shop_all_label }}
+        </a>
+      {% endif %}
       {% if section.settings.countdown_enable %}
       <ul data-fade-in class="contdown_row list-unstyled">
         <li class="countdown_section">
@@ -395,6 +404,17 @@
       "default": "heading"
     },
     {
+      "type": "text",
+      "id": "shop_all_label",
+      "label": "Shop all label",
+      "default": "Shop All"
+    },
+    {
+      "type": "url",
+      "id": "shop_all_url",
+      "label": "Shop all link"
+    },
+    {
       "type": "header",
       "content": "Countdown timer"
     },
@@ -710,9 +730,23 @@
 
   .featured-collection .section-capture {
     text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .featured-collection .section-capture .section-title {
     align-items: flex-start;
+  }
+  .featured-collection .section-capture .shop-all-link {
+    flex-shrink: 0;
+    color: var(--font-color-primary);
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: underline;
+    white-space: nowrap;
+  }
+  .featured-collection .section-capture .shop-all-link:hover {
+    opacity: 0.8;
   }
   .featured-collection .section-capture.deal-counter {
     display: flex;
