@@ -444,8 +444,8 @@
       ],
       "settings": {
         "container": "normal",
-        "section_padding_top": 20,
-        "section_padding_bottom": 30,
+        "section_padding_top": 35,
+        "section_padding_bottom": 35,
         "section_padding_top_xs": 15,
         "section_padding_bottom_xs": 0,
         "section_bg_color": "rgba(0,0,0,0)",
