@@ -131,11 +131,9 @@
               {% endfor %}
             </div>
             {% if section.settings.arrow_enable %}
-            <div class="slider-arrow">
-              <button class="arrow-prev arrow-prev-{{ section.id }}" aria-label="arrow"><i class="feather-arrow-left"></i></button>
-              <button class="arrow-next arrow-next-{{ section.id }}" aria-label="arrow"><i class="feather-arrow-right"></i></button>
-            </div>
-            {% endif %} 
+            <button class="arrow-prev arrow-prev-{{ section.id }} slider-arrow-btn" aria-label="arrow"><i class="feather-arrow-left"></i></button>
+            <button class="arrow-next arrow-next-{{ section.id }} slider-arrow-btn" aria-label="arrow"><i class="feather-arrow-right"></i></button>
+            {% endif %}
             {% if section.settings.dots_enable %}
             <div class="slider-dot slider-dot-{{ section.id }}"></div>
             {% endif %}
@@ -881,14 +879,14 @@
 
   /* slider button css */
   {% if section.settings.arrow_enable %}
-  .featured-collection .collection-wrap .swiper .slider-arrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: var(--section-title-bottom-space);
+  .featured-collection .collection-wrap .swiper {
+    position: relative;
   }
-  .featured-collection .collection-wrap .swiper .slider-arrow button {
+  .featured-collection .collection-wrap .swiper .slider-arrow-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
     color: var(--font-color-body);
     font-size: 20px;
     width: 40px;
@@ -898,16 +896,18 @@
     justify-content: center;
     border: 1px solid var(--theme-border-color);
     border-radius: 100%;
+    background: #fff;
   }
-  .featured-collection .collection-wrap .swiper .slider-arrow button:hover {
+  .featured-collection .collection-wrap .swiper .slider-arrow-btn.arrow-prev {
+    left: 10px;
+  }
+  .featured-collection .collection-wrap .swiper .slider-arrow-btn.arrow-next {
+    right: 10px;
+  }
+  .featured-collection .collection-wrap .swiper .slider-arrow-btn:hover {
     color: #FFFFFF;
     background-color: var(--font-color-primary);
     border-color: var(--font-color-primary);
-  }
-  @media (max-width: 767px) {
-    .featured-collection .collection-wrap .swiper .slider-arrow {
-      margin-top: var(--section-title-bottom-space-mobile);
-    }
   }
   {% endif %}
 
