@@ -380,7 +380,7 @@
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000,
         "arrow_enable": true,
-        "dots_enable": true,
+        "dots_enable": false,
         "view_btn": ""
       }
     },
@@ -468,7 +468,7 @@
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000,
         "arrow_enable": true,
-        "dots_enable": true,
+        "dots_enable": false,
         "view_btn": ""
       }
     },
