@@ -368,7 +368,7 @@
         "product_year": 2026,
         "product_date": 30,
         "featured_tab_enable": false,
-        "slider_crop": false,
+        "slider_crop": true,
         "category_special_product_view": "grid",
         "product_limit": 12,
         "category_special_product_col": "1",
@@ -380,7 +380,7 @@
         "slider_autoplay_timeout": 5000,
         "slider_autoplay_speed": 1000,
         "arrow_enable": true,
-        "dots_enable": false,
+        "dots_enable": true,
         "view_btn": ""
       }
     },
