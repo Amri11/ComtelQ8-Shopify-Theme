@@ -624,8 +624,8 @@
         "small_card_88eyiz": {
           "type": "small_card",
           "settings": {
-            "image": "shopify://shop_images/Smart_Watches.png",
-            "overlay_opacity": 15,
+            "image": "shopify://shop_images/Side_Banner_3.png",
+            "overlay_opacity": 0,
             "card_link": "shopify://collections/smart-watches",
             "card_bg": "#d5562c",
             "text_color": "#ffffff",
@@ -639,7 +639,7 @@
         "small_card_NzWzia": {
           "type": "small_card",
           "settings": {
-            "image": "shopify://shop_images/Speakers.png",
+            "image": "shopify://shop_images/Side_Banner_2.png",
             "overlay_opacity": 10,
             "card_link": "shopify://collections/audio",
             "card_bg": "#5b9bd5",
@@ -654,12 +654,12 @@
         "wide_card_mWVbkp": {
           "type": "wide_card",
           "settings": {
-            "image": "shopify://shop_images/Screen_protector.png",
+            "image": "shopify://shop_images/Side_Banner_1.png",
             "overlay_opacity": 0,
             "card_link": "shopify://collections/screen-protectors",
-            "card_bg": "#53bfe0",
-            "text_color": "#ffffff",
-            "badge_text": "Best Seller",
+            "card_bg": "#D8CFBC",
+            "text_color": "#151212",
+            "badge_text": "Apple Originals",
             "badge_bg": "#3a33b5",
             "badge_text_color": "#ffffff",
             "title": "Screen Protectors with Exclusive Discounts",
