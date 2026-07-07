@@ -47,8 +47,8 @@
         "slide_CnBRkq": {
           "type": "slide",
           "settings": {
-            "slider_img": "shopify://shop_images/90Percent.png",
-            "slider_mobile_img": "shopify://shop_images/90Percent.png",
+            "slider_img": "shopify://shop_images/90.png",
+            "slider_mobile_img": "shopify://shop_images/90.png",
             "slide_url": ""
           }
         }
