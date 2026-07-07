@@ -38,10 +38,9 @@
         },
         "slide_c7jeYt": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "slider_img": "shopify://shop_images/Hero-banner_jpg.jpg",
-            "slider_mobile_img": "shopify://shop_images/Hero-banner_jpg.jpg",
+            "slider_img": "shopify://shop_images/NEO_00334e7a-4462-4c98-991e-b6ec46dc10c2.png",
+            "slider_mobile_img": "shopify://shop_images/NEO_00334e7a-4462-4c98-991e-b6ec46dc10c2.png",
             "slide_url": ""
           }
         },
@@ -49,8 +48,8 @@
           "type": "slide",
           "disabled": true,
           "settings": {
-            "slider_img": "shopify://shop_images/slider-1_1_1.webp",
-            "slider_mobile_img": "shopify://shop_images/slider-1_1_1.webp",
+            "slider_img": "shopify://shop_images/90Percent.png",
+            "slider_mobile_img": "shopify://shop_images/90Percent.png",
             "slide_url": ""
           }
         }
