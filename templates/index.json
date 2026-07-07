@@ -47,8 +47,8 @@
         "slide_CnBRkq": {
           "type": "slide",
           "settings": {
-            "slider_img": "shopify://shop_images/90.png",
-            "slider_mobile_img": "shopify://shop_images/90.png",
+            "slider_img": "shopify://shop_images/90perce.png",
+            "slider_mobile_img": "shopify://shop_images/90perce.png",
             "slide_url": ""
           }
         }
@@ -655,7 +655,7 @@
             "image": "shopify://shop_images/Side_Banner_1.png",
             "overlay_opacity": 0,
             "card_link": "shopify://collections/screen-protectors",
-            "card_bg": "#D8CFBC",
+            "card_bg": "#d8cfbc",
             "text_color": "#151212",
             "badge_text": "Apple Originals",
             "badge_bg": "#3a33b5",
