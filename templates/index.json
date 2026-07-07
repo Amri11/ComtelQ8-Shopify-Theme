@@ -625,7 +625,7 @@
           "type": "small_card",
           "settings": {
             "image": "shopify://shop_images/Side_Banner_3.png",
-            "overlay_opacity": 0,
+            "overlay_opacity": 10,
             "card_link": "shopify://collections/smart-watches",
             "card_bg": "#d5562c",
             "text_color": "#ffffff",
