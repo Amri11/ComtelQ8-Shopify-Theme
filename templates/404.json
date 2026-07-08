@@ -1,1 +1,27 @@
-{"sections":{"404-template":{"type":"404-template","settings":{"container":"normal","section_title_bold":"404","section_title":"Page not found!","section_img":"shopify:\/\/shop_images\/page-not-found.png","home_button":"Continue shopping","home_button_url":"shopify:\/\/collections\/all"}}},"order":["404-template"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "404-template": {
+      "type": "404-template",
+      "settings": {
+        "container": "normal",
+        "section_title_bold": "404",
+        "section_title": "Page not found!",
+        "section_img": "shopify://shop_images/404.png",
+        "home_button": "Continue shopping",
+        "home_button_url": "shopify://collections/all"
+      }
+    }
+  },
+  "order": [
+    "404-template"
+  ]
+}
