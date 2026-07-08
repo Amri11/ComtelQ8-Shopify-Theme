@@ -652,7 +652,7 @@
         "wide_card_mWVbkp": {
           "type": "wide_card",
           "settings": {
-            "image": "shopify://shop_images/Side_Banner_1.png",
+            "image": "shopify://shop_images/Apple.png",
             "overlay_opacity": 0,
             "card_link": "shopify://collections/screen-protectors",
             "card_bg": "#d8cfbc",
