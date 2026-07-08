@@ -569,7 +569,7 @@
         "single_brand_HFaKYw": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/Asli_new_logo_200x80_fc135a1f-0c75-4376-b7f7-a578fa2309bb.webp",
+            "brand_image": "shopify://shop_images/ASLI.png",
             "brand_url": ""
           }
         }
@@ -663,7 +663,7 @@
             "image": "shopify://shop_images/Apple.png",
             "overlay_opacity": 0,
             "card_link": "shopify://collections/screen-protectors",
-            "card_bg": "#DFD0BB",
+            "card_bg": "#dfd0bb",
             "text_color": "#151212",
             "badge_text": "Apple Originals",
             "badge_bg": "#3a33b5",
