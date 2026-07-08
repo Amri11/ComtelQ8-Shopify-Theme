@@ -655,7 +655,7 @@
             "image": "shopify://shop_images/Apple.png",
             "overlay_opacity": 0,
             "card_link": "shopify://collections/screen-protectors",
-            "card_bg": "#d8cfbc",
+            "card_bg": "#DAD0C3",
             "text_color": "#151212",
             "badge_text": "Apple Originals",
             "badge_bg": "#3a33b5",
