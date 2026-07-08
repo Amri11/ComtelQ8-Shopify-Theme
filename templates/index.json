@@ -565,6 +565,13 @@
             "brand_image": "shopify://shop_images/Nothing_idAyUOUAhA_1.svg",
             "brand_url": ""
           }
+        },
+        "single_brand_HFaKYw": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/Untitled_design_4_31e98dc7-b12c-450b-a2b4-a9c99bef32fd.png",
+            "brand_url": ""
+          }
         }
       },
       "block_order": [
@@ -574,7 +581,8 @@
         "single_brand_je8c8j",
         "single_brand_Ve6fVm",
         "single_brand_thhpDz",
-        "single_brand_ydajDa"
+        "single_brand_ydajDa",
+        "single_brand_HFaKYw"
       ],
       "settings": {
         "container": "normal",
