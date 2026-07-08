@@ -12,20 +12,20 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "slide_c7jeYt": {
+          "type": "slide",
+          "settings": {
+            "slider_img": "shopify://shop_images/NEO_00334e7a-4462-4c98-991e-b6ec46dc10c2.png",
+            "slider_mobile_img": "shopify://shop_images/NEO_00334e7a-4462-4c98-991e-b6ec46dc10c2.png",
+            "slide_url": ""
+          }
+        },
         "slide_amfL9A": {
           "type": "slide",
           "settings": {
             "slider_img": "shopify://shop_images/Apple_Banner_Homepage.png",
             "slider_mobile_img": "shopify://shop_images/Apple_Banner_Homepage.png",
             "slide_url": "https://comtelq8.myshopify.com/collections/apple-iphone"
-          }
-        },
-        "slide_gzcMRU": {
-          "type": "slide",
-          "settings": {
-            "slider_img": "shopify://shop_images/Home_Anker.png",
-            "slider_mobile_img": "shopify://shop_images/Home_Anker.png",
-            "slide_url": "https://comtelq8.myshopify.com/search?q=anker&options%5Bprefix%5D=last&type=product"
           }
         },
         "slide_xjjYAq": {
@@ -36,12 +36,12 @@
             "slide_url": "https://comtelq8.myshopify.com/collections/samsung"
           }
         },
-        "slide_c7jeYt": {
+        "slide_gzcMRU": {
           "type": "slide",
           "settings": {
-            "slider_img": "shopify://shop_images/NEO_00334e7a-4462-4c98-991e-b6ec46dc10c2.png",
-            "slider_mobile_img": "shopify://shop_images/NEO_00334e7a-4462-4c98-991e-b6ec46dc10c2.png",
-            "slide_url": ""
+            "slider_img": "shopify://shop_images/Home_Anker.png",
+            "slider_mobile_img": "shopify://shop_images/Home_Anker.png",
+            "slide_url": "https://comtelq8.myshopify.com/search?q=anker&options%5Bprefix%5D=last&type=product"
           }
         },
         "slide_CnBRkq": {
@@ -54,10 +54,10 @@
         }
       },
       "block_order": [
-        "slide_amfL9A",
-        "slide_gzcMRU",
-        "slide_xjjYAq",
         "slide_c7jeYt",
+        "slide_amfL9A",
+        "slide_xjjYAq",
+        "slide_gzcMRU",
         "slide_CnBRkq"
       ],
       "settings": {
