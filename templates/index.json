@@ -538,6 +538,13 @@
             "brand_url": "https://comtelq8.myshopify.com/search?q=samsung&options%5Bprefix%5D=last&type=product"
           }
         },
+        "single_brand_R3Nxy6": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/ASLI_6.png",
+            "brand_url": ""
+          }
+        },
         "single_brand_je8c8j": {
           "type": "single_brand",
           "settings": {
@@ -599,6 +606,7 @@
         "single_brand_CtVpyT",
         "single_brand_gRK8Mi",
         "single_brand_gzg3fk",
+        "single_brand_R3Nxy6",
         "single_brand_je8c8j",
         "single_brand_Ve6fVm",
         "single_brand_thhpDz",
