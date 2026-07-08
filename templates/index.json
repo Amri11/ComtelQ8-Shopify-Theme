@@ -562,7 +562,7 @@
         "single_brand_ydajDa": {
           "type": "single_brand",
           "settings": {
-            "brand_image": "shopify://shop_images/Nothing_idAyUOUAhA_1.svg",
+            "brand_image": "shopify://shop_images/ASLI_1.png",
             "brand_url": ""
           }
         },
@@ -570,6 +570,27 @@
           "type": "single_brand",
           "settings": {
             "brand_image": "shopify://shop_images/ASLI.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_qLXgG4": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/ASLI_3.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_B39ikh": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/ASLI_2.png",
+            "brand_url": ""
+          }
+        },
+        "single_brand_chirVm": {
+          "type": "single_brand",
+          "settings": {
+            "brand_image": "shopify://shop_images/ASLI_4.png",
             "brand_url": ""
           }
         }
@@ -582,7 +603,10 @@
         "single_brand_Ve6fVm",
         "single_brand_thhpDz",
         "single_brand_ydajDa",
-        "single_brand_HFaKYw"
+        "single_brand_HFaKYw",
+        "single_brand_qLXgG4",
+        "single_brand_B39ikh",
+        "single_brand_chirVm"
       ],
       "settings": {
         "container": "normal",
