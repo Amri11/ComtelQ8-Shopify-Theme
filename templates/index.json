@@ -620,7 +620,7 @@
         "slider_item_tablet": "3",
         "slider_item_mobile": "2",
         "slider_autoplay_enable": true,
-        "slider_autoplay_timeout": 5000,
+        "slider_autoplay_timeout": 2000,
         "slider_autoplay_speed": 1000
       }
     },
