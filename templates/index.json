@@ -345,7 +345,7 @@
         "product_tab_J9V89F": {
           "type": "product_tab",
           "settings": {
-            "tab_product": "smart-phones"
+            "tab_product": "cases-covers"
           }
         }
       },
@@ -362,7 +362,7 @@
         "section_subheading": "",
         "section_heading": "Just Arrived",
         "shop_all_label": "Shop All",
-        "shop_all_url": "shopify://collections/audio",
+        "shop_all_url": "shopify://collections/cases-covers",
         "countdown_enable": false,
         "product_month": "June",
         "product_year": 2026,
