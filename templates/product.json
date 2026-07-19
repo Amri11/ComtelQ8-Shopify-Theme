@@ -102,9 +102,9 @@
         "collapsible_w969VP": {
           "type": "collapsible",
           "settings": {
-            "collapse_title": "Free 90-Day Returns",
+            "collapse_title": "Free 14-Day Returns",
             "collapse_title_icon": "<i class=\"feather-check-square\"></i>",
-            "content": "<p>Not quite right? Return any item within 90 days, free of charge. Hassle-free and customer-friendly — just the way it should be.</p>",
+            "content": "<p>Not quite right? Return any item within 14 days, free of charge. Hassle-free and customer-friendly — just the way it should be.</p>",
             "page": ""
           }
         },
