@@ -443,7 +443,7 @@
         "product_tab_J9V89F"
       ],
       "settings": {
-        "container": "normal",
+        "container": "fluid",
         "section_padding_top": 35,
         "section_padding_bottom": 35,
         "section_padding_top_xs": 5,
