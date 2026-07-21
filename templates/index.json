@@ -443,7 +443,7 @@
         "product_tab_J9V89F"
       ],
       "settings": {
-        "container": "fluid",
+        "container": "normal",
         "section_padding_top": 35,
         "section_padding_bottom": 35,
         "section_padding_top_xs": 5,
@@ -462,7 +462,7 @@
         "category_special_product_view": "grid",
         "product_limit": 12,
         "category_special_product_col": "1",
-        "product_view": "6",
+        "product_view": "5",
         "product_view_lg": "4",
         "product_view_sm": "3",
         "product_view_xs": "2",
