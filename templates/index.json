@@ -339,36 +339,36 @@
         "dots_enable": false
       }
     },
-    "featured_collection_NK3dwr": {
+    "featured_collection_JVeXfa": {
       "type": "featured-collection",
       "blocks": {
-        "product_tab_J9V89F": {
+        "product_tab_BA4f4V": {
           "type": "product_tab",
           "settings": {
-            "tab_product": "cases-covers"
+            "tab_product": "chargers-adaptors"
           }
         }
       },
       "block_order": [
-        "product_tab_J9V89F"
+        "product_tab_BA4f4V"
       ],
       "settings": {
         "container": "normal",
         "section_padding_top": 35,
         "section_padding_bottom": 35,
-        "section_padding_top_xs": 5,
-        "section_padding_bottom_xs": 5,
+        "section_padding_top_xs": 15,
+        "section_padding_bottom_xs": 0,
         "section_bg_color": "rgba(0,0,0,0)",
         "section_subheading": "",
-        "section_heading": "Just Arrived",
+        "section_heading": "Best Seller",
         "shop_all_label": "Shop All",
-        "shop_all_url": "shopify://collections/cases-covers",
+        "shop_all_url": "shopify://collections/best-seller",
         "countdown_enable": false,
-        "product_month": "June",
-        "product_year": 2026,
+        "product_month": "January",
+        "product_year": 2025,
         "product_date": 30,
         "featured_tab_enable": false,
-        "slider_crop": true,
+        "slider_crop": false,
         "category_special_product_view": "grid",
         "product_limit": 12,
         "category_special_product_col": "1",
@@ -429,36 +429,36 @@
         "section_bg_color": "#ffffff"
       }
     },
-    "featured_collection_JVeXfa": {
+    "featured_collection_NK3dwr": {
       "type": "featured-collection",
       "blocks": {
-        "product_tab_BA4f4V": {
+        "product_tab_J9V89F": {
           "type": "product_tab",
           "settings": {
-            "tab_product": "chargers-adaptors"
+            "tab_product": "best-seller"
           }
         }
       },
       "block_order": [
-        "product_tab_BA4f4V"
+        "product_tab_J9V89F"
       ],
       "settings": {
         "container": "normal",
         "section_padding_top": 35,
         "section_padding_bottom": 35,
-        "section_padding_top_xs": 15,
-        "section_padding_bottom_xs": 0,
+        "section_padding_top_xs": 5,
+        "section_padding_bottom_xs": 5,
         "section_bg_color": "rgba(0,0,0,0)",
         "section_subheading": "",
-        "section_heading": "Best Seller",
+        "section_heading": "Just Arrived",
         "shop_all_label": "Shop All",
-        "shop_all_url": "",
+        "shop_all_url": "shopify://collections/cases-covers",
         "countdown_enable": false,
-        "product_month": "January",
-        "product_year": 2025,
+        "product_month": "June",
+        "product_year": 2026,
         "product_date": 30,
         "featured_tab_enable": false,
-        "slider_crop": false,
+        "slider_crop": true,
         "category_special_product_view": "grid",
         "product_limit": 12,
         "category_special_product_col": "1",
@@ -966,9 +966,9 @@
     "slideshow",
     "shop_by_category_kVFhjX",
     "offer_cards_bqaWQx",
-    "featured_collection_NK3dwr",
-    "offer_banner_A9Fjar",
     "featured_collection_JVeXfa",
+    "offer_banner_A9Fjar",
+    "featured_collection_NK3dwr",
     "category_showcase_iqga9m",
     "logo_list_j7YXrd",
     "best_offers_b7wDJA",
