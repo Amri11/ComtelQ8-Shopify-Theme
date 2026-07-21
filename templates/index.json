@@ -458,7 +458,7 @@
         "product_year": 2026,
         "product_date": 30,
         "featured_tab_enable": false,
-        "slider_crop": true,
+        "slider_crop": false,
         "category_special_product_view": "grid",
         "product_limit": 12,
         "category_special_product_col": "1",
