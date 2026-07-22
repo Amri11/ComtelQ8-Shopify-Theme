@@ -13,6 +13,7 @@
   "sections": {
     "campaign-bar": {
       "type": "campaign-bar",
+      "disabled": true,
       "settings": {
         "container": "normal",
         "campaign_text": "<p>Use Code <strong>WELCOME </strong>for 20% Off Your First Purchase </p>",
@@ -233,6 +234,7 @@
         "header_bgcolor": "#ffffff",
         "header_bottom_bg_color": "#ffffff",
         "vegamenu_enable": true,
+        "vegamenu_dropdown_style": "cascade",
         "header_vega_menu_title": "Menu",
         "header_vega_menu_title_color": "#ffffff",
         "header_vega_menu_title_bgcolor": "#222222",
