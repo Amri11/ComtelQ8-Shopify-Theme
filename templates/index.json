@@ -190,7 +190,7 @@
             "card_title": "Smart Watches",
             "card_title_color": "#ffffff",
             "card_link": "shopify://collections/smart-watches",
-            "badge_text": "",
+            "badge_text": "New Arrival: Google FitBit Air",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
@@ -202,7 +202,7 @@
             "card_title": "Headphones",
             "card_title_color": "#ffffff",
             "card_link": "shopify://collections/headphones",
-            "badge_text": "-5",
+            "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
@@ -250,7 +250,7 @@
             "card_title": "Screen Protectors",
             "card_title_color": "#ffffff",
             "card_link": "shopify://collections/screen-protectors",
-            "badge_text": "-5",
+            "badge_text": "",
             "badge_bg_color": "#ffe34d",
             "badge_text_color": "#1a1a1a"
           }
