@@ -269,8 +269,8 @@
         "news_subheading_color": "#676767",
         "news_heading": "Join our newsletter and get notification for all our offers & new arrivals",
         "news_heading_color": "#2c2c32",
-        "newsletter_success_text": "Thank you for subscribe use this code for first order",
-        "newsletter_coupan_code": "20%OFF",
+        "newsletter_success_text": "Thank you for subscribe",
+        "newsletter_coupan_code": "",
         "dont_show_text": "Don’t show this popup again"
       }
     }
