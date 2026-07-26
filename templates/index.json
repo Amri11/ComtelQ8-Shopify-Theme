@@ -664,7 +664,7 @@
           "settings": {
             "image": "shopify://shop_images/Side_Banner_3.png",
             "overlay_opacity": 10,
-            "card_link": "shopify://collections/smart-watches",
+            "card_link": "",
             "card_bg": "#d5562c",
             "text_color": "#ffffff",
             "title": "",
@@ -679,7 +679,7 @@
           "settings": {
             "image": "shopify://shop_images/Side_Banner_2.png",
             "overlay_opacity": 10,
-            "card_link": "shopify://collections/audio",
+            "card_link": "",
             "card_bg": "#5b9bd5",
             "text_color": "#ffffff",
             "title": "Find Your Perfect Sound",
@@ -694,7 +694,7 @@
           "settings": {
             "image": "shopify://shop_images/Apple.png",
             "overlay_opacity": 0,
-            "card_link": "shopify://collections/apple-iphone",
+            "card_link": "",
             "card_bg": "#dfd0bb",
             "text_color": "#151212",
             "badge_text": "Apple Originals",
