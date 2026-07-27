@@ -14,6 +14,7 @@
       "blocks": {
         "slide_a4t4Fz": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "slider_img": "shopify://shop_images/Gemini_Generated_Image_192xrm192xrm192x.png",
             "slider_mobile_img": "shopify://shop_images/Gemini_Generated_Image_192xrm192xrm192x.png",
