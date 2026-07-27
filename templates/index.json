@@ -12,6 +12,14 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "slide_a4t4Fz": {
+          "type": "slide",
+          "settings": {
+            "slider_img": "shopify://shop_images/Gemini_Generated_Image_192xrm192xrm192x.png",
+            "slider_mobile_img": "shopify://shop_images/Gemini_Generated_Image_192xrm192xrm192x.png",
+            "slide_url": "https://comtelq8.com/products/lzel-ai-carplay-fusion-ai-smart-multimedia-carplay-android-box?_pos=1&_sid=4de4e0904&_ss=r"
+          }
+        },
         "slide_c7jeYt": {
           "type": "slide",
           "settings": {
@@ -54,6 +62,7 @@
         }
       },
       "block_order": [
+        "slide_a4t4Fz",
         "slide_c7jeYt",
         "slide_amfL9A",
         "slide_xjjYAq",
