@@ -795,7 +795,7 @@
             "icon": "<i class=\"feather-corner-up-left\"></i>",
             "title": "Returns & Exchanges",
             "description": "Not happy? Return or exchange your items quickly and hassle-free.",
-            "link_label": "Learn More",
+            "link_label": "",
             "card_url": ""
           }
         },
@@ -805,7 +805,7 @@
             "icon": "<i class=\"feather-package\"></i>",
             "title": "Check Your Order Status",
             "description": "Stay updated every step of the way — from purchase to delivery.",
-            "link_label": "Learn More",
+            "link_label": "",
             "card_url": ""
           }
         },
@@ -815,7 +815,7 @@
             "icon": "<i class=\"feather-message-circle\"></i>",
             "title": "Visit Our Support Center",
             "description": "Need assistance? Find answers and support anytime, anywhere.",
-            "link_label": "Learn More",
+            "link_label": "",
             "card_url": ""
           }
         },
@@ -825,7 +825,7 @@
             "icon": "<i class=\"feather-dollar-sign\"></i>",
             "title": "Price-Match Guarantee",
             "description": "Found a better price? We'll match it so you get the best deal.",
-            "link_label": "Learn More",
+            "link_label": "",
             "card_url": ""
           }
         }
