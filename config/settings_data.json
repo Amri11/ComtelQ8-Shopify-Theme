@@ -134,6 +134,7 @@
     "soldout_title": "Sold out",
     "search_enable": true,
     "wishlist_page_url": "shopify://pages/wishlist",
+    "wishlist_enable": false,
     "breadcrumb_banner_enable": false,
     "breadcrumb_bgimg": "shopify://shop_images/Untitled_design.jpg",
     "breadcrumb_bgimg_enable": false,
