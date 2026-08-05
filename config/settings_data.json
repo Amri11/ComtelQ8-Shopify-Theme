@@ -201,6 +201,7 @@
           },
           "icon_wishlist_3FXjhi": {
             "type": "icon_wishlist",
+            "disabled": true,
             "settings": {
               "wishlist_title": "Wishlist"
             }
